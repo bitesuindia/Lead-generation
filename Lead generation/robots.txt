@@ -1,0 +1,11 @@
+# robots.txt — Bitesu India
+# https://www.bitesuindia.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.bitesuindia.com/sitemap.xml
+
+# Block crawlers from accessing raw assets directly (optional)
+Disallow: /uploads/
