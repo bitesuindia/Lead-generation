@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Bitesu India leaf icon favicon -->
+  <!-- Large leaf (upper right) -->
+  <path d="M15 26 C13 16 16 5 23 4 C30 3 31 14 26 20 C22 25 17 27 15 26Z" fill="#4077C2"/>
+  <!-- Leaf vein -->
+  <path d="M15 26 C18 19 21 12 23 4" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.55"/>
+  <!-- Small leaf (lower left) -->
+  <path d="M11 26 C5 23 5 14 10 16 C14 17 14 26 11 26Z" fill="#4077C2"/>
+</svg>

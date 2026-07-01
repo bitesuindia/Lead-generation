@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "How to Cut Your ACoS from 90% to 18%",
+    "description": "The exact 5-step audit framework we use to diagnose bleeding campaigns and rebuild keyword structure from scratch. Includes real account screenshots.",
+    "category": "PPC Optimization",
+    "badge": "Free PDF",
+    "readTime": "12 min read",
+    "featured": true,
+    "downloadUrl": "",
+    "comingSoon": false,
+    "icon": "📉"
+  },
+  {
+    "id": 2,
+    "title": "Amazon Listing Optimization Checklist",
+    "description": "The 47-point checklist our team runs on every new client account — from title structure and bullet points to A+ content and backend keywords.",
+    "category": "Listing Optimization",
+    "badge": "Free Checklist",
+    "readTime": "8 min read",
+    "featured": false,
+    "downloadUrl": "",
+    "comingSoon": false,
+    "icon": "✅"
+  },
+  {
+    "id": 3,
+    "title": "The India Seller's Guide to TaCoS",
+    "description": "Why TaCoS (Total Advertising Cost of Sale) is the only metric that matters for scaling on Amazon India — and how to track it properly.",
+    "category": "Strategy",
+    "badge": "Free Guide",
+    "readTime": "10 min read",
+    "featured": false,
+    "downloadUrl": "",
+    "comingSoon": false,
+    "icon": "📊"
+  },
+  {
+    "id": 4,
+    "title": "Meta Ads for Amazon Sellers: External Traffic That Converts",
+    "description": "How to build a Facebook/Instagram funnel that drives warm traffic to your Amazon listings without burning budget on cold audiences.",
+    "category": "Meta Ads",
+    "badge": "Free PDF",
+    "readTime": "15 min read",
+    "featured": false,
+    "downloadUrl": "",
+    "comingSoon": false,
+    "icon": "🎯"
+  },
+  {
+    "id": 5,
+    "title": "Flipkart vs Amazon India: Where to Focus Your Budget",
+    "description": "A data-driven breakdown of ROAS, competition levels, and category performance across both platforms — so you know where each rupee works hardest.",
+    "category": "Market Strategy",
+    "badge": "Free Report",
+    "readTime": "9 min read",
+    "featured": false,
+    "downloadUrl": "",
+    "comingSoon": true,
+    "icon": "⚖️"
+  },
+  {
+    "id": 6,
+    "title": "Amazon UK Launch Blueprint for Indian Sellers",
+    "description": "The complete playbook for Indian brands expanding to Amazon UK — GST registration, listing localisation, PPC structure, and winning the Buy Box.",
+    "category": "UK Expansion",
+    "badge": "Coming Soon",
+    "readTime": "20 min read",
+    "featured": false,
+    "downloadUrl": "",
+    "comingSoon": true,
+    "icon": "🇬🇧"
+  },
+  {
+    "id": 7,
+    "title": "Search Term Analysis",
+    "description": "Upload your Amazon Search Term Report CSV, set your target ACoS, and get a full visual dashboard — scale opportunities, negate candidates, n-gram patterns, and match-type breakdown. All in your browser, no sign-up.",
+    "category": "Free Tool",
+    "badge": "Free Tool",
+    "readTime": "Instant results",
+    "featured": true,
+    "downloadUrl": "ppc-report-dashboard.html",
+    "comingSoon": false,
+    "icon": "📊"
+  },
+  {
+    "id": 9,
+    "title": "Listing Quality Scorecard",
+    "description": "Score your Amazon listing across title, bullets, A+ content, images, price, reviews, and keywords. Get a prioritised fix list with an overall readiness score out of 100.",
+    "category": "Free Tool",
+    "badge": "Free Tool",
+    "readTime": "Instant results",
+    "featured": false,
+    "downloadUrl": "listing-scorecard.html",
+    "comingSoon": false,
+    "icon": "✅"
+  },
+  {
+    "id": 10,
+    "title": "Review Rating Calculator",
+    "description": "Enter your current review count and star rating, set your target — get a full scenario breakdown showing how many 5★, 4★ or 3★ reviews you need to get there. Includes a what-if simulator.",
+    "category": "Free Tool",
+    "badge": "Free Tool",
+    "readTime": "Instant results",
+    "featured": false,
+    "downloadUrl": "review-rating-calculator.html",
+    "comingSoon": false,
+    "icon": "⭐"
+  },
+  {
+    "id": 11,
+    "title": "Amazon Ranking Tracker",
+    "description": "Enter your ASIN and keywords to check if your product is indexed on Amazon search pages, and find your exact organic and sponsored rank across pages 1–3. Supports 7 marketplaces with CSV export.",
+    "category": "Free Tool",
+    "badge": "Free Tool",
+    "readTime": "Live results",
+    "featured": false,
+    "downloadUrl": "amazon-ranking-tracker.html",
+    "comingSoon": false,
+    "icon": "📈"
+  }
+]

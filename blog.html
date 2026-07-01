@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -37,6 +39,8 @@
     "publisher": {"@id": "https://www.bitesuindia.com/#organization"},
     "inLanguage": "en",
     "blogPost": [
+      {"@type":"BlogPosting","headline":"Amazon PPC in the Age of Alexa for Shopping: How to Structure Campaigns for AI Search in 2026","url":"https://www.bitesuindia.com/blog-amazon-ppc-alexa-for-shopping-2026.html","datePublished":"2026-06-20","publisher":{"@id":"https://www.bitesuindia.com/#organization"}},
+      {"@type":"BlogPosting","headline":"Optimising for COSMO & Agentic Commerce: How to Win AI Shopping Agents in 2026","url":"https://www.bitesuindia.com/blog-cosmo-agentic-commerce-2026.html","datePublished":"2026-06-20","publisher":{"@id":"https://www.bitesuindia.com/#organization"}},
       {"@type":"BlogPosting","headline":"How We Took an Amazon UK Seller from 90% ACoS to 17.81%","url":"https://www.bitesuindia.com/blog.html","publisher":{"@id":"https://www.bitesuindia.com/#organization"}},
       {"@type":"BlogPosting","headline":"The TaCoS Framework: Why ACoS Alone Is Lying to You","url":"https://www.bitesuindia.com/blog.html","publisher":{"@id":"https://www.bitesuindia.com/#organization"}},
       {"@type":"BlogPosting","headline":"N-Gram Search Term Mining: How We Find the Keywords Others Miss","url":"https://www.bitesuindia.com/blog.html","publisher":{"@id":"https://www.bitesuindia.com/#organization"}}
@@ -85,25 +89,27 @@
     /* BLOG HERO */
     .blog-hero{padding:160px 5% 80px;text-align:center;position:relative;overflow:hidden;}
     .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
-    .orb1{width:700px;height:700px;background:rgba(99,102,241,0.1);top:-300px;left:50%;transform:translateX(-50%);animation:orbFloat 8s ease-in-out infinite;}
-    @keyframes orbFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-30px)}}
+    .orb1{width:800px;height:800px;background:rgba(99,102,241,0.14);top:-350px;left:50%;transform:translateX(-50%);animation:orbFloat 8s ease-in-out infinite;}
+    .orb2{width:500px;height:500px;background:rgba(249,115,22,0.07);top:-100px;right:-150px;animation:orbFloat2 11s ease-in-out infinite;}
+    .orb3{width:400px;height:400px;background:rgba(16,185,129,0.05);top:0;left:-100px;animation:orbFloat2 13s ease-in-out 2s infinite;}
+    @keyframes orbFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-40px)}}
+    @keyframes orbFloat2{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-25px) scale(1.05)}}
     .blog-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:20px;position:relative;z-index:1;}
     .blog-hero p{color:var(--muted2);font-size:1.05rem;max-width:580px;margin:0 auto 48px;position:relative;z-index:1;}
 
     /* CATEGORIES */
     .cats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;position:relative;z-index:1;}
-    .cat{padding:8px 18px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;border:1px solid var(--border2);color:var(--muted2);background:transparent;transition:all 0.2s;}
-    .cat.active,.cat:hover{background:rgba(249,115,22,0.12);border-color:rgba(249,115,22,0.35);color:var(--accent2);}
+    .cat{padding:8px 18px;border-radius:50px;font-size:0.8rem;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.1);color:var(--muted2);background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all 0.25s;}
+    .cat.active,.cat:hover{background:rgba(249,115,22,0.12);border-color:rgba(249,115,22,0.4);color:var(--accent2);box-shadow:0 0 20px rgba(249,115,22,0.15),inset 0 0 15px rgba(249,115,22,0.04);}
 
     /* FEATURED POST */
     .featured-wrap{max-width:1200px;margin:0 auto 80px;padding:0 5%;}
-    .featured-post{display:grid;grid-template-columns:1.2fr 1fr;gap:0;background:var(--card2);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;transition:border-color 0.25s,transform 0.25s;}
-    .featured-post:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px);}
-    .featured-img{background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(249,115,22,0.15));min-height:360px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .featured-post{display:grid;grid-template-columns:1.2fr 1fr;gap:0;background:rgba(255,255,255,0.04);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);overflow:hidden;transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s;}
+    .featured-post:hover{border-color:rgba(249,115,22,0.4);transform:translateY(-8px);box-shadow:0 0 80px rgba(249,115,22,0.12),0 40px 100px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.08);}
+    .featured-img{background:linear-gradient(135deg,rgba(99,102,241,0.25),rgba(249,115,22,0.18));min-height:360px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:inset 0 0 100px rgba(99,102,241,0.2);}
     .featured-img-inner{text-align:center;padding:40px;}
     .fi-num{font-family:'Space Grotesk',sans-serif;font-size:5rem;font-weight:900;background:linear-gradient(135deg,#6366f1,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
     .fi-label{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-top:8px;}
-    .featured-body{padding:48px 40px;}
     .post-tag{display:inline-block;padding:4px 12px;border-radius:50px;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
     .tag-amazon{background:rgba(249,115,22,0.12);color:var(--accent2);}
     .tag-meta{background:rgba(99,102,241,0.12);color:var(--blue2);}
@@ -117,21 +123,25 @@
     .pm-sep{color:var(--muted);font-size:0.7rem;}
     .pm-date{font-size:0.82rem;color:var(--muted2);}
     .pm-read{font-size:0.78rem;color:var(--muted);}
-    .read-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:700;font-size:0.88rem;text-decoration:none;transition:gap 0.2s;}
-    .read-link:hover{gap:10px;}
+    .read-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:700;font-size:0.88rem;text-decoration:none;transition:gap 0.2s,text-shadow 0.2s;}
+    .read-link:hover{gap:10px;text-shadow:0 0 20px rgba(249,115,22,0.6);}
+    .featured-body{padding:48px 40px;position:relative;}
+    .featured-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);color:var(--blue2);font-size:0.7rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:50px;margin-bottom:10px;}
 
     /* GRID POSTS */
     .posts-grid-wrap{max-width:1200px;margin:0 auto;padding:0 5% 80px;}
     .grid-heading{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:32px;letter-spacing:-0.02em;}
     .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    .post-card{background:var(--card2);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;transition:border-color 0.25s,transform 0.25s;cursor:pointer;}
-    .post-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px);}
-    .pc-header{padding:32px 28px 20px;border-bottom:1px solid var(--border);}
+    .post-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);overflow:hidden;transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s;cursor:pointer;position:relative;}
+    .post-card::before{content:'';position:absolute;inset:0;border-radius:var(--radius);background:radial-gradient(ellipse at top,rgba(249,115,22,0.06) 0%,transparent 60%);opacity:0;transition:opacity 0.35s;}
+    .post-card:hover{border-color:rgba(249,115,22,0.35);transform:translateY(-6px);box-shadow:0 0 50px rgba(249,115,22,0.1),0 24px 70px rgba(0,0,0,0.4);}
+    .post-card:hover::before{opacity:1;}
+    .pc-header{padding:32px 28px 20px;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;}
     .pc-num{font-family:'Space Grotesk',sans-serif;font-size:2.6rem;font-weight:900;line-height:1;margin-bottom:4px;}
-    .pc-num.orange{color:var(--accent);}
-    .pc-num.blue{color:var(--blue2);}
-    .pc-num.green{color:#34d399;}
-    .pc-num.purple{color:#c084fc;}
+    .pc-num.orange{color:var(--accent);text-shadow:0 0 30px rgba(249,115,22,0.4);}
+    .pc-num.blue{color:var(--blue2);text-shadow:0 0 30px rgba(99,102,241,0.4);}
+    .pc-num.green{color:#34d399;text-shadow:0 0 30px rgba(52,211,153,0.4);}
+    .pc-num.purple{color:#c084fc;text-shadow:0 0 30px rgba(192,132,252,0.4);}
     .pc-body{padding:24px 28px 28px;}
     .pc-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;line-height:1.35;margin-bottom:10px;letter-spacing:-0.01em;}
     .pc-body p{font-size:0.84rem;color:var(--muted2);line-height:1.7;margin-bottom:18px;}
@@ -140,7 +150,7 @@
 
     /* NEWSLETTER */
     .nl-wrap{max-width:1200px;margin:0 auto;padding:0 5% 80px;}
-    .nl-inner{background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(249,115,22,0.08));border:1px solid var(--border2);border-radius:var(--radius);padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;}
+    .nl-inner{background:linear-gradient(135deg,rgba(99,102,241,0.08),rgba(249,115,22,0.06));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;box-shadow:0 0 80px rgba(99,102,241,0.08),inset 0 1px 0 rgba(255,255,255,0.08);}
     .nl-left h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;line-height:1.2;margin-bottom:12px;letter-spacing:-0.02em;}
     .nl-left p{color:var(--muted2);font-size:0.93rem;line-height:1.8;}
     .nl-form{display:flex;gap:12px;}
@@ -170,7 +180,23 @@
 
     @media(max-width:1024px){.featured-post{grid-template-columns:1fr;}.featured-img{min-height:240px;}.nl-inner{grid-template-columns:1fr;gap:28px;padding:40px 32px;}.posts-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.posts-grid{grid-template-columns:1fr;}.nl-form{flex-direction:column;}.featured-body{padding:32px 24px;}}
-  </style>
+  
+/* ── Logo: leaf sprout animation ── */
+.logo-badge{display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:4px 10px;box-shadow:0 0 20px rgba(255,255,255,0.10);transform-origin:bottom center;animation:leafSprout 1.1s cubic-bezier(0.34,1.56,0.64,1) forwards,leafSway 6s ease-in-out 1.15s infinite;}
+.logo-badge img{display:block;}
+@keyframes leafSprout{
+  0%{transform:scaleY(0) scaleX(0.4);opacity:0;}
+  40%{opacity:1;}
+  70%{transform:scaleY(1.1) scaleX(1.02);}
+  85%{transform:scaleY(0.95) scaleX(0.99);}
+  100%{transform:scaleY(1) scaleX(1);opacity:1;}
+}
+@keyframes leafSway{
+  0%,100%{transform:rotate(-2.5deg);}
+  50%{transform:rotate(2.5deg);}
+}
+
+</style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -180,7 +206,7 @@
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:36px;width:auto;" onerror="this.style.display='none'"/>
+    <span class="logo-badge"><img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:52px;width:auto;" onerror="this.style.display='none'"/></span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -200,6 +226,8 @@
 <!-- HERO -->
 <section class="blog-hero">
   <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
   <span class="s-label reveal">Insights & Playbooks</span>
   <h1 class="reveal">
     No Fluff.<br/><span class="grad-text">Only What Works.</span>
@@ -217,33 +245,52 @@
 
 <!-- FEATURED POST -->
 <div class="featured-wrap">
+  <a href="blog-amazon-ppc-alexa-for-shopping-2026.html" style="text-decoration:none;color:inherit;">
   <div class="featured-post reveal">
     <div class="featured-img">
       <div class="featured-img-inner">
-        <div class="fi-num">90→18</div>
-        <div class="fi-label">ACoS % — 6 Weeks</div>
+        <div class="fi-num">AI</div>
+        <div class="fi-label">New · June 2026</div>
       </div>
     </div>
     <div class="featured-body">
+      <div class="featured-badge">⭐ Featured Post</div>
       <span class="post-tag tag-amazon">Amazon PPC</span>
       <div class="post-meta">
         <span class="pm-author">Ranjeet Saini</span>
         <span class="pm-sep">·</span>
-        <span class="pm-date">May 2025</span>
+        <span class="pm-date">June 2026</span>
         <span class="pm-sep">·</span>
-        <span class="pm-read">8 min read</span>
+        <span class="pm-read">11 min read</span>
       </div>
-      <h2>How We Reduced ACoS from 90% to 18% in 6 Weeks — Step by Step</h2>
-      <p>A kitchenware brand on Amazon India was bidding on 2,400 search terms with no negatives, no structure, and a budget that was burning ₹60,000/month with zero visibility on what was working. Here's the exact playbook we used to turn it around.</p>
-      <a href="contact.html" class="read-link">Read the full breakdown →</a>
+      <h2>Amazon PPC in the Age of Alexa for Shopping (formerly Rufus)</h2>
+      <p>On 13 May 2026, Amazon retired Rufus and launched Alexa for Shopping inside the main search bar — and quietly rewrote the rules of every PPC campaign. Here's the exact campaign structure we're now deploying for AI-driven search.</p>
+      <span class="read-link">Read the full breakdown →</span>
     </div>
   </div>
+  </a>
 </div>
 
 <!-- POSTS GRID -->
 <div class="posts-grid-wrap">
   <div class="grid-heading reveal">More from the Bitesu Playbook</div>
   <div class="posts-grid">
+
+    <a href="blog-cosmo-agentic-commerce-2026.html" class="post-card reveal" style="text-decoration:none;color:inherit;">
+      <div class="pc-header">
+        <span class="post-tag tag-strategy">Strategy</span>
+        <div class="pc-num green">COSMO</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">winning AI shopping agents in 2026</div>
+      </div>
+      <div class="pc-body">
+        <h3>Optimising for COSMO &amp; Agentic Commerce: How to Win AI Shopping Agents</h3>
+        <p>AI agents now assemble the shortlist before shoppers see it. Here's how Amazon's COSMO knowledge graph reads your listings — and the playbook to make your products recommendable.</p>
+        <div class="pc-footer">
+          <span class="post-tag tag-strategy">Strategy</span>
+          <span class="pc-date">Jun 2026 · 12 min</span>
+        </div>
+      </div>
+    </a>
 
     <div class="post-card reveal">
       <div class="pc-header">

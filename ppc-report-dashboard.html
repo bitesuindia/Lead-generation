@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TRL5Q2HB');</script>
+  <!-- End Google Tag Manager -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Free Amazon Search Term Analysis Tool | Analyse PPC Reports | Bitesu India</title>
+  <meta name="description" content="Upload your Amazon Search Term Report CSV, set your target ACoS, and instantly get a full performance dashboard — scale opportunities, negatives, n-gram analysis, campaign breakdown, and match-type breakdown. Free, no sign-up."/>
+  <meta name="keywords" content="Amazon PPC report analyser, search term report dashboard, Amazon ACoS analyser, PPC report tool, Amazon advertising dashboard, search term insights, negate keywords tool"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Free Amazon Search Term Analysis Tool | Bitesu India"/>
+  <meta property="og:description" content="Upload your Search Term Report, set your target ACoS, and get a full performance dashboard in seconds. Scale terms, find negatives, crack n-grams."/>
+  <meta property="og:url" content="https://www.bitesuindia.com/ppc-report-dashboard.html"/>
+  <meta property="og:image" content="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://www.bitesuindia.com/ppc-report-dashboard.html"/>
+  <!-- Meta Pixel -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1136656594313315');fbq('track','PageView');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --bg:#05050e;--bg2:#0a0a1a;--bg3:#0f0f24;
+      --accent:#f97316;--accent2:#fb923c;
+      --blue:#6366f1;--blue2:#818cf8;
+      --green:#10b981;--green2:#34d399;
+      --red:#ef4444;--red2:#f87171;
+      --amber:#f59e0b;--amber2:#fbbf24;
+      --text:#f1f5f9;--muted:#64748b;--muted2:#94a3b8;
+      --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+      --radius:20px;--radius-sm:12px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;}
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(5,5,14,0.82);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+    .nav-logo{text-decoration:none;display:flex;align-items:center;}
+    .logo-badge{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:3px 8px;box-shadow:0 0 16px rgba(255,255,255,0.1);}
+    .nav-links{display:flex;gap:24px;list-style:none;align-items:center;}
+    .nav-links a{color:var(--muted2);text-decoration:none;font-size:0.87rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-pill{background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.25);color:var(--accent2);padding:7px 16px;border-radius:50px;font-weight:700;font-size:0.82rem;text-decoration:none;transition:all 0.2s;}
+    .nav-pill:hover{background:var(--accent);color:#fff;}
+    .nav-dropdown{position:relative;}
+    .nav-dropdown>a{display:flex;align-items:center;gap:5px;}
+    .nav-dropdown>a::after{content:'▾';font-size:0.65rem;color:var(--muted);transition:transform 0.2s;}
+    .nav-dropdown:hover>a::after{transform:rotate(180deg);color:var(--accent2);}
+    .nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:rgba(8,8,20,0.98);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:8px;min-width:260px;z-index:300;box-shadow:0 20px 60px rgba(0,0,0,0.55);}
+    .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+    .dd-item{display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:10px;text-decoration:none;color:var(--muted2);font-size:0.83rem;font-weight:500;transition:all 0.15s;white-space:nowrap;}
+    .dd-item:hover{background:rgba(249,115,22,0.08);color:var(--text);}
+    .dd-item strong{display:block;font-size:0.83rem;color:#f1f5f9;font-weight:700;}
+    .dd-item small{display:block;font-size:0.72rem;color:#64748b;}
+    .dd-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+    .dd-divider{height:1px;background:rgba(255,255,255,0.07);margin:6px 0;}
+    .dd-all{display:block;text-align:center;padding:9px 13px;border-radius:10px;font-size:0.77rem;font-weight:700;color:var(--accent2);background:rgba(249,115,22,0.07);text-decoration:none;transition:background 0.15s;margin-top:2px;}
+    .dd-all:hover{background:rgba(249,115,22,0.12);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+    .mobile-nav{display:none;flex-direction:column;gap:16px;position:fixed;top:65px;left:0;right:0;background:rgba(5,5,14,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:24px 5%;z-index:199;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{color:var(--text);text-decoration:none;font-size:0.95rem;font-weight:500;padding:8px 0;border-bottom:1px solid var(--border);}
+
+    /* ── HERO ────────────────────────────────────────── */
+    .tool-hero{padding:120px 5% 56px;text-align:center;position:relative;overflow:hidden;}
+    .tool-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(249,115,22,0.09) 0%,transparent 65%);pointer-events:none;}
+    .tool-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:var(--accent2);font-size:0.77rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:22px;}
+    .tool-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3.1rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px;}
+    .tool-hero h1 span{background:linear-gradient(135deg,#f97316,#a855f7,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .tool-hero p{color:var(--muted2);font-size:1.05rem;max-width:580px;margin:0 auto 28px;}
+    .hero-pills{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+    .hero-pill{display:flex;align-items:center;gap:5px;font-size:0.79rem;font-weight:600;color:var(--muted2);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:5px 12px;border-radius:50px;}
+    .hero-pill svg{width:13px;height:13px;color:var(--green2);}
+
+    /* ── UPLOAD PANEL ────────────────────────────────── */
+    .panel-wrap{max-width:820px;margin:0 auto;padding:0 5% 80px;}
+    .upload-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius);padding:36px;margin-bottom:20px;}
+    .upload-zone{border:2px dashed rgba(249,115,22,0.25);border-radius:var(--radius-sm);padding:44px 24px;text-align:center;cursor:pointer;transition:all 0.25s;position:relative;}
+    .upload-zone:hover,.upload-zone.drag-over{border-color:rgba(249,115,22,0.55);background:rgba(249,115,22,0.04);}
+    .upload-icon{font-size:2.4rem;margin-bottom:12px;}
+    .upload-zone h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:6px;}
+    .upload-zone p{font-size:0.83rem;color:var(--muted2);}
+    .upload-btn-label{display:inline-block;margin-top:14px;padding:9px 22px;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);color:var(--accent2);border-radius:50px;font-size:0.83rem;font-weight:700;cursor:pointer;transition:all 0.2s;}
+    .upload-btn-label:hover{background:rgba(249,115,22,0.22);}
+    .file-chosen{display:none;margin-top:12px;font-size:0.82rem;color:var(--green2);font-weight:600;}
+    .file-chosen.visible{display:block;}
+    .config-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;}
+    .config-field label{display:block;font-size:0.76rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:7px;}
+    .config-field input,.config-field select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;outline:none;transition:border-color 0.2s;}
+    .config-field input:focus,.config-field select:focus{border-color:rgba(249,115,22,0.4);}
+    .config-field select option{background:#0a0a1a;}
+    .btn-analyse{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:13px 32px;border-radius:50px;font-family:'Inter',sans-serif;font-weight:700;font-size:0.93rem;border:none;cursor:pointer;margin-top:20px;transition:all 0.25s;box-shadow:0 0 0 rgba(249,115,22,0);}
+    .btn-analyse:hover:not(:disabled){box-shadow:0 10px 32px rgba(249,115,22,0.35);transform:translateY(-2px);}
+    .btn-analyse:disabled{opacity:0.35;cursor:not-allowed;}
+    .how-to{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px 22px;margin-top:20px;}
+    .how-to summary{font-size:0.83rem;font-weight:700;color:var(--muted2);cursor:pointer;user-select:none;list-style:none;}
+    .how-to summary::before{content:'▸ ';}
+    .how-to[open] summary::before{content:'▾ ';}
+    .how-to ol{margin-top:10px;padding-left:20px;display:flex;flex-direction:column;gap:5px;}
+    .how-to li{font-size:0.8rem;color:var(--muted2);line-height:1.5;}
+
+    /* ── ERROR BANNER ────────────────────────────────── */
+    .error-banner{display:none;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:var(--radius-sm);padding:14px 18px;margin-top:14px;font-size:0.85rem;color:var(--red2);}
+    .error-banner.visible{display:block;}
+
+    /* ── DASHBOARD ───────────────────────────────────── */
+    #dashboard{display:none;padding:0 5% 80px;}
+    .dash-wrap{max-width:1280px;margin:0 auto;}
+    .dash-header{display:flex;align-items:center;gap:16px;padding:100px 0 28px;flex-wrap:wrap;}
+    .back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--muted2);padding:8px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s;border:none;flex-shrink:0;}
+    .back-btn:hover{background:rgba(255,255,255,0.1);color:var(--text);}
+    .dash-title{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;}
+    .dash-subtitle{font-size:0.83rem;color:var(--muted2);}
+
+    /* Live ACoS slider */
+    .acos-slider-control{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:50px;padding:8px 18px;margin-left:auto;}
+    .acos-slider-label{font-size:0.78rem;font-weight:700;color:var(--muted2);white-space:nowrap;}
+    .acos-slider-val{font-size:0.9rem;font-weight:900;color:var(--accent2);min-width:38px;text-align:right;}
+    input[type=range]{-webkit-appearance:none;width:120px;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;outline:none;}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 0 8px rgba(249,115,22,0.4);}
+
+    /* Stat strip */
+    .stat-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:20px;}
+    .stat-card{background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:18px 16px;text-align:center;transition:border-color 0.25s;}
+    .stat-card:hover{border-color:rgba(249,115,22,0.25);}
+    .sc-val{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:900;line-height:1;margin-bottom:5px;}
+    .sc-lbl{font-size:0.7rem;color:var(--muted2);line-height:1.35;}
+    .sc-green{color:var(--green2);}
+    .sc-red{color:var(--red2);}
+    .sc-amber{color:var(--amber2);}
+    .sc-blue{color:var(--blue2);}
+    .sc-orange{color:var(--accent2);}
+    .sc-purple{color:#c084fc;}
+
+    /* ACoS meter */
+    .acos-meter{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:22px 28px;margin-bottom:20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+    .am-label{font-family:'Space Grotesk',sans-serif;font-size:0.8rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;white-space:nowrap;}
+    .am-bar-wrap{flex:1;min-width:200px;}
+    .am-track{height:12px;background:rgba(255,255,255,0.07);border-radius:6px;position:relative;overflow:visible;}
+    .am-fill{height:100%;border-radius:6px;transition:width 0.6s ease;}
+    .am-target-line{position:absolute;top:-5px;bottom:-5px;width:2px;background:#fff;border-radius:1px;}
+    .am-target-label{position:absolute;top:-22px;font-size:0.68rem;font-weight:700;color:var(--muted2);transform:translateX(-50%);white-space:nowrap;}
+    .am-stats{display:flex;gap:24px;flex-wrap:wrap;}
+    .am-stat{text-align:center;}
+    .am-stat-val{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:800;}
+    .am-stat-lbl{font-size:0.7rem;color:var(--muted2);}
+
+    /* Insight cards */
+    .insight-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+    .insight-card{border-radius:var(--radius-sm);padding:20px 22px;border:1px solid;}
+    .ic-green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.2);}
+    .ic-red{background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.2);}
+    .ic-amber{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.2);}
+    .ic-blue{background:rgba(99,102,241,0.06);border-color:rgba(99,102,241,0.2);}
+    .ic-icon{font-size:1.5rem;margin-bottom:8px;}
+    .ic-label{font-size:0.7rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
+    .ic-green .ic-label{color:var(--green2);}
+    .ic-red .ic-label{color:var(--red2);}
+    .ic-amber .ic-label{color:var(--amber2);}
+    .ic-blue .ic-label{color:var(--blue2);}
+    .ic-val{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:900;margin-bottom:3px;}
+    .ic-green .ic-val{color:var(--green2);}
+    .ic-red .ic-val{color:var(--red2);}
+    .ic-amber .ic-val{color:var(--amber2);}
+    .ic-blue .ic-val{color:var(--blue2);}
+    .ic-desc{font-size:0.78rem;color:var(--muted2);line-height:1.4;}
+
+    /* Charts */
+    .charts-row{display:grid;grid-template-columns:3fr 2fr;gap:16px;margin-bottom:20px;}
+    .charts-row-equal{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+    .chart-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:22px 24px;}
+    .chart-card-title{font-family:'Space Grotesk',sans-serif;font-size:0.82rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:18px;}
+    .chart-area{position:relative;}
+    .chart-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;}
+    .chart-legend-item{display:flex;align-items:center;gap:5px;font-size:0.72rem;color:var(--muted2);}
+    .chart-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0;}
+
+    /* Analysis tabs */
+    .analysis-section{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;}
+    .tab-bar{display:flex;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);overflow-x:auto;scrollbar-width:none;}
+    .tab-bar::-webkit-scrollbar{display:none;}
+    .tab-btn{padding:13px 16px;font-size:0.82rem;font-weight:700;cursor:pointer;border:none;background:none;color:var(--muted2);border-bottom:2px solid transparent;transition:all 0.2s;font-family:'Inter',sans-serif;white-space:nowrap;flex-shrink:0;}
+    .tab-btn.active{color:var(--accent2);border-bottom-color:var(--accent);}
+    .tab-btn:hover:not(.active){color:var(--text);}
+    .tab-pane{display:none;padding:22px 24px;}
+    .tab-pane.active{display:block;}
+
+    /* Tab actions bar */
+    .tab-actions{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
+    .tab-desc{font-size:0.82rem;color:var(--muted2);flex:1;min-width:200px;line-height:1.5;}
+    .tab-btns{display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap;}
+    .table-search-sm{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:7px 12px;color:var(--text);font-family:'Inter',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.2s;width:190px;}
+    .table-search-sm:focus{border-color:rgba(249,115,22,0.35);}
+    .table-search-sm::placeholder{color:var(--muted);}
+    .btn-mini{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:8px;font-size:0.77rem;font-weight:700;cursor:pointer;border:1px solid;font-family:'Inter',sans-serif;transition:all 0.2s;white-space:nowrap;}
+    .btn-export{background:rgba(99,102,241,0.08);border-color:rgba(99,102,241,0.25);color:var(--blue2);}
+    .btn-export:hover{background:rgba(99,102,241,0.18);}
+    .btn-copy{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);color:var(--green2);}
+    .btn-copy:hover{background:rgba(16,185,129,0.18);}
+    .copy-toast{display:none;font-size:0.75rem;color:var(--green2);font-weight:700;}
+    .copy-toast.visible{display:inline;}
+
+    /* Data tables */
+    .data-table-wrap{overflow-x:auto;border-radius:var(--radius-sm);border:1px solid var(--border);}
+    table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+    thead th{padding:10px 12px;text-align:left;font-size:0.69rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;transition:color 0.15s;}
+    thead th:hover{color:var(--muted2);}
+    thead th.r{text-align:right;}
+    thead th.sorted-asc::after{content:' ▲';color:var(--accent2);}
+    thead th.sorted-desc::after{content:' ▼';color:var(--accent2);}
+    tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.15s;}
+    tbody tr:hover{background:rgba(255,255,255,0.03);}
+    tbody tr:last-child{border-bottom:none;}
+    td{padding:9px 12px;color:var(--muted2);vertical-align:middle;}
+    td.r{text-align:right;}
+    td.term{color:var(--text);font-weight:500;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    td.acos-good{color:var(--green2);font-weight:700;}
+    td.acos-bad{color:var(--red2);font-weight:700;}
+    td.acos-ok{color:var(--amber2);font-weight:700;}
+    td.acos-none{color:var(--muted);font-style:italic;}
+    .acos-mini-bar{height:5px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;margin-top:4px;min-width:60px;}
+    .acos-mini-fill{height:100%;border-radius:3px;}
+    .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:0.68rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;}
+    .badge-green{background:rgba(16,185,129,0.12);color:var(--green2);}
+    .badge-red{background:rgba(239,68,68,0.12);color:var(--red2);}
+    .badge-amber{background:rgba(245,158,11,0.1);color:var(--amber2);}
+    .badge-blue{background:rgba(99,102,241,0.1);color:var(--blue2);}
+    .badge-gray{background:rgba(255,255,255,0.06);color:var(--muted2);}
+    .badge-orange{background:rgba(249,115,22,0.1);color:var(--accent2);}
+
+    /* N-gram sub-tabs */
+    .ngram-tabs{display:flex;gap:8px;margin-bottom:14px;}
+    .ngram-btn{padding:6px 16px;border-radius:50px;font-size:0.79rem;font-weight:700;cursor:pointer;border:1px solid var(--border);background:none;color:var(--muted2);transition:all 0.2s;font-family:'Inter',sans-serif;}
+    .ngram-btn.active{background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.35);color:var(--blue2);}
+
+    /* Empty state */
+    .empty-state{text-align:center;padding:40px;color:var(--muted2);}
+    .empty-state h4{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--text);}
+    .empty-state p{font-size:0.85rem;}
+
+    /* Match type table section */
+    .mt-table-section{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:22px 24px;margin-bottom:20px;}
+    .mt-table-title{font-family:'Space Grotesk',sans-serif;font-size:0.82rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;}
+
+    /* Footer CTA */
+    .cta-strip{background:linear-gradient(135deg,rgba(249,115,22,0.07),rgba(99,102,241,0.07));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 5%;text-align:center;}
+    .cta-strip h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;margin-bottom:10px;}
+    .cta-strip p{color:var(--muted2);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:13px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:all 0.25s;}
+    .btn-primary:hover{box-shadow:0 10px 32px rgba(249,115,22,0.35);transform:translateY(-2px);}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.12);color:var(--muted2);padding:13px 30px;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:all 0.25s;}
+    .btn-ghost:hover{color:var(--text);border-color:rgba(249,115,22,0.35);}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 5%;}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-inner p{color:var(--muted);font-size:0.82rem;}
+    .footer-links{display:flex;gap:22px;}
+    .footer-links a{color:var(--muted2);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--text);}
+
+    @media(max-width:1100px){.stat-strip{grid-template-columns:repeat(3,1fr);}.charts-row{grid-template-columns:1fr;}.charts-row-equal{grid-template-columns:1fr;}}
+    @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.config-row{grid-template-columns:1fr 1fr;}.insight-row{grid-template-columns:1fr;}.stat-strip{grid-template-columns:repeat(2,1fr);}.acos-meter{flex-direction:column;align-items:flex-start;}.acos-slider-control{margin-left:0;width:100%;}.tab-actions{flex-direction:column;}}
+    @media(max-width:480px){.config-row{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRL5Q2HB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-badge"><img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:46px;width:auto;" onerror="this.style.display='none'"/></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="why-us.html">Why Us</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li class="nav-dropdown">
+      <a href="resources.html" class="active">Free Tools</a>
+      <div class="nav-dropdown-menu">
+        <a href="ppc-report-dashboard.html" class="dd-item"><span class="dd-icon" style="background:rgba(249,115,22,0.1);">📊</span><span><strong>Search Term Analysis</strong><small>Upload report · get full dashboard</small></span></a>
+        <a href="listing-scorecard.html" class="dd-item"><span class="dd-icon" style="background:rgba(16,185,129,0.1);">✅</span><span><strong>Listing Quality Scorecard</strong><small>Score your listing out of 100</small></span></a>
+        <a href="review-rating-calculator.html" class="dd-item"><span class="dd-icon" style="background:rgba(245,158,11,0.1);">⭐</span><span><strong>Review Rating Calculator</strong><small>How many reviews to hit your target?</small></span></a>
+        <a href="amazon-ranking-tracker.html" class="dd-item"><span class="dd-icon" style="background:rgba(99,102,241,0.1);">📈</span><span><strong>Amazon Ranking Tracker</strong><small>Check ASIN indexing & rank</small></span></a>
+        <div class="dd-divider"></div>
+        <a href="resources.html" class="dd-all">View all free tools →</a>
+      </div>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-pill">Free Audit →</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('mn').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mn">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="why-us.html">Why Us</a><a href="blog.html">Blog</a><a href="resources.html">Free Tools</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="tool-hero">
+  <div class="tool-badge">🆓 Free Tool · No Sign-up</div>
+  <h1>Amazon <span>Search Term Analysis</span></h1>
+  <p>Upload your Search Term Report CSV, set your target ACoS, and get a full interactive dashboard — 8 charts, 6 analysis tabs, sortable tables, CSV export, and live ACoS re-filtering.</p>
+  <div class="hero-pills">
+    <div class="hero-pill"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> 100% in your browser</div>
+    <div class="hero-pill"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Data never leaves your device</div>
+    <div class="hero-pill"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Scale + Negate + N-gram + Campaign</div>
+    <div class="hero-pill"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> India · US · UK formats</div>
+  </div>
+</section>
+
+<!-- UPLOAD PANEL -->
+<div class="panel-wrap" id="upload-panel">
+  <div class="upload-card">
+    <div class="upload-zone" id="drop-zone">
+      <div class="upload-icon">📊</div>
+      <h3>Drop your Search Term Report here</h3>
+      <p>Supports CSV, TSV and Excel (.xlsx) from Amazon Ads console · Any region</p>
+      <label for="file-input" class="upload-btn-label">Choose File</label>
+      <input type="file" id="file-input" accept=".csv,.tsv,.txt,.xlsx,.xls" style="display:none"/>
+      <div class="file-chosen" id="file-chosen">✓ <span id="file-name"></span></div>
+    </div>
+
+    <div class="config-row">
+      <div class="config-field">
+        <label>Target ACoS (%)</label>
+        <input type="number" id="target-acos" value="25" min="1" max="500" step="0.5"/>
+      </div>
+      <div class="config-field">
+        <label>Min Spend Threshold</label>
+        <input type="number" id="min-spend" value="500" min="0" step="50" placeholder="e.g. 500"/>
+      </div>
+      <div class="config-field">
+        <label>Currency</label>
+        <select id="currency">
+          <option value="₹">₹ INR</option>
+          <option value="$">$ USD</option>
+          <option value="£">£ GBP</option>
+          <option value="€">€ EUR</option>
+          <option value="A$">A$ AUD</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="error-banner" id="error-banner"></div>
+
+    <button class="btn-analyse" id="analyse-btn" onclick="analyseReport()" disabled>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Analyse Report
+    </button>
+
+    <details class="how-to">
+      <summary>How to download your Search Term Report from Amazon Ads</summary>
+      <ol>
+        <li>Log into <strong>Amazon Ads console</strong> → click <strong>Reports</strong> in the left menu</li>
+        <li>Click <strong>Create Report</strong> → select report type: <strong>Search Term</strong></li>
+        <li>Choose your date range (last 30–90 days gives the most actionable data)</li>
+        <li>Select all campaigns or filter by portfolio</li>
+        <li>Click <strong>Run Report</strong> → <strong>Download</strong> the CSV file</li>
+        <li>Upload that CSV file above — all analysis runs in your browser</li>
+      </ol>
+    </details>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="dash-wrap">
+
+    <div class="dash-header">
+      <button class="back-btn" onclick="resetTool()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        New Report
+      </button>
+      <div>
+        <div class="dash-title">Search Term Analysis</div>
+        <div class="dash-subtitle" id="report-meta"></div>
+      </div>
+      <div class="acos-slider-control">
+        <span class="acos-slider-label">Target ACoS</span>
+        <input type="range" id="acos-slider" min="5" max="200" value="25" oninput="onSliderChange(this.value)"/>
+        <span class="acos-slider-val"><span id="slider-val">25</span>%</span>
+      </div>
+    </div>
+
+    <!-- Stat strip -->
+    <div class="stat-strip" id="stat-strip"></div>
+
+    <!-- ACoS Meter -->
+    <div class="acos-meter" id="acos-meter"></div>
+
+    <!-- Insight cards (4 cards) -->
+    <div class="insight-row" id="insight-row" style="grid-template-columns:repeat(4,1fr);"></div>
+
+    <!-- Chart row 1: Bubble scatter + Match type donut -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-card-title">Spend vs ACoS — Top Search Terms</div>
+        <div class="chart-area" style="height:280px;"><canvas id="scatter-chart"></canvas></div>
+        <div class="chart-legend">
+          <div class="chart-legend-item"><span class="chart-legend-dot" style="background:#10b981;"></span>Below target ACoS</div>
+          <div class="chart-legend-item"><span class="chart-legend-dot" style="background:#ef4444;"></span>Above target ACoS</div>
+          <div class="chart-legend-item"><span class="chart-legend-dot" style="background:#6366f1;"></span>No sales yet</div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Spend by Match Type</div>
+        <div class="chart-area" style="height:260px;display:flex;align-items:center;justify-content:center;">
+          <canvas id="donut-chart" style="max-height:240px;"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart row 2: Top 15 by Spend + Top 15 by Sales -->
+    <div class="charts-row-equal">
+      <div class="chart-card">
+        <div class="chart-card-title">Top 15 Terms by Spend</div>
+        <div class="chart-area" style="height:360px;"><canvas id="top-spend-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Top 15 Terms by Sales</div>
+        <div class="chart-area" style="height:360px;"><canvas id="top-sales-chart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Chart row 3: ACoS Distribution + Word Count Distribution -->
+    <div class="charts-row-equal">
+      <div class="chart-card">
+        <div class="chart-card-title">ACoS Distribution (terms with spend)</div>
+        <div class="chart-area" style="height:240px;"><canvas id="acos-dist-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Search Term Length Distribution</div>
+        <div class="chart-area" style="height:240px;display:flex;align-items:center;justify-content:center;">
+          <canvas id="wordcount-chart" style="max-height:220px;"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart row 4: Match Type Spend vs Sales + Top 10 RoAS -->
+    <div class="charts-row-equal">
+      <div class="chart-card">
+        <div class="chart-card-title">Match Type — Spend vs Sales</div>
+        <div class="chart-area" style="height:240px;"><canvas id="match-bar-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Top 10 Terms by RoAS (≥1 order)</div>
+        <div class="chart-area" style="height:240px;"><canvas id="top-roas-chart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Analysis tabs -->
+    <div class="analysis-section">
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="showTab('scale',this)">🟢 Scale <span id="scale-count"></span></button>
+        <button class="tab-btn" onclick="showTab('negate',this)">🔴 Negate <span id="negate-count"></span></button>
+        <button class="tab-btn" onclick="showTab('clicktraps',this)">⚡ Click Traps <span id="ct-count"></span></button>
+        <button class="tab-btn" onclick="showTab('campaign',this)">📊 Campaigns <span id="camp-count"></span></button>
+        <button class="tab-btn" onclick="showTab('ngrams',this)">🔵 N-grams</button>
+        <button class="tab-btn" onclick="showTab('all',this)">All Terms</button>
+      </div>
+
+      <!-- Scale tab -->
+      <div class="tab-pane active" id="tab-scale">
+        <div class="tab-actions">
+          <p class="tab-desc">Terms with ACoS ≤ target and at least one order. Increase bids or budgets to capture more of this profitable traffic.</p>
+          <div class="tab-btns">
+            <input type="text" class="table-search-sm" id="scale-search" placeholder="Filter terms…" oninput="filterTab('scale',this.value)"/>
+            <button class="btn-mini btn-export" onclick="exportTab('scale')">⬇ Export CSV</button>
+          </div>
+        </div>
+        <div class="data-table-wrap" id="scale-table"></div>
+      </div>
+
+      <!-- Negate tab -->
+      <div class="tab-pane" id="tab-negate">
+        <div class="tab-actions">
+          <p class="tab-desc">Terms spending above your minimum threshold with zero orders, or ACoS &gt; 2× target. Add as exact-match negatives to stop the bleeding.</p>
+          <div class="tab-btns">
+            <input type="text" class="table-search-sm" id="negate-search" placeholder="Filter terms…" oninput="filterTab('negate',this.value)"/>
+            <button class="btn-mini btn-copy" onclick="copyNegatives()" id="copy-neg-btn">📋 Copy Negatives</button>
+            <span class="copy-toast" id="copy-toast">Copied!</span>
+            <button class="btn-mini btn-export" onclick="exportTab('negate')">⬇ Export CSV</button>
+          </div>
+        </div>
+        <div class="data-table-wrap" id="negate-table"></div>
+      </div>
+
+      <!-- Click Traps tab -->
+      <div class="tab-pane" id="tab-clicktraps">
+        <div class="tab-actions">
+          <p class="tab-desc">Terms with 10+ clicks but zero conversions — burning CPC budget with no return. Check match type before negating; some may need bid reduction first.</p>
+          <div class="tab-btns">
+            <button class="btn-mini btn-export" onclick="exportTab('clicktraps')">⬇ Export CSV</button>
+          </div>
+        </div>
+        <div class="data-table-wrap" id="clicktraps-table"></div>
+      </div>
+
+      <!-- Campaign Breakdown tab -->
+      <div class="tab-pane" id="tab-campaign">
+        <div class="tab-actions">
+          <p class="tab-desc">Performance aggregated by campaign. Click column headers to sort. Identify over-spending campaigns and re-allocate budget to top converters.</p>
+          <div class="tab-btns">
+            <input type="text" class="table-search-sm" id="campaign-search" placeholder="Filter campaigns…" oninput="filterTab('campaign',this.value)"/>
+            <button class="btn-mini btn-export" onclick="exportTab('campaign')">⬇ Export CSV</button>
+          </div>
+        </div>
+        <div class="data-table-wrap" id="campaign-table"></div>
+      </div>
+
+      <!-- N-gram tab -->
+      <div class="tab-pane" id="tab-ngrams">
+        <div class="tab-actions">
+          <p class="tab-desc">Word-level patterns across all search terms. High-spend n-grams with bad ACoS are negate candidates; profitable ones deserve exact-match campaigns.</p>
+          <div class="tab-btns">
+            <div class="ngram-tabs" style="margin:0;">
+              <button class="ngram-btn active" onclick="showNgram(1,this)">1-Word</button>
+              <button class="ngram-btn" onclick="showNgram(2,this)">2-Word</button>
+              <button class="ngram-btn" onclick="showNgram(3,this)">3-Word</button>
+            </div>
+          </div>
+        </div>
+        <div id="ngram-table-1" class="ngram-table"></div>
+        <div id="ngram-table-2" class="ngram-table" style="display:none"></div>
+        <div id="ngram-table-3" class="ngram-table" style="display:none"></div>
+      </div>
+
+      <!-- All Terms tab -->
+      <div class="tab-pane" id="tab-all">
+        <div class="tab-actions">
+          <p class="tab-desc">Complete list of all unique search terms sorted by spend. Click any column header to sort.</p>
+          <div class="tab-btns">
+            <input type="text" class="table-search-sm" id="all-search" placeholder="Search terms…" oninput="filterTab('all',this.value)"/>
+            <button class="btn-mini btn-export" onclick="exportTab('all')">⬇ Export CSV</button>
+          </div>
+        </div>
+        <div class="data-table-wrap" id="all-terms-table"></div>
+      </div>
+    </div>
+
+    <!-- Match type breakdown -->
+    <div class="mt-table-section">
+      <div class="mt-table-title">Match Type Performance Breakdown</div>
+      <div class="data-table-wrap" id="match-type-table"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <h2>Want an expert to act on this data?</h2>
+  <p>We turn search term reports into a prioritised action plan — new exact-match campaigns, negatives, and bid adjustments — within 48 hours.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-primary">Book Free Audit →</a>
+    <a href="search-term-analyser.html" class="btn-ghost">Try the Text Analyser</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Bitesu India · Delhi, India · <a href="mailto:contact@bitesuindia.com" style="color:var(--muted2);text-decoration:none;">contact@bitesuindia.com</a></p>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="resources.html">Free Tools</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════════ */
+let rawText = '';
+let analysisResult = null;
+let parsedData = null;
+let colMapGlobal = null;
+let charts = {};
+let tabData = {};
+let tabFilter = {};
+let tabSort = {};
+let sliderTimer = null;
+
+/* ═══════════════════════════════════════════════════════════════
+   FILE HANDLING
+═══════════════════════════════════════════════════════════════ */
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+
+function setFileReady(name) {
+  document.getElementById('file-name').textContent = name;
+  document.getElementById('file-chosen').classList.add('visible');
+  document.getElementById('analyse-btn').disabled = false;
+  document.getElementById('error-banner').classList.remove('visible');
+}
+
+function loadFile(file) {
+  const isXlsx = /\.(xlsx|xls)$/i.test(file.name);
+
+  if (isXlsx) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      try {
+        const workbook = XLSX.read(new Uint8Array(e.target.result), { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        // Convert to CSV — existing parseCSV pipeline handles it from here
+        rawText = XLSX.utils.sheet_to_csv(sheet, { forceQuotes: false });
+        setFileReady(file.name);
+      } catch (err) {
+        const banner = document.getElementById('error-banner');
+        banner.textContent = 'Could not read the Excel file. Make sure it is a valid .xlsx download from Amazon Ads.';
+        banner.classList.add('visible');
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  } else {
+    const reader = new FileReader();
+    reader.onload = e => {
+      rawText = e.target.result;
+      setFileReady(file.name);
+    };
+    reader.readAsText(file, 'UTF-8');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CSV PARSER
+═══════════════════════════════════════════════════════════════ */
+function detectDelimiter(text) {
+  const firstLines = text.split('\n').slice(0, 5).join('\n');
+  const tabs = (firstLines.match(/\t/g) || []).length;
+  const commas = (firstLines.match(/,/g) || []).length;
+  return tabs > commas ? '\t' : ',';
+}
+
+function parseRow(line, delim) {
+  const result = []; let cur = ''; let inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    if (line[i] === '"') { inQ = !inQ; }
+    else if (line[i] === delim && !inQ) { result.push(cur.trim()); cur = ''; }
+    else { cur += line[i]; }
+  }
+  result.push(cur.trim());
+  return result;
+}
+
+function parseCSV(text) {
+  const delim = detectDelimiter(text);
+  const lines = text.split('\n').map(l => l.replace(/\r$/, '')).filter(l => l.trim());
+  let headerIdx = -1, headers = [];
+  for (let i = 0; i < Math.min(lines.length, 20); i++) {
+    const cols = parseRow(lines[i], delim).map(c => c.toLowerCase().trim());
+    const hasSearchTerm = cols.some(c => c.includes('search term') || c.includes('keyword') || c.includes('targeting'));
+    const hasSpend = cols.some(c => c === 'spend' || c.includes('spend'));
+    if (hasSearchTerm && hasSpend) { headerIdx = i; headers = parseRow(lines[i], delim).map(c => c.trim()); break; }
+  }
+  if (headerIdx === -1) return null;
+  const rows = [];
+  for (let i = headerIdx + 1; i < lines.length; i++) {
+    const cols = parseRow(lines[i], delim);
+    if (cols.length < 3 || !cols.some(c => c)) continue;
+    const row = {};
+    headers.forEach((h, idx) => { row[h] = (cols[idx] || '').trim(); });
+    rows.push(row);
+  }
+  return { headers, rows, totalRows: rows.length };
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLUMN MAPPING
+═══════════════════════════════════════════════════════════════ */
+function mapColumns(headers) {
+  const lower = h => h.toLowerCase().trim();
+  const find = patterns => headers.find(h => patterns.some(p => lower(h).includes(p))) || null;
+  return {
+    search_term: find(['customer search term','search term']) || find(['targeting','keyword']),
+    impressions:  find(['impressions']),
+    clicks:       find(['clicks']),
+    spend:        find(['spend']),
+    sales:        find(['7 day total sales','7-day total sales','14 day total sales','total sales']),
+    orders:       find(['7 day total orders','7-day total orders','14 day total orders','total orders']),
+    units:        find(['7 day total units','7-day total units','14 day total units','total units']),
+    match_type:   find(['match type']),
+    campaign:     find(['campaign name']),
+    ad_group:     find(['ad group name']),
+  };
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NUMBER PARSER
+═══════════════════════════════════════════════════════════════ */
+function parseNum(val) {
+  if (!val || val === '--' || val === 'N/A' || val === '') return 0;
+  return parseFloat(String(val).replace(/[₹$£€,\s%A]/g, '')) || 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CORE ANALYSIS
+═══════════════════════════════════════════════════════════════ */
+function analyseData(rows, colMap, targetAcos, minSpend) {
+  const terms = {}, matchTypes = {}, campaigns = {};
+
+  rows.forEach(row => {
+    const st = row[colMap.search_term] || 'Unknown';
+    if (!st || st === '--' || st.toLowerCase() === 'unknown') return;
+    const spend       = parseNum(row[colMap.spend]);
+    const sales       = parseNum(row[colMap.sales]);
+    const impressions = parseNum(row[colMap.impressions]);
+    const clicks      = parseNum(row[colMap.clicks]);
+    const orders      = parseNum(row[colMap.orders]);
+    const mt          = (row[colMap.match_type] || 'UNKNOWN').trim().toUpperCase();
+    const camp        = colMap.campaign ? (row[colMap.campaign] || 'Unknown Campaign').trim() : null;
+
+    if (!terms[st]) terms[st] = { searchTerm: st, spend:0, sales:0, impressions:0, clicks:0, orders:0, matchTypes:new Set() };
+    terms[st].spend += spend; terms[st].sales += sales; terms[st].impressions += impressions;
+    terms[st].clicks += clicks; terms[st].orders += orders; terms[st].matchTypes.add(mt);
+
+    if (!matchTypes[mt]) matchTypes[mt] = { spend:0, sales:0, clicks:0, impressions:0, orders:0 };
+    matchTypes[mt].spend += spend; matchTypes[mt].sales += sales; matchTypes[mt].clicks += clicks;
+    matchTypes[mt].impressions += impressions; matchTypes[mt].orders += orders;
+
+    if (camp) {
+      if (!campaigns[camp]) campaigns[camp] = { campaign: camp, spend:0, sales:0, clicks:0, impressions:0, orders:0, termSet: new Set() };
+      campaigns[camp].spend += spend; campaigns[camp].sales += sales; campaigns[camp].clicks += clicks;
+      campaigns[camp].impressions += impressions; campaigns[camp].orders += orders;
+      campaigns[camp].termSet.add(st);
+    }
+  });
+
+  const termsList = Object.values(terms).map(t => {
+    const acos = t.sales > 0 ? (t.spend / t.sales) * 100 : (t.spend > 0 ? 999 : 0);
+    return {
+      ...t,
+      matchTypes: [...t.matchTypes].filter(m => m !== 'UNKNOWN').join(', ') || 'N/A',
+      acos, roas: t.spend > 0 ? t.sales / t.spend : 0,
+      cpc: t.clicks > 0 ? t.spend / t.clicks : 0,
+      cvr: t.clicks > 0 ? (t.orders / t.clicks) * 100 : 0,
+      ctr: t.impressions > 0 ? (t.clicks / t.impressions) * 100 : 0,
+    };
+  }).filter(t => t.spend > 0 || t.impressions > 0);
+
+  const totals = termsList.reduce((a, t) => {
+    a.spend += t.spend; a.sales += t.sales; a.clicks += t.clicks;
+    a.impressions += t.impressions; a.orders += t.orders; return a;
+  }, { spend:0, sales:0, clicks:0, impressions:0, orders:0 });
+  totals.acos = totals.sales > 0 ? (totals.spend / totals.sales) * 100 : 0;
+  totals.roas = totals.spend > 0 ? totals.sales / totals.spend : 0;
+  totals.cvr  = totals.clicks > 0 ? (totals.orders / totals.clicks) * 100 : 0;
+  totals.cpc  = totals.clicks > 0 ? totals.spend / totals.clicks : 0;
+  totals.ctr  = totals.impressions > 0 ? (totals.clicks / totals.impressions) * 100 : 0;
+
+  const scaleTerms  = termsList.filter(t => t.acos <= targetAcos && t.orders > 0).sort((a,b) => b.sales - a.sales);
+  const negateTerms = termsList.filter(t => t.spend >= minSpend && (t.orders === 0 || t.acos > targetAcos * 2)).sort((a,b) => b.spend - a.spend);
+  const clickTraps  = termsList.filter(t => t.clicks >= 10 && t.orders === 0).sort((a,b) => b.clicks - a.clicks);
+
+  // N-grams
+  const grams = { 1:{}, 2:{}, 3:{} };
+  const stopWords = new Set(['a','an','the','and','or','of','in','for','to','with','on','at','by','is','it','its','as','be','from','this','that','are','was','were','been','have','has','had','do','does','did','not','but','if','so','my','me','we','our','you','your','he','she','they','their','will','can','could','would','should','may','might','how','what','when','where','who','why','all','any','each','few','more','most','other','some','such','no','nor','own','same','too','very','just','than','then','now','into','up','out','re','new','best','top','good','free','buy','get','set','pack','kit','size']);
+  termsList.forEach(t => {
+    const words = t.searchTerm.toLowerCase().split(/\s+/).filter(w => w.length > 1 && !stopWords.has(w) && /^[a-z0-9\-]+$/.test(w));
+    [1,2,3].forEach(n => {
+      for (let i = 0; i <= words.length - n; i++) {
+        const gram = words.slice(i, i+n).join(' ');
+        if (!grams[n][gram]) grams[n][gram] = { gram, count:0, spend:0, sales:0, impressions:0, clicks:0, orders:0 };
+        grams[n][gram].count++; grams[n][gram].spend += t.spend; grams[n][gram].sales += t.sales;
+        grams[n][gram].impressions += t.impressions; grams[n][gram].clicks += t.clicks; grams[n][gram].orders += t.orders;
+      }
+    });
+  });
+  const ngramLists = {};
+  [1,2,3].forEach(n => {
+    ngramLists[n] = Object.values(grams[n])
+      .map(g => ({ ...g, acos: g.sales > 0 ? (g.spend/g.sales)*100 : (g.spend > 0 ? 999 : 0) }))
+      .filter(g => g.count > 1 || g.spend > 0).sort((a,b) => b.spend - a.spend).slice(0, 40);
+  });
+
+  // Match types
+  const matchTypeList = Object.entries(matchTypes).map(([type, m]) => ({
+    type, ...m,
+    acos: m.sales > 0 ? (m.spend/m.sales)*100 : (m.spend > 0 ? 999 : 0),
+    cvr:  m.clicks > 0 ? (m.orders/m.clicks)*100 : 0,
+    ctr:  m.impressions > 0 ? (m.clicks/m.impressions)*100 : 0,
+    cpc:  m.clicks > 0 ? m.spend/m.clicks : 0,
+    roas: m.spend > 0 ? m.sales/m.spend : 0,
+  })).sort((a,b) => b.spend - a.spend);
+
+  // Campaign list
+  const campaignList = Object.values(campaigns).map(c => ({
+    campaign: c.campaign, spend: c.spend, sales: c.sales, clicks: c.clicks,
+    impressions: c.impressions, orders: c.orders, terms: c.termSet.size,
+    acos: c.sales > 0 ? (c.spend/c.sales)*100 : (c.spend > 0 ? 999 : 0),
+    roas: c.spend > 0 ? c.sales/c.spend : 0,
+    cpc:  c.clicks > 0 ? c.spend/c.clicks : 0,
+  })).sort((a,b) => b.spend - a.spend);
+
+  // ACoS distribution buckets
+  const acosBuckets = [
+    { label:'0–10%', min:0, max:10, count:0, color:'rgba(16,185,129,0.7)' },
+    { label:'10–20%', min:10, max:20, count:0, color:'rgba(52,211,153,0.7)' },
+    { label:'20–30%', min:20, max:30, count:0, color:'rgba(245,158,11,0.7)' },
+    { label:'30–50%', min:30, max:50, count:0, color:'rgba(251,191,36,0.7)' },
+    { label:'50–100%', min:50, max:100, count:0, color:'rgba(239,68,68,0.7)' },
+    { label:'>100%', min:100, max:Infinity, count:0, color:'rgba(239,68,68,0.9)' },
+    { label:'No Sales', min:null, max:null, count:0, color:'rgba(99,102,241,0.7)' },
+  ];
+  termsList.filter(t => t.spend > 0).forEach(t => {
+    if (t.orders === 0) { acosBuckets[6].count++; return; }
+    const b = acosBuckets.find(b => b.min !== null && t.acos >= b.min && t.acos < b.max);
+    if (b) b.count++;
+  });
+
+  // Word count distribution
+  const wcMap = {};
+  termsList.forEach(t => {
+    const wc = t.searchTerm.trim().split(/\s+/).length;
+    const key = wc >= 5 ? '5+' : String(wc);
+    if (!wcMap[key]) wcMap[key] = { label: key + (wc === 1 ? ' word' : ' words'), count:0, spend:0 };
+    wcMap[key].count++; wcMap[key].spend += t.spend;
+  });
+  const wordCounts = ['1','2','3','4','5+'].map(k => wcMap[k] || { label: k + (k==='1' ? ' word' : ' words'), count:0, spend:0 });
+
+  // Derived insights
+  const wastedSpend = termsList.filter(t => t.orders === 0 && t.spend > 0).reduce((s,t) => s + t.spend, 0);
+  const scaleSpend  = scaleTerms.reduce((s,t) => s + t.spend, 0);
+  const efficiency  = totals.spend > 0 ? Math.max(0, ((totals.spend - wastedSpend) / totals.spend) * 100) : 0;
+
+  return { totals, termsList, scaleTerms, negateTerms, clickTraps, ngramLists, matchTypeList, campaignList, wastedSpend, scaleSpend, efficiency, targetAcos, acosBuckets, wordCounts };
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORMAT HELPERS
+═══════════════════════════════════════════════════════════════ */
+function cur() { return document.getElementById('currency').value; }
+function fmt(n, dp=2) { return n.toLocaleString('en-IN', { minimumFractionDigits: dp, maximumFractionDigits: dp }); }
+function fmtCur(n) { return cur() + fmt(n, 0); }
+function fmtPct(n) { return (n >= 999 ? '∞' : fmt(n,1)) + '%'; }
+function trunc(s, n=24) { return s.length > n ? s.slice(0, n) + '…' : s; }
+function acosColor(acos, target) {
+  if (acos >= 999) return 'sc-blue';
+  if (acos <= target) return 'sc-green';
+  if (acos <= target * 1.5) return 'sc-amber';
+  return 'sc-red';
+}
+function acosTd(acos, target) {
+  if (acos >= 999) return `<td class="r acos-none">No sales</td>`;
+  if (acos <= target) return `<td class="r acos-good">${fmtPct(acos)}</td>`;
+  if (acos <= target * 1.5) return `<td class="r acos-ok">${fmtPct(acos)}</td>`;
+  return `<td class="r acos-bad">${fmtPct(acos)}</td>`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RENDER DASHBOARD
+═══════════════════════════════════════════════════════════════ */
+function renderDashboard(r) {
+  const { totals, scaleTerms, negateTerms, clickTraps, ngramLists, matchTypeList, campaignList, wastedSpend, scaleSpend, efficiency, targetAcos, acosBuckets, wordCounts } = r;
+
+  // Slider sync
+  document.getElementById('acos-slider').value = targetAcos;
+  document.getElementById('slider-val').textContent = targetAcos;
+
+  // Stat strip
+  const acClass = acosColor(totals.acos, targetAcos);
+  document.getElementById('stat-strip').innerHTML = `
+    <div class="stat-card"><div class="sc-val sc-orange">${fmtCur(totals.spend)}</div><div class="sc-lbl">Total Spend</div></div>
+    <div class="stat-card"><div class="sc-val sc-green">${fmtCur(totals.sales)}</div><div class="sc-lbl">Total Sales</div></div>
+    <div class="stat-card"><div class="sc-val ${acClass}">${fmtPct(totals.acos)}</div><div class="sc-lbl">Overall ACoS</div></div>
+    <div class="stat-card"><div class="sc-val sc-purple">${fmt(totals.roas,2)}×</div><div class="sc-lbl">Overall RoAS</div></div>
+    <div class="stat-card"><div class="sc-val sc-blue">${totals.orders.toLocaleString()}</div><div class="sc-lbl">Total Orders</div></div>
+    <div class="stat-card"><div class="sc-val sc-amber">${cur()}${fmt(totals.cpc,2)}</div><div class="sc-lbl">Avg CPC</div></div>
+  `;
+
+  // ACoS Meter
+  const fillPct = Math.min(100, (totals.acos / (targetAcos * 2)) * 100);
+  const fillCol = totals.acos <= targetAcos ? 'var(--green)' : totals.acos <= targetAcos * 1.5 ? 'var(--amber)' : 'var(--red)';
+  const targetPct = 50;
+  const gap = totals.acos - targetAcos;
+  const gapLabel = gap <= 0
+    ? `<span style="color:var(--green2);">▼ ${Math.abs(gap).toFixed(1)}% below target — profitable</span>`
+    : `<span style="color:var(--red2);">▲ ${gap.toFixed(1)}% above target</span>`;
+  document.getElementById('acos-meter').innerHTML = `
+    <div class="am-label">ACoS vs Target</div>
+    <div class="am-bar-wrap">
+      <div class="am-track">
+        <div class="am-fill" style="width:${fillPct}%;background:${fillCol};"></div>
+        <div class="am-target-line" style="left:${targetPct}%;"><div class="am-target-label">Target ${targetAcos}%</div></div>
+      </div>
+    </div>
+    <div class="am-stats">
+      <div class="am-stat"><div class="am-stat-val" style="color:${fillCol};">${fmtPct(totals.acos)}</div><div class="am-stat-lbl">Actual ACoS</div></div>
+      <div class="am-stat"><div class="am-stat-val" style="color:var(--muted2);">${targetAcos}%</div><div class="am-stat-lbl">Target ACoS</div></div>
+      <div class="am-stat"><div class="am-stat-val" style="font-size:0.9rem;">${gapLabel}</div><div class="am-stat-lbl">Gap</div></div>
+    </div>
+  `;
+
+  // Insight cards (4)
+  document.getElementById('insight-row').innerHTML = `
+    <div class="insight-card ic-red">
+      <div class="ic-icon">🔥</div><div class="ic-label">Wasted Spend</div>
+      <div class="ic-val">${fmtCur(wastedSpend)}</div>
+      <div class="ic-desc">Spent on zero-order terms. Negating these stops bleeding immediately.</div>
+    </div>
+    <div class="insight-card ic-green">
+      <div class="ic-icon">🚀</div><div class="ic-label">Scaling Potential</div>
+      <div class="ic-val">${fmtCur(scaleSpend)}</div>
+      <div class="ic-desc">Spend on below-target terms. Raise bids to capture more volume.</div>
+    </div>
+    <div class="insight-card ic-amber">
+      <div class="ic-icon">⚡</div><div class="ic-label">Spend Efficiency</div>
+      <div class="ic-val">${efficiency.toFixed(0)}%</div>
+      <div class="ic-desc">Share of spend on terms that have generated at least one order.</div>
+    </div>
+    <div class="insight-card ic-blue">
+      <div class="ic-icon">⚠️</div><div class="ic-label">Click Traps</div>
+      <div class="ic-val">${clickTraps.length}</div>
+      <div class="ic-desc">Terms with 10+ clicks and zero conversions consuming your budget.</div>
+    </div>
+  `;
+
+  // Tab counts
+  document.getElementById('scale-count').textContent = `(${scaleTerms.length})`;
+  document.getElementById('negate-count').textContent = `(${negateTerms.length})`;
+  document.getElementById('ct-count').textContent = `(${clickTraps.length})`;
+  document.getElementById('camp-count').textContent = campaignList.length ? `(${campaignList.length})` : '';
+
+  // Store tab data
+  tabData.scale     = scaleTerms;
+  tabData.negate    = negateTerms;
+  tabData.clicktraps = clickTraps;
+  tabData.campaign  = campaignList;
+  tabData.all       = r.termsList.sort((a,b) => b.spend - a.spend);
+  tabFilter = {}; tabSort = {};
+
+  // Render tab tables
+  renderTabTable('scale');
+  renderTabTable('negate');
+  renderTabTable('clicktraps');
+  renderTabTable('campaign');
+  renderTabTable('all');
+  [1,2,3].forEach(n => renderNgramTable(`ngram-table-${n}`, ngramLists[n], targetAcos));
+  renderMatchTypeTable(matchTypeList, targetAcos);
+
+  // Charts
+  renderScatterChart(r.termsList, targetAcos);
+  renderDonutChart(matchTypeList);
+  renderTopSpendChart(r.termsList);
+  renderTopSalesChart(r.termsList);
+  renderAcosDistChart(acosBuckets, targetAcos);
+  renderWordCountChart(wordCounts);
+  renderMatchTypeBarChart(matchTypeList);
+  renderTopRoasChart(r.termsList);
+
+  document.getElementById('report-meta').textContent = `${r.termsList.length.toLocaleString()} unique terms · ${r.totals.impressions.toLocaleString()} impressions`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TAB TABLE SYSTEM (filter + sort + render)
+═══════════════════════════════════════════════════════════════ */
+function filterTab(tabId, q) {
+  tabFilter[tabId] = q.toLowerCase();
+  renderTabTable(tabId);
+}
+
+function sortTabBy(tabId, col) {
+  const s = tabSort[tabId] || { col: null, dir: -1 };
+  tabSort[tabId] = { col, dir: s.col === col ? s.dir * -1 : -1 };
+  renderTabTable(tabId);
+}
+
+function getTabData(tabId) {
+  let data = [...(tabData[tabId] || [])];
+  const q = tabFilter[tabId] || '';
+  if (q) data = data.filter(d => {
+    const key = d.searchTerm || d.campaign || d.gram || '';
+    return key.toLowerCase().includes(q) || (d.matchTypes || '').toLowerCase().includes(q);
+  });
+  const s = tabSort[tabId];
+  if (s && s.col) {
+    data.sort((a, b) => {
+      const av = a[s.col] ?? 0, bv = b[s.col] ?? 0;
+      return typeof av === 'string' ? av.localeCompare(bv) * s.dir : (av - bv) * s.dir;
+    });
+  }
+  return data;
+}
+
+function thSort(tabId, col, label) {
+  const s = tabSort[tabId];
+  const cls = s && s.col === col ? (s.dir === -1 ? ' sorted-desc' : ' sorted-asc') : '';
+  return `<th class="r${cls}" onclick="sortTabBy('${tabId}','${col}')">${label}</th>`;
+}
+function thSortStr(tabId, col, label) {
+  const s = tabSort[tabId];
+  const cls = s && s.col === col ? (s.dir === 1 ? ' sorted-asc' : ' sorted-desc') : '';
+  return `<th class="${cls}" onclick="sortTabBy('${tabId}','${col}')">${label}</th>`;
+}
+
+function renderTabTable(tabId) {
+  const target = analysisResult ? analysisResult.targetAcos : 25;
+  const data = getTabData(tabId);
+
+  if (tabId === 'scale')      renderScaleTable(data, target);
+  if (tabId === 'negate')     renderNegateTable(data, target);
+  if (tabId === 'clicktraps') renderClickTrapsTable(data, target);
+  if (tabId === 'campaign')   renderCampaignTable(data, target);
+  if (tabId === 'all')        renderAllTermsTable(data, target);
+}
+
+function emptyState(h, msg) {
+  return `<div class="empty-state"><h4>${h}</h4><p>${msg}</p></div>`;
+}
+
+function renderScaleTable(terms, target) {
+  const el = document.getElementById('scale-table');
+  if (!terms.length) { el.innerHTML = emptyState('No scale opportunities found','Try adjusting the ACoS slider above.'); return; }
+  let h = `<table><thead><tr>${thSortStr('scale','searchTerm','Search Term')}${thSort('scale','impressions','Impr.')}${thSort('scale','clicks','Clicks')}${thSort('scale','cvr','CVR%')}${thSort('scale','spend','Spend')}${thSort('scale','sales','Sales')}${thSort('scale','acos','ACoS')}${thSort('scale','roas','RoAS')}${thSort('scale','orders','Orders')}</tr></thead><tbody>`;
+  terms.slice(0,250).forEach(t => {
+    h += `<tr><td class="term" title="${t.searchTerm}">${trunc(t.searchTerm,30)}</td><td class="r">${t.impressions.toLocaleString()}</td><td class="r">${t.clicks.toLocaleString()}</td><td class="r">${fmt(t.cvr,1)}%</td><td class="r">${fmtCur(t.spend)}</td><td class="r">${fmtCur(t.sales)}</td>${acosTd(t.acos,target)}<td class="r">${fmt(t.roas,2)}×</td><td class="r">${t.orders.toLocaleString()}</td></tr>`;
+  });
+  el.innerHTML = h + '</tbody></table>';
+}
+
+function renderNegateTable(terms, target) {
+  const el = document.getElementById('negate-table');
+  if (!terms.length) { el.innerHTML = emptyState('No negate candidates','Lower the minimum spend threshold or adjust the ACoS slider.'); return; }
+  let h = `<table><thead><tr>${thSortStr('negate','searchTerm','Search Term')}${thSort('negate','impressions','Impr.')}${thSort('negate','clicks','Clicks')}${thSort('negate','spend','Spend')}${thSort('negate','orders','Orders')}${thSort('negate','acos','ACoS')}<th>Reason</th></tr></thead><tbody>`;
+  terms.slice(0,250).forEach(t => {
+    const reason = t.orders === 0 ? '<span class="badge badge-red">Zero orders</span>' : `<span class="badge badge-amber">ACoS ${fmtPct(t.acos)}</span>`;
+    h += `<tr><td class="term" title="${t.searchTerm}">${trunc(t.searchTerm,30)}</td><td class="r">${t.impressions.toLocaleString()}</td><td class="r">${t.clicks.toLocaleString()}</td><td class="r">${fmtCur(t.spend)}</td><td class="r">${t.orders.toLocaleString()}</td>${acosTd(t.acos,target)}<td>${reason}</td></tr>`;
+  });
+  el.innerHTML = h + '</tbody></table>';
+}
+
+function renderClickTrapsTable(terms, target) {
+  const el = document.getElementById('clicktraps-table');
+  if (!terms.length) { el.innerHTML = emptyState('No click traps found','No terms with 10+ clicks and zero orders detected.'); return; }
+  let h = `<table><thead><tr>${thSortStr('clicktraps','searchTerm','Search Term')}${thSort('clicktraps','clicks','Clicks')}${thSort('clicktraps','impressions','Impr.')}${thSort('clicktraps','ctr','CTR%')}${thSort('clicktraps','spend','Spend')}${thSort('clicktraps','cpc','CPC')}<th>Match Type</th></tr></thead><tbody>`;
+  terms.slice(0,250).forEach(t => {
+    h += `<tr><td class="term" title="${t.searchTerm}">${trunc(t.searchTerm,30)}</td><td class="r" style="color:var(--red2);font-weight:700;">${t.clicks.toLocaleString()}</td><td class="r">${t.impressions.toLocaleString()}</td><td class="r">${fmt(t.ctr,2)}%</td><td class="r">${fmtCur(t.spend)}</td><td class="r">${cur()}${fmt(t.cpc,2)}</td><td><span class="badge badge-gray">${t.matchTypes}</span></td></tr>`;
+  });
+  el.innerHTML = h + '</tbody></table>';
+}
+
+function renderCampaignTable(campaigns, target) {
+  const el = document.getElementById('campaign-table');
+  if (!campaigns.length) {
+    el.innerHTML = emptyState('Campaign column not found','Your report may not include a Campaign Name column. Download a Sponsored Products Search Term report to see campaign-level breakdown.');
+    return;
+  }
+  let h = `<table><thead><tr>${thSortStr('campaign','campaign','Campaign')}${thSort('campaign','terms','Terms')}${thSort('campaign','spend','Spend')}${thSort('campaign','sales','Sales')}${thSort('campaign','acos','ACoS')}${thSort('campaign','roas','RoAS')}${thSort('campaign','orders','Orders')}${thSort('campaign','clicks','Clicks')}${thSort('campaign','cpc','CPC')}</tr></thead><tbody>`;
+  campaigns.slice(0,200).forEach(c => {
+    h += `<tr><td class="term" title="${c.campaign}" style="max-width:260px;">${trunc(c.campaign,36)}</td><td class="r"><span class="badge badge-gray">${c.terms}</span></td><td class="r">${fmtCur(c.spend)}</td><td class="r">${fmtCur(c.sales)}</td>${acosTd(c.acos,target)}<td class="r">${fmt(c.roas,2)}×</td><td class="r">${c.orders.toLocaleString()}</td><td class="r">${c.clicks.toLocaleString()}</td><td class="r">${cur()}${fmt(c.cpc,2)}</td></tr>`;
+  });
+  el.innerHTML = h + '</tbody></table>';
+}
+
+function renderAllTermsTable(terms, target) {
+  const el = document.getElementById('all-terms-table');
+  if (!terms.length) { el.innerHTML = emptyState('No data','No terms to display.'); return; }
+  let h = `<table><thead><tr>${thSortStr('all','searchTerm','Search Term')}${thSort('all','spend','Spend')}${thSort('all','sales','Sales')}${thSort('all','acos','ACoS')}${thSort('all','roas','RoAS')}${thSort('all','orders','Orders')}${thSort('all','clicks','Clicks')}${thSort('all','cvr','CVR%')}<th>Match</th></tr></thead><tbody>`;
+  terms.slice(0,500).forEach(t => {
+    h += `<tr><td class="term" title="${t.searchTerm}">${trunc(t.searchTerm,30)}</td><td class="r">${fmtCur(t.spend)}</td><td class="r">${fmtCur(t.sales)}</td>${acosTd(t.acos,target)}<td class="r">${fmt(t.roas,2)}×</td><td class="r">${t.orders.toLocaleString()}</td><td class="r">${t.clicks.toLocaleString()}</td><td class="r">${fmt(t.cvr,1)}%</td><td><span class="badge badge-gray" style="font-size:0.64rem;">${t.matchTypes}</span></td></tr>`;
+  });
+  el.innerHTML = h + '</tbody></table>';
+}
+
+function renderNgramTable(elId, grams, target) {
+  const el = document.getElementById(elId);
+  if (!grams || !grams.length) { el.innerHTML = '<div class="empty-state"><p>Not enough data for n-gram analysis.</p></div>'; return; }
+  let h = `<table><thead><tr><th>N-gram</th><th class="r">Terms</th><th class="r">Spend</th><th class="r">Sales</th><th class="r">ACoS</th><th class="r">Orders</th><th class="r">Impressions</th></tr></thead><tbody>`;
+  grams.forEach(g => {
+    const col = g.acos >= 999 ? 'badge-blue' : g.acos <= target ? 'badge-green' : g.acos <= target*2 ? 'badge-amber' : 'badge-red';
+    const acosStr = g.acos >= 999 ? 'No sales' : fmtPct(g.acos);
+    h += `<tr><td class="term">${g.gram}</td><td class="r"><span class="badge badge-gray">${g.count}</span></td><td class="r">${fmtCur(g.spend)}</td><td class="r">${fmtCur(g.sales)}</td><td class="r"><span class="badge ${col}">${acosStr}</span></td><td class="r">${g.orders.toLocaleString()}</td><td class="r">${g.impressions.toLocaleString()}</td></tr>`;
+  });
+  el.innerHTML = h + '</tbody></table>';
+}
+
+function renderMatchTypeTable(list, target) {
+  let h = `<table><thead><tr><th>Match Type</th><th class="r">Spend</th><th class="r">Sales</th><th class="r">ACoS</th><th class="r">RoAS</th><th class="r">Orders</th><th class="r">Clicks</th><th class="r">CTR%</th><th class="r">CVR%</th><th class="r">CPC</th></tr></thead><tbody>`;
+  const totalSpend = list.reduce((s,m) => s + m.spend, 0);
+  list.forEach(m => {
+    const pct = totalSpend > 0 ? (m.spend / totalSpend * 100).toFixed(0) : 0;
+    h += `<tr><td><strong style="color:#fff;">${m.type}</strong> <span class="badge badge-gray">${pct}% of spend</span></td><td class="r">${fmtCur(m.spend)}</td><td class="r">${fmtCur(m.sales)}</td>${acosTd(m.acos,target)}<td class="r">${fmt(m.roas,2)}×</td><td class="r">${m.orders.toLocaleString()}</td><td class="r">${m.clicks.toLocaleString()}</td><td class="r">${fmt(m.ctr,2)}%</td><td class="r">${fmt(m.cvr,1)}%</td><td class="r">${cur()}${fmt(m.cpc,2)}</td></tr>`;
+  });
+  document.getElementById('match-type-table').innerHTML = h + '</tbody></table>';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHART HELPERS
+═══════════════════════════════════════════════════════════════ */
+function destroyChart(key) { if (charts[key]) { charts[key].destroy(); charts[key] = null; } }
+
+const chartDefaults = {
+  color: '#64748b',
+  tooltip: { backgroundColor:'rgba(10,10,26,0.95)', borderColor:'rgba(255,255,255,0.1)', borderWidth:1, titleColor:'#f1f5f9', bodyColor:'#94a3b8', padding:12 },
+  legend: { labels: { color:'#94a3b8', font:{ size:11 }, padding:12, usePointStyle:true, pointStyleWidth:8 } },
+  grid: { color:'rgba(255,255,255,0.05)' },
+  ticks: { color:'#64748b', font:{ size:10 } },
+};
+
+/* ── Bubble scatter ───────────────────────────────────────── */
+function renderScatterChart(terms, target) {
+  destroyChart('scatter');
+  const top = [...terms].sort((a,b) => b.spend - a.spend).slice(0, 60);
+  const datasets = [
+    { label:'Below Target', data: top.filter(t => t.acos < target && t.acos < 999).map(t => ({ x:t.spend, y:t.acos, label:t.searchTerm, r:Math.max(6,Math.min(18,t.impressions/3000)) })), backgroundColor:'rgba(16,185,129,0.72)', borderColor:'rgba(16,185,129,0.95)', borderWidth:1.5 },
+    { label:'Above Target', data: top.filter(t => t.acos >= target && t.acos < 999).map(t => ({ x:t.spend, y:Math.min(t.acos, target*3), label:t.searchTerm, r:Math.max(6,Math.min(18,t.impressions/3000)) })), backgroundColor:'rgba(239,68,68,0.72)', borderColor:'rgba(239,68,68,0.95)', borderWidth:1.5 },
+    { label:'No Sales', data: top.filter(t => t.orders === 0 && t.spend > 0).map(t => ({ x:t.spend, y:target*2.5, label:t.searchTerm, r:Math.max(6,Math.min(16,t.impressions/3000)) })), backgroundColor:'rgba(99,102,241,0.65)', borderColor:'rgba(99,102,241,0.95)', borderWidth:1.5 },
+  ];
+  // inline plugin — only applies to this chart instance, not globally
+  const targetLinePlugin = {
+    id: 'targetLine',
+    afterDraw(chart) {
+      try {
+        const { ctx, scales: { y } } = chart;
+        if (!y || typeof y.getPixelForValue !== 'function') return;
+        const yPos = y.getPixelForValue(target);
+        if (isNaN(yPos)) return;
+        ctx.save();
+        ctx.beginPath(); ctx.strokeStyle='rgba(249,115,22,0.6)'; ctx.lineWidth=1.5; ctx.setLineDash([5,4]);
+        ctx.moveTo(chart.chartArea.left, yPos); ctx.lineTo(chart.chartArea.right, yPos); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle='rgba(249,115,22,0.85)'; ctx.font='bold 10px Inter';
+        ctx.fillText('Target ' + target + '%', chart.chartArea.right - 74, yPos - 5);
+        ctx.restore();
+      } catch(e) {}
+    }
+  };
+
+  charts.scatter = new Chart(document.getElementById('scatter-chart'), {
+    type:'bubble',
+    data:{ datasets },
+    plugins: [targetLinePlugin],
+    options:{
+      responsive:true, maintainAspectRatio:false, animation:{ duration:400 },
+      interaction:{ mode:'point', intersect:true },
+      plugins:{
+        legend:{ display:false },
+        tooltip:{
+          ...chartDefaults.tooltip,
+          callbacks:{ label:ctx => { const d=ctx.raw; return [`${d.label}`, `Spend: ${fmtCur(d.x)}`, `ACoS: ${d.y >= target*2.5 ? 'No sales' : fmtPct(d.y)}`]; } }
+        }
+      },
+      scales:{
+        x:{ title:{ display:true, text:`Spend (${cur()})`, color:'#64748b', font:{size:11} }, ticks:{ ...chartDefaults.ticks, callback:v => cur()+(v>=1000?(v/1000).toFixed(0)+'k':v) }, grid:chartDefaults.grid },
+        y:{ title:{ display:true, text:'ACoS (%)', color:'#64748b', font:{size:11} }, ticks:{ ...chartDefaults.ticks, callback:v => v+'%' }, grid:chartDefaults.grid, max:target*3 }
+      }
+    }
+  });
+}
+
+/* ── Match type donut ─────────────────────────────────────── */
+function renderDonutChart(matchTypes) {
+  destroyChart('donut');
+  const colors = ['#f97316','#6366f1','#10b981','#a855f7','#f59e0b','#ef4444'];
+  const totalSpend = matchTypes.reduce((s,m) => s+m.spend, 0);
+  charts.donut = new Chart(document.getElementById('donut-chart'), {
+    type:'doughnut',
+    data:{ labels:matchTypes.map(m=>m.type), datasets:[{ data:matchTypes.map(m=>m.spend), backgroundColor:colors.slice(0,matchTypes.length).map(c=>c+'cc'), borderColor:colors.slice(0,matchTypes.length), borderWidth:2, hoverOffset:6 }] },
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'62%',
+      plugins:{ legend:chartDefaults.legend, tooltip:{ ...chartDefaults.tooltip, callbacks:{ label:ctx => ` ${ctx.label}: ${fmtCur(ctx.raw)} (${(ctx.raw/totalSpend*100).toFixed(0)}%)` } } }
+    }
+  });
+}
+
+/* ── Horizontal bar helper ────────────────────────────────── */
+function hbarChart(canvasId, chartKey, labels, values, colors, xLabel, metricLabel) {
+  destroyChart(chartKey);
+  const ml = metricLabel || xLabel;
+  charts[chartKey] = new Chart(document.getElementById(canvasId), {
+    type:'bar',
+    data:{ labels, datasets:[{ label: ml, data:values, backgroundColor:colors, borderRadius:4, borderSkipped:false }] },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false, animation:{ duration:400 },
+      plugins:{
+        legend:{ display:false },
+        tooltip:{ ...chartDefaults.tooltip, callbacks:{
+          title: ctx => ctx[0]?.label || '',
+          label: ctx => ` ${ml}: ${xLabel.includes('%') ? fmt(ctx.raw,1)+'%' : xLabel.includes('RoAS') ? fmt(ctx.raw,2)+'×' : cur()+fmt(ctx.raw,0)}`
+        }}
+      },
+      scales:{
+        x:{ ticks:{ ...chartDefaults.ticks, callback:v => xLabel.includes('%') ? v+'%' : cur()+(v>=1000?(v/1000).toFixed(0)+'k':v) }, grid:chartDefaults.grid, title:{ display:true, text:xLabel, color:'#64748b', font:{size:11} } },
+        y:{ ticks:{ color:'#94a3b8', font:{ size:10.5 } }, grid:{ display:false } }
+      }
+    }
+  });
+}
+
+/* ── Top 15 by spend ──────────────────────────────────────── */
+function renderTopSpendChart(terms) {
+  const top = [...terms].sort((a,b) => b.spend-a.spend).slice(0,15).reverse();
+  const target = analysisResult ? analysisResult.targetAcos : 25;
+  const colors = top.map(t => t.acos <= target && t.orders > 0 ? 'rgba(16,185,129,0.75)' : t.orders === 0 ? 'rgba(99,102,241,0.75)' : 'rgba(239,68,68,0.75)');
+  hbarChart('top-spend-chart', 'topSpend', top.map(t => trunc(t.searchTerm,22)), top.map(t => t.spend), colors, `Spend (${cur()})`, 'Spend');
+}
+
+/* ── Top 15 by sales ──────────────────────────────────────── */
+function renderTopSalesChart(terms) {
+  const top = [...terms].filter(t => t.sales > 0).sort((a,b) => b.sales-a.sales).slice(0,15).reverse();
+  hbarChart('top-sales-chart', 'topSales', top.map(t => trunc(t.searchTerm,22)), top.map(t => t.sales), 'rgba(52,211,153,0.75)', `Sales (${cur()})`, 'Sales');
+}
+
+/* ── Top 10 by RoAS ───────────────────────────────────────── */
+function renderTopRoasChart(terms) {
+  const top = [...terms].filter(t => t.orders >= 1 && t.roas > 0).sort((a,b) => b.roas-a.roas).slice(0,10).reverse();
+  if (!top.length) return;
+  destroyChart('topRoas');
+  charts.topRoas = new Chart(document.getElementById('top-roas-chart'), {
+    type:'bar',
+    data:{ labels:top.map(t => trunc(t.searchTerm,20)), datasets:[{ data:top.map(t => parseFloat(t.roas.toFixed(2))), backgroundColor:'rgba(168,85,247,0.75)', borderRadius:4, borderSkipped:false }] },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false, animation:{ duration:400 },
+      plugins:{ legend:{ display:false }, tooltip:{ ...chartDefaults.tooltip, callbacks:{ label:ctx => ` RoAS: ${fmt(ctx.raw,2)}×` } } },
+      scales:{
+        x:{ ticks:{ ...chartDefaults.ticks, callback:v => v+'×' }, grid:chartDefaults.grid, title:{ display:true, text:'RoAS', color:'#64748b', font:{size:11} } },
+        y:{ ticks:{ ...chartDefaults.ticks, font:{size:10.5} }, grid:{ display:false } }
+      }
+    }
+  });
+}
+
+/* ── ACoS distribution ────────────────────────────────────── */
+function renderAcosDistChart(buckets, target) {
+  destroyChart('acosDist');
+  const colors = buckets.map(b => {
+    if (b.label === 'No Sales') return 'rgba(99,102,241,0.7)';
+    if (b.min !== null && b.max <= target) return 'rgba(16,185,129,0.75)';
+    if (b.min !== null && b.min < target) return 'rgba(245,158,11,0.75)';
+    return 'rgba(239,68,68,0.75)';
+  });
+  charts.acosDist = new Chart(document.getElementById('acos-dist-chart'), {
+    type:'bar',
+    data:{ labels:buckets.map(b=>b.label), datasets:[{ data:buckets.map(b=>b.count), backgroundColor:colors, borderRadius:6, borderSkipped:false }] },
+    options:{
+      responsive:true, maintainAspectRatio:false, animation:{ duration:400 },
+      plugins:{ legend:{ display:false }, tooltip:{ ...chartDefaults.tooltip, callbacks:{ label:ctx => ` ${ctx.raw} terms` } } },
+      scales:{
+        x:{ ticks:chartDefaults.ticks, grid:{ display:false } },
+        y:{ ticks:{ ...chartDefaults.ticks, precision:0 }, grid:chartDefaults.grid, title:{ display:true, text:'# of Terms', color:'#64748b', font:{size:11} } }
+      }
+    }
+  });
+}
+
+/* ── Word count donut ─────────────────────────────────────── */
+function renderWordCountChart(wordCounts) {
+  destroyChart('wordCount');
+  const wcColors = ['#6366f1','#f97316','#10b981','#f59e0b','#a855f7'];
+  charts.wordCount = new Chart(document.getElementById('wordcount-chart'), {
+    type:'doughnut',
+    data:{ labels:wordCounts.map(w=>w.label), datasets:[{ data:wordCounts.map(w=>w.count), backgroundColor:wcColors.map(c=>c+'cc'), borderColor:wcColors, borderWidth:2, hoverOffset:5 }] },
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'55%',
+      plugins:{ legend:{ position:'right', labels:{ ...chartDefaults.legend.labels, font:{size:10.5} } }, tooltip:{ ...chartDefaults.tooltip, callbacks:{ label:ctx => ` ${ctx.label}: ${ctx.raw} terms` } } }
+    }
+  });
+}
+
+/* ── Match type Spend vs Sales grouped bar ─────────────────── */
+function renderMatchTypeBarChart(matchTypeList) {
+  destroyChart('matchBar');
+  const labels = matchTypeList.map(m => m.type);
+  charts.matchBar = new Chart(document.getElementById('match-bar-chart'), {
+    type:'bar',
+    data:{ labels, datasets:[
+      { label:'Spend', data:matchTypeList.map(m=>m.spend), backgroundColor:'rgba(249,115,22,0.7)', borderRadius:4 },
+      { label:'Sales', data:matchTypeList.map(m=>m.sales), backgroundColor:'rgba(16,185,129,0.7)', borderRadius:4 },
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false, animation:{ duration:400 },
+      plugins:{ legend:{ ...chartDefaults.legend, position:'top' }, tooltip:{ ...chartDefaults.tooltip, callbacks:{ label:ctx => ` ${ctx.dataset.label}: ${fmtCur(ctx.raw)}` } } },
+      scales:{
+        x:{ ticks:chartDefaults.ticks, grid:{ display:false } },
+        y:{ ticks:{ ...chartDefaults.ticks, callback:v => cur()+(v>=1000?(v/1000).toFixed(0)+'k':v) }, grid:chartDefaults.grid }
+      }
+    }
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EXPORT CSV
+═══════════════════════════════════════════════════════════════ */
+function toCSVRow(vals) { return vals.map(v => `"${String(v ?? '').replace(/"/g,'""')}"`).join(','); }
+function downloadCSV(rows, filename) {
+  if (!rows.length) return;
+  const cols = Object.keys(rows[0]);
+  const content = [toCSVRow(cols), ...rows.map(r => toCSVRow(cols.map(c => r[c])))].join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], { type:'text/csv' }));
+  a.download = filename; a.click();
+}
+
+function exportTab(tabId) {
+  const data = getTabData(tabId);
+  if (!data.length) return;
+  const target = analysisResult ? analysisResult.targetAcos : 25;
+  const map = {
+    scale:      d => ({ 'Search Term':d.searchTerm, 'Spend':d.spend.toFixed(2), 'Sales':d.sales.toFixed(2), 'ACoS%':d.acos >= 999 ? 'No Sales' : d.acos.toFixed(1), 'RoAS':d.roas.toFixed(2), 'Orders':d.orders, 'Clicks':d.clicks, 'CVR%':d.cvr.toFixed(1), 'Impressions':d.impressions }),
+    negate:     d => ({ 'Search Term':d.searchTerm, 'Spend':d.spend.toFixed(2), 'Orders':d.orders, 'Clicks':d.clicks, 'ACoS%':d.acos >= 999 ? 'No Sales' : d.acos.toFixed(1), 'Reason':d.orders===0?'Zero orders':`High ACoS ${d.acos.toFixed(0)}%` }),
+    clicktraps: d => ({ 'Search Term':d.searchTerm, 'Clicks':d.clicks, 'Spend':d.spend.toFixed(2), 'Impressions':d.impressions, 'CTR%':d.ctr.toFixed(2), 'CPC':d.cpc.toFixed(2), 'Match Type':d.matchTypes }),
+    campaign:   d => ({ 'Campaign':d.campaign, 'Terms':d.terms, 'Spend':d.spend.toFixed(2), 'Sales':d.sales.toFixed(2), 'ACoS%':d.acos >= 999 ? 'No Sales' : d.acos.toFixed(1), 'RoAS':d.roas.toFixed(2), 'Orders':d.orders, 'Clicks':d.clicks }),
+    all:        d => ({ 'Search Term':d.searchTerm, 'Spend':d.spend.toFixed(2), 'Sales':d.sales.toFixed(2), 'ACoS%':d.acos >= 999 ? 'No Sales' : d.acos.toFixed(1), 'RoAS':d.roas.toFixed(2), 'Orders':d.orders, 'Clicks':d.clicks, 'CVR%':d.cvr.toFixed(1), 'Match Type':d.matchTypes }),
+  };
+  downloadCSV(data.map(map[tabId] || (d => d)), `ppc-${tabId}-bitesuindia.csv`);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COPY NEGATIVES
+═══════════════════════════════════════════════════════════════ */
+function copyNegatives() {
+  const data = tabData.negate || [];
+  if (!data.length) return;
+  const text = data.map(t => t.searchTerm).join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 2500);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 2500);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIVE ACoS SLIDER
+═══════════════════════════════════════════════════════════════ */
+function onSliderChange(val) {
+  val = parseInt(val);
+  document.getElementById('slider-val').textContent = val;
+  clearTimeout(sliderTimer);
+  sliderTimer = setTimeout(() => {
+    if (!parsedData || !colMapGlobal) return;
+    const minSpend = parseFloat(document.getElementById('min-spend').value) || 500;
+    analysisResult = analyseData(parsedData.rows, colMapGlobal, val, minSpend);
+    renderDashboard(analysisResult);
+  }, 280);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TAB / NGRAM TOGGLE
+═══════════════════════════════════════════════════════════════ */
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+function showNgram(n, btn) {
+  document.querySelectorAll('.ngram-table').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.ngram-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('ngram-table-' + n).style.display = '';
+  btn.classList.add('active');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ENTRY POINT
+═══════════════════════════════════════════════════════════════ */
+function analyseReport() {
+  if (!rawText) return;
+  const banner = document.getElementById('error-banner');
+  banner.classList.remove('visible');
+
+  const parsed = parseCSV(rawText);
+  if (!parsed) { banner.textContent = 'Could not detect a valid Amazon Search Term Report. Make sure you are uploading the CSV/TSV file downloaded from Amazon Ads → Reports → Search Term.'; banner.classList.add('visible'); return; }
+  if (parsed.rows.length < 2) { banner.textContent = `Only ${parsed.rows.length} data rows found. Your report may be empty. Try a wider date range.`; banner.classList.add('visible'); return; }
+
+  const colMap = mapColumns(parsed.headers);
+  if (!colMap.spend || !colMap.search_term) { banner.textContent = 'Could not find "Spend" or "Search Term" columns. Make sure you are uploading a Sponsored Products Search Term Report.'; banner.classList.add('visible'); return; }
+
+  const targetAcos = parseFloat(document.getElementById('target-acos').value) || 25;
+  const minSpend   = parseFloat(document.getElementById('min-spend').value) || 500;
+
+  parsedData = parsed;
+  colMapGlobal = colMap;
+  analysisResult = analyseData(parsed.rows, colMap, targetAcos, minSpend);
+
+  document.getElementById('upload-panel').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  window.scrollTo({ top:0, behavior:'smooth' });
+  renderDashboard(analysisResult);
+}
+
+function resetTool() {
+  rawText = ''; analysisResult = null; parsedData = null; colMapGlobal = null;
+  tabData = {}; tabFilter = {}; tabSort = {};
+  Object.keys(charts).forEach(k => destroyChart(k));
+  document.getElementById('file-input').value = '';
+  document.getElementById('file-chosen').classList.remove('visible');
+  document.getElementById('analyse-btn').disabled = true;
+  document.getElementById('upload-panel').style.display = '';
+  document.getElementById('dashboard').style.display = 'none';
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+// Mobile nav
+document.querySelector('.hamburger') && document.querySelector('.hamburger').addEventListener('click', () => {
+  document.getElementById('mn').classList.toggle('open');
+});
+</script>
+</body>
+</html>

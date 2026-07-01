@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TRL5Q2HB');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Review Rating Calculator — How Many Reviews to Reach 4.5★ | Bitesu India</title>
+  <meta name="description" content="Free tool: enter your current Amazon reviews and rating, set your target star rating, and instantly see how many 5★, 4★ or 3★ reviews you need to get there." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Amazon Review Rating Calculator | Bitesu India" />
+  <meta property="og:description" content="How many more reviews do you need to hit 4.5 stars? Enter your current data and get an instant scenario breakdown." />
+  <meta property="og:url" content="https://www.bitesuindia.com/review-rating-calculator" />
+  <meta property="og:image" content="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://www.bitesuindia.com/review-rating-calculator" />
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1136656594313315');fbq('track','PageView');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#05050e; --bg2:#0d0d1a; --bg3:#10101f; --card:#0d0d1a;
+      --accent:#f97316; --accent2:#fb923c;
+      --blue:#6366f1; --blue2:#818cf8;
+      --green:#10b981; --green2:#34d399;
+      --yellow:#f59e0b; --yellow2:#fbbf24;
+      --red:#ef4444; --red2:#f87171;
+      --text:#f8fafc; --muted:#7a8fa8; --muted2:#a8bdd4;
+      --border:rgba(255,255,255,0.07);
+      --radius:16px; --radius-sm:10px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.6;min-height:100vh;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+
+    /* ── NAV ── */
+    nav{position:sticky;top:0;z-index:100;background:rgba(5,5,14,0.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 24px;}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;height:62px;gap:24px;}
+    .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.1rem;color:var(--accent);flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:20px;margin-left:auto;}
+    .nav-links a{font-size:0.85rem;font-weight:600;color:var(--muted2);transition:color 0.2s;white-space:nowrap;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-pill{background:var(--accent);color:white!important;padding:8px 18px;border-radius:100px;}
+    .new-tag{font-size:0.62rem;background:rgba(249,115,22,0.18);color:var(--accent);padding:2px 7px;border-radius:100px;font-weight:700;margin-left:3px;vertical-align:middle;}
+
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown{position:relative;}
+    .nav-dropdown>a{display:flex;align-items:center;gap:5px;}
+    .nav-dropdown>a::after{content:'▾';font-size:0.65rem;color:var(--muted);transition:transform 0.2s;}
+    .nav-dropdown:hover>a::after{transform:rotate(180deg);color:var(--accent2);}
+    .nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:rgba(8,8,20,0.98);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:8px;min-width:260px;z-index:300;box-shadow:0 20px 60px rgba(0,0,0,0.55);}
+    .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+    .dd-item{display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:10px;text-decoration:none;color:var(--muted2);font-size:0.83rem;font-weight:500;transition:all 0.15s;white-space:nowrap;}
+    .dd-item:hover{background:rgba(249,115,22,0.08);color:var(--text);}
+    .dd-item strong{display:block;font-size:0.83rem;color:#f1f5f9;font-weight:700;}
+    .dd-item small{display:block;font-size:0.72rem;color:#64748b;}
+    .dd-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+    .dd-divider{height:1px;background:rgba(255,255,255,0.07);margin:6px 0;}
+    .dd-all{display:block;text-align:center;padding:9px 13px;border-radius:10px;font-size:0.77rem;font-weight:700;color:var(--accent2);background:rgba(249,115,22,0.07);text-decoration:none;transition:background 0.15s;margin-top:2px;}
+    .dd-all:hover{background:rgba(249,115,22,0.12);}
+
+    /* ── PAGE HERO ── */
+    .page-hero{padding:48px 24px 0;max-width:1200px;margin:0 auto;text-align:center;}
+    .page-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:var(--accent2);font-size:0.73rem;font-weight:700;padding:5px 14px;border-radius:100px;margin-bottom:16px;}
+    .page-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:12px;}
+    .page-hero h1 span{color:var(--accent);}
+    .page-hero p{color:var(--muted2);font-size:0.93rem;max-width:520px;margin:0 auto 36px;}
+
+    /* ── MAIN CARD ── */
+    .calc-wrap{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+
+    .input-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}
+    .input-card-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.88rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:24px;display:flex;align-items:center;gap:8px;}
+    .input-card-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+    .inputs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px;}
+    .input-group{display:flex;flex-direction:column;gap:6px;}
+    .input-label{font-size:0.75rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.06em;}
+    .input-hint{font-size:0.7rem;color:var(--muted);margin-top:2px;}
+    .input-field{background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:13px 16px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;outline:none;transition:border-color 0.2s;width:100%;text-align:center;}
+    .input-field:focus{border-color:rgba(249,115,22,0.5);background:rgba(249,115,22,0.03);}
+    .input-field::placeholder{color:var(--muted);font-weight:400;}
+    /* Hide number spinners */
+    .input-field::-webkit-outer-spin-button,.input-field::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+    .input-field[type=number]{-moz-appearance:textfield;}
+
+    /* Star rating display under current rating input */
+    .star-preview{display:flex;justify-content:center;gap:3px;margin-top:6px;height:14px;}
+    .star-preview span{font-size:13px;line-height:1;}
+
+    .btn-calc{width:100%;padding:15px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border:none;border-radius:var(--radius-sm);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:8px;}
+    .btn-calc:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(249,115,22,0.4);}
+    .btn-calc:active{transform:translateY(0);}
+
+    /* ── ERROR BANNER ── */
+    .error-banner{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:var(--red2);border-radius:var(--radius-sm);padding:12px 16px;font-size:0.84rem;font-weight:600;margin-bottom:16px;display:none;}
+    .error-banner.visible{display:block;}
+
+    /* ── ALREADY-THERE BANNER ── */
+    .success-banner{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:var(--green2);border-radius:var(--radius-sm);padding:16px 20px;font-size:0.88rem;font-weight:600;margin-bottom:16px;display:none;align-items:center;gap:10px;}
+    .success-banner.visible{display:flex;}
+
+    /* ── RESULTS ── */
+    .results-section{display:none;}
+    .results-section.visible{display:block;}
+
+    .results-header{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.88rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .results-header::after{content:'';flex:1;height:1px;background:var(--border);}
+
+    /* Summary row */
+    .summary-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+    .summary-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;}
+    .summary-card .s-val{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;line-height:1;}
+    .summary-card .s-lbl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;}
+    .summary-card .s-sub{font-size:0.75rem;color:var(--muted2);margin-top:6px;}
+
+    /* Scenario cards */
+    .scenarios-grid{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+
+    .scenario-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;align-items:center;gap:20px;transition:border-color 0.2s;}
+    .scenario-card:hover{border-color:rgba(255,255,255,0.15);}
+    .scenario-card.best{border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.04);}
+    .scenario-card.best .scenario-badge{background:rgba(16,185,129,0.15);color:var(--green2);}
+
+    .scenario-star{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;flex-shrink:0;min-width:60px;text-align:center;line-height:1;}
+    .scenario-star span{font-size:0.9rem;display:block;font-weight:600;color:var(--muted);margin-top:2px;}
+
+    .scenario-divider{width:1px;height:56px;background:var(--border);flex-shrink:0;}
+
+    .scenario-body{flex:1;}
+    .scenario-top{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+    .scenario-count{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;line-height:1;}
+    .scenario-label{font-size:0.82rem;color:var(--muted2);}
+    .scenario-badge{font-size:0.65rem;font-weight:800;padding:3px 9px;border-radius:100px;background:rgba(99,102,241,0.15);color:var(--blue2);text-transform:uppercase;letter-spacing:0.06em;}
+
+    .scenario-meta{display:flex;gap:20px;flex-wrap:wrap;}
+    .scenario-meta-item{display:flex;flex-direction:column;gap:1px;}
+    .scenario-meta-item .m-val{font-family:'Space Grotesk',sans-serif;font-size:0.9rem;font-weight:700;}
+    .scenario-meta-item .m-lbl{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;}
+
+    .scenario-right{flex-shrink:0;text-align:right;}
+    .projected-rating{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;line-height:1;}
+    .projected-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;}
+    .projected-stars{display:flex;justify-content:flex-end;gap:2px;margin-top:4px;font-size:12px;}
+
+    /* Impossible scenario */
+    .scenario-impossible{opacity:0.45;pointer-events:none;}
+    .impossible-pill{font-size:0.72rem;color:var(--red2);background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);padding:3px 10px;border-radius:100px;font-weight:700;}
+
+    /* ── SIMULATOR ── */
+    .sim-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+    .sim-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;margin-bottom:4px;}
+    .sim-sub{font-size:0.82rem;color:var(--muted2);margin-bottom:20px;}
+
+    .sim-inputs{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+    .sim-input-group{display:flex;flex-direction:column;gap:5px;}
+    .sim-input-group label{font-size:0.72rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.06em;}
+    .sim-input{background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:11px 16px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem;font-weight:700;outline:none;transition:border-color 0.2s;width:120px;text-align:center;}
+    .sim-input:focus{border-color:rgba(99,102,241,0.5);}
+    .sim-input::-webkit-outer-spin-button,.sim-input::-webkit-inner-spin-button{-webkit-appearance:none;}
+    .sim-input[type=number]{-moz-appearance:textfield;}
+
+    /* Star selector */
+    .star-selector{display:flex;gap:6px;}
+    .star-btn{width:38px;height:38px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg3);color:var(--muted2);font-size:0.82rem;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Plus Jakarta Sans',sans-serif;}
+    .star-btn:hover{border-color:rgba(255,255,255,0.2);color:var(--text);}
+    .star-btn.active{background:rgba(249,115,22,0.15);border-color:var(--accent);color:var(--accent);}
+
+    .sim-result{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .sim-result-label{font-size:0.82rem;color:var(--muted2);}
+    .sim-result-rating{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;}
+    .sim-result-delta{font-size:0.78rem;font-weight:700;padding:3px 10px;border-radius:100px;}
+    .sim-result-delta.up{background:rgba(16,185,129,0.12);color:var(--green2);}
+    .sim-result-delta.down{background:rgba(239,68,68,0.1);color:var(--red2);}
+    .sim-result-delta.same{background:rgba(255,255,255,0.06);color:var(--muted2);}
+
+    /* Progress to target */
+    .progress-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;}
+    .progress-section h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.92rem;margin-bottom:16px;}
+    .rating-track-wrap{position:relative;height:48px;margin-bottom:12px;}
+    .rating-track{height:10px;background:rgba(255,255,255,0.06);border-radius:5px;position:relative;overflow:visible;margin-top:19px;}
+    .rating-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green));transition:width 0.6s ease;position:relative;}
+    .track-marker{position:absolute;top:-19px;transform:translateX(-50%);}
+    .track-marker-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 4px;}
+    .track-marker-label{font-size:0.6rem;font-weight:700;white-space:nowrap;text-align:center;color:var(--muted);}
+    .track-pointer{position:absolute;bottom:-8px;width:2px;background:var(--accent);height:26px;transform:translateX(-50%);}
+    .track-pointer::after{content:'▲';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);font-size:8px;color:var(--accent);}
+    .track-labels{display:flex;justify-content:space-between;font-size:0.68rem;color:var(--muted);margin-top:6px;}
+
+    /* ── CTA ── */
+    .cta-bar{background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(249,115,22,0.03));border:1px solid rgba(249,115,22,0.2);border-radius:var(--radius);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px;}
+    .cta-bar-copy h4{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:4px;}
+    .cta-bar-copy p{font-size:0.82rem;color:var(--muted2);}
+    .cta-bar-btn{background:var(--accent);color:white;padding:11px 24px;border-radius:100px;font-weight:700;font-size:0.88rem;white-space:nowrap;border:none;cursor:pointer;transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif;}
+    .cta-bar-btn:hover{box-shadow:0 8px 24px rgba(249,115,22,0.4);transform:translateY(-1px);}
+
+    /* Other tools row */
+    .other-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+    .other-tool-link{display:flex;align-items:center;gap:7px;padding:10px 18px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:0.82rem;font-weight:600;transition:all 0.2s;white-space:nowrap;}
+    .other-tool-link:hover{border-color:rgba(255,255,255,0.18);color:var(--text);}
+
+    /* Responsive */
+    @media(max-width:640px){
+      .inputs-grid{grid-template-columns:1fr;gap:12px;}
+      .summary-row{grid-template-columns:1fr;}
+      .scenario-card{flex-wrap:wrap;}
+      .scenario-divider{width:100%;height:1px;}
+      .sim-inputs{flex-direction:column;align-items:flex-start;}
+      .sim-input{width:100%;}
+      .page-hero{padding:32px 20px 0;}
+      .calc-wrap{padding:0 16px 60px;}
+    }
+    @media(max-width:480px){
+      .scenario-right{width:100%;text-align:left;}
+      .projected-stars{justify-content:flex-start;}
+    }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRL5Q2HB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Bitesu India</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <div class="nav-dropdown">
+        <a href="resources.html" class="active">Free Tools <span class="new-tag">NEW</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="ppc-report-dashboard.html" class="dd-item"><span class="dd-icon" style="background:rgba(249,115,22,0.1);">📊</span><span><strong>Search Term Analysis</strong><small>Upload report · get full dashboard</small></span></a>
+          <a href="listing-scorecard.html" class="dd-item"><span class="dd-icon" style="background:rgba(16,185,129,0.1);">✅</span><span><strong>Listing Quality Scorecard</strong><small>Score your listing out of 100</small></span></a>
+          <a href="review-rating-calculator.html" class="dd-item"><span class="dd-icon" style="background:rgba(245,158,11,0.1);">⭐</span><span><strong>Review Rating Calculator</strong><small>How many reviews to hit your target?</small></span></a>
+          <a href="amazon-ranking-tracker.html" class="dd-item"><span class="dd-icon" style="background:rgba(99,102,241,0.1);">📈</span><span><strong>Amazon Ranking Tracker</strong><small>Check ASIN indexing & rank</small></span></a>
+          <div class="dd-divider"></div>
+          <a href="resources.html" class="dd-all">View all free tools →</a>
+        </div>
+      </div>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html" class="nav-pill">Free Audit →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-badge">
+    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    Free Tool · No Sign-up · Instant Results
+  </div>
+  <h1>Amazon Review <span>Rating Calculator</span></h1>
+  <p>Enter your current review count and rating, set your target — get a full scenario breakdown showing exactly how many 5★, 4★ or 3★ reviews you need.</p>
+</div>
+
+<!-- CALCULATOR -->
+<div class="calc-wrap">
+
+  <!-- INPUT CARD -->
+  <div class="input-card" style="margin-top:32px;">
+    <div class="input-card-title">Your Current Product Data</div>
+    <div class="inputs-grid">
+      <div class="input-group">
+        <label class="input-label">Total Reviews</label>
+        <input class="input-field" id="inp-count" type="number" min="0" placeholder="e.g. 84" inputmode="numeric" />
+        <span class="input-hint">Total reviews on your listing right now</span>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Current Rating</label>
+        <input class="input-field" id="inp-current" type="number" min="1" max="5" step="0.1" placeholder="e.g. 3.9" inputmode="decimal" />
+        <div class="star-preview" id="currentStars"></div>
+        <span class="input-hint">Your average star rating (1.0 – 5.0)</span>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Target Rating</label>
+        <input class="input-field" id="inp-target" type="number" min="1" max="5" step="0.1" placeholder="e.g. 4.5" inputmode="decimal" />
+        <div class="star-preview" id="targetStars"></div>
+        <span class="input-hint">The rating you want to reach</span>
+      </div>
+    </div>
+    <div class="error-banner" id="errBanner"></div>
+    <div class="success-banner" id="successBanner">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="successText"></span>
+    </div>
+    <button class="btn-calc" id="calcBtn" onclick="calculate()">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Calculate Reviews Needed
+    </button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-section" id="resultsSection">
+
+    <!-- SUMMARY -->
+    <div class="results-header">At a glance</div>
+    <div class="summary-row" id="summaryRow"></div>
+
+    <!-- PROGRESS TRACK -->
+    <div class="progress-section" id="progressSection">
+      <h3>Your path from <span id="progFrom"></span>★ → <span id="progTo"></span>★</h3>
+      <div class="rating-track-wrap">
+        <div class="rating-track" id="ratingTrack">
+          <div class="rating-fill" id="ratingFill"></div>
+        </div>
+      </div>
+      <div class="track-labels">
+        <span>1★</span><span>2★</span><span>3★</span><span>4★</span><span>5★</span>
+      </div>
+    </div>
+
+    <!-- SIMULATOR -->
+    <div class="sim-card">
+      <div class="sim-title">What-if Simulator</div>
+      <div class="sim-sub">See how your rating changes if you receive a specific number of reviews.</div>
+      <div class="sim-inputs">
+        <div class="sim-input-group">
+          <label>Number of new reviews</label>
+          <input class="sim-input" id="sim-count" type="number" min="1" placeholder="e.g. 20" oninput="simulate()" />
+        </div>
+        <div class="sim-input-group">
+          <label>Star rating of new reviews</label>
+          <div class="star-selector">
+            <button class="star-btn" data-v="1" onclick="setSimStar(1)">1★</button>
+            <button class="star-btn" data-v="2" onclick="setSimStar(2)">2★</button>
+            <button class="star-btn" data-v="3" onclick="setSimStar(3)">3★</button>
+            <button class="star-btn" data-v="4" onclick="setSimStar(4)">4★</button>
+            <button class="star-btn active" data-v="5" onclick="setSimStar(5)">5★</button>
+          </div>
+        </div>
+      </div>
+      <div class="sim-result" id="simResult" style="display:none;"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-bar">
+      <div class="cta-bar-copy">
+        <h4>Need help driving more verified reviews?</h4>
+        <p>We help Amazon brand owners build review velocity through compliant, high-converting follow-up strategies.</p>
+      </div>
+      <a href="https://wa.me/918742944528?text=Hi%20Bitesu%20India%2C%20I%20want%20to%20improve%20my%20Amazon%20reviews" class="cta-bar-btn" target="_blank" rel="noopener">Talk to an Expert →</a>
+    </div>
+
+    <!-- OTHER TOOLS -->
+    <div class="results-header">Other Free Tools</div>
+    <div class="other-tools">
+      <a href="ppc-report-dashboard.html" class="other-tool-link">📊 Search Term Analysis</a>
+      <a href="listing-scorecard.html" class="other-tool-link">✅ Listing Quality Scorecard</a>
+      <a href="amazon-ranking-tracker.html" class="other-tool-link">📈 Amazon Ranking Tracker</a>
+    </div>
+
+  </div><!-- /results -->
+
+</div><!-- /calc-wrap -->
+
+<script>
+  // ── State ──
+  let simStar = 5;
+  let currentCount = 0, currentRating = 0, targetRating = 0;
+
+  // ── Helpers ──
+  function stars(rating, size) {
+    const full = Math.floor(rating);
+    const half = rating - full >= 0.3 && rating - full < 0.8;
+    const empty = 5 - full - (half ? 1 : 0);
+    const sz = size || '14px';
+    let s = '';
+    for (let i = 0; i < full; i++) s += `<span style="color:#f59e0b;font-size:${sz};">★</span>`;
+    if (half) s += `<span style="color:#f59e0b;font-size:${sz};">½</span>`;
+    for (let i = 0; i < empty; i++) s += `<span style="color:rgba(255,255,255,0.15);font-size:${sz};">★</span>`;
+    return s;
+  }
+
+  function fmt(n, dec) { return Number(n).toFixed(dec == null ? 1 : dec); }
+
+  function ratingColor(r) {
+    if (r >= 4.5) return 'var(--green2)';
+    if (r >= 4.0) return 'var(--yellow2)';
+    if (r >= 3.0) return 'var(--accent2)';
+    return 'var(--red2)';
+  }
+
+  // ── Star previews under inputs ──
+  function updateStarPreview(inputId, previewId) {
+    const val = parseFloat(document.getElementById(inputId).value);
+    const el = document.getElementById(previewId);
+    if (!isNaN(val) && val >= 1 && val <= 5) {
+      el.innerHTML = stars(val, '14px');
+    } else {
+      el.innerHTML = '';
+    }
+  }
+
+  document.getElementById('inp-current').addEventListener('input', () => updateStarPreview('inp-current','currentStars'));
+  document.getElementById('inp-target').addEventListener('input', () => updateStarPreview('inp-target','targetStars'));
+
+  // ── Calculate ──
+  function calculate() {
+    const errBanner = document.getElementById('errBanner');
+    const successBanner = document.getElementById('successBanner');
+    const resultsSection = document.getElementById('resultsSection');
+    errBanner.classList.remove('visible');
+    successBanner.classList.remove('visible');
+    resultsSection.classList.remove('visible');
+
+    const N = parseInt(document.getElementById('inp-count').value);
+    const R = parseFloat(document.getElementById('inp-current').value);
+    const T = parseFloat(document.getElementById('inp-target').value);
+
+    if (isNaN(N) || N < 0) { showErr('Please enter a valid number of current reviews (0 or more).'); return; }
+    if (isNaN(R) || R < 1 || R > 5) { showErr('Current rating must be between 1.0 and 5.0.'); return; }
+    if (isNaN(T) || T < 1 || T > 5) { showErr('Target rating must be between 1.0 and 5.0.'); return; }
+    if (T <= R) {
+      document.getElementById('successText').textContent =
+        `You already have a ${fmt(R)}★ rating — above your ${fmt(T)}★ target. Use the simulator below to track what happens as more reviews come in.`;
+      successBanner.classList.add('visible');
+      currentCount = N; currentRating = R; targetRating = T;
+      renderProgress(N, R, T);
+      renderSimulator();
+      resultsSection.classList.add('visible');
+      return;
+    }
+
+    currentCount = N; currentRating = R; targetRating = T;
+    renderSummary(N, R, T);
+    renderProgress(N, R, T);
+    renderSimulator();
+    resultsSection.classList.add('visible');
+    // Scroll to results
+    setTimeout(() => document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  }
+
+  function showErr(msg) {
+    const b = document.getElementById('errBanner');
+    b.textContent = msg;
+    b.classList.add('visible');
+  }
+
+  // ── Scenario math ──
+  function reviewsNeeded(N, R, T, V) {
+    // K = N * (T - R) / (V - T)
+    if (V <= T) return null; // impossible
+    const k = (N * (T - R)) / (V - T);
+    return Math.ceil(k);
+  }
+
+  function projectedRating(N, R, K, V) {
+    const S = N * R;
+    return (S + K * V) / (N + K);
+  }
+
+  // ── Render summary ──
+  function renderSummary(N, R, T) {
+    const k5 = reviewsNeeded(N, R, T, 5);
+    const pct = ((R - 1) / 4 * 100).toFixed(0);
+    const gap = fmt(T - R);
+    document.getElementById('summaryRow').innerHTML = `
+      <div class="summary-card">
+        <div class="s-val" style="color:${ratingColor(R)};">${fmt(R)}</div>
+        <div class="s-lbl">Current Rating</div>
+        <div class="s-sub">${N.toLocaleString()} total reviews</div>
+      </div>
+      <div class="summary-card">
+        <div class="s-val" style="color:var(--accent);">+${gap}★</div>
+        <div class="s-lbl">Rating Gap</div>
+        <div class="s-sub">to reach ${fmt(T)}★</div>
+      </div>
+      <div class="summary-card">
+        <div class="s-val" style="color:var(--green2);">${k5 != null ? k5.toLocaleString() : '—'}</div>
+        <div class="s-lbl">5★ Reviews Needed</div>
+        <div class="s-sub">fastest route</div>
+      </div>
+    `;
+  }
+
+  // ── Render progress bar ──
+  function renderProgress(N, R, T) {
+    document.getElementById('progFrom').textContent = fmt(R);
+    document.getElementById('progTo').textContent = fmt(T);
+    const fillPct = ((R - 1) / 4) * 100;
+    const targetPct = ((T - 1) / 4) * 100;
+    const fill = document.getElementById('ratingFill');
+    fill.style.width = fillPct + '%';
+    // Target pointer
+    const track = document.getElementById('ratingTrack');
+    // Remove old pointers
+    track.querySelectorAll('.track-pointer').forEach(e => e.remove());
+    // Current marker label
+    const ptr = document.createElement('div');
+    ptr.className = 'track-pointer';
+    ptr.style.left = fillPct + '%';
+    ptr.title = 'Current: ' + fmt(R) + '★';
+    track.appendChild(ptr);
+  }
+
+  // ── Simulator ──
+  let simStarActive = 5;
+  function setSimStar(v) {
+    simStarActive = v;
+    document.querySelectorAll('.star-btn').forEach(b => {
+      b.classList.toggle('active', parseInt(b.dataset.v) === v);
+    });
+    simulate();
+  }
+
+  function simulate() {
+    const simCountEl = document.getElementById('sim-count');
+    const simResultEl = document.getElementById('simResult');
+    const K = parseInt(simCountEl.value);
+    if (isNaN(K) || K < 1 || currentCount === 0) { simResultEl.style.display = 'none'; return; }
+
+    const proj = projectedRating(currentCount, currentRating, K, simStarActive);
+    const delta = proj - currentRating;
+    const deltaStr = delta >= 0 ? `+${fmt(delta)}★` : `${fmt(delta)}★`;
+    const deltaClass = delta > 0.05 ? 'up' : delta < -0.05 ? 'down' : 'same';
+    const metTarget = proj >= targetRating;
+
+    simResultEl.style.display = 'flex';
+    simResultEl.innerHTML = `
+      <div>
+        <div class="sim-result-label">After adding ${K.toLocaleString()} × ${simStarActive}★ reviews</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+          <div class="sim-result-rating" style="color:${ratingColor(proj)};">${fmt(proj)}★</div>
+          <span class="sim-result-delta ${deltaClass}">${deltaStr}</span>
+          ${metTarget ? '<span style="font-size:0.72rem;background:rgba(16,185,129,0.15);color:var(--green2);padding:3px 10px;border-radius:100px;font-weight:700;">✓ Target reached</span>' : ''}
+        </div>
+        <div style="margin-top:4px;">${stars(proj,'14px')}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">New Total</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;">${(currentCount + K).toLocaleString()}</div>
+        <div style="font-size:0.72rem;color:var(--muted);">reviews</div>
+      </div>
+    `;
+  }
+
+  function renderSimulator() {
+    document.getElementById('sim-count').value = '';
+    document.getElementById('simResult').style.display = 'none';
+  }
+
+  // Enter key triggers calculate
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && ['inp-count','inp-current','inp-target'].includes(document.activeElement.id)) {
+      calculate();
+    }
+  });
+</script>
+</body>
+</html>

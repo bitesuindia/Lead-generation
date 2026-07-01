@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -55,7 +57,6 @@
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+91-874-294-4528",
           "email": "ranjeet.saini@bitesuindia.com",
           "contactType": "customer service",
           "availableLanguage": ["English", "Hindi"]
@@ -68,7 +69,6 @@
         "@id": "https://www.bitesuindia.com/#business",
         "name": "Bitesu India",
         "url": "https://www.bitesuindia.com",
-        "telephone": "+91-874-294-4528",
         "email": "ranjeet.saini@bitesuindia.com",
         "address": {
           "@type": "PostalAddress",
@@ -100,7 +100,11 @@
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://connect.facebook.net" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #05050e;
@@ -111,9 +115,9 @@
       --blue: #6366f1;
       --blue2: #818cf8;
       --green: #10b981;
-      --text: #f1f5f9;
-      --muted: #64748b;
-      --muted2: #94a3b8;
+      --text: #f8fafc;
+      --muted: #7a8fa8;
+      --muted2: #a8bdd4;
       --border: rgba(255,255,255,0.07);
       --border2: rgba(255,255,255,0.12);
       --card: rgba(255,255,255,0.03);
@@ -123,7 +127,7 @@
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; overflow-x:hidden; }
+    body { background:var(--bg); color:var(--text); font-family:'Plus Jakarta Sans',sans-serif; line-height:1.6; overflow-x:hidden; }
 
     /* ─── NOISE OVERLAY ─── */
     body::before {
@@ -154,6 +158,20 @@
       font-weight:700; font-size:0.83rem; text-decoration:none; transition:all 0.2s;
     }
     .nav-pill:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+    /* ─ FREE TOOLS DROPDOWN ─ */
+    .nav-dropdown { position:relative; }
+    .nav-dropdown>a { display:flex; align-items:center; gap:5px; }
+    .nav-dropdown>a::after { content:'▾'; font-size:0.65rem; color:var(--muted); transition:transform 0.2s; }
+    .nav-dropdown:hover>a::after { transform:rotate(180deg); color:var(--accent2); }
+    .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%); background:rgba(8,8,20,0.98); backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:8px; min-width:248px; z-index:300; box-shadow:0 20px 60px rgba(0,0,0,0.55); }
+    .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); border:6px solid transparent; border-bottom-color:rgba(255,255,255,0.1); border-top:none; }
+    .dd-item { display:flex; align-items:center; gap:10px; padding:10px 13px; border-radius:10px; text-decoration:none; color:var(--muted2) !important; font-size:0.83rem; font-weight:500; transition:all 0.15s; white-space:nowrap; }
+    .dd-item:hover { background:rgba(249,115,22,0.08); color:var(--text) !important; }
+    .dd-icon { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.95rem; flex-shrink:0; }
+    .dd-divider { height:1px; background:rgba(255,255,255,0.06); margin:5px 8px; }
+    .dd-all { margin-top:2px; padding:9px 13px; border-radius:10px; text-align:center; font-size:0.77rem; font-weight:700; color:var(--accent2) !important; background:rgba(249,115,22,0.07); text-decoration:none; display:block; transition:background 0.15s; }
+    .dd-all:hover { background:rgba(249,115,22,0.14); }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:201; }
     .hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all 0.3s; }
 
@@ -204,6 +222,43 @@
       max-width:580px; margin:0 auto 44px; line-height:1.75;
     }
 
+    /* ─── HERO PRIMARY CTA STRIP ─── */
+    .hero-cta-strip {
+      display:flex; align-items:center; justify-content:center;
+      gap:14px; flex-wrap:wrap; margin-bottom:40px;
+    }
+    .btn-hero-primary {
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--accent); color:#fff;
+      padding:16px 32px; border-radius:14px;
+      font-family:'Space Grotesk',sans-serif;
+      font-size:1rem; font-weight:800; letter-spacing:-0.01em;
+      text-decoration:none; transition:all 0.25s;
+      box-shadow:0 8px 32px rgba(249,115,22,0.35);
+      position:relative; overflow:hidden;
+    }
+    .btn-hero-primary::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+      opacity:0; transition:opacity 0.2s;
+    }
+    .btn-hero-primary:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(249,115,22,0.5); }
+    .btn-hero-primary:hover::before { opacity:1; }
+    .btn-hero-secondary {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15);
+      color:var(--text); padding:16px 28px; border-radius:14px;
+      font-family:'Space Grotesk',sans-serif;
+      font-size:1rem; font-weight:700;
+      text-decoration:none; transition:all 0.25s; backdrop-filter:blur(8px);
+    }
+    .btn-hero-secondary:hover { border-color:rgba(249,115,22,0.4); color:var(--accent2); transform:translateY(-3px); }
+    .hero-cta-trust {
+      font-size:0.78rem; color:var(--muted2); margin-top:6px;
+      display:flex; align-items:center; gap:6px; justify-content:center;
+    }
+    .hero-cta-trust .dot { width:5px; height:5px; border-radius:50%; background:var(--green); flex-shrink:0; }
+
     /* dual CTA cards */
     .hero-split {
       display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
@@ -251,24 +306,54 @@
     .hstat-label { color:var(--muted); font-size:0.78rem; margin-top:4px; }
 
     /* ─── MARQUEE ─── */
-    .marquee-wrap {
-      padding:20px 0; background:var(--bg2);
-      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-      overflow:hidden; position:relative;
+    .marquee-section {
+      background:var(--bg);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      padding-bottom:52px;
     }
+    .marquee-header {
+      text-align:center; padding:48px 24px 32px;
+    }
+    .marquee-header .s-label { justify-content:center; padding-left:0; }
+    .marquee-header h3 {
+      font-family:'Space Grotesk',sans-serif; font-weight:800;
+      font-size:clamp(1.3rem,2.5vw,1.8rem); margin-top:10px;
+      line-height:1.2;
+    }
+    .marquee-header p {
+      color:var(--muted2); font-size:0.88rem; margin-top:8px;
+    }
+    .marquee-scroller {
+      position:relative; overflow:hidden;
+    }
+    /* edge fade */
+    .marquee-scroller::before,.marquee-scroller::after {
+      content:''; position:absolute; top:0; bottom:0; width:160px; z-index:2; pointer-events:none;
+    }
+    .marquee-scroller::before { left:0; background:linear-gradient(to right,var(--bg),transparent); }
+    .marquee-scroller::after  { right:0; background:linear-gradient(to left,var(--bg),transparent); }
     .marquee-track {
       display:flex; gap:0; width:max-content;
-      animation:marquee 22s linear infinite;
+      animation:marquee 32s linear infinite;
     }
-    .marquee-wrap:hover .marquee-track { animation-play-state:paused; }
+    .marquee-track:hover { animation-play-state:paused; }
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
     .m-pill {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 28px; white-space:nowrap;
-      color:var(--muted2); font-size:0.88rem; font-weight:600;
-      border-right:1px solid var(--border);
+      display:inline-flex; align-items:center; gap:10px;
+      padding:11px 22px; margin:0 7px; white-space:nowrap;
+      background:var(--bg2); border:1px solid var(--border);
+      border-radius:14px;
+      color:var(--text); font-size:0.88rem; font-weight:700;
+      transition:border-color 0.3s, box-shadow 0.3s; cursor:default;
     }
-    .m-pill .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+    .m-pill:hover { border-color:rgba(249,115,22,0.4); box-shadow:0 0 22px rgba(249,115,22,0.08); }
+    .m-icon {
+      width:28px; height:28px; border-radius:7px;
+      display:inline-flex; align-items:center; justify-content:center;
+      flex-shrink:0; font-weight:900; font-size:13px;
+      color:white; font-family:'Space Grotesk',sans-serif; line-height:1;
+    }
 
     /* ─── SECTION COMMON ─── */
     section { padding:100px 5%; position:relative; }
@@ -288,7 +373,7 @@
     .s-sub { color:var(--muted2); font-size:1rem; max-width:540px; line-height:1.75; }
 
     /* ─── RESULTS / CASE STUDIES ─── */
-    .results-bg { background:var(--bg2); }
+    .results-bg { background:var(--bg2); content-visibility:auto; contain-intrinsic-size:0 600px; }
     .results-bento {
       display:grid;
       grid-template-columns:repeat(12,1fr);
@@ -348,51 +433,149 @@
     .mini-stat.blue .val { color:var(--blue2); }
     .mini-stat.green .val { color:#34d399; }
 
-    /* ─── SERVICES BENTO ─── */
+    /* ─── SERVICES TABS ─── */
     .services-bg { background:var(--bg); }
-    .services-bento {
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px; margin-top:56px;
+    .svc-tabs {
+      display:flex; gap:8px; margin-top:52px;
+      overflow-x:auto; padding-bottom:4px; scrollbar-width:none;
     }
-    .sv-card {
+    .svc-tabs::-webkit-scrollbar { display:none; }
+    .svc-tab {
+      display:flex; align-items:center; gap:8px;
+      padding:12px 22px; border-radius:100px;
+      border:1px solid var(--border); background:var(--bg2);
+      color:var(--muted2); font-family:'Plus Jakarta Sans',sans-serif;
+      font-size:0.88rem; font-weight:600; cursor:pointer;
+      white-space:nowrap; transition:all 0.25s; flex-shrink:0;
+    }
+    .svc-tab:hover { border-color:rgba(249,115,22,0.4); color:var(--text); }
+    .svc-tab.active {
+      background:rgba(249,115,22,0.1); border-color:var(--accent);
+      color:var(--accent); box-shadow:0 0 20px rgba(249,115,22,0.15);
+    }
+    .svc-tab svg { flex-shrink:0; }
+    .svc-panels { margin-top:20px; }
+    .svc-panel { display:none; }
+    .svc-panel.active { display:block; animation:panelIn 0.38s ease; }
+    @keyframes panelIn {
+      from { opacity:0; transform:translateY(14px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .svc-panel-inner {
+      display:grid; grid-template-columns:1fr 1fr;
       background:var(--bg2); border:1px solid var(--border);
-      border-radius:var(--radius); padding:36px 30px;
-      transition:all 0.35s; position:relative; overflow:hidden;
+      border-radius:var(--radius); overflow:hidden;
     }
-    .sv-card::after {
-      content:''; position:absolute; inset:0; opacity:0;
-      background:linear-gradient(135deg,rgba(249,115,22,0.07),transparent 60%);
-      transition:opacity 0.35s; pointer-events:none;
+    .svc-left {
+      padding:52px 48px; display:flex; flex-direction:column;
+      border-right:1px solid var(--border);
     }
-    .sv-card:hover { border-color:rgba(249,115,22,0.3); transform:translateY(-5px); box-shadow:0 24px 64px rgba(0,0,0,0.4); }
-    .sv-card:hover::after { opacity:1; }
-    .sv-card.blue-sv::after { background:linear-gradient(135deg,rgba(99,102,241,0.07),transparent 60%); }
-    .sv-card.blue-sv:hover { border-color:rgba(99,102,241,0.3); }
-    .sv-card.wide { grid-column:span 2; }
-    .sv-icon {
-      width:54px; height:54px; border-radius:14px; margin-bottom:22px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:1.5rem;
-      background:linear-gradient(135deg,rgba(249,115,22,0.15),rgba(249,115,22,0.05));
-      border:1px solid rgba(249,115,22,0.2);
+    .svc-tag-pill {
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:0.73rem; font-weight:700;
+      padding:5px 14px; border-radius:100px; margin-bottom:22px;
+      letter-spacing:0.04em; width:fit-content;
     }
-    .sv-card.blue-sv .sv-icon {
-      background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(99,102,241,0.05));
-      border-color:rgba(99,102,241,0.2);
+    .svc-tag-pill.or { color:var(--accent); background:rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.25); }
+    .svc-tag-pill.bl { color:var(--blue2); background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); }
+    .svc-tag-pill.gr { color:#34d399; background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.25); }
+    .svc-left h3 {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:1.75rem; font-weight:800; line-height:1.2;
+      margin-bottom:14px; color:var(--text);
     }
-    .sv-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1.12rem; font-weight:700; margin-bottom:10px; }
-    .sv-card > p { color:var(--muted2); font-size:0.9rem; line-height:1.7; margin-bottom:22px; }
-    .sv-features { display:flex; flex-direction:column; gap:8px; }
-    .sv-feat {
-      display:flex; align-items:flex-start; gap:10px;
-      font-size:0.85rem; color:var(--muted2);
+    .svc-left > p { color:var(--muted2); font-size:0.93rem; line-height:1.75; margin-bottom:28px; }
+    .svc-feats { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+    .svc-feat { display:flex; align-items:flex-start; gap:12px; font-size:0.88rem; color:var(--text); }
+    .svc-chk {
+      width:20px; height:20px; border-radius:50%; display:flex;
+      align-items:center; justify-content:center; flex-shrink:0;
+      margin-top:2px; font-size:0.68rem; font-weight:900;
     }
-    .sv-feat .check { color:var(--accent); font-size:0.8rem; margin-top:2px; flex-shrink:0; }
-    .sv-card.blue-sv .sv-feat .check { color:var(--blue2); }
-    /* wide card two-col layout */
-    .sv-wide-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:6px; }
-    .sv-wide-col h4 { font-family:'Space Grotesk',sans-serif; font-size:0.85rem; font-weight:700; color:var(--muted2); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px; }
+    .svc-chk.or { background:rgba(249,115,22,0.15); color:var(--accent); }
+    .svc-chk.bl { background:rgba(99,102,241,0.15); color:var(--blue2); }
+    .svc-chk.gr { background:rgba(52,211,153,0.15); color:#34d399; }
+    .svc-stats-row { display:flex; gap:12px; margin-bottom:32px; flex-wrap:wrap; }
+    .svc-stat {
+      background:var(--bg); border:1px solid var(--border);
+      border-radius:12px; padding:14px 18px; flex:1; min-width:80px;
+    }
+    .svc-stat .sv { font-family:'Space Grotesk',sans-serif; font-size:1.25rem; font-weight:800; display:block; }
+    .svc-stat .sv.or { color:var(--accent); }
+    .svc-stat .sv.bl { color:var(--blue2); }
+    .svc-stat .sv.gr { color:#34d399; }
+    .svc-stat small { font-size:0.7rem; color:var(--muted); margin-top:2px; display:block; }
+    .svc-cta-btn {
+      display:inline-flex; align-items:center; gap:8px; color:white;
+      padding:14px 28px; border-radius:100px; font-weight:700;
+      font-size:0.9rem; text-decoration:none; transition:all 0.25s;
+      width:fit-content; margin-top:auto;
+    }
+    .svc-cta-btn.or { background:var(--accent); }
+    .svc-cta-btn.bl { background:var(--blue); }
+    .svc-cta-btn.gr { background:linear-gradient(135deg,#059669,#10b981); }
+    .svc-cta-btn.or:hover { box-shadow:0 12px 32px rgba(249,115,22,0.4); transform:translateY(-2px); }
+    .svc-cta-btn.bl:hover { box-shadow:0 12px 32px rgba(99,102,241,0.4); transform:translateY(-2px); }
+    .svc-cta-btn.gr:hover { box-shadow:0 12px 32px rgba(16,185,129,0.4); transform:translateY(-2px); }
+    /* Right visual pane */
+    .svc-right {
+      padding:40px; display:flex; align-items:center; justify-content:center;
+      position:relative; overflow:hidden; background:var(--bg3);
+    }
+    .svc-right.or::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 20%, rgba(249,115,22,0.07) 0%, transparent 60%); pointer-events:none; }
+    .svc-right.bl::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 20%, rgba(99,102,241,0.08) 0%, transparent 60%); pointer-events:none; }
+    .svc-right.gr::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 20%, rgba(52,211,153,0.07) 0%, transparent 60%); pointer-events:none; }
+    /* Mock dashboard elements */
+    .svc-mock { width:100%; max-width:360px; display:flex; flex-direction:column; gap:10px; position:relative; z-index:1; }
+    .sm-hdr {
+      background:var(--bg2); border:1px solid var(--border); border-radius:12px;
+      padding:12px 16px; display:flex; align-items:center; gap:10px;
+    }
+    .sm-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .sm-dot.g { background:#34d399; } .sm-dot.o { background:var(--accent); } .sm-dot.b { background:var(--blue2); }
+    .sm-hdr-title { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.8rem; }
+    .sm-hdr-sub { font-size:0.7rem; color:var(--muted); margin-left:auto; }
+    .sm-card {
+      background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:18px 20px;
+    }
+    .sm-section-label { font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:12px; }
+    /* bar rows */
+    .sm-bar-row { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+    .sm-bar-row:last-child { margin-bottom:0; }
+    .sm-bl { font-size:0.7rem; color:var(--muted2); width:68px; flex-shrink:0; text-align:right; }
+    .sm-track { flex:1; height:8px; background:rgba(255,255,255,0.06); border-radius:4px; overflow:hidden; }
+    .sm-fill { height:100%; border-radius:4px; }
+    .sm-bv { font-size:0.7rem; font-weight:700; width:32px; flex-shrink:0; }
+    /* health list */
+    .sm-health-item { display:flex; align-items:center; gap:10px; font-size:0.82rem; margin-bottom:8px; }
+    .sm-health-item:last-child { margin-bottom:0; }
+    .sm-hi-icon { width:26px; height:26px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:0.68rem; flex-shrink:0; font-weight:900; }
+    .sm-hi-icon.g { background:rgba(52,211,153,0.15); color:#34d399; }
+    .sm-hi-icon.o { background:rgba(249,115,22,0.15); color:var(--accent); }
+    .sm-hi-label { flex:1; color:var(--text); font-weight:500; }
+    .sm-hi-badge { font-size:0.68rem; font-weight:700; padding:2px 9px; border-radius:100px; }
+    .sm-hi-badge.g { background:rgba(52,211,153,0.12); color:#34d399; }
+    .sm-hi-badge.o { background:rgba(249,115,22,0.12); color:var(--accent); }
+    /* market list */
+    .sm-mkt-item { display:flex; align-items:center; gap:10px; font-size:0.82rem; margin-bottom:8px; }
+    .sm-mkt-item:last-child { margin-bottom:0; }
+    .sm-mkt-logo { width:26px; height:26px; border-radius:7px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .sm-mkt-name { flex:1; font-weight:600; color:var(--text); }
+    .sm-mkt-badge { font-size:0.68rem; font-weight:700; padding:2px 9px; border-radius:100px; }
+    .sm-mkt-badge.live { background:rgba(52,211,153,0.12); color:#34d399; }
+    .sm-mkt-badge.soon { background:rgba(249,115,22,0.12); color:var(--accent); }
+    .sm-mkt-badge.plan { background:rgba(122,143,168,0.12); color:var(--muted2); }
+    /* responsive */
+    @media(max-width:900px){
+      .svc-panel-inner { grid-template-columns:1fr; }
+      .svc-left { padding:32px 28px; border-right:none; border-bottom:1px solid var(--border); }
+      .svc-right { padding:28px; min-height:360px; }
+    }
+    @media(max-width:600px){
+      .svc-left { padding:28px 20px; }
+      .svc-left h3 { font-size:1.45rem; }
+      .svc-stats-row { gap:8px; }
+    }
 
     /* ─── META ADS SPOTLIGHT ─── */
     .meta-section { background:var(--bg2); }
@@ -430,7 +613,7 @@
     .ml-text p { font-size:0.83rem; color:var(--muted2); line-height:1.6; }
 
     /* ─── PROCESS TIMELINE ─── */
-    .process-bg { background:var(--bg); }
+    .process-bg { background:var(--bg); content-visibility:auto; contain-intrinsic-size:0 500px; }
     .process-line {
       display:grid; grid-template-columns:repeat(4,1fr);
       gap:0; margin-top:64px; position:relative;
@@ -455,7 +638,7 @@
     .p-step p { color:var(--muted2); font-size:0.85rem; line-height:1.7; }
 
     /* ─── TESTIMONIALS ─── */
-    .testi-bg { background:var(--bg2); }
+    .testi-bg { background:var(--bg2); content-visibility:auto; contain-intrinsic-size:0 500px; }
     .testi-grid {
       display:grid; grid-template-columns:repeat(3,1fr);
       gap:16px; margin-top:56px;
@@ -485,43 +668,6 @@
     .tc-mkt { font-size:0.72rem; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap; }
     .tc-mkt.in { background:rgba(249,115,22,0.12); color:var(--accent2); }
     .tc-mkt.uk { background:rgba(99,102,241,0.12); color:var(--blue2); }
-
-    /* ─── PLATFORMS DETAIL ─── */
-    .plat-section { background:var(--bg); }
-    .plat-grid {
-      display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
-      margin-top:48px;
-    }
-    .plat-card {
-      background:var(--bg2); border:1px solid var(--border);
-      border-radius:var(--radius-sm); padding:24px 20px;
-      text-align:center; transition:all 0.3s; cursor:default;
-    }
-    .plat-card:hover { border-color:rgba(249,115,22,0.3); transform:translateY(-3px); }
-    .plat-logo { height:48px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
-    .plat-logo img { width:44px; height:44px; object-fit:contain; border-radius:8px; }
-    .plat-name { font-family:'Space Grotesk',sans-serif; font-size:0.92rem; font-weight:700; margin-bottom:4px; }
-    .plat-desc { font-size:0.78rem; color:var(--muted); }
-
-    /* ─── FAQ ─── */
-    .faq-bg { background:var(--bg2); }
-    .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:56px; }
-    .faq-item {
-      background:var(--bg); border:1px solid var(--border);
-      border-radius:var(--radius-sm); overflow:hidden; transition:border-color 0.3s;
-    }
-    .faq-item.open { border-color:rgba(249,115,22,0.3); }
-    .faq-q {
-      padding:22px 24px; display:flex; justify-content:space-between;
-      align-items:center; gap:12px; cursor:pointer;
-      font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.95rem;
-      user-select:none;
-    }
-    .faq-ico { width:28px; height:28px; border-radius:50%; background:rgba(249,115,22,0.1); display:flex; align-items:center; justify-content:center; color:var(--accent); font-size:1rem; flex-shrink:0; transition:transform 0.3s; }
-    .faq-item.open .faq-ico { transform:rotate(45deg); background:rgba(249,115,22,0.2); }
-    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
-    .faq-a-inner { padding:0 24px 22px; color:var(--muted2); font-size:0.88rem; line-height:1.75; }
-    .faq-item.open .faq-a { max-height:200px; }
 
     /* ─── CTA FINAL ─── */
     .cta-bg { background:var(--bg); }
@@ -642,8 +788,6 @@
       .services-bento{grid-template-columns:1fr;}
       .sv-card.wide{grid-column:span 1;}
       .testi-grid{grid-template-columns:1fr;}
-      .plat-grid{grid-template-columns:repeat(2,1fr);}
-      .faq-grid{grid-template-columns:1fr;}
       .process-line{grid-template-columns:1fr;gap:32px;}
       .process-line::before{display:none;}
       .hero-stats{flex-direction:column;gap:0;}
@@ -684,37 +828,6 @@
     .explore-arrow{font-size:0.75rem;color:var(--accent);font-weight:700;margin-top:4px;}
     @media(max-width:1200px){.explore-grid{grid-template-columns:repeat(3,1fr);}}
     @media(max-width:640px){.explore-grid{grid-template-columns:repeat(2,1fr);}}
-
-    /* ─── COMPARISON TABLE ─── */
-    .compare-bg { background:var(--bg2); }
-    .compare-table {
-      margin-top:56px; border-radius:var(--radius); overflow:hidden;
-      border:1px solid var(--border); width:100%;
-    }
-    .ct-head {
-      display:grid; grid-template-columns:2fr 1.1fr 1.1fr 1.1fr;
-      background:var(--bg3); border-bottom:1px solid var(--border2);
-    }
-    .ct-col { padding:20px 24px; font-family:'Space Grotesk',sans-serif; font-size:0.82rem; font-weight:800; letter-spacing:0.04em; }
-    .ct-col:first-child { color:var(--muted); text-transform:uppercase; }
-    .ct-col.bitesu { color:var(--accent2); }
-    .ct-col.grey { color:var(--muted2); }
-    .ct-row {
-      display:grid; grid-template-columns:2fr 1.1fr 1.1fr 1.1fr;
-      border-bottom:1px solid var(--border); transition:background 0.2s;
-    }
-    .ct-row:last-child { border-bottom:none; }
-    .ct-row:hover { background:rgba(255,255,255,0.02); }
-    .ct-cell { padding:15px 24px; font-size:0.87rem; display:flex; align-items:center; gap:8px; }
-    .ct-cell.label { color:var(--text); font-weight:500; }
-    .ct-good { color:#34d399; font-weight:700; font-size:0.85rem; }
-    .ct-bad { color:var(--muted); font-size:0.85rem; }
-    .ct-part { color:#fbbf24; font-size:0.85rem; }
-    .ct-bitesu-highlight { background:rgba(249,115,22,0.04); }
-    @media(max-width:768px){
-      .ct-head,.ct-row{grid-template-columns:1.8fr 1fr 1fr;}
-      .ct-col:nth-child(4),.ct-cell:nth-child(4){display:none;}
-    }
 
     /* ─── PRICING ─── */
     .pricing-bg { background:var(--bg); }
@@ -798,7 +911,7 @@
     .af-input {
       background:rgba(255,255,255,0.05); border:1px solid var(--border2);
       color:var(--text); padding:12px 16px; border-radius:10px;
-      font-size:0.9rem; font-family:'Inter',sans-serif; outline:none;
+      font-size:0.9rem; font-family:'Plus Jakarta Sans',sans-serif; outline:none;
       transition:border-color 0.2s; width:100%;
     }
     .af-input:focus { border-color:rgba(249,115,22,0.5); }
@@ -806,7 +919,7 @@
     .af-select {
       background:rgba(255,255,255,0.05); border:1px solid var(--border2);
       color:var(--text); padding:12px 16px; border-radius:10px;
-      font-size:0.9rem; font-family:'Inter',sans-serif; outline:none;
+      font-size:0.9rem; font-family:'Plus Jakarta Sans',sans-serif; outline:none;
       transition:border-color 0.2s; width:100%; cursor:pointer;
       appearance:none;
     }
@@ -814,12 +927,166 @@
     .af-submit {
       background:linear-gradient(135deg,#f97316,#ea580c); color:#fff;
       border:none; padding:14px 28px; border-radius:12px; cursor:pointer;
-      font-weight:700; font-size:0.95rem; font-family:'Inter',sans-serif;
+      font-weight:700; font-size:0.95rem; font-family:'Plus Jakarta Sans',sans-serif;
       transition:all 0.25s; display:flex; align-items:center; justify-content:center; gap:8px;
     }
     .af-submit:hover { box-shadow:0 10px 36px rgba(249,115,22,0.4); transform:translateY(-2px); }
     .af-disclaimer { font-size:0.75rem; color:var(--muted); text-align:center; }
-  </style>
+
+    /* ─── CANVAS PARTICLES (hero) ─── */
+    #heroCanvas { position:absolute; inset:0; z-index:1; pointer-events:none; width:100%; height:100%; }
+
+    /* ─── BRAIN / NEURAL NETWORK SECTION ─── */
+    .brain-bg { background:var(--bg2); overflow:hidden; content-visibility:auto; contain-intrinsic-size:0 700px; }
+    .brain-layout {
+      display:grid; grid-template-columns:270px 1fr 270px;
+      position:relative; margin-top:64px; min-height:560px; gap:0;
+    }
+    .brain-col-left,.brain-col-right {
+      display:flex; flex-direction:column;
+      justify-content:space-between; padding:16px 0; gap:16px;
+    }
+    .brain-col-center {
+      position:relative; display:flex; align-items:center; justify-content:center;
+    }
+    .brain-node-card {
+      background:var(--bg); border:1px solid var(--border2);
+      border-radius:var(--radius-sm); padding:18px 20px;
+      transition:all 0.35s; position:relative; overflow:hidden; cursor:default;
+    }
+    .brain-node-card::before {
+      content:''; position:absolute; inset:0; opacity:0;
+      background:linear-gradient(135deg,rgba(249,115,22,0.08),transparent);
+      transition:opacity 0.3s;
+    }
+    .brain-col-left .brain-node-card:hover { border-color:rgba(249,115,22,0.45); transform:translateX(8px); box-shadow:6px 0 24px rgba(249,115,22,0.1); }
+    .brain-col-right .brain-node-card:hover { border-color:rgba(99,102,241,0.45); transform:translateX(-8px); box-shadow:-6px 0 24px rgba(99,102,241,0.1); }
+    .brain-node-card:hover::before { opacity:1; }
+    .bnc-icon { font-size:1.4rem; margin-bottom:8px; }
+    .bnc-title { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; margin-bottom:4px; }
+    .bnc-desc { font-size:0.77rem; color:var(--muted2); line-height:1.55; }
+    .bnc-val { font-size:0.78rem; font-weight:700; color:var(--accent2); margin-top:8px; padding:4px 10px; background:rgba(249,115,22,0.08); border-radius:50px; display:inline-block; }
+    .brain-col-right .bnc-val { background:rgba(99,102,241,0.1); color:var(--blue2); }
+
+    /* Brain SVG center */
+    .brain-center-wrap {
+      position:relative; width:230px; height:230px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .brain-glow-ring {
+      position:absolute; border-radius:50%;
+      border:1px solid rgba(249,115,22,0.2);
+      animation:brainRing 4s ease-in-out infinite;
+    }
+    .brain-glow-ring:nth-child(1) { width:200px; height:200px; animation-delay:0s; }
+    .brain-glow-ring:nth-child(2) { width:245px; height:245px; border-color:rgba(249,115,22,0.1); animation-delay:-1.5s; }
+    .brain-glow-ring:nth-child(3) { width:290px; height:290px; border-color:rgba(99,102,241,0.08); animation-delay:-3s; }
+    @keyframes brainRing {
+      0%,100%{ transform:scale(1); opacity:1; }
+      50%{ transform:scale(1.04); opacity:0.6; }
+    }
+    .brain-svg-icon {
+      width:170px; height:150px; position:relative; z-index:2;
+      animation:brainGlow 3s ease-in-out infinite;
+    }
+    @keyframes brainGlow {
+      0%,100%{ filter:drop-shadow(0 0 18px rgba(249,115,22,0.45)); }
+      50%{ filter:drop-shadow(0 0 36px rgba(249,115,22,0.75)); }
+    }
+    .brain-label-wrap {
+      position:absolute; bottom:-44px; left:50%; transform:translateX(-50%);
+      text-align:center; white-space:nowrap;
+    }
+    .brain-label { font-family:'Space Grotesk',sans-serif; font-weight:800; font-size:0.8rem; color:var(--accent2); letter-spacing:0.1em; text-transform:uppercase; }
+    .brain-sublabel { font-size:0.7rem; color:var(--muted); margin-top:3px; }
+
+    /* SVG overlay lines */
+    .brain-lines-svg {
+      position:absolute; inset:0; width:100%; height:100%;
+      pointer-events:none; z-index:0; overflow:visible;
+    }
+    .b-line {
+      fill:none; stroke-width:1.2; stroke-dasharray:7 5;
+      animation:lineFlow 2.4s linear infinite;
+    }
+    .b-line.orange { stroke:rgba(249,115,22,0.35); }
+    .b-line.indigo { stroke:rgba(99,102,241,0.35); animation-direction:reverse; animation-duration:2s; }
+    @keyframes lineFlow { from{ stroke-dashoffset:24; } to{ stroke-dashoffset:0; } }
+
+    /* ─── ANIMATED PROCESS TIMELINE ─── */
+    .ptl-wrap { margin-top:72px; position:relative; padding-bottom:8px; }
+    .ptl-connector {
+      position:absolute; top:43px; left:12.5%; right:12.5%; height:2px;
+      background:rgba(255,255,255,0.05); border-radius:2px; z-index:0; overflow:visible;
+    }
+    .ptl-fill {
+      height:100%; width:0%; border-radius:2px;
+      background:linear-gradient(90deg,#f97316,#a855f7,#6366f1);
+      transition:width 1.4s cubic-bezier(0.4,0,0.2,1); position:relative;
+    }
+    .ptl-fill::after {
+      content:''; position:absolute; right:-5px; top:-5px;
+      width:12px; height:12px; border-radius:50%;
+      background:#f97316; box-shadow:0 0 16px rgba(249,115,22,0.9);
+      transition:background 1.4s; opacity:0;
+    }
+    .ptl-fill.done::after { opacity:1; background:#6366f1; }
+    .ptl-steps {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      position:relative; z-index:1;
+    }
+    .ptl-step {
+      display:flex; flex-direction:column; align-items:center;
+      text-align:center; padding:0 18px;
+      opacity:0.3; transform:translateY(10px);
+      transition:opacity 0.6s ease, transform 0.6s ease;
+    }
+    .ptl-step.active { opacity:1; transform:translateY(0); }
+    .ptl-node {
+      width:86px; height:86px; border-radius:50%;
+      background:var(--bg2); border:2px solid var(--border2);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:20px; position:relative; z-index:2;
+      transition:all 0.55s ease;
+    }
+    .ptl-step.active .ptl-node {
+      border-color:var(--accent);
+      box-shadow:0 0 0 8px rgba(249,115,22,0.07), 0 0 28px rgba(249,115,22,0.25);
+      background:linear-gradient(135deg,rgba(249,115,22,0.1),var(--bg2));
+    }
+    .ptl-icon { transition:color 0.5s; color:var(--muted); }
+    .ptl-step.active .ptl-icon { color:var(--accent); }
+    .ptl-num { font-family:'Space Grotesk',sans-serif; font-size:0.65rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px; transition:color 0.5s; }
+    .ptl-step.active .ptl-num { color:var(--accent2); }
+    .ptl-step h4 { font-family:'Space Grotesk',sans-serif; font-size:0.97rem; font-weight:700; margin-bottom:10px; }
+    .ptl-step p { color:var(--muted2); font-size:0.83rem; line-height:1.72; }
+    @media(max-width:768px){
+      .ptl-steps{ grid-template-columns:1fr 1fr; gap:32px; }
+      .ptl-connector{ display:none; }
+      .brain-layout{ grid-template-columns:1fr; }
+      .brain-col-center{ min-height:280px; }
+      .brain-lines-svg{ display:none; }
+    }
+    @media(max-width:1024px){
+      .brain-layout{ grid-template-columns:220px 1fr 220px; }
+    }
+  
+/* ── Logo: leaf sprout animation ── */
+.logo-badge{display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:4px 10px;box-shadow:0 0 20px rgba(255,255,255,0.10);transform-origin:bottom center;animation:leafSprout 1.1s cubic-bezier(0.34,1.56,0.64,1) forwards,leafSway 6s ease-in-out 1.15s infinite;}
+.logo-badge img{display:block;}
+@keyframes leafSprout{
+  0%{transform:scaleY(0) scaleX(0.4);opacity:0;}
+  40%{opacity:1;}
+  70%{transform:scaleY(1.1) scaleX(1.02);}
+  85%{transform:scaleY(0.95) scaleX(0.99);}
+  100%{transform:scaleY(1) scaleX(1);opacity:1;}
+}
+@keyframes leafSway{
+  0%,100%{transform:rotate(-2.5deg);}
+  50%{transform:rotate(2.5deg);}
+}50%{transform:rotate(2.5deg) translateY(-1px)}}
+
+</style>
   <!-- ╔══════════════════════════════════════════════════════════════╗
        ║  META PIXEL — replace 1136656594313315 with your real ID  ║
        ║  Find it: Meta Business Manager → Events Manager → Pixels   ║
@@ -835,6 +1102,35 @@
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1136656594313315&ev=PageView&noscript=1"/></noscript>
 </head>
+<svg style="display:none" aria-hidden="true">
+<symbol id="logo-amazon"    viewBox="0 0 24 24"><path fill="currentColor" d="M2.027 17.023q.09-.147.289-.02c3.035 1.76 6.338 2.645 9.906 2.645c2.381 0 4.73-.447 7.051-1.332l.262-.117c.115-.051.195-.084.244-.109c.189-.074.326-.037.438.109c.102.143.076.279-.1.4c-.213.158-.5.342-.84.545q-1.557.927-3.492 1.441a14.8 14.8 0 0 1-3.77.508q-2.834 0-5.369-.99a14.9 14.9 0 0 1-4.531-2.797q-.125-.092-.125-.184q.002-.058.041-.109zm5.479-5.189q0-1.258.619-2.152c.414-.592.977-1.041 1.703-1.346c.666-.281 1.465-.48 2.43-.602q.49-.056 1.6-.145v-.31c0-.773-.084-1.299-.248-1.564c-.252-.359-.65-.541-1.203-.541h-.15c-.4.039-.746.162-1.039.383a1.5 1.5 0 0 0-.564.916c-.049.25-.172.387-.361.426l-2.105-.264c-.209-.051-.311-.15-.311-.326c0-.037.006-.074.018-.123q.313-1.618 1.52-2.404c.814-.514 1.752-.814 2.828-.875h.451c1.379 0 2.469.361 3.244 1.076c.115.123.227.25.34.398c.1.139.188.264.234.377c.063.111.127.275.164.475c.051.213.088.352.113.426c.023.086.051.25.064.514c.006.262.016.41.016.461v4.406c0 .314.049.602.137.865c.088.26.174.451.262.563l.428.561a.6.6 0 0 1 .111.303q0 .153-.148.26c-1.002.877-1.553 1.352-1.639 1.428q-.206.169-.525.039a5 5 0 0 1-.439-.414l-.258-.291c-.051-.063-.141-.174-.266-.352l-.25-.363c-.676.74-1.338 1.205-2.002 1.393c-.414.125-.914.188-1.529.188c-.926 0-1.701-.285-2.303-.863c-.598-.576-.9-1.389-.9-2.453l-.043-.063zm3.131-.367q-.001.71.355 1.139c.236.285.563.428.965.428q.052-.001.16-.018c.078-.012.111-.02.141-.02c.512-.133.902-.461 1.189-.982a2.6 2.6 0 0 0 .299-.758c.076-.268.1-.494.111-.666c.016-.166.016-.453.016-.84v-.451q-1.056 0-1.604.148c-1.063.303-1.604.977-1.604 2.029l-.029-.016zm7.646 5.865c.025-.051.063-.092.109-.143c.301-.201.596-.342.877-.416a6.6 6.6 0 0 1 1.344-.201q.177-.014.346.025c.539.051.873.141.977.273c.053.078.074.191.074.328v.125q0 .638-.348 1.502c-.348.864-.553 1.041-.963 1.402q-.091.074-.164.074c-.025 0-.051 0-.074-.01c-.076-.037-.09-.1-.055-.201c.451-1.051.672-1.787.672-2.201c0-.127-.025-.227-.074-.289c-.119-.137-.457-.217-1.02-.217a9 9 0 0 0-.727.039q-.455.06-.834.115q-.11-.001-.15-.037c-.025-.025-.031-.039-.018-.064c0-.014.006-.025.018-.053v-.049z"/></symbol>
+<symbol id="logo-meta"      viewBox="0 0 24 24"><path fill="currentColor" d="M20.26 7.8a4.82 4.82 0 0 0-3.93-2.44a3.9 3.9 0 0 0-2.54 1.09a10.6 10.6 0 0 0-1.52 1.71a11 11 0 0 0-1.63-1.72a4.4 4.4 0 0 0-2.88-1.08A5 5 0 0 0 3.7 8A11.5 11.5 0 0 0 2 14a7 7 0 0 0 .18 1.64A4.4 4.4 0 0 0 2.71 17a3.23 3.23 0 0 0 3 1.6c1.25 0 2.19-.56 3.3-2a26.4 26.4 0 0 0 2.21-3.6l.63-1.12c.06-.09.11-.18.16-.27l.15.25l1.79 3A14.8 14.8 0 0 0 16 17.63a3.38 3.38 0 0 0 2.55 1a3 3 0 0 0 2.54-1.23a2 2 0 0 0 .18-.28a4 4 0 0 0 .31-.63l.12-.35A6.5 6.5 0 0 0 22 15a9 9 0 0 0 0-1a11.15 11.15 0 0 0-1.74-6.2m-10.12 3.56c-.64 1-1.57 2.51-2.37 3.61c-1 1.37-1.51 1.51-2.07 1.51a1.29 1.29 0 0 1-1.15-.66a3.3 3.3 0 0 1-.39-1.7A9.74 9.74 0 0 1 5.54 9a2.8 2.8 0 0 1 2.19-1.47A3 3 0 0 1 10 8.74a14 14 0 0 1 1 1.31zm8.42 5.12c-.48 0-.85-.19-1.38-.83A35 35 0 0 1 14.82 12l-.52-.86c-.36-.61-.71-1.16-1-1.65a3 3 0 0 1 .17-.27c.94-1.39 1.77-2.17 2.8-2.17a3.12 3.12 0 0 1 2.49 1.66a10.17 10.17 0 0 1 1.37 5.34c-.04 1.31-.34 2.43-1.57 2.43"/></symbol>
+<symbol id="logo-facebook"  viewBox="0 0 24 24"><path fill="currentColor" d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22 22 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202z"/></symbol>
+<symbol id="logo-instagram" viewBox="0 0 24 24"><path fill="currentColor" d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248a4.623 4.623 0 0 0 0-9.248m0 7.627a3.004 3.004 0 1 1 0-6.008a3.004 3.004 0 0 1 0 6.008m4.807-8.875a1.078 1.078 0 1 0 0 2.156a1.078 1.078 0 1 0 0-2.156"/><path fill="currentColor" d="M20.533 6.111A4.6 4.6 0 0 0 17.9 3.479a6.6 6.6 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.6 6.6 0 0 0-2.184.42a4.6 4.6 0 0 0-2.633 2.632a6.6 6.6 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71s0 2.753.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632a6.6 6.6 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.6 6.6 0 0 0 2.186-.419a4.6 4.6 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186c.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.6 6.6 0 0 0-.421-2.217m-1.218 9.532a5 5 0 0 1-.311 1.688a3 3 0 0 1-1.712 1.711a5 5 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055c-2.438 0-2.687 0-3.655-.055a5 5 0 0 1-1.669-.311a3 3 0 0 1-1.719-1.711a5.1 5.1 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654s0-2.686.053-3.655a5 5 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5 5 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a5 5 0 0 1 1.67.311a3 3 0 0 1 1.712 1.712a5.1 5.1 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655s0 2.698-.043 3.654z"/></symbol>
+<symbol id="logo-walmart"   viewBox="0 0 24 24"><path fill="currentColor" d="m8.233 13.132l-4.776 2.217a1.22 1.22 0 0 0-.134 1.656c.384.655 1.056.968 1.5.706L9.142 14.7a.86.86 0 0 0 .031-1.066a.854.854 0 0 0-.94-.502m7.552.001c-.3-.118-.7.1-.942.505a.87.87 0 0 0 .026 1.06l4.315 3.018c.448.256 1.123-.055 1.507-.711s.309-1.4-.135-1.656Zm-3.777 2.138a.856.856 0 0 0-.906.556l-.466 5.235c0 .518.606.938 1.372.938s1.371-.42 1.371-.938l-.462-5.235a.86.86 0 0 0-.909-.556m2.835-4.904a.88.88 0 0 0 .942.509l4.776-2.221c.444-.262.51-.995.135-1.654s-1.059-.97-1.507-.714L14.874 9.3a.88.88 0 0 0-.026 1.07ZM4.827 6.289c-.448-.262-1.12.05-1.5.71a1.22 1.22 0 0 0 .134 1.656l4.772 2.215a.854.854 0 0 0 .94-.5a.86.86 0 0 0-.031-1.065ZM12.008 2c-.766 0-1.372.424-1.372.943l.472 5.234a.856.856 0 0 0 .9.556a.86.86 0 0 0 .909-.556l.462-5.234C13.38 2.424 12.77 2 12.008 2"/></symbol>
+<symbol id="logo-flipkart"  viewBox="0 0 24 24"><path fill="currentColor" d="M3.833 1.333a1 1 0 0 0-.333.061V1c0-.551.449-1 1-1h14.667c.551 0 1 .449 1 1v.333zm17.334 2.334H2.833c-.551 0-1 .449-1 1V23c0 .551.449 1 1 1h7.3l1.098-5.645h-2.24c-.051 0-5.158-.241-5.158-.241l4.639-.327-.078-.366-1.978-.285 1.882-.158-.124-.449-3.075-.467s3.341-.373 3.392-.373h3.232l.247-1.331c.289-1.616.945-2.807 1.973-3.693c1.033-.892 2.344-1.332 3.937-1.332c.643 0 1.053.151 1.231.463c.118.186.201.516.279.859c.074.352.14.671.095.903c-.057.345-.461.465-1.197.465h-.253c-1.327 0-2.134.763-2.405 2.31l-.243 1.355h1.54c.574 0 .781.402.622 1.306c-.17.941-.539 1.36-1.111 1.36H14.9L13.804 24h7.362c.551 0 1-.449 1-1V4.667a1 1 0 0 0-.999-1M20.5 2.333A.334.334 0 0 0 20.167 2H3.833a.334.334 0 0 0-.333.333V3h17z"/></symbol>
+<symbol id="logo-myntra"    viewBox="0 0 24 24"><path fill="currentColor" d="M2 20V4.8h2.6l2.9 4.4 2.4-3.6C10.6 4.6 11.3 4 12 4s1.4.6 2.1 1.6l2.4 3.6 2.9-4.4H22V20h-2.8v-8.5l-4.6 6.9L12 16l-2.6 2.4-4.6-6.9V20Z"/></symbol>
+<symbol id="logo-google"   viewBox="0 0 24 24"><path fill="currentColor" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></symbol>
+<symbol id="logo-meesho"    viewBox="0 0 24 24"><path fill="currentColor" d="M2.5 8.2C2.5 5.6 4.6 4 7 4c1.4 0 2.6.6 3.4 1.6A4.3 4.3 0 0 1 14 4c2.4 0 4.5 1.6 4.5 4.2V20H16V8.8c0-1.1-.8-2-1.9-2c-1.1 0-2 .9-2 2V20H9.5V8.8c0-1.1-.9-2-2-2c-1.1 0-2 .9-2 2V20H2.5Z"/></symbol>
+<!-- Nykaa — 4-petal flower (their actual logo icon) -->
+<symbol id="logo-nykaa" viewBox="0 0 24 24">
+  <ellipse cx="12" cy="6.5" rx="2.8" ry="4.5" fill="currentColor"/>
+  <ellipse cx="12" cy="17.5" rx="2.8" ry="4.5" fill="currentColor"/>
+  <ellipse cx="6.5" cy="12" rx="4.5" ry="2.8" fill="currentColor"/>
+  <ellipse cx="17.5" cy="12" rx="4.5" ry="2.8" fill="currentColor"/>
+  <circle cx="12" cy="12" r="3" fill="currentColor"/>
+</symbol>
+<!-- Noon — sun icon (noon = midday sun; yellow bg set in marquee) -->
+<symbol id="logo-noon" viewBox="0 0 24 24">
+  <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+  <path d="M12 2L12 5.5M12 18.5L12 22M2 12L5.5 12M18.5 12L22 12M5.05 5.05L7.46 7.46M16.54 16.54L18.95 18.95M18.95 5.05L16.54 7.46M7.46 16.54L5.05 18.95" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+</symbol>
+<!-- Tatacliq — bold T-bar (Tata brand mark, white on brand blue) -->
+<symbol id="logo-tatacliq" viewBox="0 0 24 24">
+  <path fill="currentColor" d="M2 5.5h20v3.2H14v9.8h-4V8.7H2V5.5z"/>
+  <path fill="currentColor" d="M15.5 12.5l2.8-4.2h-2.1l1.5-3.5-5.2 6.5h2.2L12 17.5z"/>
+</symbol>
+</svg>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRL5Q2HB"
@@ -842,127 +1138,12 @@
   <!-- End Google Tag Manager (noscript) -->
 
 <!-- SVG ICON SPRITE -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <!-- Target / PPC -->
-  <symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor"/>
-    <line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/>
-    <line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/>
-  </symbol>
-  <!-- Sliders / Account Mgmt -->
-  <symbol id="ic-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-    <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
-    <circle cx="8" cy="6" r="2.5" fill="currentColor" stroke="none"/>
-    <circle cx="16" cy="12" r="2.5" fill="currentColor" stroke="none"/>
-    <circle cx="10" cy="18" r="2.5" fill="currentColor" stroke="none"/>
-  </symbol>
-  <!-- File Edit / Listing -->
-  <symbol id="ic-listing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8"/>
-    <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
-    <line x1="10" y1="9" x2="8" y2="9"/>
-  </symbol>
-  <!-- Storefront / Brand Store -->
-  <symbol id="ic-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 11l19-9-9 19-2-8-8-2z"/>
-  </symbol>
-  <!-- Globe / Global -->
-  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-    <circle cx="12" cy="12" r="10"/>
-    <line x1="2" y1="12" x2="22" y2="12"/>
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
-  </symbol>
-  <!-- Zap / Fast results -->
-  <symbol id="ic-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-  </symbol>
-  <!-- Shield check / Trust -->
-  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    <polyline points="9 12 11 14 15 10"/>
-  </symbol>
-  <!-- Clipboard / Roadmap -->
-  <symbol id="ic-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-    <line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/>
-  </symbol>
-  <!-- Clock / Timezone -->
-  <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-    <circle cx="12" cy="12" r="10"/>
-    <polyline points="12 6 12 12 16 14"/>
-  </symbol>
-  <!-- Search / Audit -->
-  <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-    <circle cx="11" cy="11" r="8"/>
-    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-  </symbol>
-  <!-- Bar Chart / Reporting -->
-  <symbol id="ic-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="18" y1="20" x2="18" y2="10"/>
-    <line x1="12" y1="20" x2="12" y2="4"/>
-    <line x1="6" y1="20" x2="6" y2="14"/>
-    <line x1="2" y1="20" x2="22" y2="20"/>
-  </symbol>
-  <!-- Brand logos — inline SVG, zero CDN dependency -->
-  <defs>
-    <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f09433"/>
-      <stop offset="40%" stop-color="#e6683c"/>
-      <stop offset="65%" stop-color="#dc2743"/>
-      <stop offset="85%" stop-color="#cc2366"/>
-      <stop offset="100%" stop-color="#bc1888"/>
-    </linearGradient>
-  </defs>
-  <symbol id="bl-amazon" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="#FF9900"/>
-    <text x="22" y="19" font-family="Georgia,serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">a</text>
-    <path d="M10 32 Q22 39 34 32" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M30 30 L35 32 L30 34 Z" fill="white"/>
-  </symbol>
-  <symbol id="bl-meta" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="#0866FF"/>
-    <ellipse cx="16" cy="22" rx="7" ry="5" fill="none" stroke="white" stroke-width="3"/>
-    <ellipse cx="28" cy="22" rx="7" ry="5" fill="none" stroke="white" stroke-width="3"/>
-  </symbol>
-  <symbol id="bl-flipkart" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="#F7841F"/>
-    <text x="22" y="23" font-family="Arial Black,Arial,sans-serif" font-size="24" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">F</text>
-  </symbol>
-  <symbol id="bl-myntra" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="#FF3F6C"/>
-    <text x="22" y="23" font-family="Arial Black,Arial,sans-serif" font-size="22" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">M</text>
-  </symbol>
-  <symbol id="bl-meesho" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="#B626B1"/>
-    <text x="22" y="23" font-family="Arial Black,Arial,sans-serif" font-size="22" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">m</text>
-  </symbol>
-  <symbol id="bl-walmart" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="#0071CE"/>
-    <ellipse cx="22" cy="15" rx="2.5" ry="5" fill="#FFC220"/>
-    <ellipse cx="22" cy="15" rx="2.5" ry="5" fill="#FFC220" transform="rotate(60 22 22)"/>
-    <ellipse cx="22" cy="15" rx="2.5" ry="5" fill="#FFC220" transform="rotate(120 22 22)"/>
-    <ellipse cx="22" cy="15" rx="2.5" ry="5" fill="#FFC220" transform="rotate(180 22 22)"/>
-    <ellipse cx="22" cy="15" rx="2.5" ry="5" fill="#FFC220" transform="rotate(240 22 22)"/>
-    <ellipse cx="22" cy="15" rx="2.5" ry="5" fill="#FFC220" transform="rotate(300 22 22)"/>
-  </symbol>
-  <symbol id="bl-facebook" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="#1877F2"/>
-    <text x="24" y="23" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">f</text>
-  </symbol>
-  <symbol id="bl-instagram" viewBox="0 0 44 44">
-    <rect width="44" height="44" rx="8" fill="url(#ig-grad)"/>
-    <rect x="10" y="10" width="24" height="24" rx="6" fill="none" stroke="white" stroke-width="2.5"/>
-    <circle cx="22" cy="22" r="6" fill="none" stroke="white" stroke-width="2.5"/>
-    <circle cx="31" cy="13" r="2" fill="white"/>
-  </symbol>
-</svg>
+
 
 <!-- NAV -->
 <nav id="nav">
   <a href="/" class="nav-logo">
-    <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:36px;width:auto;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'" />
+    <span class="logo-badge"><img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:52px;width:auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/></span>
     <span style="display:none">Bitesu India</span>
   </a>
   <ul class="nav-links">
@@ -970,7 +1151,18 @@
     <li><a href="case-studies.html">Case Studies</a></li>
     <li><a href="why-us.html">Why Us</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li class="nav-dropdown">
+      <a href="resources.html">Free Tools <span style="font-size:0.65rem;background:rgba(249,115,22,0.15);color:var(--accent);padding:2px 7px;border-radius:100px;font-weight:700;margin-left:2px;vertical-align:middle;">NEW</span></a>
+      <div class="nav-dropdown-menu">
+        <a href="ppc-report-dashboard.html" class="dd-item"><span class="dd-icon" style="background:rgba(249,115,22,0.1);">📊</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Search Term Analysis</strong><span style="font-size:0.74rem;color:#64748b;">Upload report · get full dashboard</span></span></a>
+        <a href="listing-scorecard.html" class="dd-item"><span class="dd-icon" style="background:rgba(16,185,129,0.1);">✅</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Listing Quality Scorecard</strong><span style="font-size:0.74rem;color:#64748b;">Score your listing out of 100</span></span></a>
+        <a href="review-rating-calculator.html" class="dd-item"><span class="dd-icon" style="background:rgba(245,158,11,0.1);">⭐</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Review Rating Calculator</strong><span style="font-size:0.74rem;color:#64748b;">How many reviews to hit your target?</span></span></a>
+        <a href="amazon-ranking-tracker.html" class="dd-item"><span class="dd-icon" style="background:rgba(99,102,241,0.1);">📈</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Amazon Ranking Tracker</strong><span style="font-size:0.74rem;color:#64748b;">Check ASIN indexing & rank</span></span></a>
+        <div class="dd-divider"></div>
+        <a href="resources.html" class="dd-all">View all free tools →</a>
+      </div>
+    </li>
+    <li><a href="resources.html">Resources</a></li>
     <li><a href="contact.html" class="nav-pill">Free Audit →</a></li>
   </ul>
   <div class="hamburger" id="ham" onclick="toggleNav()">
@@ -982,12 +1174,17 @@
   <a href="case-studies.html" onclick="toggleNav()">Case Studies</a>
   <a href="why-us.html" onclick="toggleNav()">Why Us</a>
   <a href="blog.html" onclick="toggleNav()">Blog</a>
+  <a href="resources.html" onclick="toggleNav()" style="color:var(--accent2);font-weight:700;">Free Tools ✦</a>
+  <a href="ppc-report-dashboard.html" onclick="toggleNav()" style="padding-left:14px;font-size:0.87rem;color:var(--muted2);">📊 Search Term Analysis</a>
+  <a href="listing-scorecard.html" onclick="toggleNav()" style="padding-left:14px;font-size:0.87rem;color:var(--muted2);">✅ Listing Scorecard</a>
+  <a href="resources.html" onclick="toggleNav()">Resources</a>
   <a href="contact.html" onclick="toggleNav()">Contact</a>
   <a href="contact.html" onclick="toggleNav()" style="color:var(--accent2);font-weight:700;">Book Free Audit →</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
+  <canvas id="heroCanvas"></canvas>
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
@@ -1006,18 +1203,35 @@
       <strong style="color:var(--text)">India, UK &amp; US</strong>.
       TaCoS-focused. Data-backed. No fluff.
     </p>
-    <div class="hero-split reveal">
+
+    <!-- PRIMARY CTA — high up, impossible to miss -->
+    <div class="hero-cta-strip reveal">
+      <a href="#contact" class="btn-hero-primary">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Get Your Free Audit
+      </a>
+      <a href="resources.html" class="btn-hero-secondary">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Free Seller Guides
+      </a>
+    </div>
+    <div class="hero-cta-trust reveal">
+      <span class="dot"></span>
+      No credit card · No commitment · Response in 4 hours
+    </div>
+
+    <div class="hero-split reveal" style="margin-top:48px;">
       <a href="#contact" class="hero-card">
         <div class="hc-flag" style="display:flex;align-items:center;gap:8px;">
           <div style="width:44px;height:44px;border-radius:10px;background:#FF9900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><text x="14" y="13" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">a</text><path d="M5 21 Q14 26 23 21" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M20 20 L24 21 L20 22 Z" fill="white"/></svg>
+            <svg width="26" height="26" style="color:white;flex-shrink:0;" aria-label="Amazon"><use href="#logo-amazon"/></svg>
           </div>
           <div style="display:flex;gap:4px;flex-direction:column;">
             <div style="width:18px;height:18px;border-radius:5px;background:#F7841F;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><text x="6" y="7" font-family="Arial Black,Arial,sans-serif" font-size="8" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">F</text></svg>
+              <svg width="11" height="11" style="color:white;flex-shrink:0;" aria-label="Flipkart"><use href="#logo-flipkart"/></svg>
             </div>
-            <div style="width:18px;height:18px;border-radius:5px;background:#FF3F6C;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><text x="6" y="7" font-family="Arial Black,Arial,sans-serif" font-size="8" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">M</text></svg>
+            <div style="width:18px;height:18px;border-radius:5px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=32" width="14" height="14" alt="Myntra" style="display:block;border-radius:2px;">
             </div>
           </div>
         </div>
@@ -1028,14 +1242,14 @@
       <a href="#contact" class="hero-card blue-card">
         <div class="hc-flag" style="display:flex;align-items:center;gap:8px;">
           <div style="width:44px;height:44px;border-radius:10px;background:#FF9900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><text x="14" y="13" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">a</text><path d="M5 21 Q14 26 23 21" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M20 20 L24 21 L20 22 Z" fill="white"/></svg>
+            <svg width="26" height="26" style="color:white;flex-shrink:0;" aria-label="Amazon"><use href="#logo-amazon"/></svg>
           </div>
           <div style="display:flex;gap:4px;flex-direction:column;">
             <div style="width:18px;height:18px;border-radius:5px;background:#0071CE;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><ellipse cx="6" cy="3" rx="1" ry="2.2" fill="white"/><ellipse cx="6" cy="3" rx="1" ry="2.2" fill="white" transform="rotate(60 6 6)"/><ellipse cx="6" cy="3" rx="1" ry="2.2" fill="white" transform="rotate(120 6 6)"/><ellipse cx="6" cy="3" rx="1" ry="2.2" fill="white" transform="rotate(180 6 6)"/><ellipse cx="6" cy="3" rx="1" ry="2.2" fill="white" transform="rotate(240 6 6)"/><ellipse cx="6" cy="3" rx="1" ry="2.2" fill="white" transform="rotate(300 6 6)"/></svg>
+              <svg width="11" height="11" style="color:white;flex-shrink:0;" aria-label="Walmart"><use href="#logo-walmart"/></svg>
             </div>
             <div style="width:18px;height:18px;border-radius:5px;background:#0866FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><ellipse cx="4.2" cy="6" rx="2.5" ry="1.8" fill="none" stroke="white" stroke-width="1.2"/><ellipse cx="7.8" cy="6" rx="2.5" ry="1.8" fill="none" stroke="white" stroke-width="1.2"/></svg>
+              <svg width="11" height="11" style="color:white;flex-shrink:0;" aria-label="Meta"><use href="#logo-meta"/></svg>
             </div>
           </div>
         </div>
@@ -1066,73 +1280,36 @@
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track" id="marquee">
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Amazon India</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Amazon UK</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Amazon US</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-meta"/></svg>Meta Ads</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-flipkart"/></svg>Flipkart</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-myntra"/></svg>Myntra</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-meesho"/></svg>Meesho</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-walmart"/></svg>Walmart</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-facebook"/></svg>Facebook Ads</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-instagram"/></svg>Instagram Ads</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Sponsored Products</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Sponsored Brands</span>
-    <!-- duplicate for seamless loop -->
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Amazon India</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Amazon UK</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Amazon US</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-meta"/></svg>Meta Ads</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-flipkart"/></svg>Flipkart</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-myntra"/></svg>Myntra</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-meesho"/></svg>Meesho</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-walmart"/></svg>Walmart</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-facebook"/></svg>Facebook Ads</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-instagram"/></svg>Instagram Ads</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Sponsored Products</span>
-    <span class="m-pill"><svg width="18" height="18" style="flex-shrink:0;border-radius:3px;"><use href="#bl-amazon"/></svg>Sponsored Brands</span>
+<section class="marquee-section">
+  <div class="marquee-header">
+    <span class="s-label" style="justify-content:center;padding-left:0;">Every Platform. One Team.</span>
+    <h3>We Manage Your Presence<br/><span class="grad-text">Across Every Major Marketplace</span></h3>
+    <p>From Amazon to Noon — one account manager, zero hand-offs.</p>
   </div>
-</div>
-
-<!-- EXPLORE BITESU -->
-<section style="padding:64px 5%;background:var(--bg);border-bottom:1px solid var(--border);">
-  <div class="container">
-    <span class="s-label reveal">Quick Navigation</span>
-    <h2 class="s-title reveal" style="margin-bottom:8px;">Everything Bitesu India</h2>
-    <p class="s-sub reveal" style="margin-bottom:0;">Explore our full depth — results, services, thinking, and how to get started.</p>
-    <div class="explore-grid" style="margin-top:40px;">
-      <a href="services.html" class="explore-card reveal">
-        <div class="explore-icon"><svg width="20" height="20" style="color:var(--accent)"><use href="#ic-target"/></svg></div>
-        <div class="explore-label">Services</div>
-        <div class="explore-desc">Amazon PPC, Meta Ads, Flipkart & Listing SEO — full scope of what we execute</div>
-        <div class="explore-arrow">Explore Services →</div>
-      </a>
-      <a href="case-studies.html" class="explore-card reveal">
-        <div class="explore-icon"><svg width="20" height="20" style="color:var(--accent)"><use href="#ic-chart"/></svg></div>
-        <div class="explore-label">Case Studies</div>
-        <div class="explore-desc">£104K months, 90→18% ACoS, +600% growth — verified by real screenshots</div>
-        <div class="explore-arrow">See Proof →</div>
-      </a>
-      <a href="why-us.html" class="explore-card reveal">
-        <div class="explore-icon"><svg width="20" height="20" style="color:var(--accent)"><use href="#ic-shield"/></svg></div>
-        <div class="explore-label">Why Bitesu</div>
-        <div class="explore-desc">How we compare vs enterprise agencies & freelancers — the honest version</div>
-        <div class="explore-arrow">Our Difference →</div>
-      </a>
-      <a href="blog.html" class="explore-card reveal">
-        <div class="explore-icon"><svg width="20" height="20" style="color:var(--accent)"><use href="#ic-clipboard"/></svg></div>
-        <div class="explore-label">Blog</div>
-        <div class="explore-desc">Tactical playbooks from managing ₹10Cr+ in annual ad spend — no filler</div>
-        <div class="explore-arrow">Read Insights →</div>
-      </a>
-      <a href="contact.html" class="explore-card reveal" style="border-color:rgba(249,115,22,0.35);background:rgba(249,115,22,0.05);">
-        <div class="explore-icon" style="background:rgba(249,115,22,0.2);border-color:rgba(249,115,22,0.4);"><svg width="20" height="20" style="color:var(--accent)"><use href="#ic-zap"/></svg></div>
-        <div class="explore-label" style="color:var(--accent2);">Free Audit</div>
-        <div class="explore-desc">Book a 30-min account review. See what we'd fix — before you commit a single rupee</div>
-        <div class="explore-arrow" style="color:var(--accent);font-weight:800;">Book Now →</div>
-      </a>
+  <div class="marquee-scroller">
+    <div class="marquee-track">
+      <!-- set 1 -->
+      <span class="m-pill"><span class="m-icon" style="background:#0866FF;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-meta"/></svg></span>Meta Ads</span>
+      <span class="m-pill"><span class="m-icon" style="background:#4285F4;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-google"/></svg></span>Google Ads</span>
+      <span class="m-pill"><span class="m-icon" style="background:#FF9900;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-amazon"/></svg></span>Amazon</span>
+      <span class="m-pill"><span class="m-icon" style="background:#0071CE;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-walmart"/></svg></span>Walmart</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=tatacliq.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Tatacliq</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Myntra</span>
+      <span class="m-pill"><span class="m-icon" style="background:#F7841F;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-flipkart"/></svg></span>Flipkart</span>
+      <span class="m-pill"><span class="m-icon" style="background:#B626B1;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-meesho"/></svg></span>Meesho</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=nykaa.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Nykaa</span>
+      <span class="m-pill"><span class="m-icon" style="background:#FDD700;"><svg width="16" height="16" style="color:#1a1a1a;flex-shrink:0;"><use href="#logo-noon"/></svg></span>Noon</span>
+      <!-- set 2 — seamless loop duplicate -->
+      <span class="m-pill"><span class="m-icon" style="background:#0866FF;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-meta"/></svg></span>Meta Ads</span>
+      <span class="m-pill"><span class="m-icon" style="background:#4285F4;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-google"/></svg></span>Google Ads</span>
+      <span class="m-pill"><span class="m-icon" style="background:#FF9900;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-amazon"/></svg></span>Amazon</span>
+      <span class="m-pill"><span class="m-icon" style="background:#0071CE;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-walmart"/></svg></span>Walmart</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=tatacliq.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Tatacliq</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Myntra</span>
+      <span class="m-pill"><span class="m-icon" style="background:#F7841F;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-flipkart"/></svg></span>Flipkart</span>
+      <span class="m-pill"><span class="m-icon" style="background:#B626B1;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-meesho"/></svg></span>Meesho</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=nykaa.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Nykaa</span>
+      <span class="m-pill"><span class="m-icon" style="background:#FDD700;"><svg width="16" height="16" style="color:#1a1a1a;flex-shrink:0;"><use href="#logo-noon"/></svg></span>Noon</span>
     </div>
   </div>
 </section>
@@ -1249,88 +1426,374 @@
   <div class="container">
     <span class="s-label reveal">What We Do</span>
     <h2 class="s-title reveal">End-to-End Marketplace<br/>& Paid Media Management</h2>
-    <p class="s-sub reveal">From your first listing to a 7-figure catalogue — we own every growth lever.</p>
+    <p class="s-sub reveal">Choose a service to see exactly what we deliver — and what it does to your numbers.</p>
 
-    <div class="services-bento">
-
-      <div class="sv-card wide reveal">
-        <div class="sv-icon"><svg width="26" height="26"><use href="#ic-target"/></svg></div>
-        <h3>Amazon PPC Management</h3>
-        <p>Data-driven Sponsored Ads strategy built around TaCoS and profitability — not just impressions or click-through rates. We run daily optimisations across your full campaign portfolio.</p>
-        <div class="sv-wide-grid">
-          <div class="sv-wide-col">
-            <h4>Campaign Structure</h4>
-            <div class="sv-features">
-              <div class="sv-feat"><span class="check">✓</span> Keyword & ASIN targeting research</div>
-              <div class="sv-feat"><span class="check">✓</span> Sponsored Products, Brands & Display</div>
-              <div class="sv-feat"><span class="check">✓</span> Auto → Manual campaign funnels</div>
-              <div class="sv-feat"><span class="check">✓</span> Placement & match type strategy</div>
-            </div>
-          </div>
-          <div class="sv-wide-col">
-            <h4>Ongoing Optimisation</h4>
-            <div class="sv-features">
-              <div class="sv-feat"><span class="check">✓</span> Daily bid & budget management</div>
-              <div class="sv-feat"><span class="check">✓</span> Search term mining & negatives</div>
-              <div class="sv-feat"><span class="check">✓</span> Weekly TaCoS & ACoS reporting</div>
-              <div class="sv-feat"><span class="check">✓</span> Scaling winners, cutting waste</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sv-card reveal">
-        <div class="sv-icon"><svg width="26" height="26"><use href="#ic-sliders"/></svg></div>
-        <h3>Account Management</h3>
-        <p>We run your entire Amazon account so you can focus on your business. Listings, health, pricing, content — handled daily.</p>
-        <div class="sv-features">
-          <div class="sv-feat"><span class="check">✓</span> Listing SEO & conversion copy</div>
-          <div class="sv-feat"><span class="check">✓</span> Catalogue & inventory health</div>
-          <div class="sv-feat"><span class="check">✓</span> Account health monitoring</div>
-          <div class="sv-feat"><span class="check">✓</span> Case management & appeals</div>
-          <div class="sv-feat"><span class="check">✓</span> Competitor & pricing tracking</div>
-        </div>
-      </div>
-
-      <div class="sv-card blue-sv reveal">
-        <div class="sv-icon" style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(99,102,241,0.05));border-color:rgba(99,102,241,0.2)"><svg width="26" height="26"><use href="#ic-listing"/></svg></div>
-        <h3>Listing & A+ Content</h3>
-        <p>Listings built to rank and convert — keyword-rich, algorithm-friendly copy backed by visual storytelling.</p>
-        <div class="sv-features">
-          <div class="sv-feat" style="--chk:var(--blue2)"><span class="check" style="color:var(--blue2)">✓</span> Full SEO keyword research</div>
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> Title, bullets & description copy</div>
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> A+ Content & EBC design</div>
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> Backend search term build-out</div>
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> Listing quality score audit</div>
-        </div>
-      </div>
-
-      <div class="sv-card blue-sv reveal">
-        <div class="sv-icon" style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(99,102,241,0.05));border-color:rgba(99,102,241,0.2)"><svg width="26" height="26"><use href="#ic-store"/></svg></div>
-        <h3>Brand Store Creation</h3>
-        <p>A premium Amazon Brand Store designed for discovery, engagement and conversion — looks like a real brand, not a template.</p>
-        <div class="sv-features">
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> Custom multi-page store design</div>
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> Lifestyle & category pages</div>
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> Seasonal campaign refreshes</div>
-          <div class="sv-feat"><span class="check" style="color:var(--blue2)">✓</span> Store traffic analytics</div>
-        </div>
-      </div>
-
-      <div class="sv-card reveal">
-        <div class="sv-icon"><svg width="26" height="26"><use href="#ic-globe"/></svg></div>
-        <h3>Global Seller Onboarding</h3>
-        <p>Launch on new marketplaces fast with a team that's done it dozens of times across India and global platforms.</p>
-        <div class="sv-features">
-          <div class="sv-feat"><span class="check">✓</span> Account registration & setup</div>
-          <div class="sv-feat"><span class="check">✓</span> Compliance & policy guidance</div>
-          <div class="sv-feat"><span class="check">✓</span> Initial listing creation</div>
-          <div class="sv-feat"><span class="check">✓</span> 30-day launch roadmap</div>
-          <div class="sv-feat"><span class="check">✓</span> Amazon · Flipkart · Walmart · Noon</div>
-        </div>
-      </div>
-
+    <!-- Tab Buttons -->
+    <div class="svc-tabs reveal">
+      <button class="svc-tab active" data-svc="ppc">
+        <svg width="16" height="16"><use href="#ic-target"/></svg> Amazon PPC
+      </button>
+      <button class="svc-tab" data-svc="account">
+        <svg width="16" height="16"><use href="#ic-sliders"/></svg> Account Management
+      </button>
+      <button class="svc-tab" data-svc="listing">
+        <svg width="16" height="16"><use href="#ic-listing"/></svg> Listing &amp; A+
+      </button>
+      <button class="svc-tab" data-svc="store">
+        <svg width="16" height="16"><use href="#ic-store"/></svg> Brand Store
+      </button>
+      <button class="svc-tab" data-svc="global">
+        <svg width="16" height="16"><use href="#ic-globe"/></svg> Global Launch
+      </button>
     </div>
+
+    <!-- Panels -->
+    <div class="svc-panels">
+
+      <!-- ── AMAZON PPC ── -->
+      <div class="svc-panel active" id="svc-ppc">
+        <div class="svc-panel-inner">
+          <div class="svc-left">
+            <span class="svc-tag-pill or">⚡ Most Requested Service</span>
+            <h3>PPC Management That Pays for Itself</h3>
+            <p>We don't manage budgets — we engineer profit. Every rupee is tracked to TaCoS, not vanity metrics. Campaigns are structured to scale winners and cut waste, every single day.</p>
+            <div class="svc-feats">
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Auto → Manual campaign funnel architecture</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Daily bid, placement &amp; budget optimisation</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Search term mining &amp; negative keyword build-out</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Sponsored Products, Brands &amp; Display</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Weekly TaCoS &amp; ACoS performance reporting</div>
+            </div>
+            <div class="svc-stats-row">
+              <div class="svc-stat"><span class="sv or">90→18%</span><small>ACoS Reduction</small></div>
+              <div class="svc-stat"><span class="sv or">3.4×</span><small>Avg ROAS Lift</small></div>
+              <div class="svc-stat"><span class="sv or">Daily</span><small>Optimisation</small></div>
+            </div>
+            <a href="#contact" class="svc-cta-btn or">Get a Free PPC Audit →</a>
+          </div>
+          <div class="svc-right or">
+            <div class="svc-mock">
+              <div class="sm-hdr">
+                <span class="sm-dot o"></span>
+                <span class="sm-hdr-title">Live PPC Dashboard</span>
+                <span class="sm-hdr-sub">Updated 2 min ago</span>
+              </div>
+              <div class="sm-card">
+                <div class="sm-section-label">ACoS Journey — 90 Days</div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl" style="color:#f87171;">Before</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:90%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
+                  <span class="sm-bv" style="color:#f87171;">90%</span>
+                </div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl" style="color:#34d399;">After</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:18%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div>
+                  <span class="sm-bv" style="color:#34d399;">18%</span>
+                </div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl">TaCoS</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:11%;background:linear-gradient(90deg,var(--accent),#fb923c);"></div></div>
+                  <span class="sm-bv" style="color:var(--accent);">11%</span>
+                </div>
+              </div>
+              <div class="sm-card" style="border-color:rgba(249,115,22,0.25);background:rgba(249,115,22,0.04);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                  <span style="font-size:0.78rem;font-weight:700;">Yoga Mat — SP Campaign</span>
+                  <span style="font-size:0.68rem;background:rgba(52,211,153,0.12);color:#34d399;padding:2px 8px;border-radius:100px;font-weight:700;">● Active</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
+                  <div style="background:var(--bg);border-radius:8px;padding:8px;">
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:800;color:var(--accent);">₹500</div>
+                    <div style="font-size:0.62rem;color:var(--muted);margin-top:2px;">Daily Budget</div>
+                  </div>
+                  <div style="background:var(--bg);border-radius:8px;padding:8px;">
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:800;">3.2K</div>
+                    <div style="font-size:0.62rem;color:var(--muted);margin-top:2px;">Clicks / mo</div>
+                  </div>
+                  <div style="background:var(--bg);border-radius:8px;padding:8px;">
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:800;color:#34d399;">18%</div>
+                    <div style="font-size:0.62rem;color:var(--muted);margin-top:2px;">ACoS</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ACCOUNT MANAGEMENT ── -->
+      <div class="svc-panel" id="svc-account">
+        <div class="svc-panel-inner">
+          <div class="svc-left">
+            <span class="svc-tag-pill or">🛡 Full Account Control</span>
+            <h3>Your Amazon Account, Fully Managed</h3>
+            <p>We operate your entire Amazon account as a dedicated extension of your team — listings, health, pricing, case management, and competitor tracking. You focus on growth; we handle the daily execution.</p>
+            <div class="svc-feats">
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Listing SEO &amp; high-converting copy</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Catalogue, pricing &amp; inventory health</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Account health monitoring &amp; alerts</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Case management &amp; suppression appeals</div>
+              <div class="svc-feat"><span class="svc-chk or">✓</span> Competitor price &amp; review tracking</div>
+            </div>
+            <div class="svc-stats-row">
+              <div class="svc-stat"><span class="sv or">96/100</span><small>Avg Health Score</small></div>
+              <div class="svc-stat"><span class="sv or">24h</span><small>Case Response</small></div>
+              <div class="svc-stat"><span class="sv or">100%</span><small>Policy Compliance</small></div>
+            </div>
+            <a href="#contact" class="svc-cta-btn or">Get a Free Account Audit →</a>
+          </div>
+          <div class="svc-right or">
+            <div class="svc-mock">
+              <div class="sm-hdr">
+                <span class="sm-dot g"></span>
+                <span class="sm-hdr-title">Account Health — Amazon IN</span>
+                <span class="sm-hdr-sub">Score: 96/100</span>
+              </div>
+              <div class="sm-card">
+                <div class="sm-section-label">Health Breakdown</div>
+                <div class="sm-health-item">
+                  <div class="sm-hi-icon g">✓</div>
+                  <span class="sm-hi-label">Listing Quality</span>
+                  <span class="sm-hi-badge g">Perfect</span>
+                </div>
+                <div class="sm-health-item">
+                  <div class="sm-hi-icon g">✓</div>
+                  <span class="sm-hi-label">Policy Compliance</span>
+                  <span class="sm-hi-badge g">Perfect</span>
+                </div>
+                <div class="sm-health-item">
+                  <div class="sm-hi-icon g">✓</div>
+                  <span class="sm-hi-label">Order Defect Rate</span>
+                  <span class="sm-hi-badge g">0.12%</span>
+                </div>
+                <div class="sm-health-item">
+                  <div class="sm-hi-icon o">!</div>
+                  <span class="sm-hi-label">Stranded Inventory</span>
+                  <span class="sm-hi-badge o">Fixed</span>
+                </div>
+                <div class="sm-health-item">
+                  <div class="sm-hi-icon g">✓</div>
+                  <span class="sm-hi-label">Late Shipment Rate</span>
+                  <span class="sm-hi-badge g">Perfect</span>
+                </div>
+              </div>
+              <div class="sm-card" style="text-align:center;background:rgba(52,211,153,0.04);border-color:rgba(52,211,153,0.2);">
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:#34d399;">96 / 100</div>
+                <div style="font-size:0.73rem;color:var(--muted);margin-top:3px;">Account Health Score</div>
+                <div style="font-size:0.7rem;color:#34d399;margin-top:6px;font-weight:700;">↑ Improved from 71 — in 30 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── LISTING & A+ ── -->
+      <div class="svc-panel" id="svc-listing">
+        <div class="svc-panel-inner">
+          <div class="svc-left">
+            <span class="svc-tag-pill bl">✦ Converts &amp; Ranks</span>
+            <h3>Listings That Win Page 1 and Close the Sale</h3>
+            <p>Your listing is your highest-leverage salesperson. We write keyword-rich, algorithm-friendly copy that earns organic rank — then design A+ content that turns browsers into buyers through visual storytelling.</p>
+            <div class="svc-feats">
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Deep keyword research across thousands of terms</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Conversion-optimised title, bullets &amp; description</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> A+ Content &amp; Enhanced Brand Content design</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Backend search term build-out (all 250 characters)</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Listing Quality Score audit &amp; improvement plan</div>
+            </div>
+            <div class="svc-stats-row">
+              <div class="svc-stat"><span class="sv bl">+600%</span><small>Organic Traffic Lift</small></div>
+              <div class="svc-stat"><span class="sv bl">47pt</span><small>Checklist Items</small></div>
+              <div class="svc-stat"><span class="sv bl">Pg 1</span><small>Target Ranking</small></div>
+            </div>
+            <a href="#contact" class="svc-cta-btn bl">Get a Free Listing Audit →</a>
+          </div>
+          <div class="svc-right bl">
+            <div class="svc-mock">
+              <div class="sm-hdr">
+                <span class="sm-dot b"></span>
+                <span class="sm-hdr-title">Listing Optimiser Score</span>
+                <span class="sm-hdr-sub">94 / 100</span>
+              </div>
+              <div class="sm-card">
+                <div class="sm-section-label">Quality Breakdown</div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl">Title</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:100%;background:linear-gradient(90deg,var(--blue),var(--blue2));"></div></div>
+                  <span class="sm-bv" style="color:var(--blue2);">100</span>
+                </div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl">Bullets</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:92%;background:linear-gradient(90deg,var(--blue),var(--blue2));"></div></div>
+                  <span class="sm-bv" style="color:var(--blue2);">92</span>
+                </div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl">A+ Content</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:88%;background:linear-gradient(90deg,var(--blue),var(--blue2));"></div></div>
+                  <span class="sm-bv" style="color:var(--blue2);">88</span>
+                </div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl">Backend KW</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:100%;background:linear-gradient(90deg,var(--blue),var(--blue2));"></div></div>
+                  <span class="sm-bv" style="color:var(--blue2);">100</span>
+                </div>
+                <div class="sm-bar-row">
+                  <span class="sm-bl">Images</span>
+                  <div class="sm-track"><div class="sm-fill" style="width:95%;background:linear-gradient(90deg,var(--blue),var(--blue2));"></div></div>
+                  <span class="sm-bv" style="color:var(--blue2);">95</span>
+                </div>
+              </div>
+              <div class="sm-card" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:rgba(99,102,241,0.08);border-radius:10px;padding:14px;text-align:center;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;color:var(--blue2);">#1</div>
+                  <div style="font-size:0.66rem;color:var(--muted);margin-top:2px;">Organic Rank<br/>Post-Optimise</div>
+                </div>
+                <div style="background:rgba(99,102,241,0.08);border-radius:10px;padding:14px;text-align:center;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;color:#34d399;">+41%</div>
+                  <div style="font-size:0.66rem;color:var(--muted);margin-top:2px;">CVR Lift<br/>30-day avg</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── BRAND STORE ── -->
+      <div class="svc-panel" id="svc-store">
+        <div class="svc-panel-inner">
+          <div class="svc-left">
+            <span class="svc-tag-pill bl">🏪 Premium Design</span>
+            <h3>A Brand Store That Looks Like a Real Brand</h3>
+            <p>Not a template. Not stock imagery. We design multi-page Amazon Brand Stores that communicate authority, drive category discovery, and give your brand a home — not just a listing page.</p>
+            <div class="svc-feats">
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Custom multi-page store architecture</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Lifestyle, category &amp; featured product pages</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Seasonal campaign &amp; sale refresh content</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Store performance analytics &amp; insights review</div>
+              <div class="svc-feat"><span class="svc-chk bl">✓</span> Shoppable post integration &amp; follower strategy</div>
+            </div>
+            <div class="svc-stats-row">
+              <div class="svc-stat"><span class="sv bl">3.5×</span><small>Dwell Time Lift</small></div>
+              <div class="svc-stat"><span class="sv bl">+28%</span><small>Avg Order Value</small></div>
+              <div class="svc-stat"><span class="sv bl">0 Templates</span><small>100% Custom</small></div>
+            </div>
+            <a href="#contact" class="svc-cta-btn bl">Get a Store Design Quote →</a>
+          </div>
+          <div class="svc-right bl">
+            <div class="svc-mock">
+              <div class="sm-hdr">
+                <span class="sm-dot b"></span>
+                <span class="sm-hdr-title">Brand Store Preview</span>
+                <span class="sm-hdr-sub">Live on Amazon</span>
+              </div>
+              <div class="sm-card" style="padding:0;overflow:hidden;">
+                <div style="background:linear-gradient(135deg,rgba(99,102,241,0.22),rgba(99,102,241,0.06));padding:18px;text-align:center;border-bottom:1px solid var(--border);">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:0.08em;">YOUR BRAND</div>
+                  <div style="font-size:0.68rem;color:var(--muted);margin-top:4px;">Premium Quality · Est. 2019</div>
+                </div>
+                <div style="padding:14px;display:flex;gap:8px;">
+                  <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">
+                    <div style="font-size:0.62rem;font-weight:700;color:var(--muted2);">KITCHEN</div>
+                  </div>
+                  <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">
+                    <div style="font-size:0.62rem;font-weight:700;color:var(--muted2);">FITNESS</div>
+                  </div>
+                  <div style="flex:1;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);border-radius:8px;padding:10px;text-align:center;">
+                    <div style="font-size:0.62rem;font-weight:700;color:var(--blue2);">NEW IN</div>
+                  </div>
+                </div>
+                <div style="padding:0 14px 14px;">
+                  <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;gap:10px;align-items:center;">
+                    <div style="width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,rgba(99,102,241,0.3),rgba(99,102,241,0.08));flex-shrink:0;"></div>
+                    <div style="flex:1;">
+                      <div style="font-size:0.78rem;font-weight:700;">★ Featured Product</div>
+                      <div style="font-size:0.65rem;color:var(--muted);margin-top:2px;">Best Seller · 4.7★ (2,140 reviews)</div>
+                    </div>
+                    <div style="font-size:0.82rem;font-weight:800;color:var(--blue2);">₹899</div>
+                  </div>
+                </div>
+              </div>
+              <div class="sm-card" style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:0.78rem;color:var(--muted2);">Store Followers</span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:800;color:var(--blue2);">8,430</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── GLOBAL LAUNCH ── -->
+      <div class="svc-panel" id="svc-global">
+        <div class="svc-panel-inner">
+          <div class="svc-left">
+            <span class="svc-tag-pill gr">🌍 Multi-Market Growth</span>
+            <h3>Launch on Any Marketplace, Anywhere</h3>
+            <p>From Amazon India to the UK, Flipkart to Walmart — we've launched sellers on every major platform. We handle registration, localisation, compliance, and first-campaign setup so you're selling within 30 days.</p>
+            <div class="svc-feats">
+              <div class="svc-feat"><span class="svc-chk gr">✓</span> Full account registration &amp; identity verification</div>
+              <div class="svc-feat"><span class="svc-chk gr">✓</span> Localised listings tailored for each market</div>
+              <div class="svc-feat"><span class="svc-chk gr">✓</span> GST / VAT, compliance &amp; policy guidance</div>
+              <div class="svc-feat"><span class="svc-chk gr">✓</span> 30-day launch roadmap &amp; PPC kickstart</div>
+              <div class="svc-feat"><span class="svc-chk gr">✓</span> Amazon IN · Amazon UK · Flipkart · Walmart · Noon</div>
+            </div>
+            <div class="svc-stats-row">
+              <div class="svc-stat"><span class="sv gr">5+</span><small>Active Marketplaces</small></div>
+              <div class="svc-stat"><span class="sv gr">30d</span><small>Avg Launch Time</small></div>
+              <div class="svc-stat"><span class="sv gr">£104K</span><small>Best UK Month</small></div>
+            </div>
+            <a href="#contact" class="svc-cta-btn gr">Plan Your Market Expansion →</a>
+          </div>
+          <div class="svc-right gr">
+            <div class="svc-mock">
+              <div class="sm-hdr">
+                <span class="sm-dot g"></span>
+                <span class="sm-hdr-title">Marketplace Presence</span>
+                <span class="sm-hdr-sub">4 Markets Live</span>
+              </div>
+              <div class="sm-card">
+                <div class="sm-section-label">Launch Status</div>
+                <div class="sm-mkt-item">
+                  <div class="sm-mkt-logo" style="background:#FF9900;"><svg width="13" height="13" style="color:white;"><use href="#logo-amazon"/></svg></div>
+                  <span class="sm-mkt-name">Amazon India</span>
+                  <span class="sm-mkt-badge live">● Live</span>
+                </div>
+                <div class="sm-mkt-item">
+                  <div class="sm-mkt-logo" style="background:#F7841F;"><svg width="13" height="13" style="color:white;"><use href="#logo-flipkart"/></svg></div>
+                  <span class="sm-mkt-name">Flipkart</span>
+                  <span class="sm-mkt-badge live">● Live</span>
+                </div>
+                <div class="sm-mkt-item">
+                  <div class="sm-mkt-logo" style="background:#FF9900;"><svg width="13" height="13" style="color:white;"><use href="#logo-amazon"/></svg></div>
+                  <span class="sm-mkt-name">Amazon UK</span>
+                  <span class="sm-mkt-badge live">● Live</span>
+                </div>
+                <div class="sm-mkt-item">
+                  <div class="sm-mkt-logo" style="background:#0071CE;"><svg width="13" height="13" style="color:white;"><use href="#logo-walmart"/></svg></div>
+                  <span class="sm-mkt-name">Walmart US</span>
+                  <span class="sm-mkt-badge soon">→ Launching</span>
+                </div>
+                <div class="sm-mkt-item">
+                  <div class="sm-mkt-logo" style="background:#3D9BE9;display:flex;align-items:center;justify-content:center;"><span style="color:white;font-size:0.55rem;font-weight:900;">NO</span></div>
+                  <span class="sm-mkt-name">Noon UAE</span>
+                  <span class="sm-mkt-badge plan">◎ Planned</span>
+                </div>
+              </div>
+              <div class="sm-card" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:rgba(52,211,153,0.06);border-radius:10px;padding:14px;text-align:center;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:800;color:#34d399;">£104K</div>
+                  <div style="font-size:0.66rem;color:var(--muted);margin-top:2px;">Best UK Month</div>
+                </div>
+                <div style="background:rgba(52,211,153,0.06);border-radius:10px;padding:14px;text-align:center;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:800;color:#34d399;">30d</div>
+                  <div style="font-size:0.66rem;color:var(--muted);margin-top:2px;">Avg Launch Time</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /svc-panels -->
   </div>
 </section>
 
@@ -1342,7 +1805,7 @@
         <!-- Visual mockup of Meta Ads dashboard -->
         <div style="background:var(--bg3);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)">
           <div style="background:rgba(99,102,241,0.08);padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
-            <svg width="20" height="20" style="border-radius:4px;flex-shrink:0;"><use href="#bl-meta"/></svg>
+            <span style="width:20px;height:20px;border-radius:4px;background:#0866FF;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" style="color:white;flex-shrink:0;" aria-label="meta"><use href="#logo-meta"/></svg></span>
             <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.9rem;">Meta Ads Manager</span>
             <span style="margin-left:auto;background:rgba(16,185,129,0.15);color:#34d399;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:700;">● ACTIVE</span>
           </div>
@@ -1438,32 +1901,64 @@
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="process-bg">
+<!-- PROCESS — animated timeline -->
+<section class="process-bg" id="process">
   <div class="container" style="text-align:center;">
-    <span class="s-label reveal" style="justify-content:center;padding-left:0">From Audit to Growth</span>
-    <h2 class="s-title reveal" style="margin:0 auto 14px">How We Work</h2>
-    <p class="s-sub reveal" style="margin:0 auto 0">Four steps. No surprises. Clear accountability at every stage.</p>
-    <div class="process-line" style="margin-top:64px;">
-      <div class="p-step reveal">
-        <div class="p-node">01</div>
-        <h4>Free Account Audit</h4>
-        <p>We analyse your campaigns, listings and account health. You get a clear picture of what's working, what's wasting money, and what to fix first.</p>
+    <span class="s-label reveal" style="justify-content:center;padding-left:0;">From Audit to Growth</span>
+    <h2 class="s-title reveal" style="margin:0 auto 12px;">How We Work</h2>
+    <p class="s-sub reveal" style="margin:0 auto;">Four steps. Clear accountability. You're always in the loop.</p>
+
+    <div class="ptl-wrap reveal" id="processTimeline">
+      <!-- Animated connector line -->
+      <div class="ptl-connector">
+        <div class="ptl-fill" id="ptlFill"></div>
       </div>
-      <div class="p-step reveal">
-        <div class="p-node">02</div>
-        <h4>Custom Strategy</h4>
-        <p>A tailored roadmap for your marketplace, category and budget. Not a template — a specific plan with 30-day milestones.</p>
-      </div>
-      <div class="p-step reveal">
-        <div class="p-node">03</div>
-        <h4>Full Execution</h4>
-        <p>Daily campaign management, listing updates, bid optimisation, account monitoring. You stay updated without drowning in dashboards.</p>
-      </div>
-      <div class="p-step reveal">
-        <div class="p-node">04</div>
-        <h4>Weekly Reporting</h4>
-        <p>Clear, jargon-free reports on Sales, ACoS, TaCoS and ROAS every week. You always know where your money goes and what it returns.</p>
+      <div class="ptl-steps">
+
+        <div class="ptl-step" id="pstep1">
+          <div class="ptl-node">
+            <svg class="ptl-icon" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <div class="ptl-num">Step 01</div>
+          <h4>Free Account Audit</h4>
+          <p>We analyse your campaigns, listings and account health. You leave knowing what's winning, what's bleeding, and what to fix first.</p>
+        </div>
+
+        <div class="ptl-step" id="pstep2">
+          <div class="ptl-node">
+            <svg class="ptl-icon" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+          </div>
+          <div class="ptl-num">Step 02</div>
+          <h4>Custom Strategy</h4>
+          <p>A tailored roadmap for your marketplace, category and budget — not a template. Specific milestones, specific targets, 30-day checkpoints.</p>
+        </div>
+
+        <div class="ptl-step" id="pstep3">
+          <div class="ptl-node">
+            <svg class="ptl-icon" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="ptl-num">Step 03</div>
+          <h4>Full Execution</h4>
+          <p>Daily campaign management, bid optimisation, listing updates, account monitoring. You stay informed without drowning in dashboards.</p>
+        </div>
+
+        <div class="ptl-step" id="pstep4">
+          <div class="ptl-node">
+            <svg class="ptl-icon" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <div class="ptl-num">Step 04</div>
+          <h4>Weekly Reporting</h4>
+          <p>Clear, jargon-free reports on Sales, ACoS, TaCoS and ROAS. You always know what your money is doing — and what it returns.</p>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1528,138 +2023,142 @@
   </div>
 </section>
 
-<!-- PLATFORMS -->
-<section class="plat-section">
+<!-- WHY CHOOSE US -->
+<section class="brain-bg" id="compare">
   <div class="container">
-    <span class="s-label reveal">Where We Operate</span>
-    <h2 class="s-title reveal">Every Major Marketplace</h2>
-    <div class="plat-grid">
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-amazon"/></svg></div>
-        <div class="plat-name">Amazon India</div>
-        <div class="plat-desc">Full PPC + Account Mgmt</div>
-      </div>
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-amazon"/></svg></div>
-        <div class="plat-name">Amazon UK</div>
-        <div class="plat-desc">PPC, Listing &amp; Growth</div>
-      </div>
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-amazon"/></svg></div>
-        <div class="plat-name">Amazon US</div>
-        <div class="plat-desc">Full Account Management</div>
-      </div>
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-flipkart"/></svg></div>
-        <div class="plat-name">Flipkart</div>
-        <div class="plat-desc">Organic SEO &amp; Ads</div>
-      </div>
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-myntra"/></svg></div>
-        <div class="plat-name">Myntra</div>
-        <div class="plat-desc">Seller Onboarding &amp; Mgmt</div>
-      </div>
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-meesho"/></svg></div>
-        <div class="plat-name">Meesho</div>
-        <div class="plat-desc">Catalogue &amp; Growth</div>
-      </div>
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-walmart"/></svg></div>
-        <div class="plat-name">Walmart</div>
-        <div class="plat-desc">US Seller Onboarding</div>
-      </div>
-      <div class="plat-card reveal">
-        <div class="plat-logo"><svg width="44" height="44" style="border-radius:8px;flex-shrink:0;"><use href="#bl-meta"/></svg></div>
-        <div class="plat-name">Meta Ads</div>
-        <div class="plat-desc">Facebook &amp; Instagram</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARE -->
-<section class="compare-bg" id="compare">
-  <div class="container">
-    <span class="s-label reveal">Transparent Comparison</span>
-    <h2 class="s-title reveal">Why Brands Choose Bitesu<br/>Over Bigger Agencies</h2>
-    <p class="s-sub reveal">Enterprise agencies ignore mid-market sellers. Freelancers lack accountability. We're the expert middle ground — with verified results to prove it.</p>
-
-    <div class="compare-table reveal">
-      <div class="ct-head">
-        <div class="ct-col">What Matters</div>
-        <div class="ct-col bitesu">✦ Bitesu India</div>
-        <div class="ct-col grey">Enterprise Agency</div>
-        <div class="ct-col grey">Freelancer</div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Amazon India PPC</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ Full Service</span></div>
-        <div class="ct-cell"><span class="ct-part">✓ High minimums</span></div>
-        <div class="ct-cell"><span class="ct-part">~ Varies</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Amazon UK — Proven Results</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ £104K in 1 month</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ India-focused</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ Rarely</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Flipkart &amp; Myntra Ads</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ +600% result</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ Not covered</span></div>
-        <div class="ct-cell"><span class="ct-part">~ Limited</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Meta Ads + Amazon (bundled)</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ Full-funnel strategy</span></div>
-        <div class="ct-cell"><span class="ct-part">~ Separate teams</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ One skill only</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Mid-market pricing (₹15K–₹55K)</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ Flat retainer</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ ₹1L+ minimums</span></div>
-        <div class="ct-cell"><span class="ct-part">~ Cheap but risky</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Dedicated account manager</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ Senior-level, named AM</span></div>
-        <div class="ct-cell"><span class="ct-part">~ Junior exec rotation</span></div>
-        <div class="ct-cell"><span class="ct-good">✓ Just you</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">No long-term lock-in</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ Monthly rolling</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ 6–12 month contracts</span></div>
-        <div class="ct-cell"><span class="ct-good">✓ Flexible</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Amazon Verified Partner</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ Officially certified</span></div>
-        <div class="ct-cell"><span class="ct-good">✓ Yes</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ Usually not</span></div>
-      </div>
-
-      <div class="ct-row">
-        <div class="ct-cell label">Real screenshot proof of results</div>
-        <div class="ct-cell ct-bitesu-highlight"><span class="ct-good">✓ On this page</span></div>
-        <div class="ct-cell"><span class="ct-part">~ Aggregated stats</span></div>
-        <div class="ct-cell"><span class="ct-bad">✗ Rarely</span></div>
-      </div>
-
+    <div style="text-align:center;">
+      <span class="s-label reveal" style="justify-content:center;padding-left:0;">Why Choose Us</span>
+      <h2 class="s-title reveal" style="margin:0 auto 16px;text-align:center;max-width:640px;">
+        We Don't Think Like<br/><span class="grad-text">Other Agencies</span>
+      </h2>
+      <p class="s-sub reveal" style="text-align:center;margin:0 auto;max-width:540px;">
+        Six things we do differently — each one visible in the results we share openly on this page.
+      </p>
     </div>
 
-    <div style="text-align:center;margin-top:40px;">
-      <a href="#contact" class="nav-pill" style="display:inline-flex;padding:14px 32px;font-size:0.9rem;">Book a Free Audit — See the Difference →</a>
+    <!-- 3-column brain layout -->
+    <div class="brain-layout reveal">
+
+      <!-- SVG overlay: animated dashed lines connecting nodes to brain center -->
+      <svg class="brain-lines-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <!-- Center approx 50,50 | Left col nodes at x≈22 | Right col nodes at x≈78 -->
+        <line class="b-line orange" x1="50" y1="50" x2="22" y2="14"/>
+        <line class="b-line orange" x1="50" y1="50" x2="22" y2="50"/>
+        <line class="b-line orange" x1="50" y1="50" x2="22" y2="86"/>
+        <line class="b-line indigo" x1="50" y1="50" x2="78" y2="14"/>
+        <line class="b-line indigo" x1="50" y1="50" x2="78" y2="50"/>
+        <line class="b-line indigo" x1="50" y1="50" x2="78" y2="86"/>
+        <!-- Glow nodes at endpoints -->
+        <circle cx="22" cy="14" r="1.2" fill="rgba(249,115,22,0.7)"><animate attributeName="r" values="1.2;2;1.2" dur="2s" repeatCount="indefinite"/></circle>
+        <circle cx="22" cy="50" r="1.2" fill="rgba(249,115,22,0.7)"><animate attributeName="r" values="1.2;2;1.2" dur="2.5s" repeatCount="indefinite"/></circle>
+        <circle cx="22" cy="86" r="1.2" fill="rgba(249,115,22,0.7)"><animate attributeName="r" values="1.2;2;1.2" dur="1.8s" repeatCount="indefinite"/></circle>
+        <circle cx="78" cy="14" r="1.2" fill="rgba(99,102,241,0.7)"><animate attributeName="r" values="1.2;2;1.2" dur="2.2s" repeatCount="indefinite"/></circle>
+        <circle cx="78" cy="50" r="1.2" fill="rgba(99,102,241,0.7)"><animate attributeName="r" values="1.2;2;1.2" dur="1.6s" repeatCount="indefinite"/></circle>
+        <circle cx="78" cy="86" r="1.2" fill="rgba(99,102,241,0.7)"><animate attributeName="r" values="1.2;2;1.2" dur="2.8s" repeatCount="indefinite"/></circle>
+        <!-- Center pulse -->
+        <circle cx="50" cy="50" r="3" fill="none" stroke="rgba(249,115,22,0.3)"><animate attributeName="r" values="3;6;3" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite"/></circle>
+      </svg>
+
+      <!-- LEFT: 3 orange-toned differentiator nodes -->
+      <div class="brain-col-left">
+        <div class="brain-node-card reveal">
+          <div class="bnc-icon">🎯</div>
+          <div class="bnc-title">TaCoS-First Thinking</div>
+          <div class="bnc-desc">We optimise Total Advertising Cost of Sale — not just ACoS. Your organic rank grows while ad spend falls.</div>
+          <div class="bnc-val">90% → 18% ACoS achieved</div>
+        </div>
+        <div class="brain-node-card reveal">
+          <div class="bnc-icon">🌍</div>
+          <div class="bnc-title">India · UK · US — One Team</div>
+          <div class="bnc-desc">Same account manager, same standards, three marketplaces. No hand-offs to separate agencies.</div>
+          <div class="bnc-val">3 markets, unified strategy</div>
+        </div>
+        <div class="brain-node-card reveal">
+          <div class="bnc-icon">🔄</div>
+          <div class="bnc-title">Monthly Rolling, No Lock-In</div>
+          <div class="bnc-desc">We earn our retainer every month. No 6-month contracts, no penalty clauses, cancel any time.</div>
+          <div class="bnc-val">vs. 6–12 month enterprise contracts</div>
+        </div>
+      </div>
+
+      <!-- CENTER: Brain SVG illustration -->
+      <div class="brain-col-center">
+        <div class="brain-center-wrap">
+          <div class="brain-glow-ring"></div>
+          <div class="brain-glow-ring"></div>
+          <div class="brain-glow-ring"></div>
+          <!-- Stylized brain SVG -->
+          <svg class="brain-svg-icon" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bGradL" x1="0" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#f97316" stop-opacity="0.7"/><stop offset="100%" stop-color="#f97316" stop-opacity="0.1"/></linearGradient>
+              <linearGradient id="bGradR" x1="1" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity="0.7"/><stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/></linearGradient>
+            </defs>
+            <!-- Left hemisphere -->
+            <path d="M60,14 C52,10 38,10 28,18 C18,26 16,40 18,52 C20,64 16,72 18,82 C20,92 32,100 44,100 C52,100 58,95 60,88" fill="url(#bGradL)" stroke="#f97316" stroke-width="1.8" stroke-opacity="0.6"/>
+            <!-- Right hemisphere -->
+            <path d="M60,14 C68,10 82,10 92,18 C102,26 104,40 102,52 C100,64 104,72 102,82 C100,92 88,100 76,100 C68,100 62,95 60,88" fill="url(#bGradR)" stroke="#6366f1" stroke-width="1.8" stroke-opacity="0.6"/>
+            <!-- Brain stem -->
+            <path d="M52,97 C54,104 66,104 68,97" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.5"/>
+            <!-- Central fissure -->
+            <line x1="60" y1="22" x2="60" y2="90" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+            <!-- Left folds -->
+            <path d="M28,34 C23,29 28,22 35,27" stroke="#f97316" stroke-width="1.4" stroke-opacity="0.55" fill="none" stroke-linecap="round"/>
+            <path d="M22,56 C17,50 22,43 29,48" stroke="#f97316" stroke-width="1.4" stroke-opacity="0.45" fill="none" stroke-linecap="round"/>
+            <path d="M28,76 C23,71 27,64 34,68" stroke="#f97316" stroke-width="1.4" stroke-opacity="0.45" fill="none" stroke-linecap="round"/>
+            <!-- Right folds -->
+            <path d="M92,34 C97,29 92,22 85,27" stroke="#6366f1" stroke-width="1.4" stroke-opacity="0.55" fill="none" stroke-linecap="round"/>
+            <path d="M98,56 C103,50 98,43 91,48" stroke="#6366f1" stroke-width="1.4" stroke-opacity="0.45" fill="none" stroke-linecap="round"/>
+            <path d="M92,76 C97,71 93,64 86,68" stroke="#6366f1" stroke-width="1.4" stroke-opacity="0.45" fill="none" stroke-linecap="round"/>
+            <!-- Synaptic dots – animated -->
+            <circle cx="40" cy="42" r="2.2" fill="#f97316"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="2.1s" repeatCount="indefinite"/></circle>
+            <circle cx="33" cy="62" r="1.8" fill="#f97316"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="44" cy="80" r="1.8" fill="#f97316"><animate attributeName="opacity" values="0.6;0.15;0.6" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle cx="80" cy="42" r="2.2" fill="#6366f1"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="1.9s" repeatCount="indefinite"/></circle>
+            <circle cx="87" cy="62" r="1.8" fill="#6366f1"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.7s" repeatCount="indefinite"/></circle>
+            <circle cx="76" cy="80" r="1.8" fill="#6366f1"><animate attributeName="opacity" values="0.6;0.15;0.6" dur="2.2s" repeatCount="indefinite"/></circle>
+            <!-- Central node -->
+            <circle cx="60" cy="57" r="4" fill="#f97316"><animate attributeName="r" values="4;5.5;4" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.5;1" dur="2.5s" repeatCount="indefinite"/></circle>
+            <!-- Neural pathways -->
+            <path d="M40,42 Q52,50 60,57 Q68,50 80,42" stroke="rgba(249,115,22,0.18)" stroke-width="1" fill="none"/>
+            <path d="M33,62 Q48,57 60,57 Q72,57 87,62" stroke="rgba(99,102,241,0.18)" stroke-width="1" fill="none"/>
+            <path d="M44,80 Q54,68 60,57 Q66,68 76,80" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="brain-label-wrap">
+            <div class="brain-label">Bitesu Intelligence</div>
+            <div class="brain-sublabel">Data-driven · Full-funnel · Verified</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: 3 indigo-toned differentiator nodes -->
+      <div class="brain-col-right">
+        <div class="brain-node-card reveal" style="text-align:right;">
+          <div class="bnc-icon" style="text-align:right;">✅</div>
+          <div class="bnc-title">Amazon Verified Partner</div>
+          <div class="bnc-desc">Officially certified by Amazon — not self-declared. Direct support channel access and early beta access.</div>
+          <div class="bnc-val">Certified, not just claimed</div>
+        </div>
+        <div class="brain-node-card reveal" style="text-align:right;">
+          <div class="bnc-icon" style="text-align:right;">⚡</div>
+          <div class="bnc-title">Full-Funnel: Amazon + Meta</div>
+          <div class="bnc-desc">External Meta traffic funnelled into Amazon. Track ROAS across both platforms in a single weekly report.</div>
+          <div class="bnc-val">One strategy, two channels</div>
+        </div>
+        <div class="brain-node-card reveal" style="text-align:right;">
+          <div class="bnc-icon" style="text-align:right;">📸</div>
+          <div class="bnc-title">Screenshot-Backed Proof</div>
+          <div class="bnc-desc">Every result we claim is backed by real account screenshots — visible on this page. No vague case studies.</div>
+          <div class="bnc-val">£104K/month — proof above ↑</div>
+        </div>
+      </div>
+
+    </div><!-- /.brain-layout -->
+
+    <div style="text-align:center;margin-top:52px;" class="reveal">
+      <a href="#contact" class="btn-hero-primary" style="display:inline-flex;">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Experience the Difference — Book Your Free Audit
+      </a>
     </div>
   </div>
 </section>
@@ -1773,46 +2272,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq-bg" id="faq">
-  <div class="container">
-    <span class="s-label reveal">FAQ</span>
-    <h2 class="s-title reveal">Common Questions</h2>
-    <div class="faq-grid">
-
-      <div class="faq-item reveal" onclick="toggleFaq(this)">
-        <div class="faq-q">How quickly will I see results?<span class="faq-ico">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Most clients see ACoS improvements within 3–6 weeks of campaign restructuring. Organic listing improvements typically show in 4–8 weeks. We set clear 30-day milestones so you always know what to expect and when.</div></div>
-      </div>
-
-      <div class="faq-item reveal" onclick="toggleFaq(this)">
-        <div class="faq-q">Do you lock clients into long-term contracts?<span class="faq-ico">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">No. We offer flexible monthly agreements. We retain clients through results, not contracts. Most of our clients have been with us for 12+ months because they see consistent, compounding growth.</div></div>
-      </div>
-
-      <div class="faq-item reveal" onclick="toggleFaq(this)">
-        <div class="faq-q">I'm a UK/US seller — how does the time zone work?<span class="faq-ico">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Our team covers IST which overlaps with UK morning hours. We provide async daily updates and schedule weekly calls to suit your time zone. UK and US sellers have never raised communication as an issue.</div></div>
-      </div>
-
-      <div class="faq-item reveal" onclick="toggleFaq(this)">
-        <div class="faq-q">Can you manage Amazon PPC and Meta Ads together?<span class="faq-ico">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and this is a real competitive advantage. Running Amazon PPC alongside Meta Ads lets us build remarketing audiences, drive external traffic, use Amazon Attribution, and execute a full-funnel strategy that standalone agencies simply can't offer.</div></div>
-      </div>
-
-      <div class="faq-item reveal" onclick="toggleFaq(this)">
-        <div class="faq-q">What does your pricing look like?<span class="faq-ico">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">We offer fixed monthly retainers starting from ₹15,000/mo (or £150/mo for UK sellers) — no percentage-of-spend models that incentivise higher budgets over better ROAS. See our full pricing above, or book a free audit for a custom quote within 24 hours.</div></div>
-      </div>
-
-      <div class="faq-item reveal" onclick="toggleFaq(this)">
-        <div class="faq-q">What makes Bitesu India different from other agencies?<span class="faq-ico">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Three things: we're Amazon Verified Partners, we work across both Amazon PPC and Meta Ads under one roof, and we're obsessively focused on TaCoS and profitability — not just click metrics. We show you the actual account screenshots, not stock photos.</div></div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- CTA -->
 <section class="cta-bg" id="contact">
@@ -1889,15 +2348,11 @@
     <div class="fb">
       <div class="fb-logo">
         <a href="/" style="text-decoration:none;display:inline-flex;align-items:center;">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:32px;width:auto;" onerror="this.outerHTML='<span style=\'font-family:Space Grotesk,sans-serif;font-size:1.2rem;font-weight:800;background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;\'>Bitesu India</span>'" />
+        <span class="logo-badge" style="animation:none;transform:none;"><img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:48px;width:auto;display:block;" onerror="this.style.display='none'"/></span>
       </a>
       </div>
       <p>Performance-driven Amazon PPC, Account Management & Meta Ads agency scaling e-commerce brands across India, UK and US. Amazon Verified Marketing Partner. Based in Delhi, India.</p>
       <div class="fb-contacts">
-        <a href="tel:+918742944528">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +91 87429 44528
-        </a>
         <a href="mailto:contact@bitesuindia.com">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           contact@bitesuindia.com
@@ -1931,8 +2386,8 @@
       <a href="about.html">About Us</a>
       <a href="#results">Case Studies</a>
       <a href="#testimonials">Client Stories</a>
-      <a href="#faq">FAQ</a>
       <a href="#contact">Book Audit</a>
+      <a href="resources.html" style="color:var(--accent2);font-weight:600;">Free Resources →</a>
     </div>
   </div>
   <div class="footer-bottom" style="max-width:1200px;margin:0 auto;">
@@ -1968,12 +2423,6 @@
       window.scrollY > 30 ? '0 4px 40px rgba(0,0,0,0.6)' : 'none';
   });
 
-  // ── FAQ toggle
-  function toggleFaq(el) {
-    const isOpen = el.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) el.classList.add('open');
-  }
 
   // ── Mobile nav
   function toggleNav() {
@@ -2053,6 +2502,93 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+  // ─── SERVICE TABS ───────────────────────────────────────────────────────
+  (function(){
+    const tabs = document.querySelectorAll('.svc-tab');
+    const panels = document.querySelectorAll('.svc-panel');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        const id = this.dataset.svc;
+        tabs.forEach(function(t){ t.classList.remove('active'); });
+        panels.forEach(function(p){ p.classList.remove('active'); });
+        this.classList.add('active');
+        const target = document.getElementById('svc-' + id);
+        if(target) target.classList.add('active');
+      });
+    });
+  })();
+
+  // ─── HERO PARTICLE CANVAS ───────────────────────────────────────────────
+  (function() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const NUM = 32, CONNECT = 120; // reduced from 55 → 32 (cuts O(n²) checks by ~66%)
+    let W, H, pts = [], raf, paused = false;
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    function Dot() {
+      this.x = Math.random() * W; this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.35; this.vy = (Math.random() - 0.5) * 0.35;
+      this.r = Math.random() * 1.4 + 0.5;
+    }
+    function init() { resize(); pts = []; for(let i=0;i<NUM;i++) pts.push(new Dot()); }
+    function loop() {
+      if (paused) return;
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(249,115,22,0.45)'; ctx.fill();
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = p.x - pts[j].x, dy = p.y - pts[j].y;
+          const d2 = dx*dx + dy*dy;
+          if (d2 < CONNECT * CONNECT) {
+            const a = (1 - Math.sqrt(d2) / CONNECT) * 0.12;
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(99,102,241,${a})`; ctx.lineWidth = 0.7; ctx.stroke();
+          }
+        }
+      }
+      raf = requestAnimationFrame(loop);
+    }
+    // Pause animation when tab is hidden — saves CPU/battery
+    document.addEventListener('visibilitychange', () => {
+      paused = document.hidden;
+      if (!paused) { raf = requestAnimationFrame(loop); }
+    });
+    let resizeTimer;
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(init, 150); });
+    init(); loop();
+  })();
+
+  // ─── PROCESS TIMELINE ANIMATION ─────────────────────────────────────────
+  (function() {
+    const section = document.getElementById('processTimeline');
+    const fill = document.getElementById('ptlFill');
+    const steps = ['pstep1','pstep2','pstep3','pstep4'].map(id => document.getElementById(id));
+    if (!section || !fill) return;
+
+    const ob = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        fill.style.width = '100%';
+        fill.classList.add('done');
+        steps.forEach((s, i) => {
+          if (s) setTimeout(() => s.classList.add('active'), i * 280 + 180);
+        });
+        ob.unobserve(section);
+      }
+    }, { threshold: 0.35 });
+
+    ob.observe(section);
+  })();
 </script>
 
 </body>

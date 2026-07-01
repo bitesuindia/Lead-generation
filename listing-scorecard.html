@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TRL5Q2HB');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Amazon Listing Optimizer | Keyword Tracker | Bitesu India</title>
+  <meta name="description" content="Free Amazon listing optimizer — paste your target keywords, write your listing, and see in real-time which keywords are missing. Like Amazon's own tool, but free." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free Amazon Listing Optimizer | Bitesu India" />
+  <meta property="og:description" content="Track your keywords in real-time as you write your Amazon listing. Green = missing, strikethrough = used. Free tool from Bitesu India." />
+  <meta property="og:url" content="https://www.bitesuindia.com/listing-scorecard" />
+  <meta property="og:image" content="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://www.bitesuindia.com/listing-scorecard" />
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1136656594313315');fbq('track','PageView');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#05050e; --bg2:#0d0d1a; --bg3:#10101f; --card:#0d0d1a;
+      --accent:#f97316; --accent2:#fb923c;
+      --blue:#6366f1; --blue2:#818cf8;
+      --green:#10b981; --green2:#34d399;
+      --text:#f8fafc; --muted:#7a8fa8; --muted2:#a8bdd4;
+      --border:rgba(255,255,255,0.07);
+      --radius:16px; --radius-sm:10px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.6;min-height:100vh;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+
+    /* ── NAV ── */
+    nav{position:sticky;top:0;z-index:100;background:rgba(5,5,14,0.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 24px;}
+    .nav-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;height:62px;gap:24px;}
+    .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.1rem;color:var(--accent);flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:20px;margin-left:auto;}
+    .nav-links a{font-size:0.85rem;font-weight:600;color:var(--muted2);transition:color 0.2s;white-space:nowrap;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-pill{background:var(--accent);color:white!important;padding:8px 18px;border-radius:100px;}
+    .new-tag{font-size:0.62rem;background:rgba(249,115,22,0.18);color:var(--accent);padding:2px 7px;border-radius:100px;font-weight:700;margin-left:3px;vertical-align:middle;}
+    .nav-dropdown{position:relative;}
+    .nav-dropdown>a{display:flex;align-items:center;gap:5px;}
+    .nav-dropdown>a::after{content:'▾';font-size:0.65rem;color:var(--muted);transition:transform 0.2s;}
+    .nav-dropdown:hover>a::after{transform:rotate(180deg);color:var(--accent2);}
+    .nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:rgba(8,8,20,0.98);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:8px;min-width:260px;z-index:300;box-shadow:0 20px 60px rgba(0,0,0,0.55);}
+    .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+    .dd-item{display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:10px;text-decoration:none;color:var(--muted2);font-size:0.83rem;font-weight:500;transition:all 0.15s;white-space:nowrap;}
+    .dd-item:hover{background:rgba(249,115,22,0.08);color:var(--text);}
+    .dd-item strong{display:block;font-size:0.83rem;color:#f1f5f9;font-weight:700;}
+    .dd-item small{display:block;font-size:0.72rem;color:#64748b;}
+    .dd-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+    .dd-divider{height:1px;background:rgba(255,255,255,0.07);margin:6px 0;}
+    .dd-all{display:block;text-align:center;padding:9px 13px;border-radius:10px;font-size:0.77rem;font-weight:700;color:var(--accent2);background:rgba(249,115,22,0.07);text-decoration:none;transition:background 0.15s;margin-top:2px;}
+    .dd-all:hover{background:rgba(249,115,22,0.12);}
+
+    /* ── PAGE HEADER ── */
+    .page-header{padding:36px 24px 24px;max-width:1440px;margin:0 auto;}
+    .page-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .page-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:var(--green2);font-size:0.73rem;font-weight:700;padding:5px 14px;border-radius:100px;margin-bottom:10px;}
+    .page-header h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;line-height:1.2;margin-bottom:6px;}
+    .page-header p{color:var(--muted2);font-size:0.9rem;max-width:520px;}
+    .header-tips{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px;}
+    .tip{display:flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--muted2);}
+    .tip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+    /* ── STATS BAR ── */
+    .stats-bar{display:flex;align-items:center;gap:0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:0;margin:0 24px 16px;max-width:1440px;margin-left:auto;margin-right:auto;overflow:hidden;}
+    .stat-item{flex:1;padding:12px 20px;display:flex;align-items:center;gap:10px;border-right:1px solid var(--border);}
+    .stat-item:last-child{border-right:none;}
+    .stat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75rem;}
+    .stat-body{display:flex;flex-direction:column;}
+    .stat-val{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;line-height:1;}
+    .stat-lbl{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;}
+
+    /* ── MAIN LAYOUT ── */
+    .tool-layout{display:grid;grid-template-columns:320px 1fr;gap:0;max-width:1440px;margin:0 auto;padding:0 24px 80px;min-height:calc(100vh - 200px);}
+
+    /* ── LEFT: KEYWORDS PANEL ── */
+    .kw-panel{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--radius) 0 0 var(--radius);background:var(--bg2);overflow:hidden;position:sticky;top:78px;height:calc(100vh - 96px);max-height:900px;}
+    .kw-header{padding:18px 20px 14px;border-bottom:1px solid var(--border);}
+    .kw-header-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.92rem;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+    .kw-input-wrap{position:relative;}
+    #kwInput{width:100%;background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;line-height:1.55;resize:none;height:130px;outline:none;transition:border-color 0.2s;}
+    #kwInput:focus{border-color:rgba(16,185,129,0.4);}
+    #kwInput::placeholder{color:var(--muted);}
+    .kw-input-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
+    .kw-input-count{font-size:0.72rem;color:var(--muted);}
+    .btn-load{background:var(--green);color:white;border:none;border-radius:100px;padding:6px 16px;font-size:0.78rem;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif;}
+    .btn-load:hover{background:var(--green2);color:#05050e;}
+
+    /* Progress bar */
+    .kw-progress-wrap{padding:12px 20px 10px;border-bottom:1px solid var(--border);}
+    .kw-progress-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+    .kw-progress-label{font-size:0.75rem;font-weight:600;color:var(--muted2);}
+    .kw-progress-pct{font-family:'Space Grotesk',sans-serif;font-size:0.82rem;font-weight:800;color:var(--green2);}
+    .kw-track{height:5px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;}
+    .kw-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--green),var(--green2));transition:width 0.4s ease;}
+
+    /* Keyword pills */
+    .kw-list-wrap{flex:1;overflow-y:auto;padding:14px 14px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;}
+    .kw-list-wrap::-webkit-scrollbar{width:4px;}
+    .kw-list-wrap::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+    .kw-empty{text-align:center;padding:40px 20px;color:var(--muted);font-size:0.82rem;line-height:1.6;}
+    .kw-empty svg{color:var(--green2);opacity:0.5;margin-bottom:10px;}
+
+    .kw-pill{display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:var(--radius-sm);margin-bottom:5px;cursor:pointer;transition:all 0.2s;font-size:0.8rem;font-weight:600;border:1px solid transparent;position:relative;}
+    .kw-pill:hover{transform:translateX(2px);}
+    .kw-pill.missing{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:var(--green2);}
+    .kw-pill.missing:hover{background:rgba(16,185,129,0.18);border-color:rgba(16,185,129,0.5);}
+    .kw-pill.found{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.05);color:var(--muted);}
+    .kw-pill .kw-text.struck{text-decoration:line-through;opacity:0.55;}
+    .kw-icon{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.6rem;font-weight:900;}
+    .kw-icon.miss{background:rgba(16,185,129,0.2);color:var(--green2);}
+    .kw-icon.done{background:rgba(255,255,255,0.07);color:var(--muted);}
+    .kw-where{margin-left:auto;display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end;}
+    .kw-where span{font-size:0.6rem;padding:1px 5px;border-radius:4px;font-weight:800;letter-spacing:0.03em;}
+    .kw-where span.T{background:rgba(249,115,22,0.15);color:var(--accent2);}
+    .kw-where span.B{background:rgba(99,102,241,0.15);color:var(--blue2);}
+    .kw-where span.D{background:rgba(245,158,11,0.15);color:#f59e0b;}
+    .kw-where span.BK{background:rgba(52,211,153,0.15);color:#34d399;}
+    .kw-copy-hint{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:0.62rem;color:var(--green2);opacity:0;background:var(--bg2);padding:2px 6px;border-radius:4px;pointer-events:none;white-space:nowrap;}
+    .kw-pill:hover .kw-copy-hint{opacity:1;}
+
+    /* ── RIGHT: LISTING PANEL ── */
+    .listing-panel{border:1px solid var(--border);border-left:none;border-radius:0 var(--radius) var(--radius) 0;background:var(--bg3);overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:16px;}
+
+    .field-group{display:flex;flex-direction:column;gap:0;}
+    .field-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;background:var(--bg2);border:1px solid var(--border);border-bottom:none;border-radius:var(--radius-sm) var(--radius-sm) 0 0;}
+    .field-name{font-family:'Space Grotesk',sans-serif;font-size:0.82rem;font-weight:700;display:flex;align-items:center;gap:8px;}
+    .field-badge{font-size:0.65rem;padding:2px 8px;border-radius:100px;font-weight:700;}
+    .field-badge.required{background:rgba(249,115,22,0.15);color:var(--accent2);}
+    .field-badge.optional{background:rgba(99,102,241,0.12);color:var(--blue2);}
+    .char-counter{font-size:0.75rem;font-weight:700;font-family:'Space Grotesk',sans-serif;}
+    .char-counter.ok{color:var(--green2);}
+    .char-counter.warn{color:var(--accent2);}
+    .char-counter.over{color:#f87171;}
+    .listing-field{width:100%;background:var(--bg);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);padding:14px 16px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;line-height:1.7;resize:vertical;outline:none;transition:border-color 0.2s;}
+    .listing-field:focus{border-color:rgba(16,185,129,0.35);background:rgba(16,185,129,0.02);}
+    .listing-field::placeholder{color:var(--muted);}
+    textarea.listing-field{min-height:80px;}
+    #titleField{min-height:60px;resize:none;}
+    #descField{min-height:140px;}
+    #backendField{min-height:80px;}
+
+    /* Bullets grid */
+    .bullets-group{display:flex;flex-direction:column;gap:6px;}
+    .bullet-item{display:flex;align-items:flex-start;gap:10px;}
+    .bullet-num{width:24px;height:24px;border-radius:50%;background:rgba(99,102,241,0.15);color:var(--blue2);font-size:0.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:12px;}
+
+    /* Byte bar for backend */
+    .byte-bar-wrap{display:flex;align-items:center;gap:8px;padding:8px 16px;background:var(--bg2);border:1px solid var(--border);border-top:none;}
+    .byte-track{flex:1;height:4px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;}
+    .byte-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--green),var(--green2));transition:width 0.3s;}
+    .byte-fill.warn{background:linear-gradient(90deg,var(--accent),var(--accent2));}
+    .byte-fill.over{background:linear-gradient(90deg,#ef4444,#f87171);}
+    .byte-label{font-size:0.68rem;font-weight:700;color:var(--muted2);white-space:nowrap;}
+
+    /* Action buttons */
+    .listing-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
+    .btn-action{padding:11px 22px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:7px;border:none;}
+    .btn-clear{background:rgba(255,255,255,0.06);color:var(--muted2);border:1px solid var(--border);}
+    .btn-clear:hover{border-color:var(--muted);color:var(--text);}
+    .btn-export{background:var(--accent);color:white;}
+    .btn-export:hover{box-shadow:0 8px 24px rgba(249,115,22,0.35);transform:translateY(-1px);}
+    .btn-audit{background:linear-gradient(135deg,var(--green),rgba(16,185,129,0.8));color:white;}
+    .btn-audit:hover{box-shadow:0 8px 24px rgba(16,185,129,0.35);transform:translateY(-1px);}
+
+    /* Export modal */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+    .modal-overlay.open{opacity:1;pointer-events:auto;}
+    .modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);max-width:640px;width:100%;max-height:80vh;overflow-y:auto;padding:32px;}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+    .modal-header h3{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.1rem;}
+    .modal-close{background:none;border:1px solid var(--border);color:var(--muted2);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+    .modal-close:hover{border-color:var(--muted);color:var(--text);}
+    .export-section{margin-bottom:16px;}
+    .export-section label{font-size:0.75rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.07em;display:block;margin-bottom:6px;}
+    .export-content{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;font-size:0.84rem;line-height:1.65;white-space:pre-wrap;word-break:break-word;}
+    .export-copy-btn{width:100%;padding:11px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--muted2);font-size:0.78rem;font-weight:600;cursor:pointer;margin-top:6px;transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif;}
+    .export-copy-btn:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* CTA bar at bottom */
+    .cta-bar{background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.03));border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .cta-bar-copy h4{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:800;margin-bottom:4px;}
+    .cta-bar-copy p{font-size:0.82rem;color:var(--muted2);}
+    .cta-bar-btn{background:var(--green);color:white;padding:11px 24px;border-radius:100px;font-weight:700;font-size:0.88rem;white-space:nowrap;border:none;cursor:pointer;transition:all 0.2s;}
+    .cta-bar-btn:hover{background:var(--green2);color:#05050e;box-shadow:0 8px 24px rgba(16,185,129,0.35);}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .tool-layout{grid-template-columns:1fr;padding:0 16px 60px;}
+      .kw-panel{position:static;height:auto;max-height:none;border-radius:var(--radius) var(--radius) 0 0;}
+      .kw-list-wrap{max-height:280px;}
+      .listing-panel{border-left:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);}
+      .stats-bar{margin:0 16px 16px;flex-wrap:wrap;}
+      .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+      .stat-item:last-child{border-bottom:none;}
+    }
+    @media(max-width:600px){
+      .page-header{padding:24px 16px 16px;}
+      .stats-bar{margin:0 16px 12px;}
+    }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRL5Q2HB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Bitesu India</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <div class="nav-dropdown">
+        <a href="resources.html" class="active">Free Tools <span class="new-tag">NEW</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="ppc-report-dashboard.html" class="dd-item"><span class="dd-icon" style="background:rgba(249,115,22,0.1);">📊</span><span><strong>Search Term Analysis</strong><small>Upload report · get full dashboard</small></span></a>
+          <a href="listing-scorecard.html" class="dd-item"><span class="dd-icon" style="background:rgba(16,185,129,0.1);">✅</span><span><strong>Listing Quality Scorecard</strong><small>Score your listing out of 100</small></span></a>
+          <a href="review-rating-calculator.html" class="dd-item"><span class="dd-icon" style="background:rgba(245,158,11,0.1);">⭐</span><span><strong>Review Rating Calculator</strong><small>How many reviews to hit your target?</small></span></a>
+          <a href="amazon-ranking-tracker.html" class="dd-item"><span class="dd-icon" style="background:rgba(99,102,241,0.1);">📈</span><span><strong>Amazon Ranking Tracker</strong><small>Check ASIN indexing & rank</small></span></a>
+          <div class="dd-divider"></div>
+          <a href="resources.html" class="dd-all">View all free tools →</a>
+        </div>
+      </div>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html" class="nav-pill">Free Audit →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-title-row">
+    <div>
+      <div class="page-badge">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Free Tool · No Sign-up · Data Stays in Your Browser
+      </div>
+      <h1>Amazon Listing Optimizer</h1>
+      <p>Paste your target keywords on the left. Write your listing on the right. Keywords turn <strong style="color:var(--green2);">green</strong> when missing — <strong style="color:var(--muted);text-decoration:line-through;">strikethrough</strong> when used.</p>
+      <div class="header-tips">
+        <div class="tip"><span class="tip-dot" style="background:var(--green2);"></span> Green = keyword still missing from listing</div>
+        <div class="tip"><span class="tip-dot" style="background:var(--muted);"></span> Strikethrough = keyword already incorporated</div>
+        <div class="tip"><span class="tip-dot" style="background:var(--accent2);"></span> Click any keyword pill to copy it</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap;">
+      <a href="ppc-report-dashboard.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted2);font-size:0.82rem;font-weight:600;white-space:nowrap;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">
+        Search Term Analysis →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar" id="statsBar">
+  <div class="stat-item">
+    <div class="stat-icon" style="background:rgba(16,185,129,0.12);">
+      <svg width="14" height="14" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="stat-body">
+      <span class="stat-val" id="statKw" style="color:var(--green2);">0 / 0</span>
+      <span class="stat-lbl">Keywords Used</span>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon" style="background:rgba(249,115,22,0.12);">
+      <svg width="14" height="14" fill="none" stroke="var(--accent2)" stroke-width="2.5" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    </div>
+    <div class="stat-body">
+      <span class="stat-val" id="statTitle" style="color:var(--green2);">0 / 200</span>
+      <span class="stat-lbl">Title Chars</span>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon" style="background:rgba(99,102,241,0.12);">
+      <svg width="14" height="14" fill="none" stroke="var(--blue2)" stroke-width="2.5" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+    </div>
+    <div class="stat-body">
+      <span class="stat-val" id="statBullets" style="color:var(--green2);">0 / 5</span>
+      <span class="stat-lbl">Bullets Filled</span>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon" style="background:rgba(129,140,248,0.12);">
+      <svg width="14" height="14" fill="none" stroke="var(--blue2)" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <div class="stat-body">
+      <span class="stat-val" id="statBackend" style="color:var(--green2);">0 / 250B</span>
+      <span class="stat-lbl">Backend Bytes</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="tool-layout">
+
+  <!-- LEFT: KEYWORDS -->
+  <div class="kw-panel">
+    <div class="kw-header">
+      <div class="kw-header-title">
+        <svg width="14" height="14" fill="none" stroke="var(--green2)" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Target Keywords
+      </div>
+      <textarea id="kwInput" placeholder="Paste keywords here&#10;One per line:&#10;&#10;yoga mat&#10;yoga mat non slip&#10;thick yoga mat&#10;yoga mat 6mm&#10;anti slip yoga mat" oninput="scheduleKwUpdate()"></textarea>
+      <div class="kw-input-footer">
+        <span class="kw-input-count" id="kwInputCount">0 keywords</span>
+        <button class="btn-load" onclick="loadKeywords()">Load ↵</button>
+      </div>
+    </div>
+
+    <div class="kw-progress-wrap">
+      <div class="kw-progress-row">
+        <span class="kw-progress-label" id="kwProgressLabel">0 of 0 used</span>
+        <span class="kw-progress-pct" id="kwProgressPct">0%</span>
+      </div>
+      <div class="kw-track">
+        <div class="kw-fill" id="kwFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="kw-list-wrap">
+      <div class="kw-empty" id="kwEmpty">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <br/>Paste your target keywords above<br/>to start tracking coverage
+      </div>
+      <div id="kwList"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: LISTING CONTENT -->
+  <div class="listing-panel">
+
+    <!-- TITLE -->
+    <div class="field-group">
+      <div class="field-header">
+        <div class="field-name">
+          <svg width="13" height="13" fill="none" stroke="var(--accent2)" stroke-width="2.5" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/></svg>
+          Product Title
+          <span class="field-badge required">Required · 200 chars</span>
+        </div>
+        <span class="char-counter ok" id="titleCounter">0 / 200</span>
+      </div>
+      <textarea class="listing-field" id="titleField" placeholder="[Brand Name] [Primary Keyword] [Secondary Keyword] – [Key Benefit] for [Target Customer] | [Size/Colour/Model]" maxlength="200" oninput="onFieldChange('title')" rows="2"></textarea>
+    </div>
+
+    <!-- BULLET POINTS -->
+    <div class="field-group">
+      <div class="field-header">
+        <div class="field-name">
+          <svg width="13" height="13" fill="none" stroke="var(--blue2)" stroke-width="2.5" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+          Bullet Points
+          <span class="field-badge" style="background:rgba(99,102,241,0.12);color:var(--blue2);">5 bullets · 500 chars each</span>
+        </div>
+      </div>
+      <div class="bullets-group" style="border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);overflow:hidden;">
+        <div id="bulletsList"></div>
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="field-group">
+      <div class="field-header">
+        <div class="field-name">
+          <svg width="13" height="13" fill="none" stroke="#f59e0b" stroke-width="2.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Product Description
+          <span class="field-badge optional">Optional · SEO indexed</span>
+        </div>
+        <span class="char-counter ok" id="descCounter">0 chars</span>
+      </div>
+      <textarea class="listing-field" id="descField" placeholder="Write a compelling product description that includes secondary and long-tail keywords. This content is indexed by Amazon's search algorithm and visible to customers who scroll past bullet points..." oninput="onFieldChange('desc')"></textarea>
+    </div>
+
+    <!-- BACKEND SEARCH TERMS -->
+    <div class="field-group">
+      <div class="field-header">
+        <div class="field-name">
+          <svg width="13" height="13" fill="none" stroke="var(--green2)" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Backend Search Terms
+          <span class="field-badge" style="background:rgba(16,185,129,0.1);color:var(--green2);">250 bytes max · Not visible to customers</span>
+        </div>
+        <span class="char-counter ok" id="backendCounter">0 / 250B</span>
+      </div>
+      <textarea class="listing-field" id="backendField" placeholder="yoga mat exercise mat gym mat pilates mat fitness mat non slip thick cushioned comfortable lightweight portable travel washable eco friendly cork rubber foam..." oninput="onFieldChange('backend')"></textarea>
+      <div class="byte-bar-wrap">
+        <div class="byte-track"><div class="byte-fill" id="byteFill" style="width:0%"></div></div>
+        <span class="byte-label" id="byteLabel">0 / 250 bytes used</span>
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="listing-actions">
+      <button class="btn-action btn-clear" onclick="clearListing()">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+        Clear Listing
+      </button>
+      <button class="btn-action btn-export" onclick="openExport()">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export Listing
+      </button>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-bar">
+      <div class="cta-bar-copy">
+        <h4>Want a professionally optimised listing done for you?</h4>
+        <p>Our listing specialists handle keyword research, A+ Content, and title/bullet writing — delivering page-1 rankings for clients across India, UK &amp; US.</p>
+      </div>
+      <button class="cta-bar-btn" onclick="window.location.href='contact.html'">Get a Free Listing Audit →</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- EXPORT MODAL -->
+<div class="modal-overlay" id="exportModal" onclick="if(event.target===this)closeExport()">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Export Your Listing</h3>
+      <button class="modal-close" onclick="closeExport()">✕</button>
+    </div>
+    <div id="exportContent"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--border);padding:28px 24px;">
+  <div style="max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <span style="font-family:'Space Grotesk',sans-serif;font-weight:800;color:var(--accent);">Bitesu India</span>
+    <div style="display:flex;gap:24px;">
+      <a href="index.html" style="font-size:0.82rem;color:var(--muted2);">Home</a>
+      <a href="ppc-report-dashboard.html" style="font-size:0.82rem;color:var(--muted2);">Search Term Analysis</a>
+      <a href="resources.html" style="font-size:0.82rem;color:var(--muted2);">Free Guides</a>
+      <a href="contact.html" style="font-size:0.82rem;color:var(--muted2);">Contact</a>
+    </div>
+    <span style="font-size:0.75rem;color:var(--muted);">© 2026 Bitesu India · Free Amazon seller tools</span>
+  </div>
+</footer>
+
+<script>
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let keywords = [];
+let kwTimeout, listingTimeout;
+
+// ─── BUILD BULLETS ───────────────────────────────────────────────────────────
+function buildBullets() {
+  const wrap = document.getElementById('bulletsList');
+  let html = '';
+  for (let i = 1; i <= 5; i++) {
+    html += `
+      <div style="display:flex;align-items:flex-start;gap:0;border-bottom:${i<5?'1px solid var(--border)':'none'};">
+        <div style="width:36px;padding:12px 0 0 12px;flex-shrink:0;font-family:'Space Grotesk',sans-serif;font-size:0.72rem;font-weight:800;color:var(--blue2);">B${i}</div>
+        <div style="flex:1;display:flex;flex-direction:column;">
+          <textarea class="listing-field" id="bullet${i}" data-bullet="${i}"
+            style="min-height:64px;border:none;border-radius:0;background:transparent;padding:12px 12px 8px 4px;"
+            placeholder="BENEFIT IN CAPITALS: Describe the key advantage this product provides to your customer, including relevant keywords naturally within the text..."
+            maxlength="500"
+            oninput="onFieldChange('bullet${i}')"></textarea>
+          <div style="display:flex;justify-content:flex-end;padding:4px 12px 8px;"><span class="char-counter ok" id="b${i}Counter">0 / 500</span></div>
+        </div>
+      </div>`;
+  }
+  wrap.innerHTML = html;
+}
+
+// ─── KEYWORD SCHEDULING ───────────────────────────────────────────────────────
+function scheduleKwUpdate() {
+  const raw = document.getElementById('kwInput').value;
+  const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+  document.getElementById('kwInputCount').textContent = lines.length + ' keyword' + (lines.length !== 1 ? 's' : '');
+  clearTimeout(kwTimeout);
+  kwTimeout = setTimeout(loadKeywords, 400);
+}
+
+function loadKeywords() {
+  const raw = document.getElementById('kwInput').value;
+  const lines = raw.split('\n').map(l => l.trim().toLowerCase()).filter(Boolean);
+  keywords = [...new Set(lines)]; // deduplicate
+  document.getElementById('kwInputCount').textContent = keywords.length + ' keyword' + (keywords.length !== 1 ? 's' : '');
+  updateKeywordStatus();
+}
+
+// ─── LISTING CHANGE ──────────────────────────────────────────────────────────
+function onFieldChange(field) {
+  updateCounters(field);
+  clearTimeout(listingTimeout);
+  listingTimeout = setTimeout(updateKeywordStatus, 120);
+}
+
+function updateCounters(field) {
+  if (field === 'title' || field === 'all') {
+    const v = document.getElementById('titleField').value;
+    const n = v.length, max = 200;
+    const el = document.getElementById('titleCounter');
+    el.textContent = n + ' / ' + max;
+    el.className = 'char-counter ' + (n >= 180 ? 'warn' : 'ok');
+    const sv = document.getElementById('statTitle');
+    sv.textContent = n + ' / 200';
+    sv.style.color = n >= 150 ? 'var(--green2)' : n >= 80 ? 'var(--accent2)' : 'var(--muted2)';
+  }
+  for (let i = 1; i <= 5; i++) {
+    if (field === 'bullet'+i || field === 'all') {
+      const el = document.getElementById('bullet'+i);
+      if (!el) continue;
+      const n = el.value.length;
+      const c = document.getElementById('b'+i+'Counter');
+      if (c) { c.textContent = n + ' / 500'; c.className = 'char-counter ' + (n >= 450 ? 'warn' : 'ok'); }
+    }
+  }
+  if (field === 'desc' || field === 'all') {
+    const v = document.getElementById('descField').value;
+    const el = document.getElementById('descCounter');
+    el.textContent = v.length + ' chars';
+    el.className = 'char-counter ok';
+  }
+  if (field === 'backend' || field === 'all') {
+    const v = document.getElementById('backendField').value;
+    const bytes = new TextEncoder().encode(v).length;
+    const pct = Math.min((bytes / 250) * 100, 100);
+    const el = document.getElementById('backendCounter');
+    const fill = document.getElementById('byteFill');
+    const lbl = document.getElementById('byteLabel');
+    const sv = document.getElementById('statBackend');
+    el.textContent = bytes + ' / 250B';
+    lbl.textContent = bytes + ' / 250 bytes used';
+    fill.style.width = pct + '%';
+    if (bytes > 250) {
+      el.className = 'char-counter over';
+      fill.className = 'byte-fill over';
+    } else if (bytes > 210) {
+      el.className = 'char-counter warn';
+      fill.className = 'byte-fill warn';
+    } else {
+      el.className = 'char-counter ok';
+      fill.className = 'byte-fill';
+    }
+    sv.textContent = bytes + ' / 250B';
+    sv.style.color = bytes >= 200 ? 'var(--green2)' : bytes > 0 ? 'var(--accent2)' : 'var(--muted2)';
+  }
+
+  // Bullets filled stat
+  let filled = 0;
+  for (let i = 1; i <= 5; i++) {
+    const el = document.getElementById('bullet'+i);
+    if (el && el.value.trim()) filled++;
+  }
+  const bStat = document.getElementById('statBullets');
+  bStat.textContent = filled + ' / 5';
+  bStat.style.color = filled === 5 ? 'var(--green2)' : filled >= 3 ? 'var(--accent2)' : 'var(--muted2)';
+}
+
+// ─── GET LISTING TEXT PER SECTION ────────────────────────────────────────────
+function getListingText() {
+  const title   = (document.getElementById('titleField')   || {value:''}).value.toLowerCase();
+  const desc    = (document.getElementById('descField')    || {value:''}).value.toLowerCase();
+  const backend = (document.getElementById('backendField') || {value:''}).value.toLowerCase();
+  const bullets = [1,2,3,4,5].map(i => {
+    const el = document.getElementById('bullet'+i);
+    return el ? el.value.toLowerCase() : '';
+  });
+  return { title, bullets, desc, backend, all: [title, ...bullets, desc, backend].join(' ') };
+}
+
+// ─── UPDATE KEYWORD STATUS ───────────────────────────────────────────────────
+function updateKeywordStatus() {
+  const kwList  = document.getElementById('kwList');
+  const kwEmpty = document.getElementById('kwEmpty');
+  const listing = getListingText();
+
+  if (keywords.length === 0) {
+    kwEmpty.style.display = 'block';
+    kwList.innerHTML = '';
+    document.getElementById('kwProgressLabel').textContent = '0 of 0 used';
+    document.getElementById('kwProgressPct').textContent = '0%';
+    document.getElementById('kwFill').style.width = '0%';
+    document.getElementById('statKw').textContent = '0 / 0';
+    return;
+  }
+  kwEmpty.style.display = 'none';
+
+  let usedCount = 0;
+  const pills = keywords.map(kw => {
+    // Where is it used?
+    const inTitle   = listing.title.includes(kw);
+    const inBullet  = listing.bullets.some(b => b.includes(kw));
+    const inDesc    = listing.desc.includes(kw);
+    const inBackend = listing.backend.includes(kw);
+    const found = inTitle || inBullet || inDesc || inBackend;
+    if (found) usedCount++;
+
+    let whereTags = '';
+    if (inTitle)   whereTags += '<span class="T">T</span>';
+    if (inBullet)  whereTags += '<span class="B">B</span>';
+    if (inDesc)    whereTags += '<span class="D">D</span>';
+    if (inBackend) whereTags += '<span class="BK">BK</span>';
+
+    const displayKw = esc(kw);
+    return `
+      <div class="kw-pill ${found ? 'found' : 'missing'}" onclick="copyKeyword('${kw.replace(/'/g,"\\'")}', this)" title="${found ? 'Used in listing' : 'Missing — click to copy'}">
+        <div class="kw-icon ${found ? 'done' : 'miss'}">${found ? '✓' : '+'}</div>
+        <span class="kw-text ${found ? 'struck' : ''}">${displayKw}</span>
+        ${found ? `<div class="kw-where">${whereTags}</div>` : ''}
+        <span class="kw-copy-hint">${found ? 'Copied!' : 'Click to copy'}</span>
+      </div>`;
+  }).join('');
+
+  kwList.innerHTML = pills;
+
+  const pct = Math.round((usedCount / keywords.length) * 100);
+  document.getElementById('kwProgressLabel').textContent = usedCount + ' of ' + keywords.length + ' used';
+  document.getElementById('kwProgressPct').textContent = pct + '%';
+  document.getElementById('kwFill').style.width = pct + '%';
+
+  const stat = document.getElementById('statKw');
+  stat.textContent = usedCount + ' / ' + keywords.length;
+  stat.style.color = pct >= 70 ? 'var(--green2)' : pct >= 40 ? 'var(--accent2)' : 'var(--muted2)';
+}
+
+// ─── COPY KEYWORD ─────────────────────────────────────────────────────────────
+function copyKeyword(kw, el) {
+  navigator.clipboard.writeText(kw).then(() => {
+    const pill = el;
+    const hint = pill ? pill.querySelector('.kw-copy-hint') : null;
+    if (hint) {
+      hint.textContent = 'Copied!';
+      pill.style.borderColor = 'rgba(249,115,22,0.5)';
+      setTimeout(() => {
+        hint.textContent = pill.classList.contains('found') ? 'Copied!' : 'Click to copy';
+        pill.style.borderColor = '';
+      }, 1200);
+    }
+  });
+}
+
+// ─── CLEAR LISTING ───────────────────────────────────────────────────────────
+function clearListing() {
+  if (!confirm('Clear all listing content?')) return;
+  document.getElementById('titleField').value = '';
+  document.getElementById('descField').value = '';
+  document.getElementById('backendField').value = '';
+  for (let i = 1; i <= 5; i++) {
+    const el = document.getElementById('bullet'+i);
+    if (el) el.value = '';
+  }
+  updateCounters('all');
+  updateKeywordStatus();
+}
+
+// ─── EXPORT ──────────────────────────────────────────────────────────────────
+function openExport() {
+  const title   = document.getElementById('titleField').value.trim();
+  const desc    = document.getElementById('descField').value.trim();
+  const backend = document.getElementById('backendField').value.trim();
+  const bullets = [1,2,3,4,5].map(i => {
+    const el = document.getElementById('bullet'+i);
+    return el ? el.value.trim() : '';
+  }).filter(Boolean);
+
+  let html = '';
+  if (title) html += section('Product Title', title);
+  if (bullets.length) html += section('Bullet Points', bullets.map((b,i) => `• ${b}`).join('\n\n'));
+  if (desc) html += section('Product Description', desc);
+  if (backend) html += section('Backend Search Terms', backend);
+
+  if (!html) { alert('Nothing to export yet — add some listing content first.'); return; }
+
+  document.getElementById('exportContent').innerHTML = html;
+  document.getElementById('exportModal').classList.add('open');
+
+  if(typeof fbq !== 'undefined') fbq('track','Lead',{content_name:'Listing Optimizer Export'});
+}
+
+function section(label, content) {
+  return `<div class="export-section">
+    <label>${label}</label>
+    <div class="export-content">${esc(content)}</div>
+    <button class="export-copy-btn" onclick="copySectionContent(this, \`${content.replace(/`/g,'\\`')}\`)">Copy ${label}</button>
+  </div>`;
+}
+
+function copySectionContent(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.style.borderColor = 'var(--green2)';
+    btn.style.color = 'var(--green2)';
+    setTimeout(() => {
+      btn.textContent = 'Copy ' + btn.textContent.replace('✓ Copied!', '').trim();
+      btn.style.borderColor = ''; btn.style.color = '';
+    }, 1500);
+  });
+}
+
+function closeExport() {
+  document.getElementById('exportModal').classList.remove('open');
+}
+
+// ─── UTILS ───────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+buildBullets();
+updateCounters('all');
+</script>
+</body>
+</html>
