@@ -35,9 +35,30 @@
 
   <url>
     <loc>https://www.bitesuindia.com/blog.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/blog-amazon-video-ai-creative-2026.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/blog-prime-day-2026-post-event-playbook.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/blog-protect-amazon-margins-fees-tariffs-2026.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 
   <url>
