@@ -269,20 +269,64 @@
 </footer>
 
 <script>
-  function handleForm(e){
+  const ML_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMTY2NzY0MDU4ODY4ZWE5M2JiMjM0MWI5OThmMjNhMzkxYTRmNjhjMDhhNTQ3OTk3MDE1YzA0NDMzYTQzYjZlODJmMGFmYjNmYmU3ZWY4MmQiLCJpYXQiOjE3ODMyMjc3NTcuNDMyNTQxLCJuYmYiOjE3ODMyMjc3NTcuNDMyNTQ0LCJleHAiOjQ5Mzg5MDEzNTcuNDI2ODQ3LCJzdWIiOiIyMzk0NDUyIiwic2NvcGVzIjpbXX0.QLrvDu3S42ZqHgVVpheSRLICQYudXNBfNCfZuuAuPUm5O9_ORNtD3BHUUSeHQJdaPJU_D0QnUwjOOQco4lIR4Ci_shHHxl-Vf47mm_kBfHIWNVJQg7RrJdg7Uc3yJ8l7_xzBrSAYXxC_4Sa254Qn8eN1TJrGYFABe0CgDM3_Hi2Rt1bsyWeJYSixesZn8vyt-Hkp8BksmAOnyslPejF7zfAWMUemAidsPt1aaVkk8X-wHWmThTDsaqV9nz3LmDRCV6HyfkfomGfaESY3ZCStsRzF2H1PScHkQHL5VbnL5EM4COaTRjf4r5tFquj4YY1_ORe46PX2RLeNmLxOgIwj4VBcPHr4smhFaZm8tKT2XRYh2FEUndB2uSGFroWIlf3_4uBbtBYPZa7hpNvqFrT14Gwuo6d2K5gvCaOd7ZYoNZ3rtvp8vF-rfYVxTjgVm9rd2MjKDvet6TsQLWd2K5ZwvN80GGHTwumW3AFbuH5_bJXAUhCvqL3I9pNM_NqvlqE0QCpLmtDFBv17mW4ftKtBQnp8JiiyQoZQsLV9gGlw57rhtzjqGn4s8ef_sXl4Wzl4j_ixvsSAg5ThKpSvbZGdmPRzRl0DjZRGOeAmAc7mICG1gZW6i1QPfRN8SZVIUZwYJ5nDATosq4DzzE3f6EglLTKPZxDVoDylY-DExYGXkZI';
+  const ML_GROUP = '192127879566329518';
+
+  async function pushToMailerLite(data) {
+    try {
+      await fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + ML_TOKEN
+        },
+        body: JSON.stringify({
+          email: data.email,
+          fields: {
+            name: data.name,
+            phone: data.phone || '',
+            marketplace: data.market || '',
+            monthly_ad_spend: data.spend || '',
+            product_category: data.cat || '',
+            main_challenge: data.challenge || ''
+          },
+          groups: [ML_GROUP]
+        })
+      });
+    } catch(err) {
+      // Fail silently — WhatsApp redirect still fires
+      console.warn('MailerLite:', err);
+    }
+  }
+
+  async function handleForm(e){
     e.preventDefault();
-    const name=document.getElementById('af-name').value.trim();
-    const email=document.getElementById('af-email').value.trim();
-    const phone=document.getElementById('af-phone').value.trim();
-    const market=document.getElementById('af-market').value;
-    const spend=document.getElementById('af-spend').value.trim();
-    const cat=document.getElementById('af-cat').value.trim();
-    const msg2=document.getElementById('af-msg-text').value.trim();
-    const wa=encodeURIComponent(`Hi Bitesu India! Free Audit Request\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone||'—'}\nMarketplace: ${market||'—'}\nAd Spend: ${spend||'—'}\nCategory: ${cat||'—'}\nChallenge: ${msg2||'—'}`);
-    document.getElementById('af-msg').textContent='✓ Redirecting you to WhatsApp…';
-    document.getElementById('af-msg').style.color='#34d399';
-    if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Audit Form',content_category:'Contact Page'});fbq('track','Contact');}
-    setTimeout(()=>{window.open('https://wa.me/918742944528?text='+wa,'_blank');},600);
+    const name    = document.getElementById('af-name').value.trim();
+    const email   = document.getElementById('af-email').value.trim();
+    const phone   = document.getElementById('af-phone').value.trim();
+    const market  = document.getElementById('af-market').value;
+    const spend   = document.getElementById('af-spend').value.trim();
+    const cat     = document.getElementById('af-cat').value.trim();
+    const challenge = document.getElementById('af-msg-text').value.trim();
+
+    const btn = e.target.querySelector('.af-submit');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+
+    // Push to MailerLite (non-blocking — we don't await so WhatsApp fires regardless)
+    pushToMailerLite({ name, email, phone, market, spend, cat, challenge });
+
+    // Meta Pixel
+    if(typeof fbq !== 'undefined'){
+      fbq('track','Lead',{content_name:'Audit Form',content_category:'Contact Page'});
+      fbq('track','Contact');
+    }
+
+    // WhatsApp redirect
+    const wa = encodeURIComponent(`Hi Bitesu India! Free Audit Request\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone||'—'}\nMarketplace: ${market||'—'}\nAd Spend: ${spend||'—'}\nCategory: ${cat||'—'}\nChallenge: ${challenge||'—'}`);
+    document.getElementById('af-msg').textContent = '✓ Saved! Redirecting you to WhatsApp…';
+    document.getElementById('af-msg').style.color = '#34d399';
+    setTimeout(() => { window.open('https://wa.me/918742944528?text='+wa, '_blank'); }, 600);
   }
   const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('up');ro.unobserve(e.target);}});},{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
