@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://www.bitesuindia.com/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-in" href="https://www.bitesuindia.com/"/>
@@ -14,107 +14,150 @@
 
   <url>
     <loc>https://www.bitesuindia.com/services.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/case-studies.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/why-us.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/blog.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/blog-amazon-video-ai-creative-2026.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/blog-prime-day-2026-post-event-playbook.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/blog-protect-amazon-margins-fees-tariffs-2026.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/blog-amazon-ppc-alexa-for-shopping-2026.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/blog-cosmo-agentic-commerce-2026.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/contact.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
+    <loc>https://www.bitesuindia.com/resources.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.bitesuindia.com/listing-scorecard</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/search-term-analyser</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/ppc-report-dashboard.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.bitesuindia.com/review-rating-calculator.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://www.bitesuindia.com/amazon-ranking-tracker.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <loc>https://www.bitesuindia.com/amazon-acos-calculator.html</loc>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/amazon-profit-calculator.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/guide-acos-reduction.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/guide-listing-checklist.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/guide-tacos.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bitesuindia.com/guide-meta-ads.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 
 </urlset>

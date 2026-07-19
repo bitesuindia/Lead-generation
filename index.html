@@ -13,7 +13,7 @@
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amazon PPC Agency India, UK & US | Bitesu India | Meta Ads Experts</title>
-  <meta name="description" content="Bitesu India — Amazon Verified PPC & account management agency. ACoS cut 90%→18%, £104K+ monthly sales, +600% organic growth. Serving India, UK & US sellers. Get a free audit today." />
+  <meta name="description" content="Bitesu India — Amazon Verified PPC & account management agency. ACoS cut 90%→18%, £104K+ monthly sales, +600% organic growth. Serving India, UK & US sellers. Book a free strategy call today." />
   <meta name="keywords" content="Amazon PPC agency India, Amazon advertising agency UK, Amazon account management, Meta Ads ecommerce, Amazon Verified Partner, Flipkart advertising management, Amazon FBA agency, reduce Amazon ACoS, TaCoS optimization, Amazon sponsored products management Delhi" />
   <meta name="author" content="Bitesu India" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -182,18 +182,14 @@
       text-align:center; padding:130px 5% 80px;
       position:relative; overflow:hidden;
     }
-    /* animated orbs */
+    /* static orbs — blur pre-composited on GPU layer, no per-frame repaint */
     .orb {
       position:absolute; border-radius:50%; filter:blur(80px);
-      pointer-events:none; animation:orbFloat 8s ease-in-out infinite;
+      pointer-events:none; will-change:transform; transform:translateZ(0);
     }
-    .orb1 { width:600px; height:600px; background:rgba(99,102,241,0.18); top:-200px; left:-100px; animation-delay:0s; }
-    .orb2 { width:500px; height:500px; background:rgba(249,115,22,0.14); top:100px; right:-150px; animation-delay:-3s; }
-    .orb3 { width:400px; height:400px; background:rgba(99,102,241,0.1); bottom:-100px; left:30%; animation-delay:-5s; }
-    @keyframes orbFloat {
-      0%,100%{transform:translateY(0) scale(1)}
-      50%{transform:translateY(-40px) scale(1.05)}
-    }
+    .orb1 { width:600px; height:600px; background:rgba(99,102,241,0.18); top:-200px; left:-100px; }
+    .orb2 { width:500px; height:500px; background:rgba(249,115,22,0.14); top:100px; right:-150px; }
+    .orb3 { width:400px; height:400px; background:rgba(99,102,241,0.1); bottom:-100px; left:30%; }
     .hero-content { position:relative; z-index:2; max-width:900px; }
     .hero-badge {
       display:inline-flex; align-items:center; gap:8px;
@@ -214,7 +210,7 @@
     .grad-text {
       background:linear-gradient(135deg,#f97316 0%,#fb923c 35%,#a855f7 65%,#6366f1 100%);
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      background-size:200% auto; animation:gradShift 4s linear infinite;
+      background-size:200% auto; animation:gradShift 8s linear infinite;
     }
     @keyframes gradShift { 0%{background-position:0%} 100%{background-position:200%} }
     .hero-sub {
@@ -405,23 +401,6 @@
     .rb-metric.green { background:linear-gradient(135deg,#10b981,#34d399); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
     .rb-title { font-family:'Space Grotesk',sans-serif; font-size:1.05rem; font-weight:700; margin-bottom:8px; }
     .rb-desc { color:var(--muted2); font-size:0.88rem; line-height:1.7; flex:1; }
-    /* screenshot mockup */
-    .screenshot-frame {
-      margin-top:20px; border-radius:10px; overflow:hidden;
-      border:1px solid rgba(255,255,255,0.1);
-      background:var(--bg); position:relative;
-    }
-    .sf-bar {
-      background:rgba(255,255,255,0.05); padding:8px 14px;
-      display:flex; align-items:center; gap:6px;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-    .sf-dot { width:9px; height:9px; border-radius:50%; }
-    .sf-dot.r { background:#ff5f56; }
-    .sf-dot.y { background:#ffbd2e; }
-    .sf-dot.g { background:#27c93f; }
-    .sf-url { margin-left:10px; background:rgba(255,255,255,0.05); border-radius:4px; padding:2px 10px; font-size:0.7rem; color:var(--muted); font-family:monospace; }
-    .sf-img { width:100%; display:block; }
     /* mini stat pills inside cards */
     .mini-stats { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
     .mini-stat {
@@ -434,7 +413,7 @@
     .mini-stat.green .val { color:#34d399; }
 
     /* ─── SERVICES TABS ─── */
-    .services-bg { background:var(--bg); }
+    .services-bg { background:var(--bg); content-visibility:auto; contain-intrinsic-size:0 700px; }
     .svc-tabs {
       display:flex; gap:8px; margin-top:52px;
       overflow-x:auto; padding-bottom:4px; scrollbar-width:none;
@@ -578,7 +557,7 @@
     }
 
     /* ─── META ADS SPOTLIGHT ─── */
-    .meta-section { background:var(--bg2); }
+    .meta-section { background:var(--bg2); content-visibility:auto; contain-intrinsic-size:0 600px; }
     .meta-grid {
       display:grid; grid-template-columns:1fr 1fr; gap:64px;
       align-items:center; margin-top:56px;
@@ -670,7 +649,7 @@
     .tc-mkt.uk { background:rgba(99,102,241,0.12); color:var(--blue2); }
 
     /* ─── CTA FINAL ─── */
-    .cta-bg { background:var(--bg); }
+    .cta-bg { background:var(--bg); content-visibility:auto; contain-intrinsic-size:0 500px; }
     .cta-box {
       border-radius:24px; overflow:hidden;
       border:1px solid rgba(249,115,22,0.2);
@@ -829,78 +808,6 @@
     @media(max-width:1200px){.explore-grid{grid-template-columns:repeat(3,1fr);}}
     @media(max-width:640px){.explore-grid{grid-template-columns:repeat(2,1fr);}}
 
-    /* ─── PRICING ─── */
-    .pricing-bg { background:var(--bg); }
-    .pricing-header-row { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; }
-    .currency-toggle { display:flex; align-items:center; gap:14px; }
-    .toggle-label { font-size:0.88rem; color:var(--muted2); font-weight:600; }
-    .toggle-track {
-      width:54px; height:28px; background:var(--bg3); border:1px solid var(--border2);
-      border-radius:50px; cursor:pointer; position:relative; transition:all 0.3s; flex-shrink:0;
-    }
-    .toggle-track.active { background:rgba(249,115,22,0.25); border-color:rgba(249,115,22,0.5); }
-    .toggle-thumb {
-      width:20px; height:20px; background:var(--muted);
-      border-radius:50%; position:absolute; top:3px; left:4px; transition:all 0.3s;
-    }
-    .toggle-track.active .toggle-thumb { left:28px; background:var(--accent); }
-    .pricing-grid {
-      display:grid; grid-template-columns:repeat(4,1fr);
-      gap:16px; margin-top:48px;
-    }
-    .p-card {
-      background:var(--bg2); border:1px solid var(--border);
-      border-radius:var(--radius); padding:36px 26px 30px;
-      display:flex; flex-direction:column; gap:20px;
-      transition:all 0.35s; position:relative; overflow:hidden;
-    }
-    .p-card:hover { transform:translateY(-6px); border-color:rgba(249,115,22,0.35); box-shadow:0 32px 80px rgba(0,0,0,0.45); }
-    .p-card.featured {
-      border-color:rgba(249,115,22,0.5);
-      background:linear-gradient(160deg,rgba(249,115,22,0.07),var(--bg2) 55%);
-      box-shadow:0 0 0 1px rgba(249,115,22,0.15);
-    }
-    .p-badge {
-      position:absolute; top:0; left:50%; transform:translateX(-50%);
-      background:var(--accent); color:#fff; font-size:0.68rem; font-weight:800;
-      padding:5px 18px; border-radius:0 0 10px 10px; letter-spacing:0.1em; text-transform:uppercase;
-      white-space:nowrap;
-    }
-    .p-tier { font-family:'Space Grotesk',sans-serif; font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-top:8px; }
-    .p-card.featured .p-tier { color:var(--accent2); }
-    .p-price { display:flex; align-items:baseline; gap:3px; flex-wrap:wrap; }
-    .p-sym { font-size:1.2rem; font-weight:700; color:var(--muted2); margin-right:1px; }
-    .p-amount {
-      font-family:'Space Grotesk',sans-serif; font-size:2.6rem; font-weight:800; line-height:1;
-      background:linear-gradient(135deg,#f97316,#fb923c);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    }
-    .p-per { font-size:0.82rem; color:var(--muted); align-self:flex-end; padding-bottom:4px; }
-    .p-spend {
-      font-size:0.78rem; color:var(--muted2); padding:5px 13px;
-      background:rgba(255,255,255,0.04); border-radius:50px; border:1px solid var(--border);
-      display:inline-block; width:fit-content;
-    }
-    .p-divider { border:none; border-top:1px solid var(--border); margin:0; }
-    .p-features { display:flex; flex-direction:column; gap:10px; flex:1; }
-    .p-feat { display:flex; align-items:flex-start; gap:9px; font-size:0.85rem; color:var(--muted2); line-height:1.5; }
-    .p-feat .pf-ok { color:#34d399; flex-shrink:0; margin-top:1px; font-size:0.85rem; }
-    .p-cta {
-      display:block; text-align:center; padding:13px 20px; border-radius:12px;
-      font-weight:700; font-size:0.9rem; text-decoration:none; transition:all 0.25s;
-      background:var(--card2); border:1px solid var(--border2); color:var(--text);
-      margin-top:auto;
-    }
-    .p-cta:hover { border-color:var(--accent); color:var(--accent2); transform:translateY(-2px); }
-    .p-card.featured .p-cta {
-      background:linear-gradient(135deg,#f97316,#ea580c); color:#fff;
-      border-color:transparent; box-shadow:0 8px 28px rgba(249,115,22,0.3);
-    }
-    .p-card.featured .p-cta:hover { box-shadow:0 12px 40px rgba(249,115,22,0.45); }
-    .p-note { text-align:center; color:var(--muted); font-size:0.8rem; margin-top:24px; }
-    .p-note a { color:var(--accent2); text-decoration:none; }
-    @media(max-width:1024px){.pricing-grid{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:640px){.pricing-grid{grid-template-columns:1fr;}}
 
     /* ─── AUDIT FORM ─── */
     .audit-form {
@@ -1086,6 +993,11 @@
   50%{transform:rotate(2.5deg);}
 }50%{transform:rotate(2.5deg) translateY(-1px)}}
 
+  /* ── Static CSS grid background (zero JS, zero CPU) ── */
+  body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(249,115,22,0.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(99,102,241,0.035) 1px,transparent 1px);
+    background-size:72px 72px;}
 </style>
   <!-- ╔══════════════════════════════════════════════════════════════╗
        ║  META PIXEL — replace 1136656594313315 with your real ID  ║
@@ -1137,13 +1049,14 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+
 <!-- SVG ICON SPRITE -->
 
 
 <!-- NAV -->
 <nav id="nav">
   <a href="/" class="nav-logo">
-    <span class="logo-badge"><img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:52px;width:auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/></span>
+    <span class="logo-badge"><img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/65f1f7b388b61_Bitesuindia2.png" alt="Bitesu India" style="height:52px;width:auto;" fetchpriority="high" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/></span>
     <span style="display:none">Bitesu India</span>
   </a>
   <ul class="nav-links">
@@ -1154,16 +1067,17 @@
     <li class="nav-dropdown">
       <a href="resources.html">Free Tools <span style="font-size:0.65rem;background:rgba(249,115,22,0.15);color:var(--accent);padding:2px 7px;border-radius:100px;font-weight:700;margin-left:2px;vertical-align:middle;">NEW</span></a>
       <div class="nav-dropdown-menu">
-        <a href="ppc-report-dashboard.html" class="dd-item"><span class="dd-icon" style="background:rgba(249,115,22,0.1);">📊</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Search Term Analysis</strong><span style="font-size:0.74rem;color:#64748b;">Upload report · get full dashboard</span></span></a>
+        <a href="amazon-acos-calculator.html" class="dd-item"><span class="dd-icon" style="background:rgba(249,115,22,0.1);">🎯</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">ACoS Calculator</strong><span style="font-size:0.74rem;color:#64748b;">Break-even & target ACoS instantly</span></span></a>
+        <a href="amazon-profit-calculator.html" class="dd-item"><span class="dd-icon" style="background:rgba(16,185,129,0.1);">💰</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Profit & Margin Calculator</strong><span style="font-size:0.74rem;color:#64748b;">Net profit, ROI & break-even units</span></span></a>
+        <a href="ppc-report-dashboard.html" class="dd-item"><span class="dd-icon" style="background:rgba(99,102,241,0.1);">📊</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Search Term Analysis</strong><span style="font-size:0.74rem;color:#64748b;">Upload report · get full dashboard</span></span></a>
         <a href="listing-scorecard.html" class="dd-item"><span class="dd-icon" style="background:rgba(16,185,129,0.1);">✅</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Listing Quality Scorecard</strong><span style="font-size:0.74rem;color:#64748b;">Score your listing out of 100</span></span></a>
         <a href="review-rating-calculator.html" class="dd-item"><span class="dd-icon" style="background:rgba(245,158,11,0.1);">⭐</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Review Rating Calculator</strong><span style="font-size:0.74rem;color:#64748b;">How many reviews to hit your target?</span></span></a>
-        <a href="amazon-ranking-tracker.html" class="dd-item"><span class="dd-icon" style="background:rgba(99,102,241,0.1);">📈</span><span><strong style="color:#f1f5f9;display:block;font-size:0.83rem;">Amazon Ranking Tracker</strong><span style="font-size:0.74rem;color:#64748b;">Check ASIN indexing & rank</span></span></a>
         <div class="dd-divider"></div>
         <a href="resources.html" class="dd-all">View all free tools →</a>
       </div>
     </li>
     <li><a href="resources.html">Resources</a></li>
-    <li><a href="contact.html" class="nav-pill">Free Audit →</a></li>
+    <li><a href="contact.html" class="nav-pill">Strategy Call →</a></li>
   </ul>
   <div class="hamburger" id="ham" onclick="toggleNav()">
     <span></span><span></span><span></span>
@@ -1179,7 +1093,7 @@
   <a href="listing-scorecard.html" onclick="toggleNav()" style="padding-left:14px;font-size:0.87rem;color:var(--muted2);">✅ Listing Scorecard</a>
   <a href="resources.html" onclick="toggleNav()">Resources</a>
   <a href="contact.html" onclick="toggleNav()">Contact</a>
-  <a href="contact.html" onclick="toggleNav()" style="color:var(--accent2);font-weight:700;">Book Free Audit →</a>
+  <a href="contact.html" onclick="toggleNav()" style="color:var(--accent2);font-weight:700;">Book Strategy Call →</a>
 </div>
 
 <!-- HERO -->
@@ -1191,7 +1105,7 @@
   <div class="hero-content">
     <div class="hero-badge reveal">
       <span class="dot"></span>
-      <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/66099d45b8a80_download.png" alt="Amazon Verified Partner" style="height:18px;width:auto;filter:brightness(0) invert(1);opacity:0.9;" onerror="this.style.display='none'" />
+      <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/66099d45b8a80_download.png" alt="Amazon Verified Partner" style="height:18px;width:auto;filter:brightness(0) invert(1);opacity:0.9;" decoding="async" onerror="this.style.display='none'" />
       Amazon Verified Marketing Partner · Delhi, India
     </div>
     <h1 class="reveal">
@@ -1208,7 +1122,7 @@
     <div class="hero-cta-strip reveal">
       <a href="#contact" class="btn-hero-primary">
         <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        Get Your Free Audit
+        Book a Strategy Call
       </a>
       <a href="resources.html" class="btn-hero-secondary">
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
@@ -1231,7 +1145,7 @@
               <svg width="11" height="11" style="color:white;flex-shrink:0;" aria-label="Flipkart"><use href="#logo-flipkart"/></svg>
             </div>
             <div style="width:18px;height:18px;border-radius:5px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=32" width="14" height="14" alt="Myntra" style="display:block;border-radius:2px;">
+              <img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=32" width="14" height="14" alt="Myntra" decoding="async" style="display:block;border-radius:2px;">
             </div>
           </div>
         </div>
@@ -1293,22 +1207,22 @@
       <span class="m-pill"><span class="m-icon" style="background:#4285F4;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-google"/></svg></span>Google Ads</span>
       <span class="m-pill"><span class="m-icon" style="background:#FF9900;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-amazon"/></svg></span>Amazon</span>
       <span class="m-pill"><span class="m-icon" style="background:#0071CE;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-walmart"/></svg></span>Walmart</span>
-      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=tatacliq.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Tatacliq</span>
-      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Myntra</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=tatacliq.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async" style="display:block;border-radius:3px;"></span>Tatacliq</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async" style="display:block;border-radius:3px;"></span>Myntra</span>
       <span class="m-pill"><span class="m-icon" style="background:#F7841F;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-flipkart"/></svg></span>Flipkart</span>
       <span class="m-pill"><span class="m-icon" style="background:#B626B1;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-meesho"/></svg></span>Meesho</span>
-      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=nykaa.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Nykaa</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=nykaa.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async" style="display:block;border-radius:3px;"></span>Nykaa</span>
       <span class="m-pill"><span class="m-icon" style="background:#FDD700;"><svg width="16" height="16" style="color:#1a1a1a;flex-shrink:0;"><use href="#logo-noon"/></svg></span>Noon</span>
       <!-- set 2 — seamless loop duplicate -->
       <span class="m-pill"><span class="m-icon" style="background:#0866FF;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-meta"/></svg></span>Meta Ads</span>
       <span class="m-pill"><span class="m-icon" style="background:#4285F4;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-google"/></svg></span>Google Ads</span>
       <span class="m-pill"><span class="m-icon" style="background:#FF9900;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-amazon"/></svg></span>Amazon</span>
       <span class="m-pill"><span class="m-icon" style="background:#0071CE;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-walmart"/></svg></span>Walmart</span>
-      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=tatacliq.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Tatacliq</span>
-      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Myntra</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=tatacliq.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async" style="display:block;border-radius:3px;"></span>Tatacliq</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=myntra.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async" style="display:block;border-radius:3px;"></span>Myntra</span>
       <span class="m-pill"><span class="m-icon" style="background:#F7841F;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-flipkart"/></svg></span>Flipkart</span>
       <span class="m-pill"><span class="m-icon" style="background:#B626B1;"><svg width="16" height="16" style="color:white;flex-shrink:0;"><use href="#logo-meesho"/></svg></span>Meesho</span>
-      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=nykaa.com&sz=64" width="20" height="20" alt="" style="display:block;border-radius:3px;"></span>Nykaa</span>
+      <span class="m-pill"><span class="m-icon" style="background:rgba(255,255,255,0.1);"><img src="https://www.google.com/s2/favicons?domain=nykaa.com&sz=64" width="20" height="20" alt="" loading="lazy" decoding="async" style="display:block;border-radius:3px;"></span>Nykaa</span>
       <span class="m-pill"><span class="m-icon" style="background:#FDD700;"><svg width="16" height="16" style="color:#1a1a1a;flex-shrink:0;"><use href="#logo-noon"/></svg></span>Noon</span>
     </div>
   </div>
@@ -1335,15 +1249,6 @@
             <div class="mini-stat"><span class="val">1 Month</span> Timeline</div>
             <div class="mini-stat green"><span class="val">All-time high</span> Revenue</div>
           </div>
-          <div class="screenshot-frame">
-            <div class="sf-bar">
-              <span class="sf-dot r"></span>
-              <span class="sf-dot y"></span>
-              <span class="sf-dot g"></span>
-              <span class="sf-url">sellercentral.amazon.co.uk</span>
-            </div>
-            <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/66099322a1b23_64e3c593fdf1fad9d6ece95b_asc.png" alt="Amazon UK Sales Dashboard showing £104,103 revenue" class="sf-img" loading="lazy" />
-          </div>
         </div>
       </div>
 
@@ -1357,15 +1262,6 @@
           <div class="mini-stats">
             <div class="mini-stat blue"><span class="val">−72%</span> ACoS Drop</div>
             <div class="mini-stat"><span class="val">8 Weeks</span> Timeline</div>
-          </div>
-          <div class="screenshot-frame">
-            <div class="sf-bar">
-              <span class="sf-dot r"></span>
-              <span class="sf-dot y"></span>
-              <span class="sf-dot g"></span>
-              <span class="sf-url">advertising.amazon.in</span>
-            </div>
-            <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/660977ed5a8d5_Screenshot2024-03-31201905.png" alt="Amazon PPC ACoS reduction from 90% to 18%" class="sf-img" loading="lazy" />
           </div>
         </div>
       </div>
@@ -1381,15 +1277,6 @@
             <div class="mini-stat green"><span class="val">0 Paid Ads</span> Used</div>
             <div class="mini-stat"><span class="val">4.5 Mo</span> Timeline</div>
           </div>
-          <div class="screenshot-frame">
-            <div class="sf-bar">
-              <span class="sf-dot r"></span>
-              <span class="sf-dot y"></span>
-              <span class="sf-dot g"></span>
-              <span class="sf-url">seller.flipkart.com</span>
-            </div>
-            <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/660979ee1044f_Screenshot2024-03-31202711.png" alt="Flipkart sales growth screenshot 600%" class="sf-img" loading="lazy" />
-          </div>
         </div>
       </div>
 
@@ -1404,15 +1291,6 @@
             <div class="mini-stat"><span class="val">30%→17.81%</span> ACoS</div>
             <div class="mini-stat green"><span class="val">+30%</span> Sales Volume</div>
             <div class="mini-stat blue"><span class="val">Both</span> metrics improved</div>
-          </div>
-          <div class="screenshot-frame">
-            <div class="sf-bar">
-              <span class="sf-dot r"></span>
-              <span class="sf-dot y"></span>
-              <span class="sf-dot g"></span>
-              <span class="sf-url">advertising.amazon.in</span>
-            </div>
-            <img src="https://d1yei2z3i6k35z.cloudfront.net/5768349/660994650186a_92.jpg" alt="Amazon India ACoS 17.81% achievement screenshot" class="sf-img" loading="lazy" />
           </div>
         </div>
       </div>
@@ -1469,7 +1347,7 @@
               <div class="svc-stat"><span class="sv or">3.4×</span><small>Avg ROAS Lift</small></div>
               <div class="svc-stat"><span class="sv or">Daily</span><small>Optimisation</small></div>
             </div>
-            <a href="#contact" class="svc-cta-btn or">Get a Free PPC Audit →</a>
+            <a href="#contact" class="svc-cta-btn or">Book a Strategy Call →</a>
           </div>
           <div class="svc-right or">
             <div class="svc-mock">
@@ -1540,7 +1418,7 @@
               <div class="svc-stat"><span class="sv or">24h</span><small>Case Response</small></div>
               <div class="svc-stat"><span class="sv or">100%</span><small>Policy Compliance</small></div>
             </div>
-            <a href="#contact" class="svc-cta-btn or">Get a Free Account Audit →</a>
+            <a href="#contact" class="svc-cta-btn or">Book a Strategy Call →</a>
           </div>
           <div class="svc-right or">
             <div class="svc-mock">
@@ -1606,7 +1484,7 @@
               <div class="svc-stat"><span class="sv bl">47pt</span><small>Checklist Items</small></div>
               <div class="svc-stat"><span class="sv bl">Pg 1</span><small>Target Ranking</small></div>
             </div>
-            <a href="#contact" class="svc-cta-btn bl">Get a Free Listing Audit →</a>
+            <a href="#contact" class="svc-cta-btn bl">Book a Strategy Call →</a>
           </div>
           <div class="svc-right bl">
             <div class="svc-mock">
@@ -2157,120 +2035,12 @@
     <div style="text-align:center;margin-top:52px;" class="reveal">
       <a href="#contact" class="btn-hero-primary" style="display:inline-flex;">
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        Experience the Difference — Book Your Free Audit
+        Experience the Difference — Book a Strategy Call
       </a>
     </div>
   </div>
 </section>
 
-<!-- PRICING-REMOVED -->
-<section class="pricing-bg" id="pricing" style="display:none">
-  <div class="container">
-    <div class="pricing-header-row">
-      <div>
-        <span class="s-label reveal">Transparent Pricing</span>
-        <h2 class="s-title reveal">No Hidden Fees.<br/>No % of Spend Surprises.</h2>
-        <p class="s-sub reveal" style="margin-top:12px;">Fixed monthly retainers. You own the ad account. Cancel anytime.</p>
-      </div>
-      <div class="currency-toggle reveal">
-        <span class="toggle-label" id="lbl-inr" style="color:var(--accent2);">₹ INR</span>
-        <div class="toggle-track" id="currToggle" onclick="toggleCurrency()">
-          <div class="toggle-thumb"></div>
-        </div>
-        <span class="toggle-label" id="lbl-gbp">£ GBP</span>
-      </div>
-    </div>
-
-    <div class="pricing-grid">
-
-      <!-- Starter -->
-      <div class="p-card reveal">
-        <div class="p-tier">Starter</div>
-        <div class="p-price">
-          <span class="p-sym curr-sym">₹</span>
-          <span class="p-amount" data-inr="15,000" data-gbp="150">15,000</span>
-          <span class="p-per">/mo</span>
-        </div>
-        <div class="p-spend curr-spend" data-inr="Up to ₹2L ad spend" data-gbp="Up to £2K ad spend">Up to ₹2L ad spend</div>
-        <hr class="p-divider"/>
-        <div class="p-features">
-          <div class="p-feat"><span class="pf-ok">✓</span>Amazon PPC management</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Sponsored Products + Brands</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Weekly performance report</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Keyword + search term mining</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>WhatsApp access to your AM</div>
-        </div>
-        <a href="#contact" class="p-cta">Get Started →</a>
-      </div>
-
-      <!-- Growth — Featured -->
-      <div class="p-card featured reveal">
-        <div class="p-badge">Most Popular</div>
-        <div class="p-tier">Growth</div>
-        <div class="p-price">
-          <span class="p-sym curr-sym">₹</span>
-          <span class="p-amount" data-inr="30,000" data-gbp="350">30,000</span>
-          <span class="p-per">/mo</span>
-        </div>
-        <div class="p-spend curr-spend" data-inr="₹2L–₹8L ad spend" data-gbp="£2K–£8K ad spend">₹2L–₹8L ad spend</div>
-        <hr class="p-divider"/>
-        <div class="p-features">
-          <div class="p-feat"><span class="pf-ok">✓</span>Everything in Starter</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Amazon + Flipkart PPC</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Listing SEO optimisation</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Bi-weekly strategy call</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Competitor benchmarking</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>ACoS / TaCoS deep-dive</div>
-        </div>
-        <a href="#contact" class="p-cta">Get Started →</a>
-      </div>
-
-      <!-- Scale -->
-      <div class="p-card reveal">
-        <div class="p-tier">Scale</div>
-        <div class="p-price">
-          <span class="p-sym curr-sym">₹</span>
-          <span class="p-amount" data-inr="55,000" data-gbp="650">55,000</span>
-          <span class="p-per">/mo</span>
-        </div>
-        <div class="p-spend curr-spend" data-inr="₹8L–₹25L ad spend" data-gbp="£8K–£25K ad spend">₹8L–₹25L ad spend</div>
-        <hr class="p-divider"/>
-        <div class="p-features">
-          <div class="p-feat"><span class="pf-ok">✓</span>Everything in Growth</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>All marketplaces incl. Myntra</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Meta Ads management</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Amazon DSP strategy</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Monthly P&amp;L review session</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Priority WhatsApp response</div>
-        </div>
-        <a href="#contact" class="p-cta">Get Started →</a>
-      </div>
-
-      <!-- Enterprise -->
-      <div class="p-card reveal">
-        <div class="p-tier">Enterprise</div>
-        <div class="p-price">
-          <span class="p-sym curr-sym" style="-webkit-text-fill-color:var(--muted2);background:none;"></span>
-          <span class="p-amount" style="font-size:2rem;">Custom</span>
-        </div>
-        <div class="p-spend curr-spend" data-inr="₹25L+ ad spend" data-gbp="£25K+ ad spend">₹25L+ ad spend</div>
-        <hr class="p-divider"/>
-        <div class="p-features">
-          <div class="p-feat"><span class="pf-ok">✓</span>Everything in Scale</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Full-time dedicated AM</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Daily performance briefings</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Creative &amp; A+ content team</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>Quarterly business reviews</div>
-          <div class="p-feat"><span class="pf-ok">✓</span>SLA-backed response time</div>
-        </div>
-        <a href="#contact" class="p-cta">Talk to Us →</a>
-      </div>
-
-    </div>
-
-    <p class="p-note reveal">All plans are month-to-month. No setup fee. You retain full ownership of all ad accounts and data. &nbsp;·&nbsp; <a href="#contact">Questions? Book a free audit →</a></p>
-  </div>
-</section>
 
 
 <!-- CTA -->
@@ -2280,7 +2050,7 @@
       <div class="cta-inner">
         <div class="cta-left">
           <span class="s-label" style="margin-bottom:12px;">Free Account Audit</span>
-          <h2>Get Your Free<br/>30-Minute Audit</h2>
+          <h2>Book a Free<br/>Strategy Call</h2>
           <p>Tell us about your brand and we'll analyse your account, identify your top 3 growth levers, and show you exactly what we'd do — no pitch, no pressure.</p>
 
           <form class="audit-form" onsubmit="handleAuditForm(event)">
@@ -2302,7 +2072,7 @@
             <input class="af-input" type="text" placeholder="Monthly ad spend (e.g. ₹50,000 or £1,000)" id="af-spend"/>
             <button type="submit" class="af-submit">
               <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              Claim My Free Audit
+              Book My Strategy Call
             </button>
             <p class="af-disclaimer" id="af-msg">We respond within 4 business hours. No spam, ever.</p>
           </form>
@@ -2524,8 +2294,8 @@
     const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const NUM = 32, CONNECT = 120; // reduced from 55 → 32 (cuts O(n²) checks by ~66%)
-    let W, H, pts = [], raf, paused = false;
+    const NUM = 18, CONNECT = 110; // 18 dots → 153 pair checks/frame (vs 496 at 32)
+    let W, H, pts = [], raf, paused = false, _frame = 0;
 
     function resize() {
       W = canvas.width = canvas.offsetWidth;
@@ -2539,6 +2309,8 @@
     function init() { resize(); pts = []; for(let i=0;i<NUM;i++) pts.push(new Dot()); }
     function loop() {
       if (paused) return;
+      raf = requestAnimationFrame(loop);
+      if (++_frame % 2 !== 0) return; // 30 fps cap
       ctx.clearRect(0, 0, W, H);
       for (let i = 0; i < pts.length; i++) {
         const p = pts[i];
@@ -2557,7 +2329,6 @@
           }
         }
       }
-      raf = requestAnimationFrame(loop);
     }
     // Pause animation when tab is hidden — saves CPU/battery
     document.addEventListener('visibilitychange', () => {
@@ -2590,6 +2361,7 @@
     ob.observe(section);
   })();
 </script>
+
 
 </body>
 </html>

@@ -267,7 +267,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="why-us.html">Why Us</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="resources.html" style="color:var(--accent2);font-weight:700;">Resources</a></li>
-    <li><a href="contact.html" class="nav-pill">Free Audit →</a></li>
+    <li><a href="contact.html" class="nav-pill">Strategy Call →</a></li>
   </ul>
   <div class="hamburger" id="ham" onclick="document.getElementById('mobileNav').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -279,7 +279,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="why-us.html">Why Us</a>
   <a href="blog.html">Blog</a>
   <a href="resources.html" style="color:var(--accent2);font-weight:700;">Resources</a>
-  <a href="contact.html" style="color:var(--accent2);font-weight:700;">Book Free Audit →</a>
+  <a href="contact.html" style="color:var(--accent2);font-weight:700;">Book Strategy Call →</a>
 </div>
 
 <!-- HERO -->
@@ -335,33 +335,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- GUIDES SECTION -->
-<section style="background:var(--bg2);padding:80px 5%;">
+<!-- UNIFIED LIBRARY SECTION -->
+<section id="library" style="background:var(--bg2);padding:80px 5%;">
   <div class="container">
-    <div style="margin-bottom:48px;" class="reveal">
+    <div style="margin-bottom:40px;" class="reveal">
       <span class="s-label">Amazon Seller Library</span>
-      <h2 class="s-title">Pick a Guide &amp; Start Growing</h2>
-      <p class="s-sub">All guides are 100% free. Written from real account data — not generic advice.</p>
+      <h2 class="s-title">Guides &amp; Free Tools</h2>
+      <p class="s-sub">Everything is free. Written from real account data — no fluff, no paywalls.</p>
     </div>
 
-    <!-- Filter Tabs -->
-    <div class="filter-tabs" id="filterTabs">
-      <button class="filter-tab active" data-cat="all">All</button>
-      <button class="filter-tab" data-cat="Free Tool">⚡ Free Tools</button>
-      <button class="filter-tab" data-cat="PPC Optimization">PPC Optimization</button>
-      <button class="filter-tab" data-cat="Listing Optimization">Listings</button>
-      <button class="filter-tab" data-cat="Strategy">Strategy</button>
-      <button class="filter-tab" data-cat="Meta Ads">Meta Ads</button>
-      <button class="filter-tab" data-cat="UK Expansion">UK Expansion</button>
+    <!-- 2-Tab switcher -->
+    <div class="filter-tabs" id="filterTabs" style="margin-bottom:40px;">
+      <button class="filter-tab active" data-tab="guides">📚 Guides</button>
+      <button class="filter-tab" data-tab="tools">⚡ Free Tools</button>
     </div>
 
-    <!-- Guides Grid — populated by JS from guides.json -->
+    <!-- Grid — populated from guides.json -->
     <div class="guides-grid" id="guidesGrid">
-      <!-- Loading state -->
       <div id="guidesLoading" style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted);">
-        Loading guides…
+        Loading…
       </div>
     </div>
+
+    <style>
+    /* Clickable card base */
+    a.guide-card{text-decoration:none;color:inherit;display:block;}
+    a.guide-card:hover{border-color:rgba(249,115,22,0.35);background:rgba(249,115,22,0.04);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.35);}
+    a.guide-card:hover .gc-btn:not(.disabled){background:var(--accent);color:#fff;border-color:var(--accent);}
+
+    /* Tool-specific badge */
+    .gc-badge.tool-badge{background:rgba(99,102,241,0.15);color:#818cf8;}
+
+    /* CTA arrow animation on hover */
+    a.guide-card:hover .gc-btn::after{content:' →';margin-left:2px;}
+    .guide-card.coming-soon{opacity:0.55;pointer-events:none;}
+    </style>
   </div>
 </section>
 
@@ -416,7 +424,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Want Us to Apply This to Your Account?
       </h2>
       <p style="color:var(--muted2);font-size:1rem;max-width:500px;margin:0 auto 36px;line-height:1.75;">
-        Guides are great — but having an expert do it for you is better. Book a free 30-minute audit and we'll show you exactly what we'd fix first.
+        Guides are great — but having an expert do it for you is better. Book a free 30-minute strategy call and we'll show you exactly what we'd fix first.
       </p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html"
@@ -424,7 +432,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             color:#fff;padding:15px 32px;border-radius:12px;font-family:'Space Grotesk',sans-serif;
             font-size:0.95rem;font-weight:700;text-decoration:none;
             box-shadow:0 8px 28px rgba(249,115,22,0.35);transition:all 0.25s;">
-          Get Free Audit →
+          Get Strategy Call →
         </a>
         <a href="case-studies.html"
           style="display:inline-flex;align-items:center;gap:10px;
@@ -478,19 +486,21 @@ function handleLeadForm(e, formId, successId) {
   success.style.display = 'block';
 }
 
-// ─── FILTER TABS ───
+// ─── TAB SWITCHER ───
+let activeTab = 'guides';
 document.getElementById('filterTabs').addEventListener('click', e => {
   const btn = e.target.closest('.filter-tab');
-  if(!btn) return;
+  if (!btn) return;
   document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const cat = btn.dataset.cat;
+  activeTab = btn.dataset.tab;
   document.querySelectorAll('.guide-card').forEach(card => {
-    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    const isTool = card.dataset.type === 'tool';
+    card.style.display = (activeTab === 'tools' ? isTool : !isTool) ? '' : 'none';
   });
 });
 
-// ─── LOAD GUIDES FROM JSON ───
+// ─── LOAD & RENDER CARDS ───
 async function loadGuides() {
   try {
     const res = await fetch('guides.json?v=' + Date.now());
@@ -499,18 +509,30 @@ async function loadGuides() {
     grid.innerHTML = '';
 
     guides.forEach(guide => {
+      const isTool = guide.category === 'Free Tool';
       const isSoon = guide.comingSoon;
-      const badgeClass = isSoon ? 'soon' : 'free';
-      const badgeText = isSoon ? 'Coming Soon' : guide.badge;
-      const btnHTML = isSoon
-        ? '<span class="gc-btn disabled">Coming Soon</span>'
-        : guide.downloadUrl
-          ? `<a href="${guide.downloadUrl}" class="gc-btn" target="_blank" rel="noopener">Download →</a>`
-          : `<a href="contact.html" class="gc-btn">Get Guide →</a>`;
+      const url   = guide.downloadUrl;
 
-      const card = document.createElement('div');
-      card.className = 'guide-card reveal' + (guide.featured ? ' featured' : '') + (isSoon ? ' coming-soon' : '');
-      card.dataset.cat = guide.category;
+      // Whole card is a link when there's a URL and it's not coming soon
+      const tag = (url && !isSoon) ? 'a' : 'div';
+      const card = document.createElement(tag);
+      if (url && !isSoon) { card.href = url; }
+
+      card.className = [
+        'guide-card', 'reveal',
+        guide.featured ? 'featured' : '',
+        isSoon ? 'coming-soon' : '',
+        isTool ? 'is-tool' : ''
+      ].filter(Boolean).join(' ');
+
+      card.dataset.type = isTool ? 'tool' : 'guide';
+      // Default: guides tab active, hide tools
+      if (isTool) card.style.display = 'none';
+
+      const badgeClass = isSoon ? 'soon' : isTool ? 'tool-badge' : 'free';
+      const badgeText  = isSoon ? 'Coming Soon' : guide.badge;
+      const ctaText    = isSoon ? 'Coming Soon' : isTool ? 'Open Tool' : 'Read Guide';
+
       card.innerHTML = `
         <div class="gc-top">
           <span class="gc-icon">${guide.icon}</span>
@@ -521,13 +543,12 @@ async function loadGuides() {
         <div class="gc-desc">${guide.description}</div>
         <div class="gc-footer">
           <span class="gc-read-time">📖 ${guide.readTime}</span>
-          ${btnHTML}
+          <span class="gc-btn${isSoon ? ' disabled' : ''}">${ctaText}</span>
         </div>
       `;
       grid.appendChild(card);
     });
 
-    // Re-observe new elements
     document.querySelectorAll('.guide-card.reveal').forEach(el => obs.observe(el));
   } catch(err) {
     document.getElementById('guidesLoading').textContent = 'Guides coming soon — check back shortly.';
