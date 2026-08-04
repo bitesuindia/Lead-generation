@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TRL5Q2HB');</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Amazon Campaign Launcher — Bulk Campaign Creator Tool | Bitesu India</title>
+  <meta name="description" content="Launch 30+ Amazon Sponsored Products campaigns in minutes. Build campaigns, ad groups, keywords and generate a ready-to-upload Amazon bulk operations XLSX file."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.bitesuindia.com/amazon-campaign-launcher.html"/>
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1136656594313315');fbq('track','PageView');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <style>
+    :root{
+      --bg:#05050e;--bg2:#0d0d1a;--bg3:#10101f;--bg4:#141428;
+      --accent:#f97316;--accent2:#fb923c;
+      --blue:#6366f1;--blue2:#818cf8;
+      --green:#10b981;--green2:#34d399;
+      --red:#ef4444;--red2:#f87171;
+      --yellow:#f59e0b;--yellow2:#fbbf24;
+      --purple:#a855f7;--purple2:#c084fc;
+      --text:#f8fafc;--muted:#7a8fa8;--muted2:#a8bdd4;
+      --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.6;overflow-x:hidden;}
+    a{color:var(--accent2);text-decoration:none;}
+    input,select,textarea,button{font-family:'Plus Jakarta Sans',sans-serif;}
+    .hidden{display:none!important;}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:rgba(5,5,14,0.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 5%;}
+    .nav-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;height:62px;gap:20px;}
+    .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.1rem;color:var(--accent);flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:18px;margin-left:auto;}
+    .nav-links a{font-size:0.82rem;font-weight:600;color:var(--muted2);}
+    .nav-links a:hover{color:var(--text);}
+    .nav-dd{position:relative;}
+    .nav-dd:hover .dd-menu{display:block;}
+    .dd-trigger{display:flex;align-items:center;gap:4px;font-size:0.82rem;font-weight:600;color:var(--muted2);cursor:pointer;padding:4px 0;}
+    .dd-menu{display:none;position:absolute;top:100%;right:0;background:rgba(13,13,26,0.97);border:1px solid var(--border);border-radius:12px;min-width:210px;padding:8px;backdrop-filter:blur(20px);z-index:200;}
+    .dd-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:0.81rem;color:var(--muted2);font-weight:600;transition:all 0.15s;}
+    .dd-item:hover{background:rgba(249,115,22,0.08);color:var(--text);}
+    .dd-icon{font-size:1rem;width:20px;text-align:center;}
+    .nav-pill{background:var(--accent);color:white!important;padding:8px 18px;border-radius:100px;}
+
+    /* HERO */
+    .hero{max-width:1300px;margin:0 auto;padding:52px 5% 28px;text-align:center;position:relative;}
+    .tool-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:var(--blue2);font-size:0.72rem;font-weight:700;padding:4px 14px;border-radius:100px;margin-bottom:14px;}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;line-height:1.18;margin-bottom:10px;}
+    .hero h1 span{color:var(--accent);}
+    .hero p{color:var(--muted2);font-size:0.95rem;max-width:560px;margin:0 auto 20px;}
+    .stats-row{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
+    .stat-chip{display:flex;align-items:center;gap:7px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:7px 16px;font-size:0.78rem;font-weight:700;color:var(--muted2);}
+    .stat-chip .val{color:var(--accent2);font-size:1rem;font-family:'Space Grotesk',sans-serif;}
+
+    /* LAYOUT */
+    .app-layout{max-width:1300px;margin:0 auto;padding:0 5% 80px;display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start;}
+    @media(max-width:1000px){.app-layout{grid-template-columns:1fr;}}
+
+    /* GLOBAL DEFAULTS */
+    .defaults-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:20px;}
+    .card-title{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:0.88rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
+    .form-field{display:flex;flex-direction:column;gap:5px;}
+    .form-field label{font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
+    .form-field input,.form-field select,.form-field textarea{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:8px 11px;color:var(--text);font-size:0.84rem;outline:none;transition:border-color 0.2s;width:100%;}
+    .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:rgba(249,115,22,0.4);}
+    .form-field select option{background:var(--bg3);color:var(--text);}
+    .form-field textarea{resize:vertical;min-height:80px;line-height:1.5;}
+
+    /* CAMPAIGN LIST */
+    .camp-list{display:flex;flex-direction:column;gap:14px;}
+
+    /* CAMPAIGN CARD */
+    .camp-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color 0.2s;}
+    .camp-card:hover{border-color:var(--border2);}
+    .camp-card.expanded{border-color:rgba(249,115,22,0.2);}
+    .camp-header{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none;}
+    .camp-type-badge{font-size:0.65rem;font-weight:800;padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:0.06em;flex-shrink:0;}
+    .badge-auto{background:rgba(16,185,129,0.12);color:var(--green2);border:1px solid rgba(16,185,129,0.2);}
+    .badge-manual{background:rgba(99,102,241,0.12);color:var(--blue2);border:1px solid rgba(99,102,241,0.2);}
+    .badge-pt{background:rgba(168,85,247,0.12);color:var(--purple2);border:1px solid rgba(168,85,247,0.2);}
+    .badge-sb{background:rgba(251,191,36,0.12);color:var(--yellow2);border:1px solid rgba(251,191,36,0.2);}
+    .badge-sd{background:rgba(192,132,252,0.12);color:var(--purple2);border:1px solid rgba(192,132,252,0.2);}
+    .camp-card.sb-card{border-color:rgba(251,191,36,0.08);}
+    .camp-card.sb-card.expanded{border-color:rgba(251,191,36,0.2);}
+    .camp-card.sd-card{border-color:rgba(192,132,252,0.08);}
+    .camp-card.sd-card.expanded{border-color:rgba(192,132,252,0.2);}
+    .camp-name-display{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.9rem;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .camp-meta{font-size:0.73rem;color:var(--muted);flex-shrink:0;}
+    .camp-actions{display:flex;gap:6px;flex-shrink:0;}
+    .icon-btn{width:28px;height:28px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:all 0.15s;}
+    .icon-btn:hover{border-color:var(--border2);color:var(--text);}
+    .icon-btn.del:hover{border-color:rgba(239,68,68,0.4);color:var(--red2);}
+    .chevron{transition:transform 0.25s;font-size:0.75rem;color:var(--muted);}
+    .camp-card.expanded .chevron{transform:rotate(180deg);}
+
+    .camp-body{display:none;padding:0 18px 18px;}
+    .camp-card.expanded .camp-body{display:block;}
+
+    /* Campaign form */
+    .camp-form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:14px;}
+    .type-toggle{display:flex;gap:6px;align-items:center;}
+    .type-btn{padding:6px 14px;border-radius:100px;font-size:0.75rem;font-weight:700;border:1px solid var(--border);background:transparent;color:var(--muted2);cursor:pointer;transition:all 0.15s;}
+    .type-btn.active-auto{border-color:rgba(16,185,129,0.4);color:var(--green2);background:rgba(16,185,129,0.08);}
+    .type-btn.active-manual{border-color:rgba(99,102,241,0.4);color:var(--blue2);background:rgba(99,102,241,0.08);}
+
+    /* Placement bids */
+    .placement-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+    .placement-field{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:8px 11px;display:flex;align-items:center;gap:6px;}
+    .placement-field label{font-size:0.67rem;font-weight:700;color:var(--muted);white-space:nowrap;}
+    .placement-field input{background:transparent;border:none;width:55px;color:var(--text);font-size:0.82rem;font-weight:700;text-align:right;outline:none;}
+    .placement-field span{color:var(--muted);font-size:0.72rem;}
+
+    /* AD GROUP SECTION */
+    .ag-section{border-top:1px solid var(--border);padding-top:14px;margin-top:6px;}
+    .ag-section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+    .ag-section-title{font-size:0.78rem;font-weight:700;color:var(--muted2);}
+    .add-ag-btn{display:flex;align-items:center;gap:5px;font-size:0.75rem;font-weight:700;color:var(--accent2);background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.2);border-radius:100px;padding:5px 13px;cursor:pointer;transition:all 0.15s;}
+    .add-ag-btn:hover{background:rgba(249,115,22,0.12);}
+
+    .ag-list{display:flex;flex-direction:column;gap:10px;}
+    .ag-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+    .ag-header{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;}
+    .ag-num{width:22px;height:22px;border-radius:6px;background:rgba(99,102,241,0.15);color:var(--blue2);font-size:0.68rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .ag-name-disp{font-size:0.82rem;font-weight:700;flex:1;}
+    .ag-meta{font-size:0.7rem;color:var(--muted);}
+    .ag-chevron{font-size:0.7rem;color:var(--muted);transition:transform 0.2s;}
+    .ag-card.expanded .ag-chevron{transform:rotate(180deg);}
+    .ag-body{display:none;padding:0 14px 14px;}
+    .ag-card.expanded .ag-body{display:block;}
+    .ag-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+
+    /* Tabs inside ad group */
+    .ag-tabs{display:flex;gap:4px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:8px;}
+    .ag-tab{font-size:0.73rem;font-weight:700;color:var(--muted);padding:4px 10px;border-radius:6px;cursor:pointer;transition:all 0.15s;}
+    .ag-tab.active{background:rgba(249,115,22,0.1);color:var(--accent2);}
+    .ag-tab-content{display:none;}
+    .ag-tab-content.active{display:block;}
+
+    /* Match type checkboxes */
+    .match-types{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+    .match-check{display:flex;align-items:center;gap:5px;font-size:0.74rem;font-weight:600;color:var(--muted2);cursor:pointer;}
+    .match-check input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;cursor:pointer;}
+    .match-chip{padding:2px 8px;border-radius:4px;font-size:0.67rem;font-weight:700;}
+    .mc-exact{background:rgba(16,185,129,0.1);color:var(--green2);}
+    .mc-phrase{background:rgba(99,102,241,0.1);color:var(--blue2);}
+    .mc-broad{background:rgba(249,115,22,0.1);color:var(--accent2);}
+
+    .field-hint{font-size:0.68rem;color:var(--muted);margin-top:3px;line-height:1.4;}
+
+    /* SIDEBAR */
+    .sidebar{position:sticky;top:80px;}
+    .summary-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:14px;}
+    .summary-title{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:0.88rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:14px;}
+    .summary-stat{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);}
+    .summary-stat:last-child{border-bottom:none;}
+    .summary-stat .sl{font-size:0.8rem;color:var(--muted2);}
+    .summary-stat .sv{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;color:var(--accent2);}
+
+    .export-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),#ea6a0a);border:none;border-radius:12px;color:white;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:0.96rem;cursor:pointer;transition:all 0.25s;margin-bottom:10px;}
+    .export-btn:hover{box-shadow:0 8px 32px rgba(249,115,22,0.4);transform:translateY(-2px);}
+    .export-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+
+    .preview-btn{width:100%;padding:11px;background:transparent;border:1px solid var(--border);border-radius:12px;color:var(--muted2);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.84rem;cursor:pointer;transition:all 0.2s;margin-bottom:14px;}
+    .preview-btn:hover{border-color:var(--border2);color:var(--text);}
+
+    .row-breakdown{margin-top:8px;}
+    .rb-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;font-size:0.75rem;}
+    .rb-label{color:var(--muted);}
+    .rb-val{color:var(--muted2);font-weight:700;}
+    .rb-dot{width:8px;height:8px;border-radius:50%;margin-right:6px;display:inline-block;}
+
+    /* ADD CAMPAIGN BAR */
+    .add-camp-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;}
+    .add-camp-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;border:1px dashed rgba(249,115,22,0.3);background:rgba(249,115,22,0.03);color:var(--accent2);font-weight:700;font-size:0.86rem;cursor:pointer;transition:all 0.2s;min-width:120px;}
+    .add-camp-btn:hover{border-color:rgba(249,115,22,0.5);background:rgba(249,115,22,0.07);}
+    .add-camp-type{display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg3);color:var(--muted2);font-size:0.78rem;font-weight:700;cursor:pointer;transition:all 0.15s;}
+    .add-camp-type:hover{border-color:var(--border2);color:var(--text);}
+
+    /* PREVIEW TABLE */
+    .preview-section{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:20px;}
+    .preview-table-wrap{overflow-x:auto;margin-top:12px;}
+    table.prev-table{width:100%;border-collapse:collapse;font-size:0.73rem;white-space:nowrap;}
+    table.prev-table th{background:rgba(249,115,22,0.05);color:var(--muted);font-weight:700;padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);}
+    table.prev-table td{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.03);color:var(--muted2);}
+    table.prev-table td:first-child{color:var(--text);font-weight:600;}
+    .entity-camp{color:var(--accent2);}
+    .entity-ag{color:var(--blue2);}
+    .entity-kw{color:var(--green2);}
+    .entity-pt{color:var(--purple2);}
+    .entity-ad{color:var(--muted2);}
+    .entity-neg{color:var(--red2);}
+    .entity-adj{color:var(--yellow2);}
+
+    /* EMPTY STATE */
+    .empty-state{text-align:center;padding:48px 20px;border:1px dashed rgba(255,255,255,0.08);border-radius:16px;background:rgba(255,255,255,0.01);}
+    .empty-icon{font-size:2.5rem;margin-bottom:12px;}
+    .empty-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px;}
+    .empty-sub{font-size:0.82rem;color:var(--muted2);}
+
+    .bg-orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;}
+
+    /* MODE SWITCHER */
+    .mode-switcher{max-width:1300px;margin:0 auto;padding:0 5% 20px;display:flex;justify-content:center;}
+    .mode-tabs{display:flex;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:4px;gap:4px;}
+    .mode-tab{display:flex;align-items:center;gap:8px;padding:9px 24px;border-radius:9px;font-size:0.84rem;font-weight:700;cursor:pointer;transition:all 0.2s;color:var(--muted2);border:none;background:transparent;}
+    .mode-tab.active{background:var(--bg4);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+    .mode-tab .mtab-icon{font-size:1rem;}
+
+    /* UPLOAD SECTION */
+    .upload-section{max-width:1300px;margin:0 auto;padding:0 5% 80px;display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start;}
+    @media(max-width:1000px){.upload-section{grid-template-columns:1fr;}}
+
+    .upload-main{}
+    .step-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:16px;}
+    .step-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(249,115,22,0.12);color:var(--accent2);font-size:0.75rem;font-weight:800;margin-right:8px;flex-shrink:0;}
+    .step-title{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:0.95rem;display:flex;align-items:center;margin-bottom:10px;}
+    .step-desc{font-size:0.82rem;color:var(--muted2);line-height:1.6;margin-bottom:14px;}
+
+    .tpl-download-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(99,102,241,0.08));border:1px solid rgba(99,102,241,0.3);border-radius:10px;color:var(--blue2);font-weight:700;font-size:0.84rem;cursor:pointer;transition:all 0.2s;}
+    .tpl-download-btn:hover{border-color:rgba(99,102,241,0.5);background:rgba(99,102,241,0.18);}
+
+    /* Column reference table */
+    .col-ref{width:100%;border-collapse:collapse;font-size:0.76rem;margin-top:10px;}
+    .col-ref th{background:rgba(255,255,255,0.03);color:var(--muted);font-weight:700;padding:7px 10px;text-align:left;border-bottom:1px solid var(--border);}
+    .col-ref td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.03);color:var(--muted2);}
+    .col-ref td:first-child{color:var(--text);font-weight:700;font-size:0.73rem;}
+    .col-ref td:last-child{color:var(--muted);font-style:italic;}
+    .req-badge{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-left:4px;vertical-align:middle;}
+
+    /* DROP ZONE */
+    .drop-zone{border:2px dashed rgba(249,115,22,0.25);border-radius:14px;padding:36px 20px;text-align:center;cursor:pointer;transition:all 0.25s;background:rgba(249,115,22,0.02);position:relative;}
+    .drop-zone:hover,.drop-zone.drag-over{border-color:rgba(249,115,22,0.5);background:rgba(249,115,22,0.05);}
+    .drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+    .dz-icon{font-size:2.2rem;margin-bottom:10px;}
+    .dz-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.96rem;margin-bottom:5px;}
+    .dz-sub{font-size:0.8rem;color:var(--muted2);}
+    .dz-formats{display:flex;gap:6px;justify-content:center;margin-top:12px;}
+    .dz-fmt{font-size:0.68rem;font-weight:700;padding:3px 9px;border-radius:100px;border:1px solid var(--border);color:var(--muted);}
+
+    /* Upload result */
+    .upload-result{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:14px;display:none;}
+    .upload-result.visible{display:block;}
+    .ur-success{border-color:rgba(16,185,129,0.25);}
+    .ur-error{border-color:rgba(239,68,68,0.25);}
+    .ur-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+    .ur-label{font-size:0.78rem;color:var(--muted2);}
+    .ur-val{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1rem;color:var(--accent2);}
+    .ur-errors{margin-top:8px;max-height:120px;overflow-y:auto;}
+    .ur-err-line{font-size:0.73rem;color:var(--red2);padding:2px 0;}
+
+    .upload-export-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),#ea6a0a);border:none;border-radius:12px;color:white;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:0.96rem;cursor:pointer;transition:all 0.25s;margin-top:14px;display:none;}
+    .upload-export-btn.visible{display:block;}
+    .upload-export-btn:hover{box-shadow:0 8px 32px rgba(249,115,22,0.4);transform:translateY(-2px);}
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRL5Q2HB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Bitesu India</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="resources.html">Guides & Tools</a>
+      <div class="nav-dd">
+        <div class="dd-trigger">Free Tools ▾</div>
+        <div class="dd-menu">
+          <a href="amazon-campaign-launcher.html" class="dd-item"><span class="dd-icon">🚀</span>Campaign Launcher</a>
+          <a href="amazon-dayparting-analyzer.html" class="dd-item"><span class="dd-icon">🕐</span>Dayparting Analyzer</a>
+          <a href="amazon-acos-calculator.html" class="dd-item"><span class="dd-icon">🎯</span>ACoS Calculator</a>
+          <a href="amazon-profit-calculator.html" class="dd-item"><span class="dd-icon">💰</span>Profit Calculator</a>
+          <a href="ppc-report-dashboard.html" class="dd-item"><span class="dd-icon">📊</span>Search Term Analyser</a>
+          <a href="listing-scorecard.html" class="dd-item"><span class="dd-icon">✅</span>Listing Scorecard</a>
+        </div>
+      </div>
+      <a href="contact.html" class="nav-pill">Strategy Call →</a>
+    </div>
+  </div>
+</nav>
+
+<div style="position:relative;overflow:hidden;">
+  <div class="bg-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.1),transparent 70%);top:-200px;right:-100px;"></div>
+  <div class="bg-orb" style="width:500px;height:500px;background:radial-gradient(circle,rgba(249,115,22,0.07),transparent 70%);top:100px;left:-80px;"></div>
+
+  <div class="hero">
+    <div class="tool-badge">🚀 Bulk Campaign Creator · Sponsored Products</div>
+    <h1>Launch <span>30+ Campaigns</span> in Minutes</h1>
+    <p>Fill your campaign details here, then download the file and upload directly to Amazon Ads Bulk Operations. No more copy-pasting row by row.</p>
+    <div class="stats-row">
+      <div class="stat-chip"><span class="val" id="stat-camps">0</span> Campaigns</div>
+      <div class="stat-chip"><span class="val" id="stat-ags">0</span> Ad Groups</div>
+      <div class="stat-chip"><span class="val" id="stat-rows">0</span> Total Rows</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODE SWITCHER -->
+<div class="mode-switcher">
+  <div class="mode-tabs">
+    <button class="mode-tab active" id="tab-manual" onclick="switchMode('manual')">
+      <span class="mtab-icon">🛠</span> Manual Builder
+    </button>
+    <button class="mode-tab" id="tab-upload" onclick="switchMode('upload')">
+      <span class="mtab-icon">📤</span> Upload Excel
+    </button>
+  </div>
+</div>
+
+<!-- UPLOAD MODE -->
+<div class="upload-section hidden" id="upload-mode">
+  <div class="upload-main">
+
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-title"><span class="step-num">1</span> Download the Template</div>
+      <p class="step-desc">
+        Get our pre-formatted Excel template. <strong>Each row = one ad group.</strong> Multiple rows sharing the same Campaign Name become one campaign with multiple ad groups.
+        Ad Products go in one cell separated by semicolons. Keywords / ASIN targets use the format <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:3px;">term,bid;term2,bid2</code>.
+      </p>
+      <button class="tpl-download-btn" onclick="downloadTemplate()">
+        ⬇ Download Template (.xlsx)
+      </button>
+
+      <!-- Column reference — mirrors Amazon's campaign creation flow -->
+      <div style="margin-top:18px;">
+        <!-- Section: Campaign Settings -->
+        <div style="font-size:0.68rem;font-weight:800;color:var(--accent2);text-transform:uppercase;letter-spacing:0.08em;padding:6px 10px;background:rgba(249,115,22,0.06);border-radius:6px;margin-bottom:2px;">Campaign Settings</div>
+        <table class="col-ref">
+          <thead><tr><th>Column</th><th>Format / Values</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Campaign Name<span class="req-badge"></span></td><td>Any text</td><td>Same name = one campaign (multiple rows = multiple ad groups)</td></tr>
+            <tr><td>Daily Budget<span class="req-badge"></span></td><td>300</td><td>In ₹</td></tr>
+            <tr><td>Bidding Strategy</td><td>down-only · up-and-down · fixed</td><td>Default: down-only</td></tr>
+            <tr><td>Targeting Type<span class="req-badge"></span></td><td>Auto · Keyword · ASIN</td><td>Case-insensitive</td></tr>
+            <tr><td>Start Date</td><td>YYYY-MM-DD</td><td>Default: today</td></tr>
+            <tr><td>End Date</td><td>YYYY-MM-DD</td><td>Leave blank = no end date</td></tr>
+            <tr><td>Portfolio ID</td><td>Numeric ID</td><td>Optional</td></tr>
+            <tr><td>Placement: Top of Search %</td><td>0–900</td><td>Bid adjustment %</td></tr>
+            <tr><td>Placement: Rest of Search %</td><td>0–900</td><td></td></tr>
+            <tr><td>Placement: Product Pages %</td><td>0–900</td><td></td></tr>
+          </tbody>
+        </table>
+
+        <!-- Section: Ad Group Settings -->
+        <div style="font-size:0.68rem;font-weight:800;color:var(--blue2);text-transform:uppercase;letter-spacing:0.08em;padding:6px 10px;background:rgba(99,102,241,0.06);border-radius:6px;margin:8px 0 2px;">Ad Group Settings</div>
+        <table class="col-ref">
+          <tbody>
+            <tr><td>Ad Group Name<span class="req-badge"></span></td><td>Any text</td><td></td></tr>
+            <tr><td>Ad Group Default Bid<span class="req-badge"></span></td><td>25</td><td>In ₹ — used when no per-item bid is set</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Section: Ad Products -->
+        <div style="font-size:0.68rem;font-weight:800;color:var(--green2);text-transform:uppercase;letter-spacing:0.08em;padding:6px 10px;background:rgba(16,185,129,0.06);border-radius:6px;margin:8px 0 2px;">Ad Products</div>
+        <table class="col-ref">
+          <tbody>
+            <tr><td>Ad Products<span class="req-badge"></span></td><td>SKU001;SKU002;SKU003</td><td>Semicolon-separated. For AMS/Vendor use ASINs instead.</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Section: Targeting -->
+        <div style="font-size:0.68rem;font-weight:800;color:var(--purple2);text-transform:uppercase;letter-spacing:0.08em;padding:6px 10px;background:rgba(168,85,247,0.06);border-radius:6px;margin:8px 0 2px;">Targeting</div>
+        <table class="col-ref">
+          <tbody>
+            <tr><td>Keywords / Targets</td><td>hair oil,15;best hair oil,22;organic oil</td><td>Each entry: <strong>term,bid</strong> separated by <strong>;</strong>. Bid is optional — omit to use Ad Group Default Bid. For ASIN targeting: <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">B01XXX,25;B02XXX</code>. Leave blank for Auto campaigns.</td></tr>
+            <tr><td>Match Type</td><td>Exact · Phrase · Broad · Exact,Phrase · Exact,Phrase,Broad</td><td>Comma-sep combos. Ignored for ASIN and Auto.</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Section: Negative Targeting -->
+        <div style="font-size:0.68rem;font-weight:800;color:var(--red2);text-transform:uppercase;letter-spacing:0.08em;padding:6px 10px;background:rgba(239,68,68,0.06);border-radius:6px;margin:8px 0 2px;">Negative Targeting</div>
+        <table class="col-ref">
+          <tbody>
+            <tr><td>Negative Keywords</td><td>shampoo;conditioner;wax</td><td>Semicolon-separated</td></tr>
+            <tr><td>Negative Match Type</td><td>Negative Exact · Negative Phrase</td><td>Default: Negative Exact</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <div class="step-title"><span class="step-num">2</span> Upload Your Filled Template</div>
+      <p class="step-desc">Drag and drop your completed Excel file, or click to browse. Only the format from Step 1 is supported.</p>
+      <div class="drop-zone" id="drop-zone">
+        <input type="file" id="upload-input" accept=".xlsx,.xls,.csv" onchange="handleFileSelect(event)"/>
+        <div class="dz-icon">📂</div>
+        <div class="dz-title">Drop your Excel file here</div>
+        <div class="dz-sub">or click anywhere in this box to browse</div>
+        <div class="dz-formats">
+          <span class="dz-fmt">.xlsx</span>
+          <span class="dz-fmt">.xls</span>
+          <span class="dz-fmt">.csv</span>
+        </div>
+      </div>
+
+      <div class="upload-result" id="upload-result">
+        <div class="ur-row"><span class="ur-label">Rows read</span><span class="ur-val" id="ur-rows">—</span></div>
+        <div class="ur-row"><span class="ur-label">Campaigns found</span><span class="ur-val" id="ur-camps">—</span></div>
+        <div class="ur-row"><span class="ur-label">Ad Groups</span><span class="ur-val" id="ur-ags">—</span></div>
+        <div class="ur-row"><span class="ur-label">Amazon bulk rows</span><span class="ur-val" id="ur-bulkrows">—</span></div>
+        <div class="ur-errors" id="ur-errors"></div>
+      </div>
+
+      <button class="upload-export-btn" id="upload-export-btn" onclick="exportUploadedBulk()">
+        ⬇ Download Amazon Bulk File
+      </button>
+    </div>
+
+  </div><!-- /upload-main -->
+
+  <!-- Sidebar (re-use instructions) -->
+  <div class="sidebar">
+    <div class="summary-card" style="font-size:0.78rem;color:var(--muted2);line-height:1.7;">
+      <div class="summary-title">📌 Upload Instructions</div>
+      1. Seller Central → Advertising<br/>
+      2. Campaign Manager → <strong>Bulk Operations</strong><br/>
+      3. Click <strong>Upload</strong><br/>
+      4. Select generated file<br/>
+      5. Review & Submit
+    </div>
+    <div class="summary-card" style="font-size:0.78rem;color:var(--muted2);line-height:1.7;">
+      <div class="summary-title">💡 Tips</div>
+      • <strong>One row = one ad group.</strong> Same Campaign Name across rows = one campaign, multiple ad groups.<br/><br/>
+      • <strong>Ad Products</strong> — separate SKUs (or ASINs for AMS) with semicolons: <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">SKU001;SKU002</code><br/><br/>
+      • <strong>Keywords / Targets</strong> — format is <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">term,bid;term2,bid2</code>. Omit bid to use Ad Group Default Bid.<br/><br/>
+      • <strong>Auto campaigns</strong> — leave Keywords / Targets blank. Auto-targeting expressions are added automatically.<br/><br/>
+      • <strong>ASIN campaigns</strong> — put ASINs in the Keywords / Targets column: <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">B01XXX,30;B02XXX</code>
+    </div>
+  </div>
+</div><!-- /upload-mode -->
+
+<!-- MAIN APP -->
+<div class="app-layout" id="manual-mode">
+  <!-- LEFT: BUILDER -->
+  <div>
+    <!-- Global defaults -->
+    <div class="defaults-card">
+      <div class="card-title">⚙ Global Defaults <span style="font-size:0.65rem;font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(applied to all new campaigns)</span></div>
+
+      <!-- Account type toggle -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:12px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;">
+        <span style="font-size:0.75rem;font-weight:700;color:var(--muted);">Account Type:</span>
+        <div style="display:flex;gap:6px;">
+          <button id="acct-sc" onclick="setAccountType('SC')" style="padding:6px 16px;border-radius:100px;font-size:0.76rem;font-weight:700;border:1px solid rgba(16,185,129,0.4);background:rgba(16,185,129,0.1);color:var(--green2);cursor:pointer;">
+            🏪 Seller Central <span style="font-size:0.65rem;opacity:0.7;">(SKU)</span>
+          </button>
+          <button id="acct-vc" onclick="setAccountType('VC')" style="padding:6px 16px;border-radius:100px;font-size:0.76rem;font-weight:700;border:1px solid var(--border);background:transparent;color:var(--muted2);cursor:pointer;">
+            🏭 Vendor Central / AMS <span style="font-size:0.65rem;opacity:0.7;">(ASIN)</span>
+          </button>
+        </div>
+        <span id="acct-hint" style="font-size:0.7rem;color:var(--muted);margin-left:4px;">Product Ads use <strong style="color:var(--green2);">SKU</strong></span>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label>Start Date</label>
+          <input type="date" id="g-start-date"/>
+        </div>
+        <div class="form-field">
+          <label>End Date (optional)</label>
+          <input type="date" id="g-end-date"/>
+        </div>
+        <div class="form-field">
+          <label>Default Budget ₹</label>
+          <input type="number" id="g-budget" value="300" min="1" step="1"/>
+        </div>
+        <div class="form-field">
+          <label>Bidding Strategy</label>
+          <select id="g-bid-strategy">
+            <option value="dynamic bids - down only">Dynamic — Down Only</option>
+            <option value="dynamic bids - up and down">Dynamic — Up & Down</option>
+            <option value="fixed bid">Fixed Bid</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Default Ad Group Bid ₹</label>
+          <input type="number" id="g-default-bid" value="25" min="1" step="0.5"/>
+        </div>
+        <div class="form-field">
+          <label>Default Keyword Bid ₹</label>
+          <input type="number" id="g-kw-bid" value="15" min="1" step="0.5"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add campaign bar -->
+    <div style="font-size:0.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);"></span>Sponsored Products</div>
+    <div class="add-camp-bar" style="margin-bottom:12px;">
+      <button class="add-camp-btn" onclick="addCampaign('Auto')">＋ Auto</button>
+      <button class="add-camp-btn" onclick="addCampaign('Manual-KW')" style="border-color:rgba(99,102,241,0.3);color:var(--blue2);">＋ Keyword</button>
+      <button class="add-camp-btn" onclick="addCampaign('Manual-PT')" style="border-color:rgba(168,85,247,0.3);color:var(--purple2);">＋ ASIN Targeting</button>
+    </div>
+    <div style="font-size:0.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--yellow2);"></span>Sponsored Brands</div>
+    <div class="add-camp-bar" style="margin-bottom:12px;">
+      <button class="add-camp-btn" onclick="addSBCampaign('productCollection')" style="border-color:rgba(251,191,36,0.3);color:var(--yellow2);">＋ Product Collection</button>
+      <button class="add-camp-btn" onclick="addSBCampaign('storeSpotlight')" style="border-color:rgba(251,191,36,0.3);color:var(--yellow2);">＋ Store Spotlight</button>
+      <button class="add-camp-btn" onclick="addSBCampaign('video')" style="border-color:rgba(251,191,36,0.3);color:var(--yellow2);">＋ Video</button>
+    </div>
+    <div style="font-size:0.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--purple2);"></span>Sponsored Display</div>
+    <div class="add-camp-bar" style="margin-bottom:20px;">
+      <button class="add-camp-btn" onclick="addSDCampaign('T00020','product')" style="border-color:rgba(192,132,252,0.3);color:var(--purple2);">＋ Product Targeting</button>
+      <button class="add-camp-btn" onclick="addSDCampaign('T00020','views')" style="border-color:rgba(192,132,252,0.3);color:var(--purple2);">＋ Views Remarketing</button>
+      <button class="add-camp-btn" onclick="addSDCampaign('T00030','purchases')" style="border-color:rgba(192,132,252,0.3);color:var(--purple2);">＋ Purchases Remarketing</button>
+    </div>
+
+    <!-- Campaign list -->
+    <div class="camp-list" id="camp-list">
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">📋</div>
+        <div class="empty-title">No campaigns yet</div>
+        <div class="empty-sub">Click a button above to add your first campaign.<br/>Auto, Keyword, or ASIN targeting — all generate Amazon-ready XLSX.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: SIDEBAR -->
+  <div class="sidebar">
+    <div class="summary-card">
+      <div class="summary-title">📊 Summary</div>
+      <div class="summary-stat"><span class="sl">Campaigns</span><span class="sv" id="s-camps">0</span></div>
+      <div class="summary-stat"><span class="sl">Ad Groups</span><span class="sv" id="s-ags">0</span></div>
+      <div class="summary-stat"><span class="sl">Keywords</span><span class="sv" id="s-kws">0</span></div>
+      <div class="summary-stat"><span class="sl">Product Targets</span><span class="sv" id="s-pts">0</span></div>
+      <div class="summary-stat"><span class="sl">Total Excel Rows</span><span class="sv" id="s-rows">0</span></div>
+      <div class="row-breakdown" id="row-breakdown" style="margin-top:12px;"></div>
+    </div>
+
+    <button class="export-btn" onclick="exportXLSX()" id="export-btn" disabled>
+      ⬇ Download Amazon Bulk File
+    </button>
+    <button class="preview-btn" onclick="togglePreview()">👁 Preview Rows</button>
+
+    <div class="summary-card" style="font-size:0.78rem;color:var(--muted2);line-height:1.7;">
+      <div class="summary-title">📌 Upload Instructions</div>
+      1. Download the file above<br/>
+      2. Seller Central → Advertising<br/>
+      3. Campaign Manager → <strong>Bulk Operations</strong><br/>
+      4. Upload → <em>Sponsored Products Campaigns</em> tab<br/>
+      5. Review & submit
+    </div>
+  </div>
+</div>
+
+</div><!-- /manual-mode -->
+
+<!-- Preview section (inside manual mode wrapper) -->
+<div id="manual-mode-preview">
+<div class="app-layout" style="padding-top:0;">
+  <div style="grid-column:1/-1;">
+    <div class="preview-section hidden" id="preview-section">
+      <div class="card-title">👁 Row Preview <span style="font-size:0.65rem;font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;" id="preview-count"></span></div>
+      <div class="preview-table-wrap">
+        <table class="prev-table">
+          <thead><tr>
+            <th>Entity</th><th>Campaign Name</th><th>Ad Group</th><th>Type</th>
+            <th>Budget/Bid</th><th>Keyword/Target/SKU</th><th>Match Type</th><th>State</th>
+          </tr></thead>
+          <tbody id="preview-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /manual-mode-preview -->
+
+<script>
+/* =====================================================
+   ACCOUNT TYPE
+===================================================== */
+var accountType = 'SC'; // 'SC' = Seller Central (SKU), 'VC' = Vendor Central (ASIN)
+
+function setAccountType(type) {
+  accountType = type;
+  var scBtn = document.getElementById('acct-sc');
+  var vcBtn = document.getElementById('acct-vc');
+  var hint  = document.getElementById('acct-hint');
+
+  if (type === 'SC') {
+    scBtn.style.borderColor = 'rgba(16,185,129,0.4)';
+    scBtn.style.background  = 'rgba(16,185,129,0.1)';
+    scBtn.style.color       = 'var(--green2)';
+    vcBtn.style.borderColor = 'var(--border)';
+    vcBtn.style.background  = 'transparent';
+    vcBtn.style.color       = 'var(--muted2)';
+    hint.innerHTML = 'Product Ads use <strong style="color:var(--green2);">SKU</strong>';
+  } else {
+    vcBtn.style.borderColor = 'rgba(99,102,241,0.4)';
+    vcBtn.style.background  = 'rgba(99,102,241,0.1)';
+    vcBtn.style.color       = 'var(--blue2)';
+    scBtn.style.borderColor = 'var(--border)';
+    scBtn.style.background  = 'transparent';
+    scBtn.style.color       = 'var(--muted2)';
+    hint.innerHTML = 'Product Ads use <strong style="color:var(--blue2);">ASIN</strong>';
+  }
+
+  // Re-label all existing SKU textareas and their labels
+  var skuLabel = type === 'VC' ? 'ASINs to Advertise (one per line) *' : 'SKUs (one per line) *';
+  var skuPlaceholder = type === 'VC' ? 'B01XXXXXXXX\nB02YYYYYYYY' : 'SKU001\nSKU002';
+  document.querySelectorAll('[id^="agf-skus-"]').forEach(function(ta) {
+    ta.placeholder = skuPlaceholder;
+  });
+  document.querySelectorAll('[data-sku-label]').forEach(function(el) {
+    el.textContent = skuLabel;
+  });
+}
+
+/* =====================================================
+   DATA MODEL
+===================================================== */
+var campaigns = [];
+var campCounter = 0;
+var agCounter = 0;
+
+var SP_HEADERS = [
+  'Product','Entity','Operation','Campaign ID','Ad Group ID','Portfolio ID',
+  'Ad ID','Keyword ID','Product Targeting ID','Campaign Name','Ad Group Name',
+  'Start Date','End Date','Targeting Type','State','Daily Budget','SKU',
+  'Ad Group Default Bid','Bid','Keyword Text','Native Language Keyword',
+  'Native Language Locale','Match Type','Bidding Strategy','Placement',
+  'Percentage','Product Targeting Expression','Audience ID',
+  'Shopper Cohort Percentage','Shopper Cohort Type','Sites'
+];
+
+function gVal(id) { return document.getElementById(id).value.trim(); }
+function gNum(id, fallback) { return parseFloat(document.getElementById(id).value)||fallback; }
+
+function todayYMD() {
+  var d = new Date();
+  return d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+}
+function dateToYMD(dateStr) {
+  if (!dateStr) return '';
+  return dateStr.replace(/-/g,'');
+}
+
+/* =====================================================
+   INIT
+===================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  var today = new Date();
+  var yyyy = today.getFullYear();
+  var mm = String(today.getMonth()+1).padStart(2,'0');
+  var dd = String(today.getDate()).padStart(2,'0');
+  document.getElementById('g-start-date').value = yyyy+'-'+mm+'-'+dd;
+});
+
+/* =====================================================
+   ADD CAMPAIGN
+===================================================== */
+function addCampaign(type) {
+  campCounter++;
+  var id = 'c' + campCounter;
+  var defBudget = gNum('g-budget', 300);
+  var defBid = gNum('g-default-bid', 25);
+  var startDate = gVal('g-start-date');
+  var endDate = gVal('g-end-date');
+  var biddingStrat = gVal('g-bid-strategy') || 'dynamic bids - down only';
+
+  var camp = {
+    id: id,
+    name: '',
+    type: type, // 'Auto', 'Manual-KW', 'Manual-PT'
+    budget: defBudget,
+    biddingStrategy: biddingStrat,
+    startDate: startDate,
+    endDate: endDate,
+    portfolioId: '',
+    pctTop: 0, pctROS: 0, pctPP: 0,
+    adGroups: []
+  };
+  campaigns.push(camp);
+
+  document.getElementById('empty-state').style.display='none';
+  renderCampaignCard(camp);
+  updateSummary();
+}
+
+function removeCampaign(campId) {
+  campaigns = campaigns.filter(function(c){ return c.id !== campId; });
+  var el = document.getElementById('card-'+campId);
+  if (el) el.remove();
+  if (campaigns.length === 0) document.getElementById('empty-state').style.display='';
+  updateSummary();
+}
+
+function cloneCampaign(campId) {
+  var src = campaigns.find(function(c){ return c.id===campId; });
+  if (!src) return;
+  campCounter++;
+  var newId = 'c'+campCounter;
+  var clone = JSON.parse(JSON.stringify(src));
+  clone.id = newId;
+  clone.name = clone.name ? clone.name + ' (Copy)' : '(Copy)';
+  // Re-assign ad group IDs
+  clone.adGroups = clone.adGroups.map(function(ag){
+    agCounter++;
+    return Object.assign({},ag,{id:'ag'+agCounter});
+  });
+  campaigns.push(clone);
+  renderCampaignCard(clone);
+  updateSummary();
+}
+
+/* =====================================================
+   RENDER CAMPAIGN CARD
+===================================================== */
+function renderCampaignCard(camp) {
+  var list = document.getElementById('camp-list');
+  var div = document.createElement('div');
+  div.className = 'camp-card expanded';
+  div.id = 'card-'+camp.id;
+
+  var typeLabel = camp.type==='Auto'?'Auto':camp.type==='Manual-KW'?'Keyword':'ASIN Target';
+  var typeBadge = camp.type==='Auto'?'badge-auto':camp.type==='Manual-PT'?'badge-pt':'badge-manual';
+
+  div.innerHTML = `
+    <div class="camp-header" onclick="toggleCamp('${camp.id}')">
+      <span class="camp-type-badge ${typeBadge}">${typeLabel}</span>
+      <span class="camp-name-display" id="name-disp-${camp.id}">${camp.name||'Unnamed Campaign'}</span>
+      <span class="camp-meta" id="meta-disp-${camp.id}">₹${camp.budget}/day</span>
+      <div class="camp-actions" onclick="event.stopPropagation()">
+        <button class="icon-btn" title="Clone" onclick="cloneCampaign('${camp.id}')">⧉</button>
+        <button class="icon-btn del" title="Delete" onclick="removeCampaign('${camp.id}')">✕</button>
+      </div>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="camp-body">
+      ${renderCampForm(camp)}
+      ${renderAdGroupSection(camp)}
+    </div>
+  `;
+  list.appendChild(div);
+  bindCampFormEvents(camp.id);
+}
+
+function renderCampForm(camp) {
+  var stratOptions = [
+    ['dynamic bids - down only','Dynamic — Down Only'],
+    ['dynamic bids - up and down','Dynamic — Up & Down'],
+    ['fixed bid','Fixed Bid']
+  ].map(function(o){ return `<option value="${o[0]}"${camp.biddingStrategy===o[0]?' selected':''}>${o[1]}</option>`; }).join('');
+
+  return `
+    <div class="camp-form-grid" style="margin-bottom:10px;">
+      <div class="form-field" style="grid-column:1/-1;">
+        <label>Campaign Name *</label>
+        <input type="text" id="cf-name-${camp.id}" value="${camp.name}" placeholder="e.g. SP-Auto-HairOil" oninput="syncCamp('${camp.id}')"/>
+      </div>
+      <div class="form-field">
+        <label>Daily Budget ₹ *</label>
+        <input type="number" id="cf-budget-${camp.id}" value="${camp.budget}" min="1" step="1" oninput="syncCamp('${camp.id}')"/>
+      </div>
+      <div class="form-field">
+        <label>Bidding Strategy</label>
+        <select id="cf-strategy-${camp.id}" onchange="syncCamp('${camp.id}')">${stratOptions}</select>
+      </div>
+      <div class="form-field">
+        <label>Start Date</label>
+        <input type="date" id="cf-start-${camp.id}" value="${camp.startDate}" onchange="syncCamp('${camp.id}')"/>
+      </div>
+      <div class="form-field">
+        <label>End Date (opt.)</label>
+        <input type="date" id="cf-end-${camp.id}" value="${camp.endDate||''}" onchange="syncCamp('${camp.id}')"/>
+      </div>
+      <div class="form-field">
+        <label>Portfolio ID (opt.)</label>
+        <input type="text" id="cf-port-${camp.id}" value="${camp.portfolioId||''}" placeholder="e.g. 112495529913" oninput="syncCamp('${camp.id}')"/>
+      </div>
+    </div>
+    <div style="font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em;">Placement Bid Adjustments (%)</div>
+    <div class="placement-row" style="margin-bottom:14px;">
+      <div class="placement-field">
+        <label>Top of Search</label>
+        <input type="number" id="cf-ptop-${camp.id}" value="${camp.pctTop||0}" min="0" max="900" step="1" oninput="syncCamp('${camp.id}')"/>
+        <span>%</span>
+      </div>
+      <div class="placement-field">
+        <label>Rest of Search</label>
+        <input type="number" id="cf-pros-${camp.id}" value="${camp.pctROS||0}" min="0" max="900" step="1" oninput="syncCamp('${camp.id}')"/>
+        <span>%</span>
+      </div>
+      <div class="placement-field">
+        <label>Product Pages</label>
+        <input type="number" id="cf-ppp-${camp.id}" value="${camp.pctPP||0}" min="0" max="900" step="1" oninput="syncCamp('${camp.id}')"/>
+        <span>%</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderAdGroupSection(camp) {
+  return `
+    <div class="ag-section">
+      <div class="ag-section-hdr">
+        <span class="ag-section-title">Ad Groups</span>
+        <button class="add-ag-btn" onclick="addAdGroup('${camp.id}')">＋ Add Ad Group</button>
+      </div>
+      <div class="ag-list" id="agl-${camp.id}">
+        <div id="ag-empty-${camp.id}" style="font-size:0.78rem;color:var(--muted);padding:10px 0;">No ad groups yet — click above to add one.</div>
+      </div>
+    </div>
+  `;
+}
+
+function bindCampFormEvents(campId) {
+  // Already bound via inline oninput/onchange/onclick
+}
+
+function toggleCamp(campId) {
+  var card = document.getElementById('card-'+campId);
+  card.classList.toggle('expanded');
+}
+
+/* =====================================================
+   SYNC CAMPAIGN DATA
+===================================================== */
+function syncCamp(campId) {
+  var camp = campaigns.find(function(c){ return c.id===campId; });
+  if (!camp) return;
+  camp.name = (document.getElementById('cf-name-'+campId)||{value:''}).value;
+  camp.budget = parseFloat((document.getElementById('cf-budget-'+campId)||{value:'300'}).value)||300;
+  camp.biddingStrategy = (document.getElementById('cf-strategy-'+campId)||{value:'dynamic bids - down only'}).value;
+  camp.startDate = (document.getElementById('cf-start-'+campId)||{value:''}).value;
+  camp.endDate = (document.getElementById('cf-end-'+campId)||{value:''}).value;
+  camp.portfolioId = (document.getElementById('cf-port-'+campId)||{value:''}).value;
+  camp.pctTop = parseFloat((document.getElementById('cf-ptop-'+campId)||{value:'0'}).value)||0;
+  camp.pctROS = parseFloat((document.getElementById('cf-pros-'+campId)||{value:'0'}).value)||0;
+  camp.pctPP = parseFloat((document.getElementById('cf-ppp-'+campId)||{value:'0'}).value)||0;
+
+  // Update display
+  document.getElementById('name-disp-'+campId).textContent = camp.name||'Unnamed Campaign';
+  document.getElementById('meta-disp-'+campId).textContent = '₹'+camp.budget+'/day';
+  updateSummary();
+}
+
+/* =====================================================
+   ADD AD GROUP
+===================================================== */
+function addAdGroup(campId) {
+  var camp = campaigns.find(function(c){ return c.id===campId; });
+  if (!camp) return;
+  agCounter++;
+  var agId = 'ag'+agCounter;
+  var defBid = gNum('g-default-bid',25);
+  var agNum = camp.adGroups.length+1;
+  var ag = {
+    id: agId,
+    name: 'Ad Group '+agNum,
+    defaultBid: defBid,
+    skus: '',
+    keywords: '',
+    matchTypes: {exact:true, phrase:true, broad:false},
+    defaultKwBid: gNum('g-kw-bid',15),
+    negKeywords: '',
+    negMatchType: 'Negative Exact',
+    asinTargets: '',
+    asinDefaultBid: defBid
+  };
+  camp.adGroups.push(ag);
+
+  var empty = document.getElementById('ag-empty-'+campId);
+  if (empty) empty.style.display='none';
+
+  renderAdGroupCard(campId, ag, agNum);
+  updateSummary();
+}
+
+function removeAdGroup(campId, agId) {
+  var camp = campaigns.find(function(c){ return c.id===campId; });
+  if (!camp) return;
+  camp.adGroups = camp.adGroups.filter(function(a){ return a.id!==agId; });
+  var el = document.getElementById('agc-'+agId);
+  if (el) el.remove();
+  if (camp.adGroups.length===0) {
+    var empty = document.getElementById('ag-empty-'+campId);
+    if (empty) empty.style.display='';
+  }
+  updateSummary();
+}
+
+function syncAG(campId, agId) {
+  var camp = campaigns.find(function(c){ return c.id===campId; });
+  if (!camp) return;
+  var ag = camp.adGroups.find(function(a){ return a.id===agId; });
+  if (!ag) return;
+  ag.name = (document.getElementById('agf-name-'+agId)||{value:''}).value||'Ad Group';
+  ag.defaultBid = parseFloat((document.getElementById('agf-bid-'+agId)||{value:'25'}).value)||25;
+  ag.skus = (document.getElementById('agf-skus-'+agId)||{value:''}).value;
+  ag.keywords = (document.getElementById('agf-kws-'+agId)||{value:''}).value;
+  ag.defaultKwBid = parseFloat((document.getElementById('agf-kwbid-'+agId)||{value:'15'}).value)||15;
+  ag.matchTypes = {
+    exact: (document.getElementById('agf-exact-'+agId)||{checked:true}).checked,
+    phrase: (document.getElementById('agf-phrase-'+agId)||{checked:true}).checked,
+    broad: (document.getElementById('agf-broad-'+agId)||{checked:false}).checked
+  };
+  ag.negKeywords = (document.getElementById('agf-neg-'+agId)||{value:''}).value;
+  ag.negMatchType = (document.getElementById('agf-negmt-'+agId)||{value:'Negative Exact'}).value;
+  ag.asinTargets = (document.getElementById('agf-asins-'+agId)||{value:''}).value;
+  ag.asinDefaultBid = parseFloat((document.getElementById('agf-asinbid-'+agId)||{value:'25'}).value)||25;
+
+  // Update ad group header display
+  var nameDisp = document.getElementById('agn-'+agId);
+  var metaDisp = document.getElementById('agm-'+agId);
+  if (nameDisp) nameDisp.textContent = ag.name;
+  if (metaDisp) metaDisp.textContent = '₹'+ag.defaultBid+' default bid';
+  updateSummary();
+}
+
+/* =====================================================
+   RENDER AD GROUP CARD
+===================================================== */
+function renderAdGroupCard(campId, ag, agNum) {
+  var camp = campaigns.find(function(c){ return c.id===campId; });
+  var isAuto = camp && camp.type==='Auto';
+  var isKW = camp && camp.type==='Manual-KW';
+  var isPT = camp && camp.type==='Manual-PT';
+
+  var card = document.createElement('div');
+  card.className = 'ag-card expanded';
+  card.id = 'agc-'+ag.id;
+
+  // Tab content based on campaign type
+  var tabsHTML = '';
+  if (isAuto) {
+    tabsHTML = `
+      <div class="ag-tabs">
+        <div class="ag-tab active" onclick="switchAgTab('${ag.id}','skus')">SKUs</div>
+        <div class="ag-tab" onclick="switchAgTab('${ag.id}','neg')">Negative Keywords</div>
+      </div>
+      <div class="ag-tab-content active" id="agt-skus-${ag.id}">
+        <div class="form-field"><label data-sku-label>${accountType==='VC'?'ASINs to Advertise (one per line) *':'SKUs (one per line) *'}</label>
+          <textarea id="agf-skus-${ag.id}" placeholder="${accountType==='VC'?'B01XXXXXXXX\nB02YYYYYYYY':'SKU001\nSKU002'}" rows="4" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+          <div class="field-hint">These will be added as Product Ads. Amazon auto-targeting (close-match, loose-match, substitutes, complements) is added automatically.</div>
+        </div>
+      </div>
+      <div class="ag-tab-content" id="agt-neg-${ag.id}">
+        <div class="form-field"><label>Negative Keywords (one per line)</label>
+          <textarea id="agf-neg-${ag.id}" placeholder="shampoo&#10;conditioner" rows="4" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+        </div>
+        <div class="form-field" style="margin-top:8px;">
+          <label>Negative Match Type</label>
+          <select id="agf-negmt-${ag.id}" onchange="syncAG('${campId}','${ag.id}')">
+            <option value="Negative Exact">Negative Exact</option>
+            <option value="Negative Phrase">Negative Phrase</option>
+          </select>
+        </div>
+      </div>
+    `;
+  } else if (isKW) {
+    tabsHTML = `
+      <div class="ag-tabs">
+        <div class="ag-tab active" onclick="switchAgTab('${ag.id}','skus')">SKUs</div>
+        <div class="ag-tab" onclick="switchAgTab('${ag.id}','kw')">Keywords</div>
+        <div class="ag-tab" onclick="switchAgTab('${ag.id}','neg')">Negatives</div>
+      </div>
+      <div class="ag-tab-content active" id="agt-skus-${ag.id}">
+        <div class="form-field"><label data-sku-label>${accountType==='VC'?'ASINs to Advertise (one per line) *':'SKUs (one per line) *'}</label>
+          <textarea id="agf-skus-${ag.id}" placeholder="${accountType==='VC'?'B01XXXXXXXX\nB02YYYYYYYY':'SKU001\nSKU002'}" rows="3" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+        </div>
+      </div>
+      <div class="ag-tab-content" id="agt-kw-${ag.id}">
+        <div class="form-field" style="margin-bottom:8px;">
+          <label>Match Types</label>
+          <div class="match-types">
+            <label class="match-check"><input type="checkbox" id="agf-exact-${ag.id}" checked onchange="syncAG('${campId}','${ag.id}')"/> <span class="match-chip mc-exact">Exact</span></label>
+            <label class="match-check"><input type="checkbox" id="agf-phrase-${ag.id}" checked onchange="syncAG('${campId}','${ag.id}')"/> <span class="match-chip mc-phrase">Phrase</span></label>
+            <label class="match-check"><input type="checkbox" id="agf-broad-${ag.id}" onchange="syncAG('${campId}','${ag.id}')"/> <span class="match-chip mc-broad">Broad</span></label>
+          </div>
+        </div>
+        <div class="form-field" style="margin-bottom:8px;">
+          <label>Default Keyword Bid ₹</label>
+          <input type="number" id="agf-kwbid-${ag.id}" value="${ag.defaultKwBid}" min="1" step="0.5" style="max-width:120px;" oninput="syncAG('${campId}','${ag.id}')"/>
+          <div class="field-hint">Override per-keyword: type <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px;">keyword | 18.50</code></div>
+        </div>
+        <div class="form-field">
+          <label>Keywords (one per line)</label>
+          <textarea id="agf-kws-${ag.id}" placeholder="hair oil&#10;hair growth oil | 20.00&#10;best hair oil for growth" rows="6" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+          <div class="field-hint">Each checked match type generates a separate row per keyword.</div>
+        </div>
+      </div>
+      <div class="ag-tab-content" id="agt-neg-${ag.id}">
+        <div class="form-field">
+          <label>Negative Keywords (one per line)</label>
+          <textarea id="agf-neg-${ag.id}" placeholder="shampoo&#10;conditioner" rows="4" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+        </div>
+        <div class="form-field" style="margin-top:8px;">
+          <label>Negative Match Type</label>
+          <select id="agf-negmt-${ag.id}" onchange="syncAG('${campId}','${ag.id}')">
+            <option value="Negative Exact">Negative Exact</option>
+            <option value="Negative Phrase">Negative Phrase</option>
+          </select>
+        </div>
+      </div>
+    `;
+  } else { // Manual-PT (ASIN targeting)
+    tabsHTML = `
+      <div class="ag-tabs">
+        <div class="ag-tab active" onclick="switchAgTab('${ag.id}','skus')">SKUs</div>
+        <div class="ag-tab" onclick="switchAgTab('${ag.id}','asins')">ASIN Targets</div>
+        <div class="ag-tab" onclick="switchAgTab('${ag.id}','neg')">Negatives</div>
+      </div>
+      <div class="ag-tab-content active" id="agt-skus-${ag.id}">
+        <div class="form-field"><label data-sku-label>${accountType==='VC'?'ASINs to Advertise (one per line) *':'SKUs (one per line) *'}</label>
+          <textarea id="agf-skus-${ag.id}" placeholder="${accountType==='VC'?'B01XXXXXXXX\nB02YYYYYYYY':'SKU001\nSKU002'}" rows="3" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+        </div>
+      </div>
+      <div class="ag-tab-content" id="agt-asins-${ag.id}">
+        <div class="form-field" style="margin-bottom:8px;">
+          <label>Default ASIN Target Bid ₹</label>
+          <input type="number" id="agf-asinbid-${ag.id}" value="${ag.asinDefaultBid}" min="1" step="0.5" style="max-width:120px;" oninput="syncAG('${campId}','${ag.id}')"/>
+          <div class="field-hint">Override per-ASIN: <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px;">B01234567 | 22.00</code></div>
+        </div>
+        <div class="form-field">
+          <label>Target ASINs (one per line)</label>
+          <textarea id="agf-asins-${ag.id}" placeholder="B01234ABCD&#10;B05678EFGH | 30.00&#10;B09012IJKL" rows="6" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+        </div>
+      </div>
+      <div class="ag-tab-content" id="agt-neg-${ag.id}">
+        <div class="form-field">
+          <label>Negative Keywords (one per line)</label>
+          <textarea id="agf-neg-${ag.id}" placeholder="shampoo" rows="3" oninput="syncAG('${campId}','${ag.id}')"></textarea>
+        </div>
+        <div class="form-field" style="margin-top:8px;">
+          <label>Negative Match Type</label>
+          <select id="agf-negmt-${ag.id}" onchange="syncAG('${campId}','${ag.id}')">
+            <option value="Negative Exact">Negative Exact</option>
+            <option value="Negative Phrase">Negative Phrase</option>
+          </select>
+        </div>
+      </div>
+    `;
+  }
+
+  card.innerHTML = `
+    <div class="ag-header" onclick="toggleAG('${ag.id}')">
+      <span class="ag-num">${agNum}</span>
+      <span class="ag-name-disp" id="agn-${ag.id}">${ag.name}</span>
+      <span class="ag-meta" id="agm-${ag.id}">₹${ag.defaultBid} default bid</span>
+      <button class="icon-btn del" style="margin-left:auto;" onclick="event.stopPropagation();removeAdGroup('${campId}','${ag.id}')" title="Remove">✕</button>
+      <span class="ag-chevron">▾</span>
+    </div>
+    <div class="ag-body">
+      <div class="ag-form-grid">
+        <div class="form-field">
+          <label>Ad Group Name *</label>
+          <input type="text" id="agf-name-${ag.id}" value="${ag.name}" oninput="syncAG('${campId}','${ag.id}')"/>
+        </div>
+        <div class="form-field">
+          <label>Default Bid ₹ *</label>
+          <input type="number" id="agf-bid-${ag.id}" value="${ag.defaultBid}" min="1" step="0.5" oninput="syncAG('${campId}','${ag.id}')"/>
+        </div>
+      </div>
+      ${tabsHTML}
+    </div>
+  `;
+
+  document.getElementById('agl-'+campId).appendChild(card);
+}
+
+function switchAgTab(agId, tab) {
+  var card = document.getElementById('agc-'+agId);
+  if (!card) return;
+  card.querySelectorAll('.ag-tab').forEach(function(t){ t.classList.remove('active'); });
+  card.querySelectorAll('.ag-tab-content').forEach(function(t){ t.classList.remove('active'); });
+  // Find tab button by text match (cheapest approach)
+  card.querySelectorAll('.ag-tab').forEach(function(t) {
+    var txt = t.textContent.toLowerCase().trim();
+    if (tab==='skus'&&txt==='skus') t.classList.add('active');
+    if (tab==='kw'&&txt==='keywords') t.classList.add('active');
+    if (tab==='neg'&&(txt==='negative keywords'||txt==='negatives')) t.classList.add('active');
+    if (tab==='asins'&&txt==='asin targets') t.classList.add('active');
+  });
+  var tc = document.getElementById('agt-'+tab+'-'+agId);
+  if (tc) tc.classList.add('active');
+}
+
+function toggleAG(agId) {
+  var card = document.getElementById('agc-'+agId);
+  card.classList.toggle('expanded');
+}
+
+/* =====================================================
+   PARSE KEYWORDS / ASINs
+===================================================== */
+function parseLines(text) {
+  return (text||'').split('\n').map(function(l){ return l.trim(); }).filter(Boolean);
+}
+
+function parseKWLine(line, defaultBid) {
+  var parts = line.split('|');
+  var text = parts[0].trim();
+  var bid = parts[1] ? parseFloat(parts[1].trim()) : defaultBid;
+  return { text: text, bid: bid||defaultBid };
+}
+
+function parseASINLine(line, defaultBid) {
+  var parts = line.split('|');
+  var asin = parts[0].trim().toUpperCase();
+  var bid = parts[1] ? parseFloat(parts[1].trim()) : defaultBid;
+  return { asin: asin, bid: bid||defaultBid };
+}
+
+/* =====================================================
+   EXCEL ROW BUILDERS
+   Columns: 0=Product 1=Entity 2=Op 3=CampID 4=AGID 5=PortID 6=AdID 7=KwID 8=PTID
+             9=CampName 10=AGName 11=StartDate 12=EndDate 13=TargType 14=State
+             15=Budget 16=SKU 17=AGDefBid 18=Bid 19=KwText 20=NLKw 21=NLLocale
+             22=MatchType 23=BidStrat 24=Placement 25=Pct 26=PTExpr 27=AudID
+             28=ShopperPct 29=ShopperType 30=Sites
+===================================================== */
+function emptyRow() { return Array(31).fill(''); }
+
+function makeRow(camp, entity, op) {
+  var r = emptyRow();
+  r[0] = 'Sponsored Products';
+  r[1] = entity;
+  r[2] = op||'Create';
+  r[5] = camp.portfolioId||'';
+  r[9] = camp.name;
+  r[11] = dateToYMD(camp.startDate);
+  r[12] = dateToYMD(camp.endDate);
+  r[14] = 'enabled';
+  r[23] = camp.biddingStrategy;
+  return r;
+}
+
+function makeCampRow(camp) {
+  var r = makeRow(camp,'Campaign','Create');
+  r[13] = camp.type==='Auto' ? 'Auto' : 'Manual';
+  r[15] = camp.budget;
+  return r;
+}
+
+function makeBidAdjRow(camp, placement, pct) {
+  var r = makeRow(camp,'Bidding Adjustment','Create');
+  r[11]=''; r[12]=''; r[13]=''; // Placement rows don't need dates/type
+  r[24] = placement;
+  r[25] = pct||0;
+  return r;
+}
+
+function makeAGRow(camp, ag) {
+  var r = makeRow(camp,'Ad Group','Create');
+  r[10] = ag.name;
+  r[11]=''; r[12]=''; r[13]='';
+  r[15]='';
+  r[17] = ag.defaultBid;
+  return r;
+}
+
+function makeProductAdRow(camp, ag, sku) {
+  var r = makeRow(camp,'Product Ad','Create');
+  r[10] = ag.name;
+  r[11]=''; r[12]=''; r[13]=''; r[15]='';
+  r[16] = sku;
+  return r;
+}
+
+function makeKeywordRow(camp, ag, kwText, bid, matchType) {
+  var r = makeRow(camp,'Keyword','Create');
+  r[10] = ag.name;
+  r[11]=''; r[12]=''; r[13]=''; r[15]='';
+  r[18] = bid;
+  r[19] = kwText;
+  r[22] = matchType;
+  return r;
+}
+
+function makeNegKwRow(camp, ag, kwText, matchType) {
+  var r = makeRow(camp,'Negative Keyword','Create');
+  r[10] = ag.name;
+  r[11]=''; r[12]=''; r[13]=''; r[15]='';
+  r[19] = kwText;
+  r[22] = matchType;
+  return r;
+}
+
+function makePTRow(camp, ag, expression, bid) {
+  var r = makeRow(camp,'Product Targeting','Create');
+  r[10] = ag.name;
+  r[11]=''; r[12]=''; r[13]=''; r[15]='';
+  r[18] = bid;
+  r[26] = expression;
+  return r;
+}
+
+/* =====================================================
+   GENERATE ALL ROWS
+===================================================== */
+function generateRows() {
+  var rows = [SP_HEADERS];
+
+  campaigns.forEach(function(camp) {
+    if (!camp.name) return; // skip unnamed
+
+    // Campaign row
+    rows.push(makeCampRow(camp));
+
+    // Bidding Adjustment rows (4 placements)
+    rows.push(makeBidAdjRow(camp,'Placement Top',camp.pctTop));
+    rows.push(makeBidAdjRow(camp,'Placement Rest Of Search',camp.pctROS));
+    rows.push(makeBidAdjRow(camp,'Placement Product Page',camp.pctPP));
+    rows.push(makeBidAdjRow(camp,'Placement Amazon Business',0));
+
+    camp.adGroups.forEach(function(ag) {
+      if (!ag.name) return;
+
+      // Ad Group row
+      rows.push(makeAGRow(camp,ag));
+
+      // Product Ads (SKUs)
+      parseLines(ag.skus).forEach(function(sku) {
+        rows.push(makeProductAdRow(camp,ag,sku));
+      });
+
+      if (camp.type==='Auto') {
+        // 4 auto targeting expressions
+        ['close-match','loose-match','substitutes','complements'].forEach(function(expr) {
+          rows.push(makePTRow(camp,ag,expr,ag.defaultBid));
+        });
+      } else if (camp.type==='Manual-KW') {
+        // Keywords × match types
+        var kwLines = parseLines(ag.keywords);
+        kwLines.forEach(function(line) {
+          var kw = parseKWLine(line, ag.defaultKwBid);
+          if (!kw.text) return;
+          if (ag.matchTypes.exact)  rows.push(makeKeywordRow(camp,ag,kw.text,kw.bid,'Exact'));
+          if (ag.matchTypes.phrase) rows.push(makeKeywordRow(camp,ag,kw.text,kw.bid,'Phrase'));
+          if (ag.matchTypes.broad)  rows.push(makeKeywordRow(camp,ag,kw.text,kw.bid,'Broad'));
+        });
+      } else if (camp.type==='Manual-PT') {
+        // ASIN targets
+        parseLines(ag.asinTargets).forEach(function(line) {
+          var pt = parseASINLine(line, ag.asinDefaultBid);
+          if (!pt.asin) return;
+          rows.push(makePTRow(camp,ag,'asin="'+pt.asin+'"',pt.bid));
+        });
+      }
+
+      // Negative keywords
+      parseLines(ag.negKeywords).forEach(function(kw) {
+        rows.push(makeNegKwRow(camp,ag,kw,ag.negMatchType||'Negative Exact'));
+      });
+    });
+  });
+
+  return rows;
+}
+
+/* =====================================================
+   SUMMARY & STATS
+===================================================== */
+function updateSummary() {
+  var totalCamps=0, totalAGs=0, totalKWs=0, totalPTs=0;
+  var rowCamps=0, rowBidAdj=0, rowAGs=0, rowAds=0, rowKWs=0, rowPTs=0, rowNegs=0;
+
+  campaigns.forEach(function(camp) {
+    if (!camp.name) return;
+    totalCamps++;
+    rowCamps++;
+    rowBidAdj+=4;
+
+    camp.adGroups.forEach(function(ag) {
+      if (!ag.name) return;
+      totalAGs++; rowAGs++;
+      var skus = parseLines(ag.skus).length;
+      rowAds += skus;
+
+      if (camp.type==='Auto') {
+        rowPTs+=4; totalPTs+=4;
+      } else if (camp.type==='Manual-KW') {
+        var kwCount = parseLines(ag.keywords).length;
+        var matchCount = (ag.matchTypes.exact?1:0)+(ag.matchTypes.phrase?1:0)+(ag.matchTypes.broad?1:0);
+        var kwRows = kwCount * Math.max(matchCount,1);
+        rowKWs += kwRows; totalKWs += kwRows;
+      } else if (camp.type==='Manual-PT') {
+        var ptCount = parseLines(ag.asinTargets).length;
+        rowPTs+=ptCount; totalPTs+=ptCount;
+      }
+      var negCount = parseLines(ag.negKeywords).length;
+      rowNegs+=negCount;
+    });
+  });
+
+  // Count SB campaigns
+  sbCampaigns.forEach(function(c){ if(!c.name) return; totalCamps++; rowCamps++; rowBidAdj+=3; c.adGroups.forEach(function(ag){ if(!ag.name) return; totalAGs++; rowAGs++; rowAds++; // 1 Ad row per ag
+    var kwCount=parseLines(ag.keywords||'').length; var mt=(ag.matchTypes&&((ag.matchTypes.exact?1:0)+(ag.matchTypes.phrase?1:0)+(ag.matchTypes.broad?1:0)))||1; rowKWs+=kwCount*mt;
+    rowPTs+=parseLines(ag.asinTargets||'').length; rowNegs+=parseLines(ag.negKeywords||'').length; }); });
+  // Count SD campaigns
+  sdCampaigns.forEach(function(c){ if(!c.name) return; totalCamps++; rowCamps++; c.adGroups.forEach(function(ag){ if(!ag.name) return; totalAGs++; rowAGs++; rowAds+=parseLines(ag.skus||'').length; rowPTs+=parseLines(ag.targetExpressions||'').length; }); });
+
+  var total = 1+rowCamps+rowBidAdj+rowAGs+rowAds+rowKWs+rowPTs+rowNegs;
+
+  document.getElementById('stat-camps').textContent = totalCamps;
+  document.getElementById('stat-ags').textContent = totalAGs;
+  document.getElementById('stat-rows').textContent = total;
+  document.getElementById('s-camps').textContent = totalCamps;
+  document.getElementById('s-ags').textContent = totalAGs;
+  document.getElementById('s-kws').textContent = totalKWs;
+  document.getElementById('s-pts').textContent = totalPTs;
+  document.getElementById('s-rows').textContent = total;
+
+  // Row breakdown
+  var bkd = document.getElementById('row-breakdown');
+  bkd.innerHTML = [
+    {l:'Campaign rows',v:rowCamps,c:'#fb923c'},
+    {l:'Bid Adjustments',v:rowBidAdj,c:'#fbbf24'},
+    {l:'Ad Groups',v:rowAGs,c:'#818cf8'},
+    {l:'Product Ads',v:rowAds,c:'#a8bdd4'},
+    {l:'Keywords',v:rowKWs,c:'#34d399'},
+    {l:'Product Targets',v:rowPTs,c:'#c084fc'},
+    {l:'Negative KWs',v:rowNegs,c:'#f87171'},
+  ].filter(function(r){ return r.v>0; }).map(function(r) {
+    return '<div class="rb-row"><span class="rb-label"><span class="rb-dot" style="background:'+r.c+'"></span>'+r.l+'</span><span class="rb-val">'+r.v+'</span></div>';
+  }).join('');
+
+  document.getElementById('export-btn').disabled = (totalCamps===0);
+}
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+var previewVisible = false;
+function togglePreview() {
+  previewVisible = !previewVisible;
+  var sec = document.getElementById('preview-section');
+  if (previewVisible) {
+    sec.classList.remove('hidden');
+    renderPreview();
+  } else {
+    sec.classList.add('hidden');
+  }
+}
+
+function renderPreview() {
+  var rows = generateRows();
+  var displayRows = rows.slice(1,Math.min(rows.length,201)); // skip header, max 200
+  document.getElementById('preview-count').textContent = '('+(rows.length-1)+' data rows'+(rows.length>201?' · showing first 200':'')+')'
+
+  var ENTITY_COLS = {
+    'Campaign':'entity-camp','Ad Group':'entity-ag','Keyword':'entity-kw',
+    'Product Targeting':'entity-pt','Product Ad':'entity-ad',
+    'Negative Keyword':'entity-neg','Bidding Adjustment':'entity-adj'
+  };
+
+  var html = displayRows.map(function(r) {
+    var cls = ENTITY_COLS[r[1]]||'entity-ad';
+    var bidOrBudget = r[15]||r[17]||r[18]||r[25];
+    var kwOrTarget = r[19]||r[26]||r[16]||r[24];
+    return '<tr><td class="'+cls+'">'+esc(r[1])+'</td>'
+      +'<td>'+esc(r[9])+'</td>'
+      +'<td>'+esc(r[10])+'</td>'
+      +'<td>'+esc(r[13]||r[22]||'')+'</td>'
+      +'<td>'+(bidOrBudget?'₹'+bidOrBudget:'')+'</td>'
+      +'<td>'+esc(kwOrTarget)+'</td>'
+      +'<td>'+esc(r[22])+'</td>'
+      +'<td>'+esc(r[14])+'</td>'
+      +'</tr>';
+  }).join('');
+  document.getElementById('preview-tbody').innerHTML = html;
+}
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* =====================================================
+   EXPORT XLSX
+===================================================== */
+function exportXLSX() {
+  if (typeof XLSX === 'undefined') { alert('XLSX library not loaded. Please refresh and try again.'); return; }
+
+  var spRows = generateRows();
+  var sbRows = generateSBRows();
+  var sdRows = generateSDRows();
+  var hasData = spRows.length>1 || sbRows.length>1 || sdRows.length>1;
+  if (!hasData) { alert('Add at least one campaign with an ad group before exporting.'); return; }
+
+  if (accountType==='VC') { spRows[0][16]='ASIN'; sdRows[0][16]='ASIN'; }
+
+  var wb = XLSX.utils.book_new();
+
+  // SP sheet (always included)
+  var wsSP = XLSX.utils.aoa_to_sheet(spRows);
+  wsSP['!cols'] = [
+    {wch:22},{wch:18},{wch:8},{wch:16},{wch:16},{wch:18},{wch:14},{wch:14},{wch:18},
+    {wch:35},{wch:25},{wch:12},{wch:12},{wch:10},{wch:8},{wch:10},{wch:18},
+    {wch:12},{wch:8},{wch:30},{wch:14},{wch:14},{wch:14},{wch:26},{wch:22},{wch:8},
+    {wch:30},{wch:12},{wch:12},{wch:14},{wch:8}
+  ];
+  XLSX.utils.book_append_sheet(wb, wsSP, 'Sponsored Products Campaigns');
+
+  // SB sheet (always included — Amazon expects the sheet even if empty)
+  var wsSB = XLSX.utils.aoa_to_sheet(sbRows);
+  wsSB['!cols'] = SB_HEADERS.map(function(h){ return {wch:Math.max(h.length+2,14)}; });
+  XLSX.utils.book_append_sheet(wb, wsSB, 'SB Multi Ad Group Campaigns');
+
+  // SD sheet (always included)
+  var wsSD = XLSX.utils.aoa_to_sheet(sdRows);
+  wsSD['!cols'] = SD_HEADERS.map(function(h){ return {wch:Math.max(h.length+2,14)}; });
+  XLSX.utils.book_append_sheet(wb, wsSD, 'Sponsored Display Campaigns');
+
+  var fileName = 'amazon-bulk-campaigns-'+todayYMD()+'.xlsx';
+  XLSX.writeFile(wb, fileName);
+}
+
+/* =====================================================
+   SB / SD HEADERS (exact columns from Amazon template)
+===================================================== */
+var SB_HEADERS = [
+  'Product','Entity','Operation','Campaign ID','Portfolio ID','Ad Group ID',
+  'Ad ID','Keyword ID','Product Targeting ID','Campaign Name','Ad Group Name',
+  'Ad Name','Start Date','End Date','State','Brand Entity ID','Budget Type',
+  'Budget','Bid Optimisation','Product Location','Bid','Placement','Percentage',
+  'Audience ID','Shopper Cohort Percentage','Shopper Cohort Type','Keyword Text',
+  'Match Type','Native Language Keyword','Native Language Locale',
+  'Product Targeting Expression','Landing Page URL','Landing Page ASINs',
+  'Landing Page Type','Brand Name','Consent To Translate','Brand Logo Asset ID',
+  'Brand Logo Crop','Custom Images','Creative Headline','Creative ASINs',
+  'Video Asset IDs','Subpages','Product Exclusions','Ad Title','Sites'
+];
+
+var SD_HEADERS = [
+  'Product','Entity','Operation','Campaign ID','Portfolio ID','Ad Group ID',
+  'Ad ID','Targeting ID','Campaign Name','Ad Group Name','Start Date','End Date',
+  'State','Tactic','Budget Type','Budget','SKU','Ad Group Default Bid',
+  'Bid','Bid Optimisation','Cost Type','Targeting Expression'
+];
+
+function emptySBRow(){ return Array(46).fill(''); }
+function emptySDRow(){ return Array(22).fill(''); }
+
+/* =====================================================
+   SB DATA MODEL & ADD
+===================================================== */
+var sbCampaigns = [];
+var sbCampCounter = 0;
+var sbAgCounter = 0;
+
+function addSBCampaign(format) {
+  sbCampCounter++;
+  var id = 'sb'+sbCampCounter;
+  sbAgCounter++;
+  var agId = 'sbag'+sbAgCounter;
+  var formatLabels = {productCollection:'Product Collection',storeSpotlight:'Store Spotlight',video:'Video'};
+  var camp = {
+    id:id, productType:'SB', adFormat:format,
+    name:'', budget:gNum('g-budget',500),
+    startDate:gVal('g-start-date'), endDate:'', portfolioId:'',
+    brandEntityId:'', pctTop:0, pctROS:0, pctPP:0,
+    adGroups:[{
+      id:agId, name:'Ad Group 1', bid:gNum('g-default-bid',25),
+      bidOptimisation:'clicks',
+      brandName:'', headline:'', brandLogoAssetId:'',
+      landingPageType:'productList', landingPageUrl:'', landingPageAsins:'',
+      creativeAsins:'', videoAssetId:'', subpages:'',
+      keywords:'', kwDefaultBid:gNum('g-kw-bid',15),
+      matchTypes:{exact:true,phrase:true,broad:false},
+      asinTargets:'', negKeywords:'', negMatchType:'Negative Exact'
+    }]
+  };
+  sbCampaigns.push(camp);
+  document.getElementById('empty-state').style.display='none';
+  renderSBCard(camp);
+  updateSummary();
+}
+
+function removeSBCampaign(id) {
+  sbCampaigns = sbCampaigns.filter(function(c){ return c.id!==id; });
+  var el = document.getElementById('card-'+id); if(el) el.remove();
+  if(campaigns.length===0&&sbCampaigns.length===0&&sdCampaigns.length===0) document.getElementById('empty-state').style.display='';
+  updateSummary();
+}
+
+function syncSB(campId) {
+  var camp = sbCampaigns.find(function(c){ return c.id===campId; }); if(!camp) return;
+  camp.name       = (document.getElementById('sb-name-'+campId)||{value:''}).value;
+  camp.budget     = parseFloat((document.getElementById('sb-budget-'+campId)||{value:'500'}).value)||500;
+  camp.startDate  = (document.getElementById('sb-start-'+campId)||{value:''}).value;
+  camp.endDate    = (document.getElementById('sb-end-'+campId)||{value:''}).value;
+  camp.portfolioId= (document.getElementById('sb-port-'+campId)||{value:''}).value;
+  camp.brandEntityId=(document.getElementById('sb-beid-'+campId)||{value:''}).value;
+  camp.pctTop     = parseFloat((document.getElementById('sb-ptop-'+campId)||{value:'0'}).value)||0;
+  camp.pctROS     = parseFloat((document.getElementById('sb-pros-'+campId)||{value:'0'}).value)||0;
+  camp.pctPP      = parseFloat((document.getElementById('sb-ppp-'+campId)||{value:'0'}).value)||0;
+  var ag = camp.adGroups[0]; if(!ag) return;
+  ag.name           = (document.getElementById('sb-agname-'+campId)||{value:''}).value||'Ad Group 1';
+  ag.bid            = parseFloat((document.getElementById('sb-agbid-'+campId)||{value:'25'}).value)||25;
+  ag.bidOptimisation= (document.getElementById('sb-bidopt-'+campId)||{value:'clicks'}).value;
+  ag.brandName      = (document.getElementById('sb-brand-'+campId)||{value:''}).value;
+  ag.headline       = (document.getElementById('sb-headline-'+campId)||{value:''}).value;
+  ag.brandLogoAssetId=(document.getElementById('sb-logo-'+campId)||{value:''}).value;
+  ag.landingPageType= (document.getElementById('sb-lptype-'+campId)||{value:'productList'}).value;
+  ag.landingPageUrl = (document.getElementById('sb-lpurl-'+campId)||{value:''}).value;
+  ag.landingPageAsins=(document.getElementById('sb-lpasins-'+campId)||{value:''}).value;
+  ag.creativeAsins  = (document.getElementById('sb-casins-'+campId)||{value:''}).value;
+  ag.videoAssetId   = (document.getElementById('sb-video-'+campId)||{value:''}).value;
+  ag.subpages       = (document.getElementById('sb-subpages-'+campId)||{value:''}).value;
+  ag.keywords       = (document.getElementById('sb-kws-'+campId)||{value:''}).value;
+  ag.kwDefaultBid   = parseFloat((document.getElementById('sb-kwbid-'+campId)||{value:'15'}).value)||15;
+  ag.matchTypes     = {
+    exact:(document.getElementById('sb-exact-'+campId)||{checked:true}).checked,
+    phrase:(document.getElementById('sb-phrase-'+campId)||{checked:true}).checked,
+    broad:(document.getElementById('sb-broad-'+campId)||{checked:false}).checked
+  };
+  ag.asinTargets    = (document.getElementById('sb-asins-'+campId)||{value:''}).value;
+  ag.negKeywords    = (document.getElementById('sb-neg-'+campId)||{value:''}).value;
+  ag.negMatchType   = (document.getElementById('sb-negmt-'+campId)||{value:'Negative Exact'}).value;
+  document.getElementById('sb-name-disp-'+campId).textContent = camp.name||'Unnamed SB Campaign';
+  document.getElementById('sb-meta-disp-'+campId).textContent = '₹'+camp.budget+'/day';
+  updateSummary();
+}
+
+/* =====================================================
+   RENDER SB CARD
+===================================================== */
+function renderSBCard(camp) {
+  var list = document.getElementById('camp-list');
+  var div = document.createElement('div');
+  div.className='camp-card sb-card expanded';
+  div.id='card-'+camp.id;
+  var fmtLabels={productCollection:'Product Collection',storeSpotlight:'Store Spotlight',video:'Video'};
+  var fmtLabel=fmtLabels[camp.adFormat]||camp.adFormat;
+
+  // Creative fields vary by format
+  var creativeHTML='';
+  if(camp.adFormat==='productCollection'){
+    creativeHTML=`
+      <div class="form-field"><label>Landing Page Type</label>
+        <select id="sb-lptype-${camp.id}" onchange="syncSB('${camp.id}')">
+          <option value="productList">Product List (ASINs)</option>
+          <option value="store">Store Page (URL)</option>
+        </select></div>
+      <div class="form-field"><label>Landing Page ASINs (comma-sep)</label>
+        <input type="text" id="sb-lpasins-${camp.id}" placeholder="B01XXX,B02XXX,B03XXX" oninput="syncSB('${camp.id}')"/></div>
+      <div class="form-field"><label>Landing Page URL (if Store)</label>
+        <input type="text" id="sb-lpurl-${camp.id}" placeholder="https://www.amazon.in/stores/..." oninput="syncSB('${camp.id}')"/></div>
+      <div class="form-field"><label>Creative ASINs — Featured Products (up to 3)</label>
+        <input type="text" id="sb-casins-${camp.id}" placeholder="B01XXX,B02XXX,B03XXX" oninput="syncSB('${camp.id}')"/>
+        <div class="field-hint">These are the products shown in the ad unit (not necessarily the landing page ASINs).</div></div>
+      <input type="hidden" id="sb-video-${camp.id}" value=""/>
+      <input type="hidden" id="sb-subpages-${camp.id}" value=""/>`;
+  } else if(camp.adFormat==='storeSpotlight'){
+    creativeHTML=`
+      <div class="form-field" style="grid-column:1/-1;"><label>Store Sub-pages (one URL per line, up to 3)</label>
+        <textarea id="sb-subpages-${camp.id}" rows="3" placeholder="https://www.amazon.in/stores/Brand/page/ID1&#10;https://..." oninput="syncSB('${camp.id}')"></textarea>
+        <div class="field-hint">Each sub-page URL becomes one "spotlight" tile in the ad. Amazon requires exactly 3 for Store Spotlight.</div></div>
+      <input type="hidden" id="sb-lptype-${camp.id}" value="store"/>
+      <input type="hidden" id="sb-lpasins-${camp.id}" value=""/>
+      <input type="hidden" id="sb-lpurl-${camp.id}" value=""/>
+      <input type="hidden" id="sb-casins-${camp.id}" value=""/>
+      <input type="hidden" id="sb-video-${camp.id}" value=""/>`;
+  } else { // video
+    creativeHTML=`
+      <div class="form-field"><label>Video Asset ID *</label>
+        <input type="text" id="sb-video-${camp.id}" placeholder="From Amazon console" oninput="syncSB('${camp.id}')"/>
+        <div class="field-hint">Upload your video in Amazon Ads console first, then paste the Asset ID here.</div></div>
+      <div class="form-field"><label>Featured Product ASIN *</label>
+        <input type="text" id="sb-casins-${camp.id}" placeholder="B01XXXXXXXXX" oninput="syncSB('${camp.id}')"/></div>
+      <input type="hidden" id="sb-lptype-${camp.id}" value="productList"/>
+      <input type="hidden" id="sb-lpasins-${camp.id}" value=""/>
+      <input type="hidden" id="sb-lpurl-${camp.id}" value=""/>
+      <input type="hidden" id="sb-subpages-${camp.id}" value=""/>`;
+  }
+
+  div.innerHTML=`
+    <div class="camp-header" onclick="toggleCamp('${camp.id}')">
+      <span class="camp-type-badge badge-sb">SB · ${fmtLabel}</span>
+      <span class="camp-name-display" id="sb-name-disp-${camp.id}">Unnamed SB Campaign</span>
+      <span class="camp-meta" id="sb-meta-disp-${camp.id}">₹${camp.budget}/day</span>
+      <div class="camp-actions" onclick="event.stopPropagation()">
+        <button class="icon-btn del" onclick="removeSBCampaign('${camp.id}')" title="Delete">✕</button>
+      </div>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="camp-body">
+      <!-- Campaign fields -->
+      <div class="camp-form-grid" style="margin-bottom:10px;">
+        <div class="form-field" style="grid-column:1/-1;"><label>Campaign Name *</label>
+          <input type="text" id="sb-name-${camp.id}" placeholder="e.g. SB-PC-HairOil" oninput="syncSB('${camp.id}')"/></div>
+        <div class="form-field"><label>Daily Budget ₹ *</label>
+          <input type="number" id="sb-budget-${camp.id}" value="${camp.budget}" min="1" oninput="syncSB('${camp.id}')"/></div>
+        <div class="form-field"><label>Start Date</label>
+          <input type="date" id="sb-start-${camp.id}" value="${camp.startDate}" onchange="syncSB('${camp.id}')"/></div>
+        <div class="form-field"><label>End Date (opt.)</label>
+          <input type="date" id="sb-end-${camp.id}" onchange="syncSB('${camp.id}')"/></div>
+        <div class="form-field"><label>Portfolio ID (opt.)</label>
+          <input type="text" id="sb-port-${camp.id}" placeholder="numeric ID" oninput="syncSB('${camp.id}')"/></div>
+        <div class="form-field"><label>Brand Entity ID *</label>
+          <input type="text" id="sb-beid-${camp.id}" placeholder="From Amazon Ads console" oninput="syncSB('${camp.id}')"/>
+          <div class="field-hint">Ads console → Brands → copy Brand Entity ID</div></div>
+      </div>
+      <div style="font-size:0.72rem;font-weight:700;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em;">Placement Bid Adjustments (%)</div>
+      <div class="placement-row" style="margin-bottom:14px;">
+        <div class="placement-field"><label>Top of Search</label><input type="number" id="sb-ptop-${camp.id}" value="0" min="0" max="900" oninput="syncSB('${camp.id}')"/><span>%</span></div>
+        <div class="placement-field"><label>Rest of Search</label><input type="number" id="sb-pros-${camp.id}" value="0" min="0" max="900" oninput="syncSB('${camp.id}')"/><span>%</span></div>
+        <div class="placement-field"><label>Product Pages</label><input type="number" id="sb-ppp-${camp.id}" value="0" min="0" max="900" oninput="syncSB('${camp.id}')"/><span>%</span></div>
+      </div>
+
+      <!-- Ad Group + Creative -->
+      <div class="ag-section">
+        <div class="ag-section-hdr"><span class="ag-section-title">Ad Group & Creative</span></div>
+        <div class="ag-card expanded">
+          <div class="ag-body" style="display:block;padding:14px;">
+            <!-- Ad Group basics -->
+            <div class="ag-form-grid">
+              <div class="form-field"><label>Ad Group Name *</label>
+                <input type="text" id="sb-agname-${camp.id}" value="Ad Group 1" oninput="syncSB('${camp.id}')"/></div>
+              <div class="form-field"><label>Default Bid ₹ *</label>
+                <input type="number" id="sb-agbid-${camp.id}" value="${camp.adGroups[0].bid}" min="1" step="0.5" oninput="syncSB('${camp.id}')"/></div>
+              <div class="form-field"><label>Bid Optimisation</label>
+                <select id="sb-bidopt-${camp.id}" onchange="syncSB('${camp.id}')">
+                  <option value="clicks">Clicks</option>
+                  <option value="reach">Reach</option>
+                  <option value="conversions">Conversions</option>
+                </select></div>
+            </div>
+
+            <!-- Creative -->
+            <div style="background:rgba(251,191,36,0.04);border:1px solid rgba(251,191,36,0.12);border-radius:10px;padding:12px;margin-bottom:12px;">
+              <div style="font-size:0.72rem;font-weight:700;color:var(--yellow2);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">🎨 Creative</div>
+              <div class="camp-form-grid">
+                <div class="form-field"><label>Brand Name *</label>
+                  <input type="text" id="sb-brand-${camp.id}" placeholder="Your Brand" oninput="syncSB('${camp.id}')"/></div>
+                <div class="form-field"><label>Creative Headline *</label>
+                  <input type="text" id="sb-headline-${camp.id}" placeholder="Max 50 chars" maxlength="50" oninput="syncSB('${camp.id}')"/></div>
+                <div class="form-field" style="grid-column:1/-1;"><label>Brand Logo Asset ID (opt.)</label>
+                  <input type="text" id="sb-logo-${camp.id}" placeholder="Upload logo in Amazon Ads console first" oninput="syncSB('${camp.id}')"/></div>
+                ${creativeHTML}
+              </div>
+            </div>
+
+            <!-- Targeting tabs -->
+            <div class="ag-tabs">
+              <div class="ag-tab active" onclick="switchAgTab('sb-${camp.id}','kw')">Keywords</div>
+              <div class="ag-tab" onclick="switchAgTab('sb-${camp.id}','asin')">ASIN Targeting</div>
+              <div class="ag-tab" onclick="switchAgTab('sb-${camp.id}','neg')">Negatives</div>
+            </div>
+            <div class="ag-tab-content active" id="agt-kw-sb-${camp.id}">
+              <div class="form-field" style="margin-bottom:8px;"><label>Match Types</label>
+                <div class="match-types">
+                  <label class="match-check"><input type="checkbox" id="sb-exact-${camp.id}" checked onchange="syncSB('${camp.id}')"/><span class="match-chip mc-exact">Exact</span></label>
+                  <label class="match-check"><input type="checkbox" id="sb-phrase-${camp.id}" checked onchange="syncSB('${camp.id}')"/><span class="match-chip mc-phrase">Phrase</span></label>
+                  <label class="match-check"><input type="checkbox" id="sb-broad-${camp.id}" onchange="syncSB('${camp.id}')"/><span class="match-chip mc-broad">Broad</span></label>
+                </div></div>
+              <div class="form-field" style="margin-bottom:8px;"><label>Default Keyword Bid ₹</label>
+                <input type="number" id="sb-kwbid-${camp.id}" value="${camp.adGroups[0].kwDefaultBid}" min="1" step="0.5" style="max-width:120px;" oninput="syncSB('${camp.id}')"/></div>
+              <div class="form-field"><label>Keywords (one per line, optional |bid)</label>
+                <textarea id="sb-kws-${camp.id}" placeholder="hair oil&#10;best hair oil | 22.00" rows="5" oninput="syncSB('${camp.id}')"></textarea></div>
+            </div>
+            <div class="ag-tab-content" id="agt-asin-sb-${camp.id}">
+              <div class="form-field"><label>Target ASINs (one per line, optional |bid)</label>
+                <textarea id="sb-asins-${camp.id}" placeholder="B01COMPETITOR | 30&#10;B02COMPETITOR" rows="5" oninput="syncSB('${camp.id}')"></textarea></div>
+            </div>
+            <div class="ag-tab-content" id="agt-neg-sb-${camp.id}">
+              <div class="form-field"><label>Negative Keywords (one per line)</label>
+                <textarea id="sb-neg-${camp.id}" placeholder="shampoo&#10;conditioner" rows="4" oninput="syncSB('${camp.id}')"></textarea></div>
+              <div class="form-field" style="margin-top:8px;"><label>Negative Match Type</label>
+                <select id="sb-negmt-${camp.id}" onchange="syncSB('${camp.id}')">
+                  <option>Negative Exact</option><option>Negative Phrase</option>
+                </select></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+  list.appendChild(div);
+  updateSummary();
+}
+
+/* =====================================================
+   SD DATA MODEL & ADD
+===================================================== */
+var sdCampaigns = [];
+var sdCampCounter = 0;
+var sdAgCounter = 0;
+
+function addSDCampaign(tactic, subtype) {
+  sdCampCounter++;
+  var id = 'sd'+sdCampCounter;
+  sdAgCounter++;
+  var agId = 'sdag'+sdAgCounter;
+  var subtypeLabels = {product:'Product Targeting',views:'Views Remarketing',purchases:'Purchases Remarketing'};
+  var camp = {
+    id:id, productType:'SD', tactic:tactic, subtype:subtype,
+    name:'', budget:gNum('g-budget',300),
+    startDate:gVal('g-start-date'), endDate:'', portfolioId:'',
+    bidOptimisation:'ClickOptimized', costType:'CPC',
+    adGroups:[{
+      id:agId, name:'Ad Group 1', defaultBid:gNum('g-default-bid',25),
+      skus:'', targetExpressions:'', targetBid:gNum('g-default-bid',25)
+    }]
+  };
+  sdCampaigns.push(camp);
+  document.getElementById('empty-state').style.display='none';
+  renderSDCard(camp, subtype);
+  updateSummary();
+}
+
+function removeSDCampaign(id) {
+  sdCampaigns = sdCampaigns.filter(function(c){ return c.id!==id; });
+  var el = document.getElementById('card-'+id); if(el) el.remove();
+  if(campaigns.length===0&&sbCampaigns.length===0&&sdCampaigns.length===0) document.getElementById('empty-state').style.display='';
+  updateSummary();
+}
+
+function syncSD(campId) {
+  var camp = sdCampaigns.find(function(c){ return c.id===campId; }); if(!camp) return;
+  camp.name          = (document.getElementById('sd-name-'+campId)||{value:''}).value;
+  camp.budget        = parseFloat((document.getElementById('sd-budget-'+campId)||{value:'300'}).value)||300;
+  camp.startDate     = (document.getElementById('sd-start-'+campId)||{value:''}).value;
+  camp.endDate       = (document.getElementById('sd-end-'+campId)||{value:''}).value;
+  camp.portfolioId   = (document.getElementById('sd-port-'+campId)||{value:''}).value;
+  camp.bidOptimisation=(document.getElementById('sd-bidopt-'+campId)||{value:'ClickOptimized'}).value;
+  camp.costType      = (document.getElementById('sd-costtype-'+campId)||{value:'CPC'}).value;
+  var ag = camp.adGroups[0]; if(!ag) return;
+  ag.name           = (document.getElementById('sd-agname-'+campId)||{value:''}).value||'Ad Group 1';
+  ag.defaultBid     = parseFloat((document.getElementById('sd-agbid-'+campId)||{value:'25'}).value)||25;
+  ag.skus           = (document.getElementById('sd-skus-'+campId)||{value:''}).value;
+  ag.targetExpressions=(document.getElementById('sd-targets-'+campId)||{value:''}).value;
+  ag.targetBid      = parseFloat((document.getElementById('sd-tbid-'+campId)||{value:'25'}).value)||25;
+  document.getElementById('sd-name-disp-'+campId).textContent = camp.name||'Unnamed SD Campaign';
+  document.getElementById('sd-meta-disp-'+campId).textContent = '₹'+camp.budget+'/day';
+  updateSummary();
+}
+
+/* =====================================================
+   RENDER SD CARD
+===================================================== */
+function renderSDCard(camp, subtype) {
+  var list = document.getElementById('camp-list');
+  var div = document.createElement('div');
+  div.className='camp-card sd-card expanded';
+  div.id='card-'+camp.id;
+  var subtypeLabels={product:'Product Targeting',views:'Views Remarketing',purchases:'Purchases Remarketing'};
+  var subtypeLabel=subtypeLabels[subtype]||subtype;
+  var skuLabel = accountType==='VC'?'ASINs to Advertise (one per line)':'SKUs to Advertise (one per line)';
+  var skuPlaceholder = accountType==='VC'?'B01XXXXXXXX\nB02YYYYYYYY':'SKU001\nSKU002';
+
+  // Targeting hint varies by subtype
+  var targetHint='';
+  if(subtype==='product')    targetHint='Enter competitor or category ASINs: <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">asin="B01XXX"</code> or <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">asin="B01XXX"|bid</code>';
+  else if(subtype==='views') targetHint='Enter ASIN to remarket to viewers: <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">views="asin/B01XXX"</code>';
+  else                       targetHint='Enter ASIN for purchases audience: <code style="background:rgba(255,255,255,0.05);padding:1px 4px;border-radius:3px;">purchases="asin/B01XXX"</code>';
+
+  div.innerHTML=`
+    <div class="camp-header" onclick="toggleCamp('${camp.id}')">
+      <span class="camp-type-badge badge-sd">SD · ${subtypeLabel}</span>
+      <span class="camp-name-display" id="sd-name-disp-${camp.id}">Unnamed SD Campaign</span>
+      <span class="camp-meta" id="sd-meta-disp-${camp.id}">₹${camp.budget}/day</span>
+      <div class="camp-actions" onclick="event.stopPropagation()">
+        <button class="icon-btn del" onclick="removeSDCampaign('${camp.id}')" title="Delete">✕</button>
+      </div>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="camp-body">
+      <div class="camp-form-grid" style="margin-bottom:14px;">
+        <div class="form-field" style="grid-column:1/-1;"><label>Campaign Name *</label>
+          <input type="text" id="sd-name-${camp.id}" placeholder="e.g. SD-Views-HairOil" oninput="syncSD('${camp.id}')"/></div>
+        <div class="form-field"><label>Daily Budget ₹ *</label>
+          <input type="number" id="sd-budget-${camp.id}" value="${camp.budget}" min="1" oninput="syncSD('${camp.id}')"/></div>
+        <div class="form-field"><label>Start Date</label>
+          <input type="date" id="sd-start-${camp.id}" value="${camp.startDate}" onchange="syncSD('${camp.id}')"/></div>
+        <div class="form-field"><label>End Date (opt.)</label>
+          <input type="date" id="sd-end-${camp.id}" onchange="syncSD('${camp.id}')"/></div>
+        <div class="form-field"><label>Portfolio ID (opt.)</label>
+          <input type="text" id="sd-port-${camp.id}" oninput="syncSD('${camp.id}')"/></div>
+        <div class="form-field"><label>Bid Optimisation</label>
+          <select id="sd-bidopt-${camp.id}" onchange="syncSD('${camp.id}')">
+            <option value="ClickOptimized">Clicks (Recommended)</option>
+            <option value="ReachOptimized">Reach</option>
+            <option value="ConversionsOptimized">Conversions</option>
+          </select></div>
+        <div class="form-field"><label>Cost Type</label>
+          <select id="sd-costtype-${camp.id}" onchange="syncSD('${camp.id}')">
+            <option value="CPC">CPC</option>
+            <option value="vCPM">vCPM</option>
+          </select></div>
+      </div>
+
+      <div class="ag-section">
+        <div class="ag-section-hdr"><span class="ag-section-title">Ad Group</span></div>
+        <div class="ag-card expanded">
+          <div class="ag-body" style="display:block;padding:14px;">
+            <div class="ag-form-grid">
+              <div class="form-field"><label>Ad Group Name *</label>
+                <input type="text" id="sd-agname-${camp.id}" value="Ad Group 1" oninput="syncSD('${camp.id}')"/></div>
+              <div class="form-field"><label>Default Bid ₹ *</label>
+                <input type="number" id="sd-agbid-${camp.id}" value="${camp.adGroups[0].defaultBid}" min="1" step="0.5" oninput="syncSD('${camp.id}')"/></div>
+            </div>
+            <div class="form-field" style="margin-bottom:10px;">
+              <label data-sku-label>${skuLabel}</label>
+              <textarea id="sd-skus-${camp.id}" placeholder="${skuPlaceholder}" rows="3" oninput="syncSD('${camp.id}')"></textarea>
+            </div>
+            <div class="form-field" style="margin-bottom:8px;">
+              <label>Target Bid ₹ (default for all targets)</label>
+              <input type="number" id="sd-tbid-${camp.id}" value="${camp.adGroups[0].targetBid}" min="1" step="0.5" style="max-width:120px;" oninput="syncSD('${camp.id}')"/>
+            </div>
+            <div class="form-field">
+              <label>Targeting Expressions (one per line, optional |bid)</label>
+              <textarea id="sd-targets-${camp.id}" placeholder="${subtype==='product'?'asin=&quot;B01COMPETITOR&quot;\nasin=&quot;B02COMPETITOR&quot; | 30':subtype==='views'?'views=&quot;asin/B01XXXX&quot;':'purchases=&quot;asin/B01XXXX&quot;'}" rows="5" oninput="syncSD('${camp.id}')"></textarea>
+              <div class="field-hint">${targetHint}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+  list.appendChild(div);
+  updateSummary();
+}
+
+/* =====================================================
+   SB ROW GENERATOR
+===================================================== */
+function generateSBRows() {
+  var rows = [SB_HEADERS.slice()];
+  sbCampaigns.forEach(function(camp) {
+    if (!camp.name) return;
+    // Campaign row
+    var cr=emptySBRow(); cr[0]='Sponsored Brands'; cr[1]='Campaign'; cr[2]='Create';
+    cr[4]=camp.portfolioId||''; cr[9]=camp.name;
+    cr[12]=dateToYMD(camp.startDate); cr[13]=dateToYMD(camp.endDate)||'';
+    cr[14]='enabled'; cr[15]=camp.brandEntityId||'';
+    cr[16]='Daily'; cr[17]=camp.budget;
+    rows.push(cr);
+
+    // Bidding Adjustments
+    [['Placement Top',camp.pctTop||0],['Placement Rest Of Search',camp.pctROS||0],['Placement Product Page',camp.pctPP||0]].forEach(function(pl){
+      var r=emptySBRow(); r[0]='Sponsored Brands'; r[1]='Bidding Adjustment'; r[2]='Create';
+      r[9]=camp.name; r[14]='enabled'; r[21]=pl[0]; r[22]=pl[1]; rows.push(r);
+    });
+
+    camp.adGroups.forEach(function(ag) {
+      if (!ag.name) return;
+      // Ad Group row
+      var agr=emptySBRow(); agr[0]='Sponsored Brands'; agr[1]='Ad Group'; agr[2]='Create';
+      agr[9]=camp.name; agr[10]=ag.name; agr[14]='enabled'; agr[18]=ag.bidOptimisation||'clicks'; rows.push(agr);
+
+      // Ad (creative) row
+      var adr=emptySBRow(); adr[0]='Sponsored Brands'; adr[1]='Ad'; adr[2]='Create';
+      adr[9]=camp.name; adr[10]=ag.name; adr[11]=(ag.name||'Ad Group 1')+' Ad';
+      adr[14]='enabled'; adr[34]=ag.brandName||''; adr[36]=ag.brandLogoAssetId||''; adr[39]=ag.headline||'';
+      if (camp.adFormat==='video') {
+        adr[41]=ag.videoAssetId||''; adr[40]=ag.creativeAsins||''; adr[33]='productList';
+      } else if (camp.adFormat==='storeSpotlight') {
+        // Subpages: semicolon-separated URLs stored in ag.subpages
+        var spLines = parseLines(ag.subpages).slice(0,3);
+        adr[42]=spLines.join(';'); adr[33]='store';
+      } else {
+        adr[32]=ag.landingPageAsins||''; adr[33]=ag.landingPageType||'productList';
+        adr[31]=ag.landingPageUrl||''; adr[40]=ag.creativeAsins||'';
+      }
+      rows.push(adr);
+
+      // Keywords
+      parseLines(ag.keywords||'').forEach(function(line){
+        var kw=parseKWLine(line,ag.kwDefaultBid||ag.bid||25); if(!kw.text) return;
+        if(ag.matchTypes&&ag.matchTypes.exact)  { var r=emptySBRow(); r[0]='Sponsored Brands'; r[1]='Keyword'; r[2]='Create'; r[9]=camp.name; r[10]=ag.name; r[14]='enabled'; r[20]=kw.bid; r[26]=kw.text; r[27]='Exact'; rows.push(r); }
+        if(ag.matchTypes&&ag.matchTypes.phrase) { var r=emptySBRow(); r[0]='Sponsored Brands'; r[1]='Keyword'; r[2]='Create'; r[9]=camp.name; r[10]=ag.name; r[14]='enabled'; r[20]=kw.bid; r[26]=kw.text; r[27]='Phrase'; rows.push(r); }
+        if(ag.matchTypes&&ag.matchTypes.broad)  { var r=emptySBRow(); r[0]='Sponsored Brands'; r[1]='Keyword'; r[2]='Create'; r[9]=camp.name; r[10]=ag.name; r[14]='enabled'; r[20]=kw.bid; r[26]=kw.text; r[27]='Broad'; rows.push(r); }
+      });
+
+      // ASIN Product Targeting
+      parseLines(ag.asinTargets||'').forEach(function(line){
+        var pt=parseASINLine(line,ag.bid||25); if(!pt.asin) return;
+        var r=emptySBRow(); r[0]='Sponsored Brands'; r[1]='Product Targeting'; r[2]='Create';
+        r[9]=camp.name; r[10]=ag.name; r[14]='enabled'; r[20]=pt.bid; r[30]='asin="'+pt.asin+'"'; rows.push(r);
+      });
+
+      // Negative Keywords
+      parseLines(ag.negKeywords||'').forEach(function(kw){
+        var r=emptySBRow(); r[0]='Sponsored Brands'; r[1]='Negative Keyword'; r[2]='Create';
+        r[9]=camp.name; r[10]=ag.name; r[14]='enabled'; r[26]=kw; r[27]=ag.negMatchType||'Negative Exact'; rows.push(r);
+      });
+    });
+  });
+  return rows;
+}
+
+/* =====================================================
+   SD ROW GENERATOR
+===================================================== */
+function generateSDRows() {
+  var rows = [SD_HEADERS.slice()];
+  sdCampaigns.forEach(function(camp) {
+    if (!camp.name) return;
+    // Campaign row
+    var cr=emptySDRow(); cr[0]='Sponsored Display'; cr[1]='Campaign'; cr[2]='Create';
+    cr[4]=camp.portfolioId||''; cr[8]=camp.name;
+    cr[10]=dateToYMD(camp.startDate); cr[11]=dateToYMD(camp.endDate)||'';
+    cr[12]='enabled'; cr[13]=camp.tactic||'T00020';
+    cr[14]='Daily'; cr[15]=camp.budget; rows.push(cr);
+
+    camp.adGroups.forEach(function(ag) {
+      if (!ag.name) return;
+      // Ad Group row
+      var agr=emptySDRow(); agr[0]='Sponsored Display'; agr[1]='Ad Group'; agr[2]='Create';
+      agr[8]=camp.name; agr[9]=ag.name; agr[12]='enabled';
+      agr[17]=ag.defaultBid; agr[19]=camp.bidOptimisation||'ClickOptimized'; agr[20]=camp.costType||'CPC'; rows.push(agr);
+
+      // Product Ad rows (SKUs/ASINs being advertised)
+      parseLines(ag.skus||'').forEach(function(sku){
+        var r=emptySDRow(); r[0]='Sponsored Display'; r[1]='Product Ad'; r[2]='Create';
+        r[8]=camp.name; r[9]=ag.name; r[12]='enabled'; r[16]=sku; rows.push(r);
+      });
+
+      // Targeting rows
+      parseLines(ag.targetExpressions||'').forEach(function(line){
+        var parts=line.split('|'); var expr=parts[0].trim(); var bid=parts[1]?parseFloat(parts[1]):(ag.targetBid||ag.defaultBid);
+        if(!expr) return;
+        var r=emptySDRow(); r[0]='Sponsored Display'; r[1]='Targeting'; r[2]='Create';
+        r[8]=camp.name; r[9]=ag.name; r[12]='enabled'; r[18]=bid; r[21]=expr; rows.push(r);
+      });
+    });
+  });
+  return rows;
+}
+
+/* =====================================================
+   MODE SWITCHER
+===================================================== */
+function switchMode(mode) {
+  document.getElementById('manual-mode').classList.toggle('hidden', mode!=='manual');
+  document.getElementById('manual-mode-preview').classList.toggle('hidden', mode!=='manual');
+  document.getElementById('upload-mode').classList.toggle('hidden', mode!=='upload');
+  document.getElementById('tab-manual').classList.toggle('active', mode==='manual');
+  document.getElementById('tab-upload').classList.toggle('active', mode==='upload');
+  if (mode==='upload') {
+    var ps = document.getElementById('preview-section');
+    if (ps) ps.classList.add('hidden');
+  }
+}
+
+/* =====================================================
+   TEMPLATE DOWNLOAD
+===================================================== */
+// New 17-column template — mirrors Amazon's campaign creation flow
+var TEMPLATE_HEADERS = [
+  'Campaign Name',
+  'Daily Budget',
+  'Bidding Strategy',
+  'Targeting Type',
+  'Start Date',
+  'End Date',
+  'Portfolio ID',
+  'Placement: Top of Search %',
+  'Placement: Rest of Search %',
+  'Placement: Product Pages %',
+  'Ad Group Name',
+  'Ad Group Default Bid',
+  'Ad Products',
+  'Keywords / Targets',
+  'Match Type',
+  'Negative Keywords',
+  'Negative Match Type'
+];
+
+function downloadTemplate() {
+  if (typeof XLSX === 'undefined') { alert('XLSX library not loaded.'); return; }
+  var today = new Date();
+  var ymd = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+
+  var rows = [
+    TEMPLATE_HEADERS,
+    // ── CAMPAIGN SETTINGS ──────── │─ AD GROUP ──────────────│─ AD PRODUCTS ────────│─ KEYWORDS / TARGETS ────────────────│ MATCH  │─ NEGATIVES ─────────────│ NEG MT
+    // Auto campaign – Ad Group 1
+    ['SP-Auto-HairOil', 300, 'down-only', 'Auto', ymd, '', '', 20, 0, 0, 'Hair Oil Auto', 25, 'SKU-HO-001;SKU-HO-002', '', '', 'shampoo;conditioner', 'Negative Exact'],
+    // Same auto campaign – Ad Group 2 (repeat campaign name = same campaign, new ad group)
+    ['SP-Auto-HairOil', 300, 'down-only', 'Auto', ymd, '', '', 20, 0, 0, 'Hair Serum Auto', 25, 'SKU-HS-001', '', '', 'wax;gel', 'Negative Exact'],
+    // Keyword campaign – Exact + Phrase
+    ['SP-KW-HairOil', 500, 'down-only', 'Keyword', ymd, '', '', 30, 10, 5, 'Hair Oil KW', 20, 'SKU-HO-001;SKU-HO-002', 'best hair oil,20;hair growth oil,22;organic hair oil', 'Exact,Phrase', 'cheap hair;low quality', 'Negative Exact'],
+    // ASIN targeting campaign
+    ['SP-ASIN-HairOil', 400, 'up-and-down', 'ASIN', ymd, '', '', 0, 0, 10, 'Competitor ASIN', 25, 'SKU-HO-001', 'B01COMPETITOR1,30;B02COMPETITOR2;B03COMPETITOR3,28', '', '', 'Negative Exact'],
+  ];
+
+  var wb = XLSX.utils.book_new();
+  var ws = XLSX.utils.aoa_to_sheet(rows);
+
+  // Column widths
+  var widths = [28,14,18,16,14,14,14,24,24,24,22,18,28,42,20,28,18];
+  ws['!cols'] = widths.map(function(w){ return {wch:w}; });
+
+  XLSX.utils.book_append_sheet(wb, ws, 'SP Campaign Template');
+  XLSX.writeFile(wb, 'bitesu-campaign-template.xlsx');
+}
+
+/* =====================================================
+   FILE UPLOAD HANDLING
+===================================================== */
+var uploadedBulkRows = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+  var dz = document.getElementById('drop-zone');
+  if (!dz) return;
+  dz.addEventListener('dragover', function(e){ e.preventDefault(); dz.classList.add('drag-over'); });
+  dz.addEventListener('dragleave', function(){ dz.classList.remove('drag-over'); });
+  dz.addEventListener('drop', function(e){
+    e.preventDefault();
+    dz.classList.remove('drag-over');
+    var file = e.dataTransfer.files[0];
+    if (file) processUploadedFile(file);
+  });
+});
+
+function handleFileSelect(e) {
+  var file = e.target.files[0];
+  if (file) processUploadedFile(file);
+}
+
+function processUploadedFile(file) {
+  uploadedBulkRows = null;
+  var result = document.getElementById('upload-result');
+  var exportBtn = document.getElementById('upload-export-btn');
+  result.className = 'upload-result visible';
+  exportBtn.className = 'upload-export-btn';
+  document.getElementById('ur-rows').textContent = '…';
+  document.getElementById('ur-camps').textContent = '…';
+  document.getElementById('ur-ags').textContent = '…';
+  document.getElementById('ur-bulkrows').textContent = '…';
+  document.getElementById('ur-errors').innerHTML = '';
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var data = new Uint8Array(e.target.result);
+      var wb = XLSX.read(data, {type:'array'});
+      var ws = wb.Sheets[wb.SheetNames[0]];
+      var raw = XLSX.utils.sheet_to_json(ws, {header:1, defval:''});
+
+      if (raw.length < 2) {
+        showUploadError('File appears empty or has no data rows.'); return;
+      }
+
+      var headers = raw[0].map(function(h){ return String(h).trim(); });
+      var dataRows = raw.slice(1).filter(function(r){
+        return r.some(function(c){ return String(c||'').trim()!==''; });
+      });
+
+      var result = parseTemplateRows(headers, dataRows);
+      displayUploadResult(result, dataRows.length);
+    } catch(ex) {
+      showUploadError('Could not read file: '+ex.message);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+/* Map header name → column index, fuzzy — updated for new 17-col template */
+function mapHeaders(headers) {
+  function find(patterns) {
+    for (var i=0;i<headers.length;i++) {
+      var h = headers[i].toLowerCase().replace(/[^a-z0-9]/g,' ').replace(/\s+/g,' ').trim();
+      for (var p=0;p<patterns.length;p++) {
+        if (h.indexOf(patterns[p])>-1) return i;
+      }
+    }
+    return -1;
+  }
+  // "Keywords / Targets" must be matched BEFORE a generic "targeting type" pattern
+  // Use precise patterns ordered most-specific first.
+  return {
+    campName:    find(['campaign name']),
+    budget:      find(['daily budget','budget']),
+    strategy:    find(['bidding strategy','strategy']),
+    type:        find(['targeting type']),               // col 4 — campaign-level targeting type (Auto/Keyword/ASIN)
+    startDate:   find(['start date']),
+    endDate:     find(['end date']),
+    portfolioId: find(['portfolio']),
+    pctTop:      find(['top of search']),
+    pctROS:      find(['rest of search']),
+    pctPP:       find(['product pages','product page']),
+    agName:      find(['ad group name']),
+    defaultBid:  find(['ad group default bid','default bid']),
+    skus:        find(['ad products']),                  // col 13 — semicolon-separated SKUs/ASINs
+    targets:     find(['keywords / targets','keywords/targets','keywords targets','target']), // col 14 — term,bid;term2,bid2
+    matchTypes:  find(['match type']),
+    negKws:      find(['negative keywords','negative keyword','negatives']),
+    negMT:       find(['negative match type','negative match'])
+  };
+}
+
+function colVal(row, idx) { return idx>=0 ? String(row[idx]||'').trim() : ''; }
+function colNum(row, idx, fallback) { var v=parseFloat(colVal(row,idx)); return isNaN(v)?fallback:v; }
+
+function normStrategy(s) {
+  s = (s||'').toLowerCase().trim();
+  if (s.indexOf('up')>-1&&s.indexOf('down')>-1) return 'dynamic bids - up and down';
+  if (s.indexOf('fixed')>-1) return 'fixed bid';
+  return 'dynamic bids - down only';
+}
+
+function normType(s) {
+  s = (s||'').toLowerCase().trim();
+  if (s==='asin'||s.indexOf('asin')>-1) return 'Manual-PT';
+  if (s==='keyword'||s.indexOf('kw')>-1||s.indexOf('manual')>-1) return 'Manual-KW';
+  return 'Auto';
+}
+
+function normDate(s) {
+  s = String(s||'').trim().replace(/-/g,'');
+  if (/^\d{8}$/.test(s)) return s; // already YYYYMMDD
+  // Try to parse
+  var d = new Date(s);
+  if (!isNaN(d.getTime())) {
+    return d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+  }
+  return todayYMD();
+}
+
+/* -------------------------------------------------------
+   Parse new 17-column template format
+   Ad Products: SKU1;SKU2;SKU3
+   Keywords / Targets: term,bid;term2,bid2  (bid optional)
+   Negative Keywords: kw1;kw2
+------------------------------------------------------- */
+function parseTemplateRows(headers, dataRows) {
+  var hm = mapHeaders(headers);
+  var errors = [];
+  var campMap = {}; // campName → campaign object
+  var campOrder = []; // preserve insertion order
+  var allRows = [SP_HEADERS];
+  var agCount = 0;
+
+  dataRows.forEach(function(row, ri) {
+    var lineNum = ri + 2;
+    var campName = colVal(row, hm.campName);
+    var agName   = colVal(row, hm.agName);
+    if (!campName) { errors.push('Row '+lineNum+': Campaign Name is empty — skipped.'); return; }
+    if (!agName)   { errors.push('Row '+lineNum+': Ad Group Name is empty — skipped.'); return; }
+
+    var type       = normType(colVal(row, hm.type));
+    var budget     = colNum(row, hm.budget, 300);
+    var strategy   = normStrategy(colVal(row, hm.strategy));
+    var startDate  = normDate(colVal(row, hm.startDate));
+    var endDate    = colVal(row, hm.endDate) ? normDate(colVal(row, hm.endDate)) : '';
+    var portfolioId= colVal(row, hm.portfolioId);
+    var pctTop     = colNum(row, hm.pctTop, 0);
+    var pctROS     = colNum(row, hm.pctROS, 0);
+    var pctPP      = colNum(row, hm.pctPP, 0);
+    var defaultBid = colNum(row, hm.defaultBid, 25);
+
+    // ── Ad Products: semicolon-separated SKUs or ASINs
+    var skuRaw = colVal(row, hm.skus);
+    var skus = skuRaw.split(';').map(function(s){ return s.trim(); }).filter(Boolean);
+
+    // ── Keywords / Targets: "term,bid;term2,bid2"
+    //    Comma separates term from bid; semicolon separates entries
+    var targRaw = colVal(row, hm.targets);
+    var targetEntries = targRaw ? targRaw.split(';').map(function(entry){
+      entry = entry.trim();
+      if (!entry) return null;
+      var lastComma = entry.lastIndexOf(',');
+      if (lastComma > 0) {
+        var term = entry.substring(0, lastComma).trim();
+        var bid  = parseFloat(entry.substring(lastComma+1));
+        if (term && !isNaN(bid) && bid > 0) return { term: term, bid: bid };
+        // Comma present but bid not a number — treat entire string as term
+        return { term: entry, bid: null };
+      }
+      return { term: entry, bid: null };
+    }).filter(Boolean) : [];
+
+    // ── Match Types
+    var matchRaw = colVal(row, hm.matchTypes);
+    var matchTypes = {};
+    matchRaw.split(',').forEach(function(m) {
+      var ml = m.trim().toLowerCase();
+      if (ml==='exact')  matchTypes.exact  = true;
+      if (ml==='phrase') matchTypes.phrase = true;
+      if (ml==='broad')  matchTypes.broad  = true;
+    });
+    // Default to Exact + Phrase if nothing specified for KW campaigns
+    if (type==='Manual-KW' && !matchTypes.exact && !matchTypes.phrase && !matchTypes.broad) {
+      matchTypes.exact = true; matchTypes.phrase = true;
+    }
+
+    // ── Negative Keywords: semicolon-separated
+    var negRaw  = colVal(row, hm.negKws);
+    var negKws  = negRaw ? negRaw.split(';').map(function(s){ return s.trim(); }).filter(Boolean) : [];
+    var negMT   = colVal(row, hm.negMT) || 'Negative Exact';
+
+    // ── Build / extend campaign object
+    if (!campMap[campName]) {
+      campMap[campName] = {
+        name: campName, type: type, budget: budget, biddingStrategy: strategy,
+        startDate: startDate, endDate: endDate, portfolioId: portfolioId,
+        pctTop: pctTop, pctROS: pctROS, pctPP: pctPP,
+        adGroups: []
+      };
+      campOrder.push(campName);
+    }
+    var camp = campMap[campName];
+
+    camp.adGroups.push({
+      name: agName, defaultBid: defaultBid,
+      skus: skus,
+      targetEntries: targetEntries,   // [{term, bid}]
+      matchTypes: matchTypes,
+      negKeywords: negKws,
+      negMatchType: negMT
+    });
+    agCount++;
+  });
+
+  // ── Generate bulk rows
+  campOrder.forEach(function(cn) {
+    var camp = campMap[cn];
+
+    // Campaign row
+    var cr = emptyRow();
+    cr[0]='Sponsored Products'; cr[1]='Campaign'; cr[2]='Create';
+    cr[5]=camp.portfolioId||''; cr[9]=camp.name;
+    cr[11]=camp.startDate; cr[12]=camp.endDate||'';
+    cr[13]=camp.type==='Auto' ? 'Auto' : 'Manual';
+    cr[14]='enabled'; cr[15]=camp.budget; cr[23]=camp.biddingStrategy;
+    allRows.push(cr);
+
+    // Bidding adjustments
+    [['Placement Top', camp.pctTop],
+     ['Placement Rest Of Search', camp.pctROS],
+     ['Placement Product Page', camp.pctPP],
+     ['Placement Amazon Business', 0]].forEach(function(pl){
+      var r = emptyRow();
+      r[0]='Sponsored Products'; r[1]='Bidding Adjustment'; r[2]='Create';
+      r[9]=camp.name; r[14]='enabled'; r[23]=camp.biddingStrategy;
+      r[24]=pl[0]; r[25]=pl[1];
+      allRows.push(r);
+    });
+
+    camp.adGroups.forEach(function(ag) {
+
+      // Ad Group row
+      var agr = emptyRow();
+      agr[0]='Sponsored Products'; agr[1]='Ad Group'; agr[2]='Create';
+      agr[9]=camp.name; agr[10]=ag.name; agr[14]='enabled'; agr[17]=ag.defaultBid;
+      allRows.push(agr);
+
+      // Product Ad rows (SKUs / ASINs)
+      ag.skus.forEach(function(sku){
+        var r = emptyRow();
+        r[0]='Sponsored Products'; r[1]='Product Ad'; r[2]='Create';
+        r[9]=camp.name; r[10]=ag.name; r[14]='enabled'; r[16]=sku;
+        allRows.push(r);
+      });
+
+      // Targeting rows
+      if (camp.type === 'Auto') {
+        // Auto: 4 auto-targeting expressions
+        ['close-match','loose-match','substitutes','complements'].forEach(function(expr){
+          var r = emptyRow();
+          r[0]='Sponsored Products'; r[1]='Product Targeting'; r[2]='Create';
+          r[9]=camp.name; r[10]=ag.name; r[14]='enabled'; r[18]=ag.defaultBid; r[26]=expr;
+          allRows.push(r);
+        });
+
+      } else if (camp.type === 'Manual-KW') {
+        // Keyword: emit one row per term per match type
+        ag.targetEntries.forEach(function(entry){
+          var kwText = entry.term;
+          var bid    = entry.bid || ag.defaultBid;
+          if (!kwText) return;
+          ['exact','phrase','broad'].forEach(function(mt){
+            if (!ag.matchTypes[mt]) return;
+            var r = emptyRow();
+            r[0]='Sponsored Products'; r[1]='Keyword'; r[2]='Create';
+            r[9]=camp.name; r[10]=ag.name; r[14]='enabled';
+            r[18]=bid; r[19]=kwText;
+            r[22]=mt.charAt(0).toUpperCase()+mt.slice(1);
+            allRows.push(r);
+          });
+        });
+
+      } else if (camp.type === 'Manual-PT') {
+        // ASIN targeting: wrap term in asin="…"
+        ag.targetEntries.forEach(function(entry){
+          var asin = entry.term.trim().toUpperCase();
+          var bid  = entry.bid || ag.defaultBid;
+          if (!asin) return;
+          var r = emptyRow();
+          r[0]='Sponsored Products'; r[1]='Product Targeting'; r[2]='Create';
+          r[9]=camp.name; r[10]=ag.name; r[14]='enabled';
+          r[18]=bid; r[26]='asin="'+asin+'"';
+          allRows.push(r);
+        });
+      }
+
+      // Negative Keyword rows
+      ag.negKeywords.forEach(function(kw){
+        var r = emptyRow();
+        r[0]='Sponsored Products'; r[1]='Negative Keyword'; r[2]='Create';
+        r[9]=camp.name; r[10]=ag.name; r[14]='enabled';
+        r[19]=kw; r[22]=ag.negMatchType||'Negative Exact';
+        allRows.push(r);
+      });
+    });
+  });
+
+  return { rows: allRows, campCount: campOrder.length, agCount: agCount, errors: errors, dataRows: dataRows.length };
+}
+
+function displayUploadResult(result, rowCount) {
+  uploadedBulkRows = result.rows;
+  var el = document.getElementById('upload-result');
+  el.className = 'upload-result visible ' + (result.errors.length>result.dataRows*0.5 ? 'ur-error' : 'ur-success');
+  document.getElementById('ur-rows').textContent = rowCount;
+  document.getElementById('ur-camps').textContent = result.campCount;
+  document.getElementById('ur-ags').textContent = result.agCount;
+  document.getElementById('ur-bulkrows').textContent = result.rows.length - 1;
+
+  var errDiv = document.getElementById('ur-errors');
+  if (result.errors.length) {
+    errDiv.innerHTML = '<div style="color:var(--yellow2);font-size:0.73rem;font-weight:700;margin-bottom:4px;">⚠ '+result.errors.length+' warning(s):</div>'
+      + result.errors.map(function(e){ return '<div class="ur-err-line">'+esc(e)+'</div>'; }).join('');
+  } else {
+    errDiv.innerHTML = '<div style="color:var(--green2);font-size:0.73rem;font-weight:700;">✓ All rows parsed successfully.</div>';
+  }
+
+  if (result.campCount>0 && result.rows.length>1) {
+    document.getElementById('upload-export-btn').className = 'upload-export-btn visible';
+  }
+}
+
+function showUploadError(msg) {
+  var el = document.getElementById('upload-result');
+  el.className = 'upload-result visible ur-error';
+  document.getElementById('ur-rows').textContent = '—';
+  document.getElementById('ur-camps').textContent = '—';
+  document.getElementById('ur-ags').textContent = '—';
+  document.getElementById('ur-bulkrows').textContent = '—';
+  document.getElementById('ur-errors').innerHTML = '<div class="ur-err-line">✕ '+esc(msg)+'</div>';
+}
+
+function exportUploadedBulk() {
+  if (!uploadedBulkRows || uploadedBulkRows.length<2) { alert('No data to export. Please upload a valid template file first.'); return; }
+  if (typeof XLSX==='undefined') { alert('XLSX library not loaded.'); return; }
+
+  var rows = uploadedBulkRows.map(function(r){ return r.slice(); }); // deep copy
+  if (accountType === 'VC') rows[0][16] = 'ASIN';
+
+  var wb = XLSX.utils.book_new();
+  var ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [
+    {wch:22},{wch:18},{wch:8},{wch:16},{wch:16},{wch:18},{wch:14},{wch:14},{wch:18},
+    {wch:35},{wch:25},{wch:12},{wch:12},{wch:10},{wch:8},{wch:10},{wch:18},
+    {wch:12},{wch:8},{wch:30},{wch:14},{wch:14},{wch:14},{wch:26},{wch:22},{wch:8},
+    {wch:30},{wch:12},{wch:12},{wch:14},{wch:8}
+  ];
+  XLSX.utils.book_append_sheet(wb, ws, 'Sponsored Products Campaigns');
+  XLSX.writeFile(wb, 'amazon-bulk-campaigns-'+todayYMD()+'.xlsx');
+}
+</script>
+</body>
+</html>

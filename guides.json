@@ -130,5 +130,29 @@
     "downloadUrl": "amazon-profit-calculator.html",
     "comingSoon": false,
     "icon": "💰"
+  },
+  {
+    "id": 14,
+    "title": "Amazon Dayparting Analyzer",
+    "description": "Upload your hourly campaign report and instantly see which hours drive the best ACoS, CTR, and conversions. Get bid adjustment recommendations for every hour of the day — charts, pivot table, correlation analysis.",
+    "category": "Free Tool",
+    "badge": "Free Tool",
+    "readTime": "Instant results",
+    "featured": true,
+    "downloadUrl": "amazon-dayparting-analyzer.html",
+    "comingSoon": false,
+    "icon": "🕐"
+  },
+  {
+    "id": 15,
+    "title": "Amazon Campaign Launcher",
+    "description": "Build 30+ Sponsored Products campaigns in one go — Auto, Keyword, and ASIN targeting. Fill your campaign data in the interactive UI and download a ready-to-upload Amazon Ads bulk operations XLSX file. No more manual row-by-row entry.",
+    "category": "Free Tool",
+    "badge": "Free Tool",
+    "readTime": "Instant results",
+    "featured": true,
+    "downloadUrl": "amazon-campaign-launcher.html",
+    "comingSoon": false,
+    "icon": "🚀"
   }
 ]
